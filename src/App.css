@@ -7,3 +7,19 @@
   background-clip: text;
   color: transparent;
 }
+
+.background-image {
+  height: 65vh;
+  width: 100vw;
+  min-width: 100vw;
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0;
+  padding: 0;
+}
+
+.landing-text {
+  transform: translateY(-50%);
+}

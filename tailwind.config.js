@@ -14,7 +14,11 @@ module.exports = {
       bold: 700,
       "extra-bold": 800,
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        background: "url('/public/assets/bg.jpg')",
+      },
+    },
   },
   plugins: [],
 };
