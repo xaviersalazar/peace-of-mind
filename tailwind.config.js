@@ -6,6 +6,7 @@ module.exports = {
       "work-sans": ['"Work Sans"', "sans-serif"],
     },
     fontWeight: {
+      "really-light": 100,
       "extra-light": 200,
       light: 300,
       regular: 400,
