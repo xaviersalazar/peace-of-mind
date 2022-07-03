@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
+  safelist: [{ pattern: /./ }],
   theme: {
     fontFamily: {
       "work-sans": ['"Work Sans"', "sans-serif"],
@@ -19,6 +20,23 @@ module.exports = {
         background: "url('/public/assets/bg.png')",
       },
     },
+  },
+  daisyui: {
+    themes: [
+      {
+        mytheme: {
+          primary: "#b3ffab",
+          secondary: "#67e8f9",
+          accent: "#7dd3fc",
+          neutral: "#3D4451",
+          "base-100": "#FFFFFF",
+          info: "#67e8f9",
+          success: "#86efac",
+          warning: "#fef08a",
+          error: "#fca5a5",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };

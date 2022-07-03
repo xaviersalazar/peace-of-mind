@@ -3,10 +3,10 @@ import "./Home.css";
 export const Home = () => (
   <>
     <div
-      className="bg-background background-image opacity-75 relative"
+      className="bg-background background-image opacity-75 absolute top-0"
       id="landing"
     />
-    <div className="absolute top-5 p-8 w-full">
+    <div className="absolute top-1/4 p-10 w-full">
       <div className="relative bottom-5">
         <h1 className="text-5xl font-extra-bold">Welcome to,</h1>
         <h1 className="text-4xl font-extra-bold gradient-font">
