@@ -1,9 +1,9 @@
 .gradient {
-  background: linear-gradient(-45deg, #B3FFAB, #12FFF7);
+  background: linear-gradient(-45deg, #b3ffab, #12fff7);
 }
 
 .gradient-font {
-  background-image: linear-gradient(-45deg, #B3FFAB, #12FFF7 );
+  background-image: linear-gradient(-45deg, #b3ffab, #12fff7);
   background-clip: text;
   color: transparent;
 }
@@ -16,10 +16,8 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  margin: 0;
+  margin: 0 0 48px 0;
   padding: 0;
-}
-
-.landing-text {
-  transform: translateY(-50%);
+  filter: blur(48px);
+  -webkit-filter: blur(48px);
 }
