@@ -16,12 +16,9 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        background: "url('/public/assets/bg.jpg')",
-        backgroundAlt: "url('/public/assets/bg-alt.png')",
-        logo: "url('/public/assets/logo.jpg')",
-        backgroundTrans: "url('/public/assets/bg-trans.png')",
+        background: "url('/public/assets/bg.png')",
       },
     },
   },
-  plugins: [],
+  plugins: [require("daisyui")],
 };

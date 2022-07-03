@@ -3,7 +3,7 @@ import "./Home.css";
 export const Home = () => (
   <>
     <div
-      className="bg-backgroundTrans background-image opacity-75 relative"
+      className="bg-background background-image opacity-75 relative"
       id="landing"
     />
     <div className="absolute top-5 p-8 w-full">
