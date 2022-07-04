@@ -18,6 +18,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         background: "url('/public/assets/bg.png')",
+        backgroundTwo: "url('/public/assets/bg-2.png')",
       },
     },
   },
@@ -25,15 +26,15 @@ module.exports = {
     themes: [
       {
         mytheme: {
-          primary: "#b3ffab",
-          secondary: "#67e8f9",
+          primary: "#10FFCB",
+          secondary: "#B5F8FE",
           accent: "#7dd3fc",
-          neutral: "#3D4451",
+          neutral: "#10FFCB",
           "base-100": "#FFFFFF",
-          info: "#67e8f9",
+          info: "#FCE4D8",
           success: "#86efac",
-          warning: "#fef08a",
-          error: "#fca5a5",
+          warning: "#FBD87F",
+          error: "#F75590",
         },
       },
     ],

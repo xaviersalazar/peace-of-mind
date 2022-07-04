@@ -1,7 +1,7 @@
 import { Button, Dropdown, Menu, Navbar } from "react-daisyui";
 
 export const Nav = () => (
-  <div className="flex w-full component-preview p-4 items-center justify-center gap-2 font-sans">
+  <div className="flex w-full p-4 items-center justify-center gap-2 absolute top-0 z-[999]">
     <Navbar>
       <Navbar.Start>
         <Dropdown>
@@ -48,9 +48,7 @@ export const Nav = () => (
             <Dropdown.Item>Item 3</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <a className="btn btn-ghost normal-case text-xl gradient-font">
-          Peace of Mind
-        </a>
+        <a className="btn btn-ghost normal-case text-xl">Peace of Mind</a>
       </Navbar.Start>
       <Navbar.Center className="hidden lg:flex">
         <Menu horizontal className="p-0">
