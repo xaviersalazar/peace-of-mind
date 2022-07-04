@@ -1,5 +1,6 @@
-import { Button } from "react-daisyui";
+import { Section } from "./Section/Section";
 import "./Home.css";
+import { Button } from "../Shared/Button";
 
 export const Home = () => (
   <>
@@ -32,14 +33,14 @@ export const Home = () => (
             Healing
           </h1>
         </div>
-        <p className="text-sm font-light text-slate-500">
-          Come in today for a Singles Massage Session or a Couples Discounted
-          Massage Packet. We use all organic massage products using plants,
-          fresh herbs and oils. We are unlike your everyday Day Spa. We are a
-          private practice not corporate. We cater to just you when you arrive.
-          We help ease all your aches and pains helping you find true Peace Of
-          Mind.
-        </p>
+        <Section
+          sectionText="Come in today for a Singles Massage Session or a Couples Discounted
+            Massage Packet. We use all organic massage products using plants,
+            fresh herbs and oils. We are unlike your everyday Day Spa. We are a
+            private practice not corporate. We cater to just you when you arrive.
+            We help ease all your aches and pains helping you find true Peace Of
+            Mind."
+        />
       </div>
       <div className="relative mb-14" id="salon-info">
         <div className="mb-2">
@@ -48,17 +49,15 @@ export const Home = () => (
             <span className="gradient-font-4 text-3xl font-bold">Salon</span>{" "}
           </h1>
         </div>
-        <p className="text-sm font-light text-slate-500">
-          We are a Dyson inspired Salon and we are sticking to our organic
+        <Section
+          sectionText="We are a Dyson inspired Salon and we are sticking to our organic
           concept in every aspect. We strongly believe in being green and an
           environmentally conscious business. In saying that, we are bringing an
           all organic hair coloring line called Organic Colour Systems from the
           United Kingdom. We will be the only Salon in Corpus Christi and
-          throughout the State of Texas offering this Organic Colour System.
-        </p>
-        <Button className="text-xs font-light h-8 min-h-[0] mt-6 border-none text-slate-600 normal-case rounded-2xl bg-primary">
-          Book Your Appointment Today!
-        </Button>
+          throughout the State of Texas offering this Organic Colour System."
+          buttonText="Book Your Appointment Today!"
+        />
       </div>
       <div className="relative mb-14 text-right" id="support-local">
         <div className="bg-backgroundTwo background-image opacity-75 absolute top-0 background-image" />
@@ -68,17 +67,15 @@ export const Home = () => (
             local
           </h1>
         </div>
-        <p className="relative text-sm font-light text-slate-500">
-          If you want, and are able to, to support them right now, buy a gift
+        <Section
+          sectionText="If you want, and are able to, to support them right now, buy a gift
           certificate from them, shop in their online stores, pre book your
           future appointments and check in on them from time to time. Not only
           us, but all small businesses. Together we can as a community overcome
           this in peace and unity. We love you all, you are not only friends but
-          our family.
-        </p>
-        <Button className="relative text-xs font-light h-8 min-h-[0] mt-6 border-none text-slate-600 normal-case rounded-2xl bg-primary">
-          Purchase Gift Card
-        </Button>
+          our family."
+          buttonText="Purchase Gift Card"
+        />
       </div>
       <div className="relative" id="spa-boxes">
         <div className="mb-2">
@@ -96,14 +93,14 @@ export const Home = () => (
               $162.00
             </span>
           </h1>
-          <p className="text-xs font-light text-slate-500">
-            Peace of Mind Spa Box! The contents include a medical grade hand
+          <Section
+            sectionText="Peace of Mind Spa Box! The contents include a medical grade hand
             sanitizer, all-in-one organic hand manufactured lotion to use as a
             shaving cream, deodorant, or lotion, CBD bar of soap from Leef
             Organics with an Organic Garden Handmade Spa Detoxifying Body Scrub,
             Leef CBD Bath Detox, and a Organic Body Detox Breathing Treatment
-            Spray. Also includes a $10.00 gift card towards any service.
-          </p>
+            Spray. Also includes a $10.00 gift card towards any service."
+          />
         </div>
         <div id="small-spa-box">
           <h1 className="text-xl font-medium mb-2">
@@ -112,18 +109,16 @@ export const Home = () => (
               $102.00
             </span>
           </h1>
-          <p className="text-xs font-light text-slate-500">
-            We also have a smaller option that comes with the medical grade hand
+          <Section
+            sectionText="We also have a smaller option that comes with the medical grade hand
             sanitizer spray, Organic Body Detox Breathing Treatment Spray,
             all-in-one organic hand manufactured lotion to use a shaving cream,
             deodorant, or lotion, and a Organic Colour Systems Aqua Boost travel
             size take home shampoo and conditioner. Also includes a $5.00 gift
-            card towards any service.
-          </p>
+            card towards any service."
+          />
         </div>
-        <Button className="text-xs font-light h-8 min-h-[0] mt-6 border-none text-slate-600 normal-case rounded-2xl bg-primary">
-          Contact Us About One!
-        </Button>
+        <Button>Contact Us About One!</Button>
       </div>
     </div>
   </>
