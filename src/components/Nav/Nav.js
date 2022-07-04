@@ -48,7 +48,6 @@ export const Nav = () => (
             <Dropdown.Item>Item 3</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <a className="btn btn-ghost normal-case text-xl">Peace of Mind</a>
       </Navbar.Start>
       <Navbar.Center className="hidden lg:flex">
         <Menu horizontal className="p-0">

@@ -8,8 +8,13 @@ export const Home = () => (
       className="bg-background background-image opacity-75 absolute top-0"
       id="landing"
     />
-    <div className="mt-[156px] p-10 w-full">
-      <div className="relative bottom-5">
+    <div className="p-10 w-full h-[90vh]">
+      <div className="absolute landing-info">
+        <img
+          className="relative right-8 w-[172px]"
+          src={`${process.env.PUBLIC_URL}/assets/logo-trans.png`}
+          alt="background"
+        />
         <h1 className="text-5xl font-extra-bold">Welcome to,</h1>
         <h1 className="text-4xl font-extra-bold gradient-font">
           Peace of Mind
