@@ -1,9 +1,11 @@
 import { Button, Dropdown, Menu, Navbar } from "react-daisyui";
 
+const { Start, Center } = Navbar;
+
 export const Nav = () => (
   <div className="flex w-full p-4 items-center justify-center gap-2 absolute top-0 z-[999]">
     <Navbar>
-      <Navbar.Start>
+      <Start>
         <Dropdown>
           <Button color="ghost" tabIndex={0} className="lg:hidden">
             <svg
@@ -48,8 +50,8 @@ export const Nav = () => (
             <Dropdown.Item>Item 3</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-      </Navbar.Start>
-      <Navbar.Center className="hidden lg:flex">
+      </Start>
+      <Center className="hidden lg:flex">
         <Menu horizontal className="p-0">
           <Menu.Item>
             <a>Item 1</a>
@@ -80,7 +82,7 @@ export const Nav = () => (
             <a>Item 3</a>
           </Menu.Item>
         </Menu>
-      </Navbar.Center>
+      </Center>
     </Navbar>
   </div>
 );

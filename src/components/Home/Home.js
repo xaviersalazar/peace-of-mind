@@ -1,6 +1,6 @@
 import { Section } from "./Section/Section";
-import "./Home.css";
 import { Button } from "../Shared/Button";
+import "./Home.css";
 
 export const Home = () => (
   <>
