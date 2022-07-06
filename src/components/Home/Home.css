@@ -34,6 +34,12 @@
   color: transparent;
 }
 
+.gradient-font-7 {
+  background-image: linear-gradient(45deg, #c6ffdd, #fbd786, #f7797d);
+  background-clip: text;
+  color: transparent;
+}
+
 .landing-info {
   top: 40%;
   transform: translateY(-40%);
@@ -57,4 +63,8 @@
   color: #3d4451;
   font-weight: 200;
   font-size: 0.75em;
+}
+
+.card-body {
+  flex: none !important;
 }
