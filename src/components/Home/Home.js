@@ -12,12 +12,12 @@ export const Home = () => (
     <div className="p-10 w-full h-[90vh]">
       <div className="absolute landing-info">
         <img
-          className="relative right-8 w-[172px]"
+          className="relative right-12 w-[256px]"
           src={`${process.env.PUBLIC_URL}/assets/logo-trans.png`}
           alt="background"
         />
         <h1 className="text-5xl font-extra-bold">Welcome to,</h1>
-        <h1 className="text-4xl font-extra-bold gradient-font">
+        <h1 className="text-5xl font-extra-bold gradient-font">
           Peace of Mind
         </h1>
         <p className="text-xs font-regular text-slate-500 mt-1">

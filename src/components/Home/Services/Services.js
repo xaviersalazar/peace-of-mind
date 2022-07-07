@@ -2,6 +2,7 @@ import { useState } from "react";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { ServiceCard } from "./ServiceCard";
 import useDrag from "../../../utils/useDrag";
+import "./Services.css";
 
 const services = [
   {

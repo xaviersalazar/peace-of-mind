@@ -9,8 +9,8 @@ const SImage = styled.img`
 `;
 
 const SCard = styled(Card)`
-  margin-left: 8px;
-  margin-right: 8px;
+  margin-left: 16px;
+  margin-right: 16px;
 
   &.card-0 {
     margin-left: 0px;
@@ -33,7 +33,7 @@ export const ServiceCard = ({
   <SCard
     className={classNames(
       className,
-      "border-none bg-slate-100 h-full w-[174px]"
+      "border-none bg-slate-100 shadow-xl shadow-slate-200 h-full w-[174px]"
     )}
     onClick={() => onClick(id)}
   >
