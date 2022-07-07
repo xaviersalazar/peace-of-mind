@@ -1,7 +1,7 @@
 import { Section } from "./Section/Section";
 import { Button } from "../Shared/Button";
-import "./Home.css";
 import { Services } from "./Services/Services";
+import "./Home.css";
 
 export const Home = () => (
   <>

@@ -1,8 +1,7 @@
-import { Card } from "react-daisyui";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
+import { useState } from "react";
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { ServiceCard } from "./ServiceCard";
-
-const { Title } = Card;
+import useDrag from "../../../utils/useDrag";
 
 const services = [
   {
@@ -67,20 +66,73 @@ const services = [
   },
 ];
 
-export const Services = () => (
-  <div className="relative mb-14 text-right" id="services">
-    <div className="relative mb-2">
-      <h1 className="text-3xl font-bold">
-        Our <span className="gradient-font-7 text-3xl font-bold">services</span>{" "}
-      </h1>
-      <p className="text-xs font-really-light text-slate-500 mb-5">
-        Select a service to see more
-      </p>
-      <div className="grid grid-rows-3 grid-cols-2 gap-4" id="services-cards">
-        {services.map((service) => (
-          <ServiceCard key={service.imgName} {...service} />
-        ))}
+export const Services = () => {
+  const { dragStart, dragStop, dragMove, dragging } = useDrag();
+
+  const [selected, setSelected] = useState("");
+
+  const handleDrag =
+    ({ scrollContainer }) =>
+    (ev) =>
+      dragMove(ev, (posDiff) => {
+        if (scrollContainer.current) {
+          scrollContainer.current.scrollLeft += posDiff;
+        }
+      });
+
+  const handleItemClick = (itemId) => {
+    if (dragging) {
+      return false;
+    }
+    console.log("clicked: ", services[itemId]);
+    setSelected(selected !== itemId ? itemId : "");
+  };
+
+  const onWheel = (apiObj, ev) => {
+    const isTouchpad = Math.abs(ev.deltaX) !== 0 || Math.abs(ev.deltaY) < 15;
+
+    if (isTouchpad) {
+      ev.stopPropagation();
+      return;
+    }
+
+    if (ev.deltaY < 0) {
+      apiObj.scrollNext();
+    } else if (ev.deltaY > 0) {
+      apiObj.scrollPrev();
+    }
+  };
+
+  return (
+    <div className="relative mb-14 text-right" id="services">
+      <div className="relative mb-2">
+        <h1 className="text-3xl font-bold">
+          Our{" "}
+          <span className="gradient-font-7 text-3xl font-bold">services</span>{" "}
+        </h1>
+        <p className="text-xs font-really-light text-slate-500 mb-5">
+          Select a service to see more
+        </p>
+        <div className="grid grid-rows-none auto-cols-fr" id="services-cards">
+          <ScrollMenu
+            onWheel={onWheel}
+            onMouseDown={() => dragStart}
+            onMouseUp={() => dragStop}
+            onMouseMove={handleDrag}
+          >
+            {services.map((service, i) => (
+              <ServiceCard
+                className={`card-${i}`}
+                key={i}
+                id={`${i}`}
+                onClick={handleItemClick}
+                selected={`${i}` === selected}
+                {...service}
+              />
+            ))}
+          </ScrollMenu>
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
