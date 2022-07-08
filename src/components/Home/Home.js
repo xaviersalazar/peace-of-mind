@@ -1,41 +1,77 @@
 import { Section } from "./Section/Section";
 import { Button } from "../Shared/Button";
 import { Services } from "./Services/Services";
-import "./Home.css";
+import { GradientFont } from "../Shared/GradientFont";
+import styled from "styled-components";
+
+const SLandingInfo = styled.div`
+  top: 40%;
+  transform: translateY(-40%);
+`;
+
+const SBackgroundImage = styled.div`
+  height: 100vh;
+  width: 100vw;
+  min-width: 100vw;
+  background-attachment: scroll;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 0 0 48px 0;
+  padding: 0;
+  filter: blur(48px);
+  -webkit-filter: blur(48px);
+`;
 
 export const Home = () => (
   <>
-    <div
+    <SBackgroundImage
       className="bg-background background-image opacity-75 absolute top-0"
       id="landing"
     />
     <div className="p-10 w-full h-[90vh]">
-      <div className="absolute landing-info">
+      <SLandingInfo className="absolute landing-info">
         <img
           className="relative right-12 w-[256px]"
           src={`${process.env.PUBLIC_URL}/assets/logo-trans.png`}
           alt="background"
         />
         <h1 className="text-5xl font-extra-bold">Welcome to,</h1>
-        <h1 className="text-4xl font-extra-bold gradient-font">
+        <GradientFont
+          className="text-4xl font-extra-bold"
+          deg={-45}
+          colors={["#b3ffab", "#12fff7"]}
+        >
           Peace of Mind
-        </h1>
+        </GradientFont>
         <p className="text-xs font-regular text-slate-500 mt-1">
           Massage Therapy & Natural Healing
         </p>
         <Button className="text-xs font-light h-8 min-h-[0] mt-6 mb-4 border-none text-slate-600 normal-case rounded-2xl bg-primary">
           Contact Us
         </Button>
-      </div>
+      </SLandingInfo>
     </div>
     <div className="mt-14" id="home-info">
       <div className="relative mb-14 p-10 text-right" id="massage-therapy-info">
         <div className="mb-2">
           <h1 className="text-3xl font-bold">
             Massage{" "}
-            <span className="gradient-font-6 text-3xl font-bold">Therapy</span>{" "}
+            <GradientFont
+              className="text-3xl font-bold"
+              deg={-45}
+              colors={["#fdfc47", "#24fe41"]}
+            >
+              Therapy
+            </GradientFont>{" "}
             &{" "}
-            <span className="gradient-font-5 text-3xl font-bold">Natural</span>{" "}
+            <GradientFont
+              className="text-3xl font-bold"
+              deg={45}
+              colors={["#fdfc47", "#24fe41"]}
+            >
+              Natural
+            </GradientFont>{" "}
             Healing
           </h1>
         </div>
@@ -52,7 +88,13 @@ export const Home = () => (
         <div className="mb-2">
           <h1 className="text-3xl font-bold">
             Were also a{" "}
-            <span className="gradient-font-4 text-3xl font-bold">Salon</span>{" "}
+            <GradientFont
+              className="text-3xl font-bold"
+              deg={-45}
+              colors={["#a770ef", "#cf8bf3", "#fcb045"]}
+            >
+              Salon
+            </GradientFont>{" "}
           </h1>
         </div>
         <Section
@@ -66,10 +108,16 @@ export const Home = () => (
         />
       </div>
       <div className="relative mb-14 p-10 text-right" id="support-local">
-        <div className="bg-backgroundTwo background-image opacity-75 absolute top-0 background-image" />
+        <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
         <div className="relative mb-2">
           <h1 className="text-3xl font-bold">
-            <span className="gradient-font-2 text-3xl font-bold">Support</span>{" "}
+            <GradientFont
+              className="text-3xl font-bold"
+              deg={-45}
+              colors={["#7f7fd5", "#86a8e7", "#91eae4"]}
+            >
+              Support
+            </GradientFont>{" "}
             local
           </h1>
         </div>
@@ -87,7 +135,13 @@ export const Home = () => (
         <div className="mb-2">
           <h1 className="text-3xl font-bold">
             Spa boxes{" "}
-            <span className="gradient-font-3 text-3xl font-bold">now</span>{" "}
+            <GradientFont
+              className="text-3xl font-bold"
+              deg={-45}
+              colors={["#833ab4", "#fd1d1d", "#fcb045"]}
+            >
+              now
+            </GradientFont>{" "}
             available!
           </h1>
         </div>

@@ -2,7 +2,8 @@ import { useState } from "react";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { ServiceCard } from "./ServiceCard";
 import useDrag from "../../../utils/useDrag";
-import "./Services.css";
+import styled from "styled-components";
+import { GradientFont } from "../../Shared/GradientFont";
 
 const services = [
   {
@@ -67,6 +68,12 @@ const services = [
   },
 ];
 
+const SScrollMenuContainer = styled.div`
+  & .react-horizontal-scrolling-menu--scroll-container {
+    padding: 0 32px 48px 32px;
+  }
+`;
+
 export const Services = () => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
 
@@ -110,13 +117,22 @@ export const Services = () => {
         <div className="px-10 pt-10 pb-0">
           <h1 className="text-3xl font-bold">
             Our{" "}
-            <span className="gradient-font-7 text-3xl font-bold">services</span>{" "}
+            <GradientFont
+              className="text-3xl font-bold"
+              deg={45}
+              colors={["#c6ffdd", "#fbd786", "#f7797d"]}
+            >
+              services
+            </GradientFont>{" "}
           </h1>
           <p className="text-xs font-extra-light text-slate-500 mb-5">
             Select a service to see more
           </p>
         </div>
-        <div className="grid grid-rows-none auto-cols-fr" id="services-cards">
+        <SScrollMenuContainer
+          className="grid grid-rows-none auto-cols-fr"
+          id="services-cards"
+        >
           <ScrollMenu
             onWheel={onWheel}
             onMouseDown={() => dragStart}
@@ -134,7 +150,7 @@ export const Services = () => {
               />
             ))}
           </ScrollMenu>
-        </div>
+        </SScrollMenuContainer>
       </div>
     </div>
   );

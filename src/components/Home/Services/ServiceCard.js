@@ -19,6 +19,10 @@ const SCard = styled(Card)`
   &.card-9 {
     margin-right: 32px;
   }
+
+  & .card-body {
+    flex: none !important;
+  }
 `;
 
 export const ServiceCard = ({
