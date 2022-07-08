@@ -32,33 +32,31 @@ export const Home = () => (
     <div className="p-10 w-full h-[90vh]">
       <SLandingInfo className="absolute landing-info">
         <img
-          className="relative right-12 w-[256px]"
+          className="relative right-12 w-[256px] md:w-[384px] md:right-20"
           src={`${process.env.PUBLIC_URL}/assets/logo-trans.png`}
           alt="background"
         />
-        <h1 className="text-5xl font-extra-bold">Welcome to,</h1>
+        <h1 className="text-5xl font-extra-bold md:text-7xl">Welcome to,</h1>
         <GradientFont
-          className="text-4xl font-extra-bold"
+          className="text-4xl font-extra-bold md:text-[3.5rem] md:leading-[3rem]"
           deg={-45}
           colors={["#b3ffab", "#12fff7"]}
         >
           Peace of Mind
         </GradientFont>
-        <p className="text-xs font-regular text-slate-500 mt-1">
+        <p className="text-xs font-light text-slate-500 mt-1 md:text-sm">
           Massage Therapy & Natural Healing
         </p>
-        <Button className="text-xs font-light h-8 min-h-[0] mt-6 mb-4 border-none text-slate-600 normal-case rounded-2xl bg-primary">
-          Contact Us
-        </Button>
+        <Button>Contact Us</Button>
       </SLandingInfo>
     </div>
     <div className="mt-14" id="home-info">
       <div className="relative mb-14 p-10 text-right" id="massage-therapy-info">
         <div className="mb-2">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold md:text-4xl">
             Massage{" "}
             <GradientFont
-              className="text-3xl font-bold"
+              className="text-3xl font-bold md:text-4xl"
               deg={-45}
               colors={["#fdfc47", "#24fe41"]}
             >
@@ -66,7 +64,7 @@ export const Home = () => (
             </GradientFont>{" "}
             &{" "}
             <GradientFont
-              className="text-3xl font-bold"
+              className="text-3xl font-bold md:text-4xl"
               deg={45}
               colors={["#fdfc47", "#24fe41"]}
             >
@@ -86,10 +84,10 @@ export const Home = () => (
       </div>
       <div className="relative mb-14 p-10" id="salon-info">
         <div className="mb-2">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold md:text-4xl">
             Were also a{" "}
             <GradientFont
-              className="text-3xl font-bold"
+              className="text-3xl font-bold md:text-4xl"
               deg={-45}
               colors={["#a770ef", "#cf8bf3", "#fcb045"]}
             >
@@ -110,9 +108,9 @@ export const Home = () => (
       <div className="relative mb-14 p-10 text-right" id="support-local">
         <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
         <div className="relative mb-2">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold md:text-4xl">
             <GradientFont
-              className="text-3xl font-bold"
+              className="text-3xl font-bold md:text-4xl"
               deg={-45}
               colors={["#7f7fd5", "#86a8e7", "#91eae4"]}
             >
@@ -133,10 +131,10 @@ export const Home = () => (
       </div>
       <div className="relative mb-14 p-10" id="spa-boxes">
         <div className="mb-2">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold md:text-4xl">
             Spa boxes{" "}
             <GradientFont
-              className="text-3xl font-bold"
+              className="text-3xl font-bold md:text-4xl"
               deg={-45}
               colors={["#833ab4", "#fd1d1d", "#fcb045"]}
             >

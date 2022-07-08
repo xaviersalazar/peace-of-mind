@@ -68,9 +68,10 @@ const services = [
   },
 ];
 
+// TODO: target iPhone and use padding: 0 32px 48px 32px
 const SScrollMenuContainer = styled.div`
   & .react-horizontal-scrolling-menu--scroll-container {
-    padding: 0 32px 48px 32px;
+    padding: 0 8px 48px 48px;
   }
 `;
 
@@ -115,17 +116,17 @@ export const Services = () => {
     <div className="relative mb-14 text-right" id="services">
       <div className="relative mb-2">
         <div className="px-10 pt-10 pb-0">
-          <h1 className="text-3xl font-bold">
+          <h1 className="text-3xl font-bold md:text-4xl">
             Our{" "}
             <GradientFont
-              className="text-3xl font-bold"
+              className="text-3xl font-bold md:text-4xl"
               deg={45}
               colors={["#c6ffdd", "#fbd786", "#f7797d"]}
             >
               services
             </GradientFont>{" "}
           </h1>
-          <p className="text-xs font-extra-light text-slate-500 mb-5">
+          <p className="text-xs font-extra-light text-slate-500 mb-5 md:text-sm">
             Select a service to see more
           </p>
         </div>
