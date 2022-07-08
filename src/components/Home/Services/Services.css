@@ -1,3 +1,7 @@
 .react-horizontal-scrolling-menu--scroll-container {
-  padding: 0 16px 48px 16px;
+  padding: 0 32px 48px 32px;
+}
+
+.card-body {
+  flex: none !important;
 }

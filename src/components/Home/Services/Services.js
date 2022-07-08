@@ -107,13 +107,15 @@ export const Services = () => {
   return (
     <div className="relative mb-14 text-right" id="services">
       <div className="relative mb-2">
-        <h1 className="text-3xl font-bold">
-          Our{" "}
-          <span className="gradient-font-7 text-3xl font-bold">services</span>{" "}
-        </h1>
-        <p className="text-xs font-really-light text-slate-500 mb-5">
-          Select a service to see more
-        </p>
+        <div className="px-10 pt-10 pb-0">
+          <h1 className="text-3xl font-bold">
+            Our{" "}
+            <span className="gradient-font-7 text-3xl font-bold">services</span>{" "}
+          </h1>
+          <p className="text-xs font-extra-light text-slate-500 mb-5">
+            Select a service to see more
+          </p>
+        </div>
         <div className="grid grid-rows-none auto-cols-fr" id="services-cards">
           <ScrollMenu
             onWheel={onWheel}

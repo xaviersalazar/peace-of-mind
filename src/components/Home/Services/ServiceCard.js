@@ -17,7 +17,7 @@ const SCard = styled(Card)`
   }
 
   &.card-9 {
-    margin-right: 0;
+    margin-right: 32px;
   }
 `;
 
@@ -47,7 +47,7 @@ export const ServiceCard = ({
     </div>
     <Body className="p-4 text-left">
       <Title className="text-md">{title}</Title>
-      <p className="text-xs font-light">{desc}</p>
+      <p className="text-xs font-extra-light">{desc}</p>
     </Body>
   </SCard>
 );

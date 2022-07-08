@@ -17,7 +17,7 @@ export const Home = () => (
           alt="background"
         />
         <h1 className="text-5xl font-extra-bold">Welcome to,</h1>
-        <h1 className="text-5xl font-extra-bold gradient-font">
+        <h1 className="text-4xl font-extra-bold gradient-font">
           Peace of Mind
         </h1>
         <p className="text-xs font-regular text-slate-500 mt-1">
@@ -28,8 +28,8 @@ export const Home = () => (
         </Button>
       </div>
     </div>
-    <div className="mt-14 p-10" id="home-info">
-      <div className="relative mb-14 text-right" id="massage-therapy-info">
+    <div className="mt-14" id="home-info">
+      <div className="relative mb-14 p-10 text-right" id="massage-therapy-info">
         <div className="mb-2">
           <h1 className="text-3xl font-bold">
             Massage{" "}
@@ -48,7 +48,7 @@ export const Home = () => (
             Mind."
         />
       </div>
-      <div className="relative mb-14" id="salon-info">
+      <div className="relative mb-14 p-10" id="salon-info">
         <div className="mb-2">
           <h1 className="text-3xl font-bold">
             Were also a{" "}
@@ -65,7 +65,7 @@ export const Home = () => (
           buttonText="Book Your Appointment Today!"
         />
       </div>
-      <div className="relative mb-14 text-right" id="support-local">
+      <div className="relative mb-14 p-10 text-right" id="support-local">
         <div className="bg-backgroundTwo background-image opacity-75 absolute top-0 background-image" />
         <div className="relative mb-2">
           <h1 className="text-3xl font-bold">
@@ -83,7 +83,7 @@ export const Home = () => (
           buttonText="Purchase Gift Card"
         />
       </div>
-      <div className="relative mb-14" id="spa-boxes">
+      <div className="relative mb-14 p-10" id="spa-boxes">
         <div className="mb-2">
           <h1 className="text-3xl font-bold">
             Spa boxes{" "}
@@ -94,7 +94,7 @@ export const Home = () => (
         <div className="mb-4" id="large-spa-box">
           <h1 className="text-xl font-medium mb-2">
             Large Spa Box{" "}
-            <span className="text-xs font-really-light text-slate-500">
+            <span className="text-xs font-extra-light text-slate-500">
               $162.00
             </span>
           </h1>
@@ -110,7 +110,7 @@ export const Home = () => (
         <div id="small-spa-box">
           <h1 className="text-xl font-medium mb-2">
             Small Spa Box{" "}
-            <span className="text-xs font-really-light text-slate-500">
+            <span className="text-xs font-extra-light text-slate-500">
               $102.00
             </span>
           </h1>
