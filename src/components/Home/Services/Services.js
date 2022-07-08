@@ -73,6 +73,10 @@ const SScrollMenuContainer = styled.div`
   & .react-horizontal-scrolling-menu--scroll-container {
     padding: 0 8px 48px 48px;
   }
+
+  @media (min-width: 1024px) {
+    padding: 0 42px 48px 32px;
+  }
 `;
 
 export const Services = () => {
@@ -115,11 +119,11 @@ export const Services = () => {
   return (
     <div className="relative mb-14 text-right" id="services">
       <div className="relative mb-2">
-        <div className="px-10 pt-10 pb-0">
-          <h1 className="text-3xl font-bold md:text-4xl">
+        <div className="px-10 pt-10 pb-0 lg:px-20">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Our{" "}
             <GradientFont
-              className="text-3xl font-bold md:text-4xl"
+              className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={45}
               colors={["#c6ffdd", "#fbd786", "#f7797d"]}
             >

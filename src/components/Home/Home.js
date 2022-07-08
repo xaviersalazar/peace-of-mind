@@ -29,34 +29,39 @@ export const Home = () => (
       className="bg-background background-image opacity-75 absolute top-0"
       id="landing"
     />
-    <div className="p-10 w-full h-[90vh]">
+    <div className="p-10 w-full h-[90vh] lg:p-20">
       <SLandingInfo className="absolute landing-info">
         <img
-          className="relative right-12 w-[256px] md:w-[384px] md:right-20"
+          className="relative right-12 w-[256px] md:w-[384px] md:right-20 lg:w-[448px]"
           src={`${process.env.PUBLIC_URL}/assets/logo-trans.png`}
           alt="background"
         />
-        <h1 className="text-5xl font-extra-bold md:text-7xl">Welcome to,</h1>
+        <h1 className="text-5xl font-extra-bold md:text-7xl lg:text-8xl">
+          Welcome to,
+        </h1>
         <GradientFont
-          className="text-4xl font-extra-bold md:text-[3.5rem] md:leading-[3rem]"
+          className="text-4xl font-extra-bold md:text-[3.5rem] md:leading-[3rem] lg:text-7xl"
           deg={-45}
           colors={["#b3ffab", "#12fff7"]}
         >
           Peace of Mind
         </GradientFont>
-        <p className="text-xs font-light text-slate-500 mt-1 md:text-sm">
+        <p className="text-xs font-light text-slate-500 mt-1 md:text-sm lg:text-base">
           Massage Therapy & Natural Healing
         </p>
         <Button>Contact Us</Button>
       </SLandingInfo>
     </div>
     <div className="mt-14" id="home-info">
-      <div className="relative mb-14 p-10 text-right" id="massage-therapy-info">
+      <div
+        className="relative mb-14 p-10 text-right lg:p-20"
+        id="massage-therapy-info"
+      >
         <div className="mb-2">
-          <h1 className="text-3xl font-bold md:text-4xl">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Massage{" "}
             <GradientFont
-              className="text-3xl font-bold md:text-4xl"
+              className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={-45}
               colors={["#fdfc47", "#24fe41"]}
             >
@@ -64,7 +69,7 @@ export const Home = () => (
             </GradientFont>{" "}
             &{" "}
             <GradientFont
-              className="text-3xl font-bold md:text-4xl"
+              className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={45}
               colors={["#fdfc47", "#24fe41"]}
             >
@@ -82,12 +87,12 @@ export const Home = () => (
             Mind."
         />
       </div>
-      <div className="relative mb-14 p-10" id="salon-info">
+      <div className="relative mb-14 p-10 lg:p-20" id="salon-info">
         <div className="mb-2">
-          <h1 className="text-3xl font-bold md:text-4xl">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Were also a{" "}
             <GradientFont
-              className="text-3xl font-bold md:text-4xl"
+              className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={-45}
               colors={["#a770ef", "#cf8bf3", "#fcb045"]}
             >
@@ -105,36 +110,38 @@ export const Home = () => (
           buttonText="Book Your Appointment Today!"
         />
       </div>
-      <div className="relative mb-14 p-10 text-right" id="support-local">
+      <div className="relative mb-14 text-right" id="support-local">
         <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
-        <div className="relative mb-2">
-          <h1 className="text-3xl font-bold md:text-4xl">
-            <GradientFont
-              className="text-3xl font-bold md:text-4xl"
-              deg={-45}
-              colors={["#7f7fd5", "#86a8e7", "#91eae4"]}
-            >
-              Support
-            </GradientFont>{" "}
-            local
-          </h1>
-        </div>
-        <Section
-          sectionText="If you want, and are able to, to support them right now, buy a gift
+        <div className="p-10 lg:p-20">
+          <div className="relative mb-2">
+            <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+              <GradientFont
+                className="text-3xl font-bold md:text-4xl lg:text-5xl"
+                deg={-45}
+                colors={["#7f7fd5", "#86a8e7", "#91eae4"]}
+              >
+                Support
+              </GradientFont>{" "}
+              local
+            </h1>
+          </div>
+          <Section
+            sectionText="If you want, and are able to, to support them right now, buy a gift
           certificate from them, shop in their online stores, pre book your
           future appointments and check in on them from time to time. Not only
           us, but all small businesses. Together we can as a community overcome
           this in peace and unity. We love you all, you are not only friends but
           our family."
-          buttonText="Purchase Gift Card"
-        />
+            buttonText="Purchase Gift Card"
+          />
+        </div>
       </div>
-      <div className="relative mb-14 p-10" id="spa-boxes">
+      <div className="relative mb-14 p-10 lg:p-20" id="spa-boxes">
         <div className="mb-2">
-          <h1 className="text-3xl font-bold md:text-4xl">
+          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Spa boxes{" "}
             <GradientFont
-              className="text-3xl font-bold md:text-4xl"
+              className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={-45}
               colors={["#833ab4", "#fd1d1d", "#fcb045"]}
             >
@@ -144,11 +151,9 @@ export const Home = () => (
           </h1>
         </div>
         <div className="mb-4" id="large-spa-box">
-          <h1 className="text-xl font-medium mb-2">
+          <h1 className="text-xl font-medium mb-2 lg:text-2xl">
             Large Spa Box{" "}
-            <span className="text-xs font-extra-light text-slate-500">
-              $162.00
-            </span>
+            <span className="text-xs font-light text-slate-400">$162.00</span>
           </h1>
           <Section
             sectionText="Peace of Mind Spa Box! The contents include a medical grade hand
@@ -160,11 +165,9 @@ export const Home = () => (
           />
         </div>
         <div id="small-spa-box">
-          <h1 className="text-xl font-medium mb-2">
+          <h1 className="text-xl font-medium mb-2 lg:text-2xl">
             Small Spa Box{" "}
-            <span className="text-xs font-extra-light text-slate-500">
-              $102.00
-            </span>
+            <span className="text-xs font-light text-slate-400">$102.00</span>
           </h1>
           <Section
             sectionText="We also have a smaller option that comes with the medical grade hand
