@@ -74,7 +74,9 @@ const SScrollMenuContainer = styled.div`
   }
 
   @media (min-width: 1024px) {
-    padding: 0 42px 48px 32px;
+    & .react-horizontal-scrolling-menu--scroll-container {
+      padding: 0 42px 48px 80px;
+    }
   }
 `;
 
