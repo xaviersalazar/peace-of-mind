@@ -57,7 +57,7 @@ export const Home = () => (
         className="relative mb-14 p-10 text-right lg:p-20"
         id="massage-therapy-info"
       >
-        <div className="mb-2">
+        <div className="lg:pl-[6rem]">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Massage{" "}
             <GradientFont
@@ -77,18 +77,18 @@ export const Home = () => (
             </GradientFont>{" "}
             Healing
           </h1>
+          <Section
+            sectionText="Come in today for a Singles Massage Session or a Couples Discounted
+              Massage Packet. We use all organic massage products using plants,
+              fresh herbs and oils. We are unlike your everyday Day Spa. We are a
+              private practice not corporate. We cater to just you when you arrive.
+              We help ease all your aches and pains helping you find true Peace Of
+              Mind."
+          />
         </div>
-        <Section
-          sectionText="Come in today for a Singles Massage Session or a Couples Discounted
-            Massage Packet. We use all organic massage products using plants,
-            fresh herbs and oils. We are unlike your everyday Day Spa. We are a
-            private practice not corporate. We cater to just you when you arrive.
-            We help ease all your aches and pains helping you find true Peace Of
-            Mind."
-        />
       </div>
       <div className="relative mb-14 p-10 lg:p-20" id="salon-info">
-        <div className="mb-2">
+        <div className="lg:pr-24">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Were also a{" "}
             <GradientFont
@@ -99,21 +99,21 @@ export const Home = () => (
               Salon
             </GradientFont>{" "}
           </h1>
+          <Section
+            sectionText="We are a Dyson inspired Salon and we are sticking to our organic
+            concept in every aspect. We strongly believe in being green and an
+            environmentally conscious business. In saying that, we are bringing an
+            all organic hair coloring line called Organic Colour Systems from the
+            United Kingdom. We will be the only Salon in Corpus Christi and
+            throughout the State of Texas offering this Organic Colour System."
+            buttonText="Book Your Appointment Today!"
+          />
         </div>
-        <Section
-          sectionText="We are a Dyson inspired Salon and we are sticking to our organic
-          concept in every aspect. We strongly believe in being green and an
-          environmentally conscious business. In saying that, we are bringing an
-          all organic hair coloring line called Organic Colour Systems from the
-          United Kingdom. We will be the only Salon in Corpus Christi and
-          throughout the State of Texas offering this Organic Colour System."
-          buttonText="Book Your Appointment Today!"
-        />
       </div>
       <div className="relative mb-14 text-right" id="support-local">
         <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
         <div className="p-10 lg:p-20">
-          <div className="relative mb-2">
+          <div className="relative lg:pl-[6rem]">
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
               <GradientFont
                 className="text-3xl font-bold md:text-4xl lg:text-5xl"
@@ -124,20 +124,20 @@ export const Home = () => (
               </GradientFont>{" "}
               local
             </h1>
+            <Section
+              sectionText="If you want, and are able to, to support them right now, buy a gift
+                certificate from them, shop in their online stores, pre book your
+                future appointments and check in on them from time to time. Not only
+                us, but all small businesses. Together we can as a community overcome
+                this in peace and unity. We love you all, you are not only friends but
+                our family."
+              buttonText="Purchase Gift Card"
+            />
           </div>
-          <Section
-            sectionText="If you want, and are able to, to support them right now, buy a gift
-          certificate from them, shop in their online stores, pre book your
-          future appointments and check in on them from time to time. Not only
-          us, but all small businesses. Together we can as a community overcome
-          this in peace and unity. We love you all, you are not only friends but
-          our family."
-            buttonText="Purchase Gift Card"
-          />
         </div>
       </div>
       <div className="relative mb-14 p-10 lg:p-20" id="spa-boxes">
-        <div className="mb-2">
+        <div className="lg:pr-24">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Spa boxes{" "}
             <GradientFont
@@ -149,36 +149,36 @@ export const Home = () => (
             </GradientFont>{" "}
             available!
           </h1>
+          <div className="mt-2 mb-4" id="large-spa-box">
+            <h1 className="text-xl font-medium mb-2 lg:text-2xl">
+              Large Spa Box{" "}
+              <span className="text-xs font-light text-slate-400">$162.00</span>
+            </h1>
+            <Section
+              sectionText="Peace of Mind Spa Box! The contents include a medical grade hand
+              sanitizer, all-in-one organic hand manufactured lotion to use as a
+              shaving cream, deodorant, or lotion, CBD bar of soap from Leef
+              Organics with an Organic Garden Handmade Spa Detoxifying Body Scrub,
+              Leef CBD Bath Detox, and a Organic Body Detox Breathing Treatment
+              Spray. Also includes a $10.00 gift card towards any service."
+            />
+          </div>
+          <div id="small-spa-box">
+            <h1 className="text-xl font-medium mb-2 lg:text-2xl">
+              Small Spa Box{" "}
+              <span className="text-xs font-light text-slate-400">$102.00</span>
+            </h1>
+            <Section
+              sectionText="We also have a smaller option that comes with the medical grade hand
+              sanitizer spray, Organic Body Detox Breathing Treatment Spray,
+              all-in-one organic hand manufactured lotion to use a shaving cream,
+              deodorant, or lotion, and a Organic Colour Systems Aqua Boost travel
+              size take home shampoo and conditioner. Also includes a $5.00 gift
+              card towards any service."
+            />
+          </div>
+          <Button>Contact Us About One!</Button>
         </div>
-        <div className="mb-4" id="large-spa-box">
-          <h1 className="text-xl font-medium mb-2 lg:text-2xl">
-            Large Spa Box{" "}
-            <span className="text-xs font-light text-slate-400">$162.00</span>
-          </h1>
-          <Section
-            sectionText="Peace of Mind Spa Box! The contents include a medical grade hand
-            sanitizer, all-in-one organic hand manufactured lotion to use as a
-            shaving cream, deodorant, or lotion, CBD bar of soap from Leef
-            Organics with an Organic Garden Handmade Spa Detoxifying Body Scrub,
-            Leef CBD Bath Detox, and a Organic Body Detox Breathing Treatment
-            Spray. Also includes a $10.00 gift card towards any service."
-          />
-        </div>
-        <div id="small-spa-box">
-          <h1 className="text-xl font-medium mb-2 lg:text-2xl">
-            Small Spa Box{" "}
-            <span className="text-xs font-light text-slate-400">$102.00</span>
-          </h1>
-          <Section
-            sectionText="We also have a smaller option that comes with the medical grade hand
-            sanitizer spray, Organic Body Detox Breathing Treatment Spray,
-            all-in-one organic hand manufactured lotion to use a shaving cream,
-            deodorant, or lotion, and a Organic Colour Systems Aqua Boost travel
-            size take home shampoo and conditioner. Also includes a $5.00 gift
-            card towards any service."
-          />
-        </div>
-        <Button>Contact Us About One!</Button>
       </div>
       <Services />
     </div>

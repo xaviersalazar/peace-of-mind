@@ -68,7 +68,6 @@ const services = [
   },
 ];
 
-// TODO: target iPhone and use padding: 0 32px 48px 32px
 const SScrollMenuContainer = styled.div`
   & .react-horizontal-scrolling-menu--scroll-container {
     padding: 0 8px 48px 48px;
