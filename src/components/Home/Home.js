@@ -29,7 +29,7 @@ export const Home = () => (
       className="bg-background background-image opacity-75 absolute top-0"
       id="landing"
     />
-    <div className="p-10 w-full h-[90vh] lg:p-20">
+    <div className="p-10 w-full h-[90vh] lg:p-20 xl:p-[7rem]">
       <SLandingInfo className="absolute landing-info">
         <img
           className="relative right-12 w-[256px] md:w-[384px] md:right-20 lg:w-[448px]"
@@ -54,10 +54,10 @@ export const Home = () => (
     </div>
     <div className="mt-14" id="home-info">
       <div
-        className="relative mb-14 p-10 text-right lg:p-20"
+        className="relative mb-14 p-10 text-right lg:p-20 xl:p-[7rem]"
         id="massage-therapy-info"
       >
-        <div className="lg:pl-[6rem]">
+        <div className="lg:pl-[6rem] xl:pl-[16rem]">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Massage{" "}
             <GradientFont
@@ -87,8 +87,8 @@ export const Home = () => (
           />
         </div>
       </div>
-      <div className="relative mb-14 p-10 lg:p-20" id="salon-info">
-        <div className="lg:pr-24">
+      <div className="relative mb-14 p-10 lg:p-20 xl:p-[7rem]" id="salon-info">
+        <div className="lg:pr-24 xl:pr-[16rem]">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Were also a{" "}
             <GradientFont
@@ -112,8 +112,8 @@ export const Home = () => (
       </div>
       <div className="relative mb-14 text-right" id="support-local">
         <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
-        <div className="p-10 lg:p-20">
-          <div className="relative lg:pl-[6rem]">
+        <div className="p-10 lg:p-20 xl:p-[7rem]">
+          <div className="relative lg:pl-[6rem] xl:pl-[16rem]">
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
               <GradientFont
                 className="text-3xl font-bold md:text-4xl lg:text-5xl"
@@ -136,8 +136,8 @@ export const Home = () => (
           </div>
         </div>
       </div>
-      <div className="relative mb-14 p-10 lg:p-20" id="spa-boxes">
-        <div className="lg:pr-24">
+      <div className="relative mb-14 p-10 lg:p-20 xl:p-[7rem]" id="spa-boxes">
+        <div className="lg:pr-24 xl:pr-[16rem]">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Spa boxes{" "}
             <GradientFont

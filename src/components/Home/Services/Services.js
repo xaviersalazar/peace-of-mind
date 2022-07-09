@@ -118,7 +118,7 @@ export const Services = () => {
   return (
     <div className="relative mb-14 text-right" id="services">
       <div className="relative mb-2">
-        <div className="px-10 pt-10 pb-0 lg:px-20">
+        <div className="px-10 pt-10 pb-0 lg:px-20 xl:px-[7rem]">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Our{" "}
             <GradientFont
