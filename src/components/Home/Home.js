@@ -54,7 +54,7 @@ export const Home = () => (
     </div>
     <div className="mt-14" id="home-info">
       <div
-        className="relative mb-14 p-10 text-right lg:p-20 xl:p-[7rem]"
+        className="relative mb-14 p-10 text-right lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
         id="massage-therapy-info"
       >
         <div className="lg:w-[75%] lg:ml-auto lg:mr-0 xl:w-[50%] xl:ml-auto xl:mr-0">
@@ -87,7 +87,10 @@ export const Home = () => (
           />
         </div>
       </div>
-      <div className="relative mb-14 p-10 lg:p-20 xl:p-[7rem]" id="salon-info">
+      <div
+        className="relative mb-14 p-10 lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
+        id="salon-info"
+      >
         <div className="lg:w-[75%] lg:mr-auto lg:ml-0 xl:w-[50%] xl:mr-auto xl:ml-0">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Were also a{" "}
@@ -110,9 +113,9 @@ export const Home = () => (
           />
         </div>
       </div>
-      <div className="relative mb-14 text-right" id="support-local">
+      <div className="relative mb-14 text-right xl:mb-0" id="support-local">
         <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
-        <div className="p-10 lg:p-20 xl:p-[7rem]">
+        <div className="p-10 lg:p-20 xl:px-[7rem] xl:py-16">
           <div className="relative lg:w-[75%] lg:ml-auto lg:mr-0 xl:w-[50%] xl:ml-auto xl:mr-0">
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
               <GradientFont
@@ -136,7 +139,10 @@ export const Home = () => (
           </div>
         </div>
       </div>
-      <div className="relative mb-14 p-10 lg:p-20 xl:p-[7rem]" id="spa-boxes">
+      <div
+        className="relative mb-14 p-10 lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
+        id="spa-boxes"
+      >
         <div className="lg:w-[75%] lg:mr-auto lg:ml-0 xl:w-[50%] xl:mr-auto xl:ml-0">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Spa boxes{" "}

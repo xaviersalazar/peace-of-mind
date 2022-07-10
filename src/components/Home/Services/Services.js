@@ -1,9 +1,8 @@
 import { useState } from "react";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import { ServiceCard } from "./ServiceCard";
-import useDrag from "../../../utils/useDrag";
-import styled from "styled-components";
 import { GradientFont } from "../../Shared/GradientFont";
+import useDrag from "../../../utils/useDrag";
 
 const services = [
   {
@@ -68,14 +67,6 @@ const services = [
   },
 ];
 
-const SScrollMenuContainer = styled.div`
-  padding: 0 16px 48px 32px;
-
-  @media (min-width: 1024px) {
-    padding: 0 80px 48px 116px;
-  }
-`;
-
 export const Services = () => {
   const { dragStart, dragStop, dragMove, dragging } = useDrag();
 
@@ -116,7 +107,7 @@ export const Services = () => {
   return (
     <div className="relative mb-14 text-right" id="services">
       <div className="relative mb-2">
-        <div className="px-10 pt-10 pb-0 lg:px-20 xl:px-[7rem]">
+        <div className="px-10 pt-10 pb-0 lg:px-20 xl:px-[7rem] xl:py-16">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Our{" "}
             <GradientFont
