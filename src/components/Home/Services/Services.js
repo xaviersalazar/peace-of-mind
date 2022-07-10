@@ -69,14 +69,10 @@ const services = [
 ];
 
 const SScrollMenuContainer = styled.div`
-  & .react-horizontal-scrolling-menu--scroll-container {
-    padding: 0 8px 48px 48px;
-  }
+  padding: 0 16px 48px 32px;
 
   @media (min-width: 1024px) {
-    & .react-horizontal-scrolling-menu--scroll-container {
-      padding: 0 42px 48px 80px;
-    }
+    padding: 0 80px 48px 116px;
   }
 `;
 
@@ -135,15 +131,15 @@ export const Services = () => {
             Select a service to see more
           </p>
         </div>
-        <SScrollMenuContainer
-          className="grid grid-rows-none auto-cols-fr"
-          id="services-cards"
+        <ScrollMenu
+          onWheel={onWheel}
+          onMouseDown={() => dragStart}
+          onMouseUp={() => dragStop}
+          onMouseMove={handleDrag}
         >
-          <ScrollMenu
-            onWheel={onWheel}
-            onMouseDown={() => dragStart}
-            onMouseUp={() => dragStop}
-            onMouseMove={handleDrag}
+          <div
+            className="grid grid-rows-1 grid-cols-11 gap-52 pt-0 pt-0 pr-4 pb-12 pl-6 lg:pb-12 lg:pl-16 lg:pr-16 xl:pl-24 xl:pr-24"
+            id="services-cards"
           >
             {services.map((service, i) => (
               <ServiceCard
@@ -155,8 +151,8 @@ export const Services = () => {
                 {...service}
               />
             ))}
-          </ScrollMenu>
-        </SScrollMenuContainer>
+          </div>
+        </ScrollMenu>
       </div>
     </div>
   );
