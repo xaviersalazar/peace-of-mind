@@ -1,8 +1,8 @@
 const Footer = () => (
   <footer className="footer p-10 bg-primary relative lg:px-20 lg:py-10 xl:px-28">
-    <div className="md:w-[75%] lg:w-[60%]">
+    <div className="gap-1 md:w-[75%] lg:w-[60%]">
       <img
-        className="w-[98px] lg:w-[128px]"
+        className="w-[98px] mb-4 lg:w-[128px]"
         src="/logo-black.png"
         alt="background"
       />

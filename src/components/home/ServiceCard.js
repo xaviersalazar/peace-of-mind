@@ -1,12 +1,19 @@
 import classNames from "classnames";
+import { motion } from "framer-motion";
 
 const ServiceCard = ({ className, onClick, id, imgName, title, desc }) => (
-  <div
+  <motion.div
     className={classNames(
       className,
-      "card border-none bg-slate-100 shadow-xl shadow-slate-200 h-full"
+      "card border-none bg-slate-50 w-full h-full justify-self-end cursor-pointer"
     )}
     onClick={() => onClick(id)}
+    whileHover={{
+      scale: 1.1,
+      transition: { duration: 0.3 },
+    }}
+    whileFocus={{ scale: 1.1, transition: { duration: 0.3 } }}
+    whileTap={{ scale: 0.9 }}
   >
     <div className="flex-1 self-center pt-6 px-4">
       <img
@@ -19,7 +26,7 @@ const ServiceCard = ({ className, onClick, id, imgName, title, desc }) => (
       <h2 className="card-title text-sm self-center">{title}</h2>
       <p className="text-xs font-extra-light">{desc}</p>
     </div>
-  </div>
+  </motion.div>
 );
 
 export default ServiceCard;

@@ -117,7 +117,7 @@ const Nav = () => {
                 {/* eslint-disable-next-line */}
                 <a
                   key={title}
-                  className="text-sm md:text-base font-regular cursor-pointer"
+                  className="text-sm md:text-base font-regular tracking-wide cursor-pointer"
                   onClick={() => onNavItemClicked(title)}
                 >
                   <div className="flex gap-1">
