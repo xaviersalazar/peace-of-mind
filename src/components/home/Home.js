@@ -1,8 +1,10 @@
+import { useClient } from "react-supabase";
 import Button from "../shared/Button";
 import GradientFont from "../shared/GradientFont";
 import Section from "../shared/Section";
 import Services from "./Services";
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const SHomeInfo = styled.div`
   top: 40%;
@@ -24,6 +26,29 @@ const SBackgroundImage = styled.div`
 `;
 
 const Home = () => {
+  // Example api call ----------------
+  const client = useClient();
+
+  useEffect(() => {
+    getData();
+  }, []);
+
+  const getData = async () => {
+    const { data } = await client.from("services").select(`
+      id,
+      title,
+      price,
+      description,
+      category_id (
+        id,
+        category_name
+      )
+    `);
+
+    console.log(data);
+  };
+  // ----------------------------------
+
   return (
     <>
       <div className="p-10 w-full h-[100vh] lg:p-20 xl:p-[7rem]">
