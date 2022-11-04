@@ -79,6 +79,15 @@ const Navbar = styled.nav`
   }
 `;
 
+const Logo = styled.img`
+  opacity: 0;
+  transition: ease 0.5s;
+
+  &.active {
+    opacity: 1;
+  }
+`;
+
 const Nav = () => {
   const { scrollY } = useScroll();
   const [shouldApplyShadow, setShouldApplyShadow] = useState(false);
@@ -107,78 +116,88 @@ const Nav = () => {
       <div className="fixed top-2 w-screen z-50">
         <Navbar
           className={classNames(
-            "mt-4 mx-8 px-6 py-6 rounded-2xl bg-white",
+            "mt-4 mx-8 px-6 py-6 md:pt-6 md:pb-4 rounded-2xl bg-white",
             shouldApplyShadow ? "active" : ""
           )}
         >
-          <div className="relative flex gap-2 justify-between md:justify-end md:gap-8">
-            {navItems.map(({ title, link, subItems }) => (
-              <div className="relative" key={title}>
-                {/* eslint-disable-next-line */}
-                <a
-                  key={title}
-                  className="text-sm md:text-base font-regular tracking-wide cursor-pointer"
-                  onClick={() => onNavItemClicked(title)}
-                >
-                  <div className="flex gap-1">
-                    {title}{" "}
-                    {title !== "About Us" && (
-                      <motion.div
-                        initial="closed"
-                        animate={isSubMenuOpen[title] ? "opened" : "closed"}
-                        variants={iconVariants}
-                      >
-                        <FiChevronDown
-                          className={classNames(
-                            "relative",
-                            title === "Services"
-                              ? "top-[0.22rem] md:top-1"
-                              : "top-1"
-                          )}
-                        />
-                      </motion.div>
-                    )}
-                  </div>
-                </a>
-                {isSubMenuOpen[title] && (
-                  <AnimatePresence>
-                    <motion.ul
-                      key={`subMenu_${title}`}
-                      ref={subMenuRef}
-                      initial="exit"
-                      animate={isSubMenuOpen ? "enter" : "exit"}
-                      variants={subMenuVariants}
-                      className={classNames(
-                        "absolute top-8 bg-white rounded-lg shadow-2xl",
-                        title === "Besame" ? "left-[-2rem]" : "left-[-6rem]"
+          <div className="flex justify-between">
+            <Logo
+              className={classNames(
+                "hidden md:block justify-start w-[48px] relative bottom-1",
+                shouldApplyShadow ? "active" : ""
+              )}
+              src="/logo-black.png"
+              alt="background"
+            />
+            <div className="flex gap-2 justify-between md:justify-end md:gap-8">
+              {navItems.map(({ title, link, subItems }) => (
+                <div className="relative" key={title}>
+                  {/* eslint-disable-next-line */}
+                  <a
+                    key={title}
+                    className="text-sm md:text-base font-regular tracking-wide cursor-pointer"
+                    onClick={() => onNavItemClicked(title)}
+                  >
+                    <div className="flex gap-1">
+                      {title}{" "}
+                      {title !== "About Us" && (
+                        <motion.div
+                          initial="closed"
+                          animate={isSubMenuOpen[title] ? "opened" : "closed"}
+                          variants={iconVariants}
+                        >
+                          <FiChevronDown
+                            className={classNames(
+                              "relative",
+                              title === "Services"
+                                ? "top-[0.22rem] md:top-1"
+                                : "top-1"
+                            )}
+                          />
+                        </motion.div>
                       )}
-                    >
-                      <div
+                    </div>
+                  </a>
+                  {isSubMenuOpen[title] && (
+                    <AnimatePresence>
+                      <motion.ul
+                        key={`subMenu_${title}`}
+                        ref={subMenuRef}
+                        initial="exit"
+                        animate={isSubMenuOpen ? "enter" : "exit"}
+                        variants={subMenuVariants}
                         className={classNames(
-                          "grid grid-rows-1 grid-cols-1 w-[184px]"
+                          "absolute top-8 bg-white rounded-lg shadow-2xl",
+                          title === "Besame" ? "left-[-2rem]" : "left-[-6rem]"
                         )}
                       >
-                        {subItems?.length > 0 &&
-                          subItems?.map(
-                            ({ title: subItemTitle, subLink }, index) => (
-                              <li
-                                key={subItemTitle}
-                                className={classNames(
-                                  "text-sm font-light pl-4 pr-8 py-1 cursor-pointer hover:bg-primary hover:font-regular",
-                                  index === 0 && "pt-2 pb-1",
-                                  index === subItems.length - 1 && "pb-2 pt-1"
-                                )}
-                              >
-                                {subItemTitle}
-                              </li>
-                            )
+                        <div
+                          className={classNames(
+                            "grid grid-rows-1 grid-cols-1 w-[184px]"
                           )}
-                      </div>
-                    </motion.ul>
-                  </AnimatePresence>
-                )}
-              </div>
-            ))}
+                        >
+                          {subItems?.length > 0 &&
+                            subItems?.map(
+                              ({ title: subItemTitle, subLink }, index) => (
+                                <li
+                                  key={subItemTitle}
+                                  className={classNames(
+                                    "text-sm font-light pl-4 pr-8 py-1 cursor-pointer hover:bg-primary hover:font-regular",
+                                    index === 0 && "pt-2 pb-1",
+                                    index === subItems.length - 1 && "pb-2 pt-1"
+                                  )}
+                                >
+                                  {subItemTitle}
+                                </li>
+                              )
+                            )}
+                        </div>
+                      </motion.ul>
+                    </AnimatePresence>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </Navbar>
       </div>
