@@ -3,7 +3,7 @@ import classNames from "classnames";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import navItems from "./navItems";
-import useOutsideClick from "../utils/useOutsideClick";
+import useOutsideClick from "../hooks/useOutsideClick";
 import styled from "styled-components";
 
 const initialState = {

@@ -1,10 +1,10 @@
-import { useClient } from "react-supabase";
+import { useQuery } from "@apollo/client";
+import { GET_ALL_SERVICES } from "../../graphql/queries/getAllServices";
 import Button from "../shared/Button";
 import GradientFont from "../shared/GradientFont";
 import Section from "../shared/Section";
 import Services from "./Services";
 import styled from "styled-components";
-import { useEffect } from "react";
 
 const SHomeInfo = styled.div`
   top: 40%;
@@ -26,28 +26,9 @@ const SBackgroundImage = styled.div`
 `;
 
 const Home = () => {
-  // Example api call ----------------
-  const client = useClient();
+  const { loading, error, data } = useQuery(GET_ALL_SERVICES);
 
-  useEffect(() => {
-    getData();
-  }, []);
-
-  const getData = async () => {
-    const { data } = await client.from("services").select(`
-      id,
-      title,
-      price,
-      description,
-      category_id (
-        id,
-        category_name
-      )
-    `);
-
-    console.log(data);
-  };
-  // ----------------------------------
+  console.log(data);
 
   return (
     <>
