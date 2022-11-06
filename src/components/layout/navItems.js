@@ -114,7 +114,7 @@ const navItems = [
       },
       {
         title: "Add On's",
-        subLink: "/services-add-ons",
+        subLink: "/services/add-ons",
       },
       {
         title: "Breast/Butt Lift & Fat Eliminator",

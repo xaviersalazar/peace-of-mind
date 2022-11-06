@@ -1,7 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { Route, Routes } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import Home from "./components/home/Home";
+import { useRoutes } from "react-router-dom";
+import routes from "./routes";
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseGraphqlUrl = process.env.REACT_APP_SUPABASE_GRAPHQL_URL;
@@ -16,16 +15,7 @@ const client = new ApolloClient({
 });
 
 function App() {
-  return (
-    <ApolloProvider client={client}>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="*" element={<a href="/">Return to homepage</a>} />
-        </Route>
-      </Routes>
-    </ApolloProvider>
-  );
+  return <ApolloProvider client={client}>{useRoutes(routes)}</ApolloProvider>;
 }
 
 export default App;

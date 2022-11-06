@@ -56,7 +56,7 @@ const Services = () => {
     <div className="relative mb-14 text-right" id="services">
       <div className="relative mb-2">
         <div className="px-10 pt-10 pb-0 lg:px-20 xl:px-[7rem]">
-          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+          <h1 className="text-3xl font-bold mb-5 md:text-4xl lg:text-5xl">
             Some of{" "}
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"
@@ -66,9 +66,6 @@ const Services = () => {
               our services
             </GradientFont>{" "}
           </h1>
-          <p className="text-xs font-extra-light text-slate-500 mb-5 md:text-sm">
-            Select a service to see more
-          </p>
         </div>
         <div
           className="grid grid-cols-2 grid-rows-4 gap-y-8 gap-x-8 px-10 md:grid-cols-4 md:grid-rows-2 lg:gap-x-12 lg:pr-20 lg:ml-24 xl:pr-[7rem] xl:ml-72 2xl:ml-[48rem]"

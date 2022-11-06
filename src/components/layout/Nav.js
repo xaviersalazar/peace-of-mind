@@ -5,6 +5,7 @@ import { FiChevronDown } from "react-icons/fi";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const initialState = {
   Besame: false,
@@ -187,7 +188,7 @@ const Nav = () => {
                                     index === subItems.length - 1 && "pb-2 pt-1"
                                   )}
                                 >
-                                  {subItemTitle}
+                                  <Link to={subLink}>{subItemTitle}</Link>
                                 </li>
                               )
                             )}
