@@ -1,6 +1,6 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { useRoutes } from "react-router-dom";
-import routes from "./routes";
+import routes from "./components/routes";
 
 const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
 const supabaseGraphqlUrl = process.env.REACT_APP_SUPABASE_GRAPHQL_URL;

@@ -1,5 +1,5 @@
 const Footer = () => (
-  <footer className="footer p-10 bg-primary relative lg:px-20 lg:py-10 xl:px-28">
+  <footer className="footer p-10 bg-primary relative mt-auto lg:px-20 lg:py-10 xl:px-28">
     <div className="gap-1 md:w-[75%] lg:w-[60%]">
       <img
         className="w-[98px] mb-4 lg:w-[128px]"

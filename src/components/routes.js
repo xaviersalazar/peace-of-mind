@@ -1,8 +1,9 @@
 import { lazy, Suspense } from "react";
-import Layout from "./components/layout/Layout";
-import Home from "./components/home/Home";
+import Layout from "./layout/Layout";
+import Home from "./home/Home";
+import SuspenseSkeleton from "./shared/SuspenseSkeleton";
 
-const AddOns = lazy(() => import("./components/services/AddOns"));
+const AddOns = lazy(() => import("./services/AddOns"));
 
 const routes = [
   {
@@ -16,14 +17,17 @@ const routes = [
           {
             path: "add-ons",
             element: (
-              <Suspense fallback={<h1>Loading...</h1>}>
+              <Suspense fallback={<SuspenseSkeleton />}>
                 <AddOns />
               </Suspense>
             ),
           },
         ],
       },
-      { path: "*", element: <a href="/">Return to homepage</a> },
+      {
+        path: "*",
+        element: <a ref="/">Return to homepage</a>,
+      },
     ],
   },
 ];
