@@ -9,7 +9,9 @@ const AddOns = ({ categoryKey }) => {
   if (loading) {
     return (
       <Service>
-        <h1 className="text-3xl font-extra-bold text-center">Loading!</h1>
+        <h1 className="text-5xl font-extra-bold text-center md:text-6xl">
+          Loading!
+        </h1>
       </Service>
     );
   }
@@ -17,28 +19,57 @@ const AddOns = ({ categoryKey }) => {
   if (error) {
     return (
       <Service>
-        <h1 className="text-3xl font-extra-bold text-center">
+        <h1 className="text-5xl font-extra-bold text-center md:text-6xl">
           Something happened. Please try reloading
         </h1>
       </Service>
     );
   }
 
-  console.log(data);
+  const { servicesCollection } = data;
 
   return (
     <Service>
       <div id="add-ons">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
+          <h1 className="text-5xl font-bold md:text-6xl">
             <GradientFont
-              className="text-3xl font-bold md:text-4xl lg:text-5xl"
+              className="text-5xl font-bold md:text-6xl"
               deg={-45}
               colors={["#a8ff78", "#78ffd6"]}
             >
               Add On's
             </GradientFont>{" "}
           </h1>
+          <p className="text-[0.65rem] font-light text-slate-300 text-center md:text-sm">
+            Give your session something <span className="italic">extra</span>
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-6 pt-10 md:grid-cols-2 xl:grid-cols-3">
+          {servicesCollection?.edges.map(({ node }) => (
+            <div className="card border-none bg-slate-50" key={node.title}>
+              <div className="px-4 py-6 text-center self-center">
+                <div className="mb-4">
+                  <h1 className="text-lg font-bold text-slate-700 self-center">
+                    {node.title}
+                  </h1>
+                  {node.pricesCollection.edges.map(({ node: priceNode }) => (
+                    <p
+                      key={`${node.title}_${priceNode.price}`}
+                      className="text-sm font-light text-slate-300 text-center px-12"
+                    >
+                      {priceNode.unit} ${priceNode.price}
+                    </p>
+                  ))}
+                </div>
+                <div className="bg-white p-4 mx-4 rounded-xl">
+                  <p className="text-sm font-light text-slate-400">
+                    {node.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </Service>

@@ -16,7 +16,12 @@ const ServiceCard = ({ className, onClick, id, imgName, title, desc }) => (
     whileTap={{ scale: 0.9 }}
   >
     <div className="flex-1 self-center pt-6 px-4">
-      <img src={`/services/${imgName}.png`} alt={imgName} />
+      <img
+        width={48}
+        height={48}
+        src={`/services/${imgName}.png`}
+        alt={imgName}
+      />
     </div>
     <div className="card-body p-4 text-center self-center">
       <h2 className="card-title text-sm self-center">{title}</h2>

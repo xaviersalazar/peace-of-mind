@@ -11,7 +11,7 @@ const SHomeInfo = styled.div`
 
 const Home = () => (
   <>
-    <div className="p-10 w-full h-[100vh] lg:p-20 xl:p-[7rem]">
+    <div className="pt-10 px-10 pb-0 w-full h-[100vh] lg:p-20 xl:p-[7rem]">
       <SHomeInfo className="absolute home-info z-20">
         <img
           className="relative right-14 w-[512px] md:w-[384px] lg:w-[448px]"
