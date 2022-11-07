@@ -29,7 +29,7 @@ const AddOns = ({ categoryKey }) => {
   return (
     <Service>
       <div id="add-ons">
-        <div className="text-center w-full">
+        <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"

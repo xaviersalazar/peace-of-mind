@@ -41,7 +41,7 @@ const services = [
   {
     title: "Infrared Sauna",
     desc: "Detoxify your body in our sauna",
-    imgName: "infrared-sauna",
+    imgName: "sauna",
   },
 ];
 

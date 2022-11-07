@@ -9,20 +9,6 @@ const SHomeInfo = styled.div`
   transform: translateY(-40%);
 `;
 
-const SBackgroundImage = styled.div`
-  height: 100vh;
-  width: 100vw;
-  min-width: 100vw;
-  background-attachment: scroll;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  margin: 0 0 48px 0;
-  padding: 0;
-  filter: blur(48px);
-  -webkit-filter: blur(48px);
-`;
-
 const Home = () => (
   <>
     <div className="p-10 w-full h-[100vh] lg:p-20 xl:p-[7rem]">
@@ -42,7 +28,7 @@ const Home = () => (
           <p className="text-xs font-extra-light text-slate-500 mt-1 md:text-sm lg:text-base">
             Massage Therapy & Natural Healing
           </p>
-          <Button>Contact Us</Button>
+          <Button outline>Contact Us</Button>
         </div>
       </SHomeInfo>
       <img
@@ -61,9 +47,9 @@ const Home = () => (
         alt="background"
       />
     </div>
-    <div className="mt-14" id="home-info">
+    <div className="mt-0" id="home-info">
       <div
-        className="relative mb-14 p-10 text-right lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
+        className="relative pt-14 px-10 pb-10 text-right bg-[#FDE2FF] lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
         id="massage-therapy-info"
       >
         <div className="lg:w-[75%] lg:ml-auto lg:mr-0 xl:w-[50%] xl:ml-auto xl:mr-0">
@@ -72,7 +58,7 @@ const Home = () => (
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={-45}
-              colors={["#fdfc47", "#24fe41"]}
+              colors={["#f12711", "#f5af19"]}
             >
               Therapy
             </GradientFont>{" "}
@@ -80,7 +66,7 @@ const Home = () => (
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={45}
-              colors={["#fdfc47", "#24fe41"]}
+              colors={["#f5af19", "#f12711"]}
             >
               Natural
             </GradientFont>{" "}
@@ -97,7 +83,7 @@ const Home = () => (
         </div>
       </div>
       <div
-        className="relative mb-14 p-10 lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
+        className="relative mb-14 pt-14 px-10 pb-10 bg-[#FDE2FF] lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
         id="salon-info"
       >
         <div className="lg:w-[75%] lg:mr-auto lg:ml-0 xl:w-[50%] xl:mr-auto xl:ml-0">
@@ -121,9 +107,23 @@ const Home = () => (
             buttonText="Book Your Appointment Today!"
           />
         </div>
+        <img
+          className="md:hidden w-[100vw] absolute left-0 top-45 rotate-180"
+          src={`${process.env.PUBLIC_URL}/wave-bg-flipped.svg`}
+          alt="background"
+        />
+        <img
+          className="hidden md:block lg:hidden w-[100vw] absolute left-0 top-45 rotate-180"
+          src={`${process.env.PUBLIC_URL}/wave-bg-md-flipped.svg`}
+          alt="background"
+        />
+        <img
+          className="hidden lg:block w-[100vw] absolute left-0 top-45 rotate-180"
+          src={`${process.env.PUBLIC_URL}/wave-bg-lg-flipped.svg`}
+          alt="background"
+        />
       </div>
       <div className="relative mb-14 text-right xl:mb-0" id="support-local">
-        <SBackgroundImage className="bg-backgroundTwo background-image opacity-75 absolute top-0" />
         <div className="p-10 lg:p-20 xl:px-[7rem] xl:py-16">
           <div className="relative lg:w-[75%] lg:ml-auto lg:mr-0 xl:w-[50%] xl:ml-auto xl:mr-0">
             <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
@@ -158,7 +158,7 @@ const Home = () => (
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={-45}
-              colors={["#833ab4", "#fd1d1d", "#fcb045"]}
+              colors={["#9796f0", "#fbc7d4"]}
             >
               now
             </GradientFont>{" "}

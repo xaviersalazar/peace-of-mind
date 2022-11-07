@@ -121,7 +121,7 @@ const Nav = () => {
             shouldApplyShadow ? "active" : ""
           )}
         >
-          <div className="flex justify-between">
+          <div className="flex justify-center md:justify-between">
             <Logo
               className={classNames(
                 "hidden md:block justify-start w-[48px] relative bottom-1",
@@ -136,10 +136,10 @@ const Nav = () => {
                   {/* eslint-disable-next-line */}
                   <a
                     key={title}
-                    className="text-sm md:text-base font-regular tracking-wide cursor-pointer"
+                    className="text-[.75rem] md:text-base font-light tracking-wide cursor-pointer"
                     onClick={() => onNavItemClicked(title)}
                   >
-                    <div className="flex gap-1">
+                    <div className="flex gap-1 uppercase">
                       {title}{" "}
                       {title !== "About Us" && (
                         <motion.div
