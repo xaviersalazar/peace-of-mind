@@ -14,12 +14,6 @@ module.exports = {
       bold: 700,
       "extra-bold": 800,
     },
-    extend: {
-      backgroundImage: {
-        background: "url('../public/bg.png')",
-        backgroundTwo: "url('../public/bg-2.png')",
-      },
-    },
   },
   daisyui: {
     themes: [
