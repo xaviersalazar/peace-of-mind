@@ -3,8 +3,8 @@ import { useQuery } from "@apollo/client";
 import Service from "../shared/Service";
 import GradientFont from "../shared/GradientFont";
 
-const AddOns = () => {
-  const { loading, error, data } = useQuery(GET_SERVICE(1));
+const AddOns = ({ categoryKey }) => {
+  const { loading, error, data } = useQuery(GET_SERVICE(categoryKey));
 
   if (loading) {
     return (
