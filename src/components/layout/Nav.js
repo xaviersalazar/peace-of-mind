@@ -94,7 +94,7 @@ const Nav = () => {
   const [shouldApplyShadow, setShouldApplyShadow] = useState(false);
   const [isSubMenuOpen, setIsSubMenuOpen] = useState(initialState);
 
-  const subMenuRef = useOutsideClick(() => setIsSubMenuOpen(false));
+  const subMenuRef = useOutsideClick(() => setIsSubMenuOpen(initialState));
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
@@ -187,6 +187,7 @@ const Nav = () => {
                                     index === 0 && "pt-2 pb-1",
                                     index === subItems.length - 1 && "pb-2 pt-1"
                                   )}
+                                  onClick={() => setIsSubMenuOpen(initialState)}
                                 >
                                   <Link to={subLink}>{subItemTitle}</Link>
                                 </li>
