@@ -27,7 +27,19 @@ const routes = [
       },
       {
         path: "*",
-        element: <a ref="/">Return to homepage</a>,
+        element: (
+          <div className="relative top-32 px-10 pt-0 pb-10 lg:p-20 xl:px-[7rem] xl:py-16">
+            <h1 className="text-3xl font-bold text-center">
+              Nothing found here 🤷‍♀️
+            </h1>
+            <h1 className="text-2xl font-light text-center">
+              Return to{" "}
+              <a className="underline text-blue-300" href="/">
+                homepage
+              </a>
+            </h1>
+          </div>
+        ),
       },
     ],
   },

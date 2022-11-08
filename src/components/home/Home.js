@@ -11,10 +11,10 @@ const SHomeInfo = styled.div`
 
 const Home = () => (
   <>
-    <div className="pt-10 px-10 pb-0 w-full h-[100vh] lg:p-20 xl:p-[7rem]">
-      <SHomeInfo className="absolute home-info z-20">
+    <div className="relative top-72 pt-10 px-10 pb-0 w-full h-full lg:p-20 xl:p-[7rem]">
+      <SHomeInfo className="relative mt-16 xl:mt-0 home-info z-20">
         <img
-          className="relative right-14 w-[512px] md:w-[384px] lg:w-[448px]"
+          className="relative right-14 w-[512px] md:w-[384px] xl:w-[448px]"
           src={`${process.env.PUBLIC_URL}/logo-trans.png`}
           alt="background"
         />
@@ -37,17 +37,17 @@ const Home = () => (
         alt="background"
       />
       <img
-        className="hidden md:block lg:hidden w-[100vw] absolute left-0 bottom-0"
+        className="hidden md:block xl:hidden w-[100vw] absolute left-0 bottom-0"
         src={`${process.env.PUBLIC_URL}/wave-bg-md.svg`}
         alt="background"
       />
       <img
-        className="hidden lg:block w-[100vw] absolute left-0 bottom-0"
+        className="hidden xl:block w-[100vw] absolute left-0 bottom-48"
         src={`${process.env.PUBLIC_URL}/wave-bg-lg.svg`}
         alt="background"
       />
     </div>
-    <div className="mt-0" id="home-info">
+    <div className="mt-72 xl:mt-16" id="home-info">
       <div
         className="relative pt-14 px-10 pb-10 text-right bg-[#FDE2FF] lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
         id="massage-therapy-info"

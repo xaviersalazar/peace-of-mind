@@ -36,7 +36,7 @@ const AddOns = ({ categoryKey }) => {
             <GradientFont
               className="text-5xl font-bold md:text-6xl"
               deg={-45}
-              colors={["#a8ff78", "#78ffd6"]}
+              colors={["#c9ffbf", "#ffafbd"]}
             >
               Add On's
             </GradientFont>{" "}
@@ -45,10 +45,13 @@ const AddOns = ({ categoryKey }) => {
             Give your session something <span className="italic">extra</span>
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 pt-10 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-3">
           {servicesCollection?.edges.map(({ node }) => (
-            <div className="card border-none bg-slate-50" key={node.title}>
-              <div className="px-4 py-6 text-center self-center">
+            <div
+              className="card relative border-none bg-slate-50"
+              key={node.title}
+            >
+              <div className="px-4 py-6 text-center self-center w-full">
                 <div className="mb-4">
                   <h1 className="text-lg font-bold text-slate-700 self-center">
                     {node.title}
@@ -56,7 +59,7 @@ const AddOns = ({ categoryKey }) => {
                   {node.pricesCollection.edges.map(({ node: priceNode }) => (
                     <p
                       key={`${node.title}_${priceNode.price}`}
-                      className="text-sm font-light text-slate-300 text-center px-12"
+                      className="text-sm font-extra-light text-slate-400 text-center px-4"
                     >
                       {priceNode.unit} ${priceNode.price}
                     </p>
@@ -72,6 +75,9 @@ const AddOns = ({ categoryKey }) => {
           ))}
         </div>
       </div>
+      <p className="text-[0.65rem] font-light text-slate-300 mb-2 text-center md:text-sm">
+        NOTICE: Prices are subject to change without prior notice
+      </p>
     </Service>
   );
 };
