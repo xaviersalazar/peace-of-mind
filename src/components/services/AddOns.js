@@ -3,6 +3,7 @@ import { GET_SERVICE } from "../../graphql/queries/getService";
 import Service from "../shared/Service";
 import GradientFont from "../shared/GradientFont";
 import SkeletonLoader from "../shared/SkeletonLoader";
+import Error from "../shared/Error";
 import { isEmpty } from "lodash";
 
 const AddOns = ({ categoryKey }) => {
@@ -19,9 +20,7 @@ const AddOns = ({ categoryKey }) => {
   if (error) {
     return (
       <Service>
-        <h1 className="text-5xl font-extra-bold text-center md:text-6xl">
-          Something happened 🤷‍♀️ Please try reloading
-        </h1>
+        <Error />
       </Service>
     );
   }
