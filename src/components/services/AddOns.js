@@ -2,6 +2,7 @@ import { GET_SERVICE } from "../../graphql/queries/getService";
 import { useQuery } from "@apollo/client";
 import Service from "../shared/Service";
 import GradientFont from "../shared/GradientFont";
+import { isEmpty } from "lodash";
 
 const AddOns = ({ categoryKey }) => {
   const { loading, error, data } = useQuery(GET_SERVICE(categoryKey));
@@ -36,36 +37,39 @@ const AddOns = ({ categoryKey }) => {
             <GradientFont
               className="text-5xl font-bold md:text-6xl"
               deg={-45}
-              colors={["#c9ffbf", "#ffafbd"]}
+              colors={["#ddd6f3", "#faaca8"]}
             >
               Add On's
             </GradientFont>{" "}
           </h1>
-          <p className="text-[0.65rem] font-light text-slate-300 text-center md:text-sm">
+          <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Give your session something <span className="italic">extra</span>
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-3">
+        <div className="grid auto-rows-fr grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-3">
           {servicesCollection?.edges.map(({ node }) => (
-            <div
-              className="card relative border-none bg-slate-50"
-              key={node.title}
-            >
-              <div className="px-4 py-6 text-center self-center w-full">
+            <div className="card border-none bg-slate-50" key={node.title}>
+              <div className="flex flex-col px-4 py-6 text-center self-center w-full h-full">
                 <div className="mb-4">
                   <h1 className="text-lg font-bold text-slate-700 self-center">
                     {node.title}
                   </h1>
-                  {node.pricesCollection.edges.map(({ node: priceNode }) => (
-                    <p
-                      key={`${node.title}_${priceNode.price}`}
-                      className="text-sm font-extra-light text-slate-400 text-center px-4"
-                    >
-                      {priceNode.unit} ${priceNode.price}
+                  {!isEmpty(node.pricesCollection.edges) ? (
+                    node.pricesCollection.edges.map(({ node: priceNode }) => (
+                      <p
+                        key={`${node.title}_${priceNode.price}`}
+                        className="text-xs font-extra-light text-slate-400 text-center px-4"
+                      >
+                        {priceNode.unit} ${priceNode.price}
+                      </p>
+                    ))
+                  ) : (
+                    <p className="text-xs font-extra-light text-slate-400 text-center px-4">
+                      TBD
                     </p>
-                  ))}
+                  )}
                 </div>
-                <div className="bg-white p-4 mx-4 rounded-xl">
+                <div className="flex-1 bg-white p-4 mx-4 rounded-xl">
                   <p className="text-sm font-light text-slate-400">
                     {node.description}
                   </p>
