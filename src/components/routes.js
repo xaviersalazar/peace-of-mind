@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import Layout from "./layout/Layout";
 import Home from "./home/Home";
-import SuspenseSkeleton from "./shared/SuspenseSkeleton";
+import SkeletonLoader from "./shared/SkeletonLoader";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
 const AddOns = lazy(() => import("./services/AddOns"));
@@ -18,7 +18,7 @@ const routes = [
           {
             path: "add-ons",
             element: (
-              <Suspense fallback={<SuspenseSkeleton />}>
+              <Suspense fallback={<SkeletonLoader />}>
                 <AddOns categoryKey={CATEGORY_MAPPING.ADD_ONS} />
               </Suspense>
             ),

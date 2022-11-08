@@ -1,7 +1,8 @@
-import { GET_SERVICE } from "../../graphql/queries/getService";
 import { useQuery } from "@apollo/client";
+import { GET_SERVICE } from "../../graphql/queries/getService";
 import Service from "../shared/Service";
 import GradientFont from "../shared/GradientFont";
+import SkeletonLoader from "../shared/SkeletonLoader";
 import { isEmpty } from "lodash";
 
 const AddOns = ({ categoryKey }) => {
@@ -10,9 +11,7 @@ const AddOns = ({ categoryKey }) => {
   if (loading) {
     return (
       <Service>
-        <h1 className="text-5xl font-extra-bold text-center md:text-6xl">
-          Loading!
-        </h1>
+        <SkeletonLoader />
       </Service>
     );
   }
@@ -21,7 +20,7 @@ const AddOns = ({ categoryKey }) => {
     return (
       <Service>
         <h1 className="text-5xl font-extra-bold text-center md:text-6xl">
-          Something happened. Please try reloading
+          Something happened 🤷‍♀️ Please try reloading
         </h1>
       </Service>
     );
