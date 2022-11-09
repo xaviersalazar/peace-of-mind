@@ -67,8 +67,8 @@ const navItems = [
         subLink: "/salon-locs",
       },
       {
-        title: "Manicures",
-        subLink: "/salon-manicures",
+        title: "Manicures & Pedicures",
+        subLink: "/salon-mani-pedi",
       },
       {
         title: "Makeup",
@@ -85,10 +85,6 @@ const navItems = [
       {
         title: "Perms",
         subLink: "/salon-perms",
-      },
-      {
-        title: "Pedicures",
-        subLink: "/salon-pedicures",
       },
       {
         title: "Sets & Twists",
