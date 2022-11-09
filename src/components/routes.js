@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import SkeletonLoader from "./shared/SkeletonLoader";
 import Loader from "./shared/Loader";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
+import Login from "./auth/Login";
 
 const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
@@ -52,6 +53,10 @@ const routes = [
         ),
       },
     ],
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ];
 
