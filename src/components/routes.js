@@ -2,8 +2,10 @@ import { lazy, Suspense } from "react";
 import Layout from "./layout/Layout";
 import Home from "./home/Home";
 import SkeletonLoader from "./shared/SkeletonLoader";
+import Loader from "./shared/Loader";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
+const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
 
 const routes = [
@@ -12,6 +14,14 @@ const routes = [
     element: <Layout />,
     children: [
       { index: true, element: <Home /> },
+      {
+        path: "about",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <About />
+          </Suspense>
+        ),
+      },
       {
         path: "services",
         children: [

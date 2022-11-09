@@ -134,8 +134,9 @@ const Nav = () => {
               {navItems.map(({ title, link, subItems }) => (
                 <div className="relative" key={title}>
                   {/* eslint-disable-next-line */}
-                  <a
+                  <Link
                     key={title}
+                    to={link}
                     className="text-[.75rem] md:text-base font-light tracking-wide cursor-pointer"
                     onClick={() => onNavItemClicked(title)}
                   >
@@ -158,7 +159,7 @@ const Nav = () => {
                         </motion.div>
                       )}
                     </div>
-                  </a>
+                  </Link>
                   {isSubMenuOpen[title] && (
                     <AnimatePresence>
                       <motion.ul

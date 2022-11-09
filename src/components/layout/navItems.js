@@ -1,7 +1,7 @@
 const navItems = [
   {
     title: "About Us",
-    link: "/about-us",
+    link: "/about",
     subItems: [],
   },
   {
