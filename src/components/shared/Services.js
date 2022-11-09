@@ -1,10 +1,10 @@
 import { isEmpty } from "lodash";
 
 const Services = ({ services }) => (
-  <div className="grid auto-rows-fr grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-3">
+  <div className="grid auto-rows-fr grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6 xl:col-span-2">
     {services?.edges.map(({ node }) => (
       <div
-        className="card border-none bg-slate-50 rounded-2xl"
+        className="card border-none bg-slate-50 rounded-2xl xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
         key={node.title}
       >
         <div className="flex flex-col px-4 py-6 text-center self-center w-full h-full">
