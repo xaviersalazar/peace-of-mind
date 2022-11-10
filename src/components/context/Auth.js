@@ -38,6 +38,7 @@ export function AuthProvider({ children }) {
     signIn: async (data) => await supabase.auth.signInWithPassword(data),
     signOut: async () => await supabase.auth.signOut(),
     user,
+    loading,
   };
 
   return (

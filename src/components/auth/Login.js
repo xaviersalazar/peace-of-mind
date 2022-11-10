@@ -4,6 +4,7 @@ import { FiEye, FiEyeOff, FiAlertTriangle } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../context/Auth";
 import { isEmpty } from "lodash";
+import Spinner from "../shared/Spinner";
 
 const initialState = {
   name: "",
@@ -14,7 +15,7 @@ const initialState = {
 const Login = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { signUp, signIn } = useAuth();
+  const { signUp, signIn, loading } = useAuth();
 
   const isLogin = pathname === "/auth/login";
 
@@ -169,12 +170,31 @@ const Login = () => {
               )}
             </div>
           </div>
-          <button
-            className="btn-primary w-full mt-8 p-2 rounded-lg text-slate-700 font-light"
+          <motion.button
+            className="bg-primary w-full mt-8 p-2 rounded-lg text-slate-700 font-light"
+            whileHover={{
+              backgroundColor: "#f8fafc",
+              boxShadow:
+                "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+              color: "#10FFCB",
+              transition: { duration: 0.3 },
+            }}
+            whileFocus={{
+              backgroundColor: "#f8fafc",
+              boxShadow:
+                "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+              color: "#10FFCB",
+              transition: { duration: 0.3 },
+            }}
+            whileTap={{
+              scale: 0.9,
+            }}
+            disabled={loading}
             onClick={onSubmit}
           >
+            {loading && <Spinner size="4" color="text-slate-400" />}
             Submit
-          </button>
+          </motion.button>
           {isLogin ? (
             <p className="text-sm font-light mt-12">
               Don't have a login?{" "}

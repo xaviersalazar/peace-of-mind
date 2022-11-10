@@ -1,3 +1,4 @@
+import { FiArrowRight } from "react-icons/fi";
 import Button from "../shared/Button";
 import GradientFont from "../shared/GradientFont";
 import Section from "../shared/Section";
@@ -28,7 +29,12 @@ const Home = () => (
           <p className="text-xs font-extra-light text-slate-500 mt-1 md:text-sm lg:text-base">
             Massage Therapy & Natural Healing
           </p>
-          <Button outline>Contact Us</Button>
+          <Button
+            outline
+            icon={<FiArrowRight className="inline ml-2 mb-0.5" />}
+          >
+            Contact Us
+          </Button>
         </div>
       </SHomeInfo>
       <img
@@ -86,7 +92,7 @@ const Home = () => (
         className="relative mb-14 pt-14 px-10 pb-10 bg-[#FDE2FF] lg:p-20 xl:px-[7rem] xl:py-16 xl:mb-0"
         id="salon-info"
       >
-        <div className="lg:w-[75%] lg:mr-auto lg:ml-0 xl:w-[50%] xl:mr-auto xl:ml-0">
+        <div className="mb-4 lg:w-[75%] lg:mr-auto lg:ml-0 xl:w-[50%] xl:mr-auto xl:ml-0">
           <h1 className="text-3xl font-bold md:text-4xl lg:text-5xl">
             Were also a{" "}
             <GradientFont
