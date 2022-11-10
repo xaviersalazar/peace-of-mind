@@ -1,13 +1,18 @@
 import { lazy, Suspense } from "react";
 import Layout from "./layout/Layout";
 import Home from "./home/Home";
+import Login from "./auth/Login";
+import Protected from "./auth/Protected";
 import SkeletonLoader from "./shared/SkeletonLoader";
 import Loader from "./shared/Loader";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
-import Login from "./auth/Login";
 
+// Public
 const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
+
+// Admin
+const Dashboard = lazy(() => import("./admin/Dashboard.js"));
 
 const routes = [
   {
@@ -55,8 +60,32 @@ const routes = [
     ],
   },
   {
-    path: "login",
-    element: <Login />,
+    path: "auth",
+    children: [
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "sign-up",
+        element: <Login />,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    children: [
+      {
+        index: true,
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Protected>
+              <Dashboard />
+            </Protected>
+          </Suspense>
+        ),
+      },
+    ],
   },
 ];
 
