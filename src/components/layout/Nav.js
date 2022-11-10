@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import classNames from "classnames";
+import { Link } from "react-router-dom";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
+import classNames from "classnames";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const initialState = {
   Besame: false,

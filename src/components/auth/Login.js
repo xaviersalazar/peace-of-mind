@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FiEye, FiEyeOff } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiAlertTriangle } from "react-icons/fi";
+import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../context/Auth";
+import { isEmpty } from "lodash";
 
 const initialState = {
   name: "",
@@ -18,8 +20,15 @@ const Login = () => {
 
   const [form, setForm] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const [error, setError] = useState(null);
 
-  const { name, email, password } = form;
+  useEffect(() => {
+    if (error) {
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
+    }
+  }, [error]);
 
   const onChange = (event) => {
     const { name, value } = event.target;
@@ -31,19 +40,32 @@ const Login = () => {
   };
 
   const onSubmit = async () => {
+    const { name, email, password } = form;
+
+    setError(null);
+
     if (isLogin) {
-      const { email, password } = form;
-
-      const { data, error } = await signIn({ email, password });
-
-      if (data) {
-        console.log(data);
-        navigate("/dashboard");
-      } else {
-        console.log("Error!", error);
+      if (isEmpty(email) || isEmpty(password)) {
+        setError({ msg: "Please fill out all fields", type: "warning" });
+        return;
       }
+
+      const { data, error } = await signIn({
+        email,
+        password,
+      });
+
+      if (data) navigate("/dashboard");
+      if (error)
+        setError({
+          msg: "Something happened! Please try again",
+          type: "error",
+        });
     } else {
-      const { name, email, password } = form;
+      if (isEmpty(name) || isEmpty(email) || isEmpty(password)) {
+        setError({ msg: "Please fill out all fields", type: "warning" });
+        return;
+      }
 
       const signUpData = {
         email,
@@ -55,19 +77,36 @@ const Login = () => {
         },
       };
 
-      const { data, error } = await signUp(signUpData);
+      const { data } = await signUp(signUpData);
 
-      if (data) {
-        console.log(data);
-        navigate("/dashboard");
-      } else {
-        console.log("Error!", error);
-      }
+      if (data) navigate("/dashboard");
+      else
+        setError({
+          msg: "Something happened! Please try again",
+          type: "error",
+        });
     }
   };
 
+  const { name, email, password } = form;
+
   return (
     <div className="relative top-0 px-10 pt-0 pb-10 lg:px-20 xl:px-[7rem] h-[100vh] overflow-hidden">
+      <AnimatePresence>
+        {error && (
+          <motion.div
+            className={`alert alert-warning shadow-lg absolute left-48 top-6 z-[100] w-full items-start md:left-[32rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]`}
+            initial={{ x: 800 }}
+            animate={{ x: 0 }}
+            exit={{ x: 800 }}
+          >
+            <div>
+              <FiAlertTriangle />
+              <p className="text-sm font-light">{error.msg}</p>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="z-50 relative mt-12">
         <img
           className="w-[128px] mx-auto mb-12"
