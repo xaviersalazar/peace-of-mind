@@ -1,70 +1,71 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useAuth } from "../../context/Auth";
+import { useIsMd } from "../../hooks/useBreakpoints";
 import { FiHome, FiServer, FiChevronRight } from "react-icons/fi";
 import { motion } from "framer-motion";
-import { useAuth } from "../../context/Auth";
-
-const menuVariants = {
-  open: {
-    position: "absolute",
-    width: "66.666667%",
-    transition: {
-      duration: 1,
-      default: { ease: "linear" },
-    },
-  },
-  closed: {
-    position: "absolute",
-    width: "4rem",
-    transition: {
-      duration: 1,
-      default: { ease: "linear" },
-    },
-  },
-};
-
-const menuTextVariants = {
-  open: {
-    flex: 1,
-    opacity: 1,
-    transition: {
-      duration: 0.25,
-      default: { ease: "linear" },
-    },
-    transitionEnd: {
-      display: "initial",
-    },
-  },
-  closed: {
-    opacity: 0,
-    display: "none",
-    transition: {
-      default: { ease: "linear" },
-    },
-  },
-};
-
-const menuSearchVariants = {
-  open: {
-    opacity: 1,
-    transition: {
-      duration: 0.25,
-      default: { ease: "linear" },
-    },
-    transitionEnd: {
-      display: "initial",
-    },
-  },
-  closed: {
-    opacity: 0,
-    display: "none",
-    transition: {
-      default: { ease: "linear" },
-    },
-  },
-};
 
 const DashboardLayout = () => {
+  const menuVariants = {
+    open: {
+      position: "absolute",
+      width: useIsMd() ? "24rem" : "66.666667%",
+      transition: {
+        duration: 1,
+        default: { ease: "linear" },
+      },
+    },
+    closed: {
+      position: "absolute",
+      width: "4rem",
+      transition: {
+        duration: 1,
+        default: { ease: "linear" },
+      },
+    },
+  };
+
+  const menuTextVariants = {
+    open: {
+      flex: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.25,
+        default: { ease: "linear" },
+      },
+      transitionEnd: {
+        display: "initial",
+      },
+    },
+    closed: {
+      opacity: 0,
+      display: "none",
+      transition: {
+        default: { ease: "linear" },
+      },
+    },
+  };
+
+  const menuSearchVariants = {
+    open: {
+      opacity: 1,
+      transition: {
+        duration: 0.25,
+        default: { ease: "linear" },
+      },
+      transitionEnd: {
+        display: "initial",
+      },
+    },
+    closed: {
+      opacity: 0,
+      display: "none",
+      transition: {
+        default: { ease: "linear" },
+      },
+    },
+  };
+
   const { user } = useAuth();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -87,7 +88,7 @@ const DashboardLayout = () => {
           <div className="flex gap-x-4">
             <div className="avatar ">
               <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                <img src="https://placeimg.com/192/192/tech" />
+                <img src="https://placeimg.com/192/192/tech" alt="people-img" />
               </div>
             </div>
             <motion.h1
