@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
-import { FiHome, FiServer, FiChevronRight } from "react-icons/fi";
+import { FiHome, FiServer, FiChevronRight, FiLogOut } from "react-icons/fi";
 import { motion } from "framer-motion";
 
 const DashboardLayout = () => {
@@ -66,14 +66,14 @@ const DashboardLayout = () => {
     },
   };
 
-  const { user } = useAuth();
+  const { user, signOut, loading } = useAuth();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
     <div className="flex">
       <motion.div
-        className="absolute z-50 bg-slate-50 px-4 py-8 h-[100vh] text-center"
+        className="absolute z-50 bg-slate-50 px-4 pt-8 pb-4 h-[100vh] text-center"
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
         layout
@@ -104,9 +104,9 @@ const DashboardLayout = () => {
             id="menu-icons-mobile"
           >
             <div className="flex flex-1 gap-x-2">
-              <FiHome className=" text-slate-300" />{" "}
+              <FiHome className=" text-slate-300 mr-2" />{" "}
               <motion.p
-                className="text-sm font-extra-light leading-4 text-left"
+                className="text-sm font-light text-slate-400 leading-4 text-left"
                 animate={isMenuOpen ? "open" : "closed"}
                 variants={menuTextVariants}
               >
@@ -114,9 +114,9 @@ const DashboardLayout = () => {
               </motion.p>
             </div>
             <div className="flex flex-1 gap-x-2">
-              <FiServer className=" text-slate-300" />{" "}
+              <FiServer className=" text-slate-300 mr-2" />{" "}
               <motion.p
-                className="text-sm font-extra-light leading-4 text-left"
+                className="text-sm font-light text-slate-400 leading-4 text-left"
                 animate={isMenuOpen ? "open" : "closed"}
                 variants={menuTextVariants}
               >
@@ -124,18 +124,53 @@ const DashboardLayout = () => {
               </motion.p>
             </div>
           </div>
-          <motion.div
-            className="form-control w-full mt-auto"
-            animate={isMenuOpen ? "open" : "closed"}
-            variants={menuSearchVariants}
-          >
-            <input
-              name="search"
-              type="text"
-              placeholder="Search"
-              className="input w-full h-12 font-light rounded-lg"
-            />
-          </motion.div>
+          <div className="mt-auto">
+            <motion.div
+              className="form-control w-full"
+              animate={isMenuOpen ? "open" : "closed"}
+              variants={menuSearchVariants}
+            >
+              <input
+                name="search"
+                type="text"
+                placeholder="Search"
+                className="input w-full h-12 font-light rounded-lg"
+              />
+            </motion.div>
+            <div className="flex">
+              <motion.button
+                className="bg-primary w-full mt-4 p-2 rounded-lg text-slate-700 font-light"
+                whileHover={{
+                  backgroundColor: "#f8fafc",
+                  boxShadow:
+                    "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+                  color: "#10FFCB",
+                  transition: { duration: 0.3 },
+                }}
+                whileFocus={{
+                  backgroundColor: "#f8fafc",
+                  boxShadow:
+                    "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+                  color: "#10FFCB",
+                  transition: { duration: 0.3 },
+                }}
+                whileTap={{
+                  scale: 0.9,
+                }}
+                disabled={loading}
+                onClick={signOut}
+              >
+                <FiLogOut className="text-slate-700 inline mr-2" />
+                <motion.span
+                  className="text-sm font-light text-slate-700 leading-4 text-left"
+                  animate={isMenuOpen ? "open" : "closed"}
+                  variants={menuTextVariants}
+                >
+                  Logout
+                </motion.span>
+              </motion.button>
+            </div>
+          </div>
         </div>
       </motion.div>
       <Outlet />
