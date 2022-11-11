@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
 import { FiHome, FiServer, FiChevronRight, FiLogOut } from "react-icons/fi";
-import { motion } from "framer-motion";
+import GradientFont from "../../shared/GradientFont";
 
 const DashboardLayout = () => {
   const menuVariants = {
@@ -82,7 +83,14 @@ const DashboardLayout = () => {
           className="absolute top-6 right-[-0.95rem] px-6 py-4 w-6 rounded-full bg-slate-50 text-slate-400 cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          <FiChevronRight />
+          <motion.div
+            initial={{ position: "relative", rotateY: 0 }}
+            animate={
+              isMenuOpen ? { rotateY: -180, left: "1rem" } : { rotateY: 0 }
+            }
+          >
+            <FiChevronRight />
+          </motion.div>
         </button>
         <div className="flex flex-col text-left h-[100%]">
           <div className="flex gap-x-4">
@@ -92,19 +100,45 @@ const DashboardLayout = () => {
               </div>
             </div>
             <motion.h1
-              className="text-md font-bold mt-1"
+              className="text-lg font-bold md:text-xl lg:mt-0 xl:text-2xl"
               animate={isMenuOpen ? "open" : "closed"}
               variants={menuTextVariants}
             >
-              Welcome, {user?.user_metadata.name}
+              Welcome,{" "}
+              <GradientFont
+                deg={-45}
+                colors={["#0cebeb", "#20e3b2", "#20e3b2"]}
+              >
+                {user?.user_metadata.name}
+              </GradientFont>
             </motion.h1>
           </div>
           <div
-            className="flex flex-col gap-y-4 mt-12 pl-2"
+            className="flex flex-col gap-y-6 mt-12 pl-2"
             id="menu-icons-mobile"
           >
-            <div className="flex flex-1 gap-x-2">
-              <FiHome className=" text-slate-300 mr-2" />{" "}
+            <motion.button
+              className="flex flex-1 gap-x-2 rounded-lg"
+              whileHover={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+              whileFocus={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+              whileTap={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+            >
+              <FiHome className=" text-slate-400 mr-2" />{" "}
               <motion.p
                 className="text-sm font-light text-slate-400 leading-4 text-left"
                 animate={isMenuOpen ? "open" : "closed"}
@@ -112,9 +146,29 @@ const DashboardLayout = () => {
               >
                 Dashboard
               </motion.p>
-            </div>
-            <div className="flex flex-1 gap-x-2">
-              <FiServer className=" text-slate-300 mr-2" />{" "}
+            </motion.button>
+            <motion.button
+              className="flex flex-1 gap-x-2 rounded-lg"
+              whileHover={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+              whileFocus={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+              whileTap={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+            >
+              <FiServer className=" text-slate-400 mr-2" />{" "}
               <motion.p
                 className="text-sm font-light text-slate-400 leading-4 text-left"
                 animate={isMenuOpen ? "open" : "closed"}
@@ -122,7 +176,7 @@ const DashboardLayout = () => {
               >
                 Services
               </motion.p>
-            </div>
+            </motion.button>
           </div>
           <div className="mt-auto">
             <motion.div
