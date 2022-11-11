@@ -3,6 +3,7 @@ import Layout from "./layout/Layout";
 import Home from "./home/Home";
 import Login from "./auth/Login";
 import Protected from "./auth/Protected";
+import DashboardLayout from "./admin/layout/DashboardLayout";
 import SkeletonLoader from "./shared/SkeletonLoader";
 import Loader from "./shared/Loader";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
@@ -74,6 +75,7 @@ const routes = [
   },
   {
     path: "dashboard",
+    element: <DashboardLayout />,
     children: [
       {
         index: true,

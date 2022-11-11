@@ -35,7 +35,6 @@ const variants = {
       color: "#fff",
       transition: { ease: "easeOut", duration: 0.3 },
     },
-    // #1e293b
   },
 };
 
