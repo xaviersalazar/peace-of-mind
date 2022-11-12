@@ -80,14 +80,16 @@ const DashboardLayout = () => {
   return (
     <div className="flex">
       <motion.div
-        className="absolute z-50 bg-slate-50 px-4 pt-8 pb-4 h-[100vh] text-center"
+        className="fixed z-50 bg-slate-50 px-4 pt-8 pb-4 h-[100vh] text-center"
         animate={isMenuOpen ? "open" : "closed"}
         variants={menuVariants}
         layout
       >
-        <button
-          className="absolute top-6 right-[-0.95rem] px-6 py-4 w-6 rounded-full bg-slate-50 text-slate-400 cursor-pointer"
+        <motion.button
+          className="absolute top-6 right-[-1rem] px-6 py-4 w-6 rounded-full bg-slate-50 text-slate-400 cursor-pointer"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
+          initial={{ top: "1.5rem" }}
+          animate={isMenuOpen ? { top: "2rem" } : { top: "1.5rem" }}
         >
           <motion.div
             initial={{ position: "relative", rotateY: 0 }}
@@ -97,16 +99,20 @@ const DashboardLayout = () => {
           >
             <FiChevronRight />
           </motion.div>
-        </button>
+        </motion.button>
         <div className="flex flex-col text-left h-[100%]">
           <div className="flex gap-x-4">
-            <div className="avatar ">
-              <div className="w-8 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+            <div className="avatar">
+              <motion.div
+                className="rounded-full ring ring-primary ring-offset-base-100 ring-offset-2"
+                initial={{ width: "2rem" }}
+                animate={isMenuOpen ? { width: "3rem" } : { width: "2rem" }}
+              >
                 <img src="https://placeimg.com/192/192/tech" alt="people-img" />
-              </div>
+              </motion.div>
             </div>
             <motion.h1
-              className="text-lg font-bold md:text-xl lg:mt-0 xl:text-2xl"
+              className="text-lg mt-2 font-bold md:text-2xl"
               animate={isMenuOpen ? "open" : "closed"}
               variants={menuTextVariants}
             >
@@ -120,11 +126,12 @@ const DashboardLayout = () => {
             </motion.h1>
           </div>
           <div
-            className="flex flex-col gap-y-6 mt-12 pl-2"
+            className="flex flex-col gap-y-6 mt-16 pl-2"
             id="menu-icons-mobile"
           >
             <motion.button
               className="flex flex-1 gap-x-2 rounded-lg"
+              initial={{ backgroundColor: "#f8fafc" }}
               whileHover={
                 isMenuOpen && {
                   backgroundColor: "#fff",
@@ -155,6 +162,7 @@ const DashboardLayout = () => {
             </motion.button>
             <motion.button
               className="flex flex-1 gap-x-2 rounded-lg"
+              initial={{ backgroundColor: "#f8fafc" }}
               whileHover={
                 isMenuOpen && {
                   backgroundColor: "#fff",
@@ -185,6 +193,7 @@ const DashboardLayout = () => {
             </motion.button>
             <motion.button
               className="flex flex-1 gap-x-2 rounded-lg"
+              initial={{ backgroundColor: "#f8fafc" }}
               whileHover={
                 isMenuOpen && {
                   backgroundColor: "#fff",
