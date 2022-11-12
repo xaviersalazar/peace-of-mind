@@ -3,7 +3,13 @@ import { Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
-import { FiHome, FiServer, FiChevronRight, FiLogOut } from "react-icons/fi";
+import {
+  FiHome,
+  FiServer,
+  FiSettings,
+  FiChevronRight,
+  FiLogOut,
+} from "react-icons/fi";
 import GradientFont from "../../shared/GradientFont";
 
 const DashboardLayout = () => {
@@ -175,6 +181,36 @@ const DashboardLayout = () => {
                 variants={menuTextVariants}
               >
                 Services
+              </motion.p>
+            </motion.button>
+            <motion.button
+              className="flex flex-1 gap-x-2 rounded-lg"
+              whileHover={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+              whileFocus={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+              whileTap={
+                isMenuOpen && {
+                  backgroundColor: "#fff",
+                  padding: "1rem",
+                }
+              }
+            >
+              <FiSettings className=" text-slate-400 mr-2" />{" "}
+              <motion.p
+                className="text-sm font-light text-slate-400 leading-4 text-left"
+                animate={isMenuOpen ? "open" : "closed"}
+                variants={menuTextVariants}
+              >
+                Settings
               </motion.p>
             </motion.button>
           </div>
