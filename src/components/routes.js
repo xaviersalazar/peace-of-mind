@@ -7,6 +7,7 @@ import DashboardLayout from "./admin/layout/DashboardLayout";
 import SkeletonLoader from "./shared/SkeletonLoader";
 import Loader from "./shared/Loader";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
+import Services from "./admin/services/Services";
 
 // Public
 const About = lazy(() => import("./about/About"));
@@ -83,6 +84,16 @@ const routes = [
           <Suspense fallback={<Loader />}>
             <Protected>
               <Dashboard />
+            </Protected>
+          </Suspense>
+        ),
+      },
+      {
+        path: "services",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Protected>
+              <Services />
             </Protected>
           </Suspense>
         ),

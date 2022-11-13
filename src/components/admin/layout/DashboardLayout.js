@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
@@ -157,7 +157,7 @@ const DashboardLayout = () => {
                 animate={isMenuOpen ? "open" : "closed"}
                 variants={menuTextVariants}
               >
-                Dashboard
+                <Link to="/dashboard">Dashboard</Link>
               </motion.p>
             </motion.button>
             <motion.button
@@ -188,7 +188,7 @@ const DashboardLayout = () => {
                 animate={isMenuOpen ? "open" : "closed"}
                 variants={menuTextVariants}
               >
-                Services
+                <Link to="/dashboard/services">Services</Link>
               </motion.p>
             </motion.button>
             <motion.button
