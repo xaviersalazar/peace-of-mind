@@ -9,13 +9,14 @@ import {
   FiSettings,
   FiChevronRight,
   FiLogOut,
+  FiSearch,
 } from "react-icons/fi";
 import GradientFont from "../../shared/GradientFont";
 
 const DashboardLayout = () => {
   const menuVariants = {
     open: {
-      position: "absolute",
+      position: "fixed",
       width: useIsMd() ? "24rem" : "66.666667%",
       transition: {
         duration: 1,
@@ -23,7 +24,7 @@ const DashboardLayout = () => {
       },
     },
     closed: {
-      position: "absolute",
+      position: "fixed",
       width: "4rem",
       transition: {
         duration: 1,
@@ -225,15 +226,16 @@ const DashboardLayout = () => {
           </div>
           <div className="mt-auto">
             <motion.div
-              className="form-control w-full"
+              className="form-control w-full relative"
               animate={isMenuOpen ? "open" : "closed"}
               variants={menuSearchVariants}
             >
+              <FiSearch className="absolute text-slate-300 top-0.5 left-4" />
               <input
                 name="search"
                 type="text"
                 placeholder="Search"
-                className="input w-full h-12 font-light rounded-lg"
+                className="input w-full h-12 font-light rounded-lg indent-6"
               />
             </motion.div>
             <div className="flex">

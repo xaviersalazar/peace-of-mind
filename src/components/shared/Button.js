@@ -38,12 +38,13 @@ const variants = {
   },
 };
 
-const Button = ({ outline, icon, children }) => {
+const Button = ({ className, outline, icon, children }) => {
   const classes = classNames(
     "text-xs font-light h-8 min-h-[0] px-6 mt-6 normal-case rounded-2xl relative md:text-sm",
     outline
       ? "bg-transparent border-2 border-slate-800 pl-6 pr-5"
-      : "border-none text-slate-600 bg-primary"
+      : "border-none text-slate-500 bg-primary",
+    className
   );
 
   return (
