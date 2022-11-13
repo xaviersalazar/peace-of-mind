@@ -3,7 +3,7 @@ import { gql } from "@apollo/client";
 // Pages limited to 30 by default
 export const GET_ALL_SERVICES = gql`
   query getAllServices {
-    servicesCollection {
+    servicesCollection(orderBy: [{ categoryId: AscNullsFirst }]) {
       edges {
         node {
           id
@@ -18,11 +18,14 @@ export const GET_ALL_SERVICES = gql`
               node {
                 id
                 price
+                unit
+                hasUpcharge
               }
             }
           }
         }
       }
+      totalCount
       pageInfo {
         startCursor
         endCursor
