@@ -38,18 +38,34 @@ const variants = {
   },
 };
 
-const Button = ({ className, outline, icon, children, ...rest }) => {
-  const classes = classNames(
-    "text-xs font-light h-8 min-h-[0] px-6 mt-6 normal-case rounded-2xl relative md:text-sm",
-    outline
-      ? "bg-transparent border-2 border-slate-800 pl-6 pr-5"
-      : "border-none text-slate-500 bg-primary",
-    className
-  );
+const Button = ({ className, outline, icon, disabled, children, ...rest }) => {
+  const baseClasses =
+    "text-xs font-light h-8 min-h-[0] px-6 mt-6 normal-case rounded-2xl relative md:text-sm";
+
+  if (disabled) {
+    return (
+      <button
+        className={classNames(
+          baseClasses,
+          "bg-slate-50 text-slate-300 cursor-default",
+          className
+        )}
+      >
+        {children}
+        {icon}
+      </button>
+    );
+  }
 
   return (
     <motion.button
-      className={classes}
+      className={classNames(
+        baseClasses,
+        outline
+          ? "bg-transparent border-2 border-slate-800 pl-6 pr-5"
+          : "border-none text-slate-500 bg-primary",
+        className
+      )}
       whileHover={
         outline ? variants.outline.whileHover : variants.normal.whileHover
       }

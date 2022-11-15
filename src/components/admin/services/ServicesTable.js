@@ -1,23 +1,28 @@
 import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { FiEdit, FiTrash2, FiSearch, FiFilter } from "react-icons/fi";
-import { GET_ALL_SERVICES } from "../../../graphql/queries/getAllServices";
-import classNames from "classnames";
-import { uniqueId } from "lodash";
+import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries/getAllServicesPaginated";
 import Button from "../../shared/Button";
 import ServicesTableLoader from "./ServicesTableLoader";
 import Error from "../../shared/Error";
+import classNames from "classnames";
+import { uniqueId } from "lodash";
+
+const PAGE_LIMIT = 30;
 
 const ServicesTable = () => {
-  const { data, loading, error, refetch } = useQuery(GET_ALL_SERVICES, {
+  const [loading, setLoading] = useState(true);
+  const [pageNum, setPageNum] = useState(0);
+
+  const { data, error, refetch } = useQuery(GET_ALL_SERVICES_PAGINATED, {
+    onCompleted: () => setLoading(false),
     fetchPolicy: "network-only",
     notifyOnNetworkStatusChange: true,
     variables: {
-      first: 15,
-      after: null,
+      skip: 0,
+      take: PAGE_LIMIT,
     },
   });
-  const [pageNum, setPageNum] = useState(1);
 
   if (error) {
     return (
@@ -26,8 +31,6 @@ const ServicesTable = () => {
       </div>
     );
   }
-
-  console.log(data);
 
   return (
     <>
@@ -70,11 +73,8 @@ const ServicesTable = () => {
         {loading ? (
           <ServicesTableLoader />
         ) : (
-          data.servicesCollection.edges.map(
-            (
-              { node: { id, title, category, description, pricesCollection } },
-              i
-            ) => (
+          data?.servicesPaginated.services.map(
+            ({ id, title, description, prices, category }, i) => (
               <div key={id} className="table-row">
                 <div
                   className={classNames(
@@ -105,13 +105,11 @@ const ServicesTable = () => {
                   )}
                 >
                   <div className="grid auto-cols-fr gap-y-2">
-                    {pricesCollection.edges.map(
-                      ({ node: { id: priceId, price, unit } }) => (
-                        <p key={uniqueId(`${title}-price-${priceId}_`)}>
-                          {unit}: ${price}
-                        </p>
-                      )
-                    )}
+                    {prices.map(({ id: priceId, price, unit }) => (
+                      <p key={uniqueId(`${title}-price-${priceId}_`)}>
+                        {unit}: ${price}
+                      </p>
+                    ))}
                   </div>
                 </div>
                 <div
@@ -149,26 +147,30 @@ const ServicesTable = () => {
       <div className="grid grid-cols-3 gap-x-4 text-center ">
         <Button
           className="md:w-3/4 lg:w-1/2 xl:w-3/12"
-          onClick={() => {
-            refetch({
-              after: data?.servicesCollection?.pageInfo.endCursor,
-            });
-            setPageNum(pageNum - 1);
+          disabled={pageNum <= 0}
+          onClick={(e) => {
+            let prevPage = pageNum - 1;
+
+            refetch({ skip: prevPage * PAGE_LIMIT });
+            setPageNum(prevPage);
+            e.currentTarget.blur();
           }}
         >
           Prev
         </Button>
         <p className="text-slate-300 text-sm font-light mt-7 xl:mt-8">
-          Page {pageNum} of{" "}
-          {Math.floor(data?.servicesCollection?.totalCount / 15)}
+          Page {data?.servicesPaginated.pageNumber} of{" "}
+          {data?.servicesPaginated.totalPages}
         </p>
         <Button
           className="justify-self-end md:w-3/4 lg:w-1/2 xl:w-3/12"
-          onClick={() => {
-            refetch({
-              after: data.servicesCollection.pageInfo.endCursor,
-            });
-            setPageNum(pageNum + 1);
+          disabled={pageNum + 1 === data?.servicesPaginated.totalPages}
+          onClick={(e) => {
+            let nextPage = pageNum + 1;
+
+            refetch({ skip: nextPage * PAGE_LIMIT });
+            setPageNum(nextPage);
+            e.currentTarget.blur();
           }}
         >
           Next
