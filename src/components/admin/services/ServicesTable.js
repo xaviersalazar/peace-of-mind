@@ -56,7 +56,7 @@ const ServicesTable = () => {
             <div className="table-cell text-left tracking-wider text-md font-bold pl-4 pr-2 py-4 rounded-tl-2xl">
               Title
             </div>
-            <div className="table-cell text-left tracking-wider text-md font-bold px-2 py-4">
+            <div className="hidden md:table-cell text-left tracking-wider text-md font-bold px-2 py-4">
               Service
             </div>
             <div className="table-cell text-left tracking-wider text-md font-bold px-2 py-4">
@@ -88,7 +88,7 @@ const ServicesTable = () => {
                 </div>
                 <div
                   className={classNames(
-                    "table-cell md:w-[15%] text-xs xl:text-sm font-light text-slate-400 px-2 py-4",
+                    "hidden md:table-cell md:w-[15%] text-xs xl:text-sm font-light text-slate-400 px-2 py-4",
                     i === data.length - 1
                       ? "border-none"
                       : "border-b border-slate-50"

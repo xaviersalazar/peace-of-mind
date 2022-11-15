@@ -16,7 +16,7 @@ const ServicesTableLoader = () => (
         </div>
         <div
           className={classNames(
-            "table-cell md:w-[15%] px-2 py-4",
+            "hidden md:table-cell md:w-[15%] px-2 py-4",
             i === arr.length - 1 ? "border-none" : "border-b border-slate-50"
           )}
         >
