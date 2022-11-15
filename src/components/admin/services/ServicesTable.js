@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { FiEdit, FiTrash2, FiSearch, FiFilter } from "react-icons/fi";
 import { GET_ALL_SERVICES } from "../../../graphql/queries/getAllServices";
@@ -8,7 +9,15 @@ import ServicesTableLoader from "./ServicesTableLoader";
 import Error from "../../shared/Error";
 
 const ServicesTable = () => {
-  const { loading, data, error } = useQuery(GET_ALL_SERVICES);
+  const { data, loading, error, refetch } = useQuery(GET_ALL_SERVICES, {
+    fetchPolicy: "network-only",
+    notifyOnNetworkStatusChange: true,
+    variables: {
+      first: 15,
+      after: null,
+    },
+  });
+  const [pageNum, setPageNum] = useState(1);
 
   if (error) {
     return (
@@ -17,6 +26,8 @@ const ServicesTable = () => {
       </div>
     );
   }
+
+  console.log(data);
 
   return (
     <>
@@ -59,7 +70,7 @@ const ServicesTable = () => {
         {loading ? (
           <ServicesTableLoader />
         ) : (
-          data?.servicesCollection?.edges?.map(
+          data.servicesCollection.edges.map(
             (
               { node: { id, title, category, description, pricesCollection } },
               i
@@ -135,12 +146,31 @@ const ServicesTable = () => {
           )
         )}
       </div>
-      <div className="grid grid-cols-3 gap-x-4 text-center mt-4">
-        <Button className="md:w-3/4 lg:w-1/2 xl:w-3/12">Prev</Button>
+      <div className="grid grid-cols-3 gap-x-4 text-center ">
+        <Button
+          className="md:w-3/4 lg:w-1/2 xl:w-3/12"
+          onClick={() => {
+            refetch({
+              after: data?.servicesCollection?.pageInfo.endCursor,
+            });
+            setPageNum(pageNum - 1);
+          }}
+        >
+          Prev
+        </Button>
         <p className="text-slate-300 text-sm font-light mt-7 xl:mt-8">
-          Page 1 of {Math.floor(data?.servicesCollection?.totalCount / 30)}
+          Page {pageNum} of{" "}
+          {Math.floor(data?.servicesCollection?.totalCount / 15)}
         </p>
-        <Button className="justify-self-end md:w-3/4 lg:w-1/2 xl:w-3/12">
+        <Button
+          className="justify-self-end md:w-3/4 lg:w-1/2 xl:w-3/12"
+          onClick={() => {
+            refetch({
+              after: data.servicesCollection.pageInfo.endCursor,
+            });
+            setPageNum(pageNum + 1);
+          }}
+        >
           Next
         </Button>
       </div>

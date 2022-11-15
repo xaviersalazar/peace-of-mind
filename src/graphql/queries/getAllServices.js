@@ -1,9 +1,12 @@
 import { gql } from "@apollo/client";
 
-// Pages limited to 30 by default
 export const GET_ALL_SERVICES = gql`
-  query getAllServices {
-    servicesCollection(orderBy: [{ categoryId: AscNullsFirst }]) {
+  query Services($first: Int, $after: String) {
+    servicesCollection(
+      first: $first
+      after: $after
+      orderBy: [{ categoryId: AscNullsFirst }]
+    ) {
       edges {
         node {
           id

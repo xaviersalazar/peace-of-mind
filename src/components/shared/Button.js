@@ -38,7 +38,7 @@ const variants = {
   },
 };
 
-const Button = ({ className, outline, icon, children }) => {
+const Button = ({ className, outline, icon, children, ...rest }) => {
   const classes = classNames(
     "text-xs font-light h-8 min-h-[0] px-6 mt-6 normal-case rounded-2xl relative md:text-sm",
     outline
@@ -57,6 +57,7 @@ const Button = ({ className, outline, icon, children }) => {
         outline ? variants.outline.whileFocus : variants.normal.whileFocus
       }
       whileTap={{ scale: 0.9 }}
+      {...rest}
     >
       {children}
       {icon}
