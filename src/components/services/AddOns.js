@@ -1,14 +1,18 @@
 import { useQuery } from "@apollo/client";
-import { GET_SERVICE } from "../../graphql/queries/getService";
+import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries/getServicesByCategory";
 import Service from "../shared/Service";
+import ServiceCard from "../shared/ServiceCard";
 import GradientFont from "../shared/GradientFont";
 import SkeletonLoader from "../shared/SkeletonLoader";
 import Error from "../shared/Error";
-import Services from "../shared/Services";
 import Notice from "../shared/Notice";
 
-const AddOns = ({ categoryKey }) => {
-  const { loading, error, data } = useQuery(GET_SERVICE(categoryKey));
+const AddOns = ({ categoryId }) => {
+  const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
+    variables: {
+      categoryId,
+    },
+  });
 
   if (loading) {
     return (
@@ -26,7 +30,7 @@ const AddOns = ({ categoryKey }) => {
     );
   }
 
-  const { servicesCollection } = data;
+  const { servicesByCategory } = data;
 
   return (
     <Service>
@@ -45,7 +49,11 @@ const AddOns = ({ categoryKey }) => {
             Give your session something <span className="italic">extra</span>
           </p>
         </div>
-        <Services services={servicesCollection} />
+        <div className="grid auto-rows-fr grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6 xl:col-span-2">
+          {servicesByCategory.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
+        </div>
       </div>
       <Notice />
     </Service>

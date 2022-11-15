@@ -6,8 +6,8 @@ import Protected from "./auth/Protected";
 import DashboardLayout from "./admin/layout/DashboardLayout";
 import SkeletonLoader from "./shared/SkeletonLoader";
 import Loader from "./shared/Loader";
-import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 import Services from "./admin/services/Services";
+import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
 // Public
 const About = lazy(() => import("./about/About"));
@@ -37,7 +37,7 @@ const routes = [
             path: "add-ons",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <AddOns categoryKey={CATEGORY_MAPPING.ADD_ONS} />
+                <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
               </Suspense>
             ),
           },

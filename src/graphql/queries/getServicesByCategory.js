@@ -1,15 +1,11 @@
 import { gql } from "@apollo/client";
 
-export const GET_SERVICE = gql`
-  query GetService($id: Int) {
-    service(id: $id) {
+export const GET_SERVICES_BY_CATEGORY = gql`
+  query GetServicesByCategory($categoryId: Int) {
+    servicesByCategory(categoryId: $categoryId) {
       id
       title
       description
-      category {
-        id
-        categoryName
-      }
       prices {
         id
         price

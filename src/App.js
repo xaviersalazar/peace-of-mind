@@ -3,15 +3,10 @@ import { useRoutes } from "react-router-dom";
 import { AuthProvider } from "./components/context/Auth";
 import routes from "./components/routes";
 
-const supabaseUrl = process.env.REACT_APP_SUPABASE_URL;
-const supabaseGraphqlUrl = process.env.REACT_APP_SUPABASE_GRAPHQL_URL;
-const supabaseAnonKey = process.env.REACT_APP_SUPABASE_ANON_KEY;
+const uri = process.env.REACT_APP_GRAPHQL_URL;
 
 const client = new ApolloClient({
-  uri: `${supabaseUrl}${supabaseGraphqlUrl}`,
-  headers: {
-    apiKey: supabaseAnonKey,
-  },
+  uri,
   cache: new InMemoryCache(),
 });
 

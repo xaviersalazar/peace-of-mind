@@ -122,14 +122,16 @@ const Nav = () => {
           )}
         >
           <div className="flex justify-center md:justify-between">
-            <Logo
-              className={classNames(
-                "hidden md:block justify-start w-[48px] relative bottom-1",
-                shouldApplyShadow ? "active" : ""
-              )}
-              src="/logo-black.png"
-              alt="background"
-            />
+            <Link to="/">
+              <Logo
+                className={classNames(
+                  "hidden md:block justify-start w-[48px] relative bottom-1 cursor-pointer",
+                  shouldApplyShadow ? "active" : ""
+                )}
+                src="/logo-black.png"
+                alt="background"
+              />
+            </Link>
             <div className="flex gap-2 justify-between md:justify-end md:gap-8">
               {navItems.map(({ title, link, subItems }) => (
                 <div className="relative" key={title}>
