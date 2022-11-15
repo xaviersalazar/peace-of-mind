@@ -6,7 +6,7 @@ import Button from "../../shared/Button";
 import ServicesTableLoader from "./ServicesTableLoader";
 import Error from "../../shared/Error";
 import classNames from "classnames";
-import { uniqueId } from "lodash";
+import { isEmpty, uniqueId } from "lodash";
 
 const PAGE_LIMIT = 30;
 
@@ -31,6 +31,20 @@ const ServicesTable = () => {
       </div>
     );
   }
+
+  const getPrice = (price, unit) => {
+    if (unit) {
+      if (unit === "Range") {
+        const prices = price.split(",");
+
+        return `$${prices[0].trim()} - $${prices[1].trim()}`;
+      }
+
+      return `${unit}: $${price}`;
+    }
+
+    return `$${price}`;
+  };
 
   return (
     <>
@@ -105,11 +119,13 @@ const ServicesTable = () => {
                   )}
                 >
                   <div className="grid auto-cols-fr gap-y-2">
-                    {prices.map(({ id: priceId, price, unit }) => (
-                      <p key={uniqueId(`${title}-price-${priceId}_`)}>
-                        {unit}: ${price}
-                      </p>
-                    ))}
+                    {isEmpty(prices)
+                      ? "N/A"
+                      : prices.map(({ id: priceId, price, unit }) => (
+                          <p key={uniqueId(`${title}-price-${priceId}_`)}>
+                            {getPrice(price, unit)}
+                          </p>
+                        ))}
                   </div>
                 </div>
                 <div
