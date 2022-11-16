@@ -49,9 +49,13 @@ const AddOns = ({ categoryId }) => {
             Give your session something <span className="italic">extra</span>
           </p>
         </div>
-        <div className="grid auto-rows-fr grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6 xl:col-span-2">
+        <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6 xl:col-span-2">
           {servicesByCategory.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <ServiceCard
+              key={service.id}
+              service={service}
+              strikeColor="#ddd6f3"
+            />
           ))}
         </div>
       </div>
