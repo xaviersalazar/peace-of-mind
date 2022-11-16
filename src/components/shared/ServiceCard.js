@@ -1,6 +1,8 @@
 import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { isEmpty } from "lodash";
+import styled from "styled-components";
+import classNames from "classnames";
 
 const informationVariants = {
   opened: {
@@ -68,6 +70,10 @@ const informationContentVariants = {
   },
 };
 
+const Strikethrough = styled.div`
+  background-color: ${({ color }) => `${color}`};
+`;
+
 const Services = ({ service: { title, description, prices }, strikeColor }) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 
@@ -81,8 +87,9 @@ const Services = ({ service: { title, description, prices }, strikeColor }) => {
                 <Fragment key={word}>
                   <span className="relative w-fit z-[1]">
                     {word}{" "}
-                    <span
-                      className={`absolute left-0 h-2 w-full bg-[${strikeColor}] z-[-1] bottom-0.5 opacity-80`}
+                    <Strikethrough
+                      className={`absolute left-0 h-2 w-full z-[-1] bottom-0.5 opacity-80`}
+                      color={strikeColor}
                     />
                   </span>
                 </Fragment>
@@ -93,13 +100,13 @@ const Services = ({ service: { title, description, prices }, strikeColor }) => {
             prices.map(({ price, unit }) => (
               <p
                 key={`${title}_${price}`}
-                className="text-sm font-extra-light text-slate-400 text-center px-4"
+                className="text-sm font-light text-slate-400 text-center px-4"
               >
                 {unit} ${price}
               </p>
             ))
           ) : (
-            <p className="text-sm font-extra-light text-slate-400 text-center px-4">
+            <p className="text-sm font-light text-slate-400 text-center px-4">
               TBD
             </p>
           )}
@@ -114,9 +121,10 @@ const Services = ({ service: { title, description, prices }, strikeColor }) => {
           >
             <motion.button
               key="view-information-btn"
-              className={`px-4 py-2 text-xs font-extra-light ${
+              className={classNames(
+                "px-4 py-2 text-xs text-slate-400 font-light rounded-full",
                 didClickViewInformation ? "bg-slate-50" : "bg-white"
-              } rounded-full`}
+              )}
               initial="closed"
               animate={didClickViewInformation ? "opened" : "closed"}
               variants={viewBtnVariants}
