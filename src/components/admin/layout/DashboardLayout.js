@@ -3,15 +3,9 @@ import { Link, Outlet } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
-import {
-  FiHome,
-  FiServer,
-  FiSettings,
-  FiChevronRight,
-  FiLogOut,
-  FiSearch,
-} from "react-icons/fi";
+import { FiChevronRight, FiLogOut, FiSearch } from "react-icons/fi";
 import GradientFont from "../../shared/GradientFont";
+import { MENU } from "./menu";
 
 const DashboardLayout = () => {
   const menuVariants = {
@@ -126,103 +120,41 @@ const DashboardLayout = () => {
               </GradientFont>
             </motion.h1>
           </div>
-          <div
-            className="flex flex-col gap-y-6 mt-16 pl-2"
-            id="menu-icons-mobile"
-          >
-            <motion.button
-              className="flex flex-1 gap-x-2 rounded-lg"
-              initial={{ backgroundColor: "#f8fafc" }}
-              whileHover={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
+          <div className="flex flex-col gap-y-6 mt-16 pl-2" id="menu">
+            {MENU.map(({ title, url, icon }) => (
+              <motion.button
+                key={title}
+                className="flex flex-1 gap-x-2 rounded-lg"
+                initial={{ backgroundColor: "#f8fafc" }}
+                whileHover={
+                  isMenuOpen && {
+                    backgroundColor: "#fff",
+                    padding: "1rem",
+                  }
                 }
-              }
-              whileFocus={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
+                whileFocus={
+                  isMenuOpen && {
+                    backgroundColor: "#fff",
+                    padding: "1rem",
+                  }
                 }
-              }
-              whileTap={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
+                whileTap={
+                  isMenuOpen && {
+                    backgroundColor: "#fff",
+                    padding: "1rem",
+                  }
                 }
-              }
-            >
-              <FiHome className=" text-slate-400 mr-2" />{" "}
-              <motion.p
-                className="text-sm font-light text-slate-400 leading-4 text-left"
-                animate={isMenuOpen ? "open" : "closed"}
-                variants={menuTextVariants}
               >
-                <Link to="/dashboard">Dashboard</Link>
-              </motion.p>
-            </motion.button>
-            <motion.button
-              className="flex flex-1 gap-x-2 rounded-lg"
-              initial={{ backgroundColor: "#f8fafc" }}
-              whileHover={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
-                }
-              }
-              whileFocus={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
-                }
-              }
-              whileTap={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
-                }
-              }
-            >
-              <FiServer className=" text-slate-400 mr-2" />{" "}
-              <motion.p
-                className="text-sm font-light text-slate-400 leading-4 text-left"
-                animate={isMenuOpen ? "open" : "closed"}
-                variants={menuTextVariants}
-              >
-                <Link to="/dashboard/services">Services</Link>
-              </motion.p>
-            </motion.button>
-            <motion.button
-              className="flex flex-1 gap-x-2 rounded-lg"
-              initial={{ backgroundColor: "#f8fafc" }}
-              whileHover={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
-                }
-              }
-              whileFocus={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
-                }
-              }
-              whileTap={
-                isMenuOpen && {
-                  backgroundColor: "#fff",
-                  padding: "1rem",
-                }
-              }
-            >
-              <FiSettings className=" text-slate-400 mr-2" />{" "}
-              <motion.p
-                className="text-sm font-light text-slate-400 leading-4 text-left"
-                animate={isMenuOpen ? "open" : "closed"}
-                variants={menuTextVariants}
-              >
-                Settings
-              </motion.p>
-            </motion.button>
+                {icon}{" "}
+                <motion.p
+                  className="text-sm font-light text-slate-400 leading-4 text-left"
+                  animate={isMenuOpen ? "open" : "closed"}
+                  variants={menuTextVariants}
+                >
+                  <Link to={url}>{title}</Link>
+                </motion.p>
+              </motion.button>
+            ))}
           </div>
           <div className="mt-auto">
             <motion.div

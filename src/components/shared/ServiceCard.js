@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { isEmpty } from "lodash";
-import styled from "styled-components";
 import classNames from "classnames";
+import styled from "styled-components";
 
 const informationVariants = {
   opened: {
