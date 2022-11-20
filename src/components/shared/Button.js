@@ -38,7 +38,15 @@ const variants = {
   },
 };
 
-const Button = ({ className, outline, icon, disabled, children, ...rest }) => {
+const Button = ({
+  className,
+  outline,
+  icon,
+  cancelBtn,
+  disabled,
+  children,
+  ...rest
+}) => {
   const baseClasses =
     "text-xs font-light h-8 min-h-[0] px-6 mt-6 normal-case rounded-2xl relative md:text-sm";
 
@@ -53,6 +61,14 @@ const Button = ({ className, outline, icon, disabled, children, ...rest }) => {
       >
         {children}
         {icon}
+      </button>
+    );
+  }
+
+  if (cancelBtn) {
+    return (
+      <button className={classNames(baseClasses, "bg-slate-50")} {...rest}>
+        {children}
       </button>
     );
   }
