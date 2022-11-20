@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { FiEdit, FiTrash2, FiSearch, FiFilter } from "react-icons/fi";
 import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries/getAllServicesPaginated";
+import EditServiceModal from "./EditServiceModal";
 import Button from "../../shared/Button";
 import ServicesTableLoader from "./ServicesTableLoader";
 import Error from "../../shared/Error";
@@ -13,6 +14,8 @@ const PAGE_LIMIT = 30;
 const ServicesTable = () => {
   const [loading, setLoading] = useState(true);
   const [pageNum, setPageNum] = useState(0);
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
 
   const { data, error, refetch } = useQuery(GET_ALL_SERVICES_PAGINATED, {
     onCompleted: () => setLoading(false),
@@ -45,6 +48,8 @@ const ServicesTable = () => {
 
     return `$${price}`;
   };
+
+  const toggleEditModal = () => setIsEditModalOpen(!isEditModalOpen);
 
   return (
     <>
@@ -147,7 +152,18 @@ const ServicesTable = () => {
                   )}
                 >
                   <div className="flex gap-x-4 justify-center">
-                    <button>
+                    <button
+                      onClick={() => {
+                        setSelectedService({
+                          id,
+                          title,
+                          description,
+                          prices,
+                          category,
+                        });
+                        toggleEditModal();
+                      }}
+                    >
                       <FiEdit />
                     </button>
                     <button>
@@ -192,6 +208,11 @@ const ServicesTable = () => {
           Next
         </Button>
       </div>
+      <EditServiceModal
+        isEditModalOpen={isEditModalOpen}
+        toggleEditModal={toggleEditModal}
+        service={selectedService}
+      />
     </>
   );
 };
