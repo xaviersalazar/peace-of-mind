@@ -1,7 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
-import Button from "../shared/Button";
-import GradientFont from "../shared/GradientFont";
-import Section from "../shared/Section";
+import { Button, GradientFont, Section } from "../shared";
 import Services from "./Services";
 import styled from "styled-components";
 

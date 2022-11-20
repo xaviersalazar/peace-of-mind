@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal, Checkbox } from "react-daisyui";
-import Button from "../../shared/Button";
+import { Button, StrikethruText } from "../../shared";
 import styled from "styled-components";
-import StrikethruText from "../../shared/StrikethruText";
 
 const { Header, Body, Actions } = Modal;
 

@@ -4,8 +4,7 @@ import Home from "./home/Home";
 import Login from "./auth/Login";
 import Protected from "./auth/Protected";
 import DashboardLayout from "./admin/layout/DashboardLayout";
-import SkeletonLoader from "./shared/SkeletonLoader";
-import Loader from "./shared/Loader";
+import { Loader, SkeletonLoader } from "./shared";
 import Services from "./admin/services/Services";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
 import { FiChevronRight, FiLogOut, FiSearch } from "react-icons/fi";
-import GradientFont from "../../shared/GradientFont";
+import { GradientFont } from "../../shared";
 import { MENU } from "./menu";
 
 const DashboardLayout = () => {

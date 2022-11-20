@@ -1,11 +1,13 @@
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries/getServicesByCategory";
-import Service from "../shared/Service";
-import ServiceCard from "../shared/ServiceCard";
-import GradientFont from "../shared/GradientFont";
-import SkeletonLoader from "../shared/SkeletonLoader";
-import Error from "../shared/Error";
-import Notice from "../shared/Notice";
+import {
+  Error,
+  GradientFont,
+  Notice,
+  Service,
+  ServiceCard,
+  SkeletonLoader,
+} from "../shared";
 
 const AddOns = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {

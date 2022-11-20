@@ -4,7 +4,7 @@ import { FiEye, FiEyeOff, FiAlertTriangle } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../context/Auth";
 import { isEmpty } from "lodash";
-import Spinner from "../shared/Spinner";
+import { Spinner } from "../shared";
 
 const initialState = {
   name: "",

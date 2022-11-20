@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useQuery } from "@apollo/client";
 import { FiEdit, FiTrash2, FiSearch, FiFilter } from "react-icons/fi";
 import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries/getAllServicesPaginated";
-import EditServiceModal from "./EditServiceModal";
-import Button from "../../shared/Button";
-import ServicesTableLoader from "./ServicesTableLoader";
-import Error from "../../shared/Error";
-import classNames from "classnames";
 import { isEmpty, uniqueId } from "lodash";
+import EditServiceModal from "./EditServiceModal";
+import { Button, Error } from "../../shared";
+import ServicesTableLoader from "./ServicesTableLoader";
+import classNames from "classnames";
 
 const PAGE_LIMIT = 30;
 

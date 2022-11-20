@@ -1,5 +1,5 @@
-import classNames from "classnames";
 import { motion } from "framer-motion";
+import classNames from "classnames";
 
 const ServiceCard = ({ className, onClick, id, imgName, title, desc }) => (
   <motion.div
