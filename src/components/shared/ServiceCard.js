@@ -1,4 +1,4 @@
-import { Fragment, useState } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import StrikethruText from "./StrikethruText";
 import { isEmpty } from "lodash";
@@ -122,22 +122,24 @@ const Services = ({ service: { title, description, prices }, strikeColor }) => {
                 ? "Close Information"
                 : "View Information"}
             </motion.button>
-            <motion.div
-              key="information-container"
-              initial="closed"
-              animate={didClickViewInformation ? "opened" : "closed"}
-              variants={informationContainerVariants}
-            >
-              <motion.p
-                key="information-text"
+            {didClickViewInformation && (
+              <motion.div
+                key="information-container"
                 initial="closed"
                 animate={didClickViewInformation ? "opened" : "closed"}
-                variants={informationContentVariants}
-                className="text-sm font-light text-slate-400"
+                variants={informationContainerVariants}
               >
-                {description}
-              </motion.p>
-            </motion.div>
+                <motion.p
+                  key="information-text"
+                  initial="closed"
+                  animate={didClickViewInformation ? "opened" : "closed"}
+                  variants={informationContentVariants}
+                  className="text-sm font-light text-slate-400"
+                >
+                  {description}
+                </motion.p>
+              </motion.div>
+            )}
           </motion.div>
         </AnimatePresence>
       </div>
