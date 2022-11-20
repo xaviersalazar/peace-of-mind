@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Modal, Checkbox } from "react-daisyui";
 import { Button, StrikethruText } from "../../shared";
+import { FiDollarSign, FiEdit2 } from "react-icons/fi";
 import styled from "styled-components";
 
 const { Header, Body, Actions } = Modal;
@@ -9,6 +10,12 @@ const EditModal = styled.div`
   & .modal {
     top: -6rem;
     background: rgba(248, 250, 252, 0.8);
+  }
+`;
+
+const InputContainer = styled.div`
+  & .input:focus ~ svg {
+    color: #10ffcb;
   }
 `;
 
@@ -55,7 +62,10 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
 
   return (
     <EditModal>
-      <Modal open={isEditModalOpen}>
+      <Modal
+        className="md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl"
+        open={isEditModalOpen}
+      >
         <Header className="text-2xl font-bold text-center mb-4">
           <StrikethruText text={editedService?.title} color="#10FFCB" />
         </Header>
@@ -80,7 +90,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                 </label>
                 <textarea
                   name="description"
-                  className="textarea w-full h-32 font-light rounded-lg resize-none"
+                  className="textarea w-full h-32 font-light rounded-lg resize-none focus:outline-primary"
                   value={editedService?.description}
                   onChange={onChange}
                 />
@@ -92,7 +102,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                 {editedService?.prices.map(
                   ({ id, price, unit, hasUpcharge }) => (
                     <div key={id} className="flex gap-x-2">
-                      <div>
+                      <InputContainer className="relative md:flex-1">
                         <label className="label">
                           <span className="text-sm label-text font-light">
                             Unit
@@ -101,13 +111,14 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                         <input
                           name="unit"
                           type="text"
-                          className="input text-sm w-full h-10 font-light rounded-lg"
+                          className="input text-sm w-full h-10 font-light rounded-lg pl-6 focus:outline-primary"
                           value={unit || "N/A"}
                           onChange={onChange}
                           data-priceid={id}
                         />
-                      </div>
-                      <div>
+                        <FiEdit2 className="absolute left-2 bottom-[0.82rem] text-xs text-slate-300" />
+                      </InputContainer>
+                      <InputContainer className="relative lg:flex-1">
                         <label className="label">
                           <span className="text-sm label-text font-light">
                             Price
@@ -116,12 +127,13 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                         <input
                           name="price"
                           type="text"
-                          className="input text-sm w-full h-10 font-light rounded-lg"
+                          className="input text-sm w-full h-10 font-light rounded-lg pl-6 focus:outline-primary"
                           value={price}
                           onChange={onChange}
                           data-priceid={id}
                         />
-                      </div>
+                        <FiDollarSign className="absolute left-2 bottom-[0.82rem] text-xs text-slate-300" />
+                      </InputContainer>
                       <div className="text-center">
                         <label className="label">
                           <span className="label-text font-light">
@@ -130,7 +142,8 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                         </label>
                         <Checkbox
                           name="hasUpcharge"
-                          className="relative top-[0.5rem]"
+                          color="primary"
+                          className="relative top-[0.5rem] focus:outline-primary"
                           defaultChecked={hasUpcharge}
                           onChange={onChange}
                           data-priceid={id}
