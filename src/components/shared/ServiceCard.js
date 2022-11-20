@@ -1,8 +1,8 @@
 import { Fragment, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import StrikethruText from "./StrikethruText";
 import { isEmpty } from "lodash";
 import classNames from "classnames";
-import styled from "styled-components";
 
 const informationVariants = {
   opened: {
@@ -70,10 +70,6 @@ const informationContentVariants = {
   },
 };
 
-const Strikethrough = styled.div`
-  background-color: ${({ color }) => `${color}`};
-`;
-
 const Services = ({ service: { title, description, prices }, strikeColor }) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 
@@ -83,17 +79,7 @@ const Services = ({ service: { title, description, prices }, strikeColor }) => {
         <div className="mb-4">
           <div className="relative w-fit mx-auto">
             <div className="text-2xl font-bold text-slate-700 self-center">
-              {title.split(" ").map((word) => (
-                <Fragment key={word}>
-                  <span className="relative w-fit z-[1]">
-                    {word}{" "}
-                    <Strikethrough
-                      className={`absolute left-0 h-2 w-full z-[-1] bottom-0.5 opacity-80`}
-                      color={strikeColor}
-                    />
-                  </span>
-                </Fragment>
-              ))}
+              <StrikethruText text={title} color={strikeColor} />
             </div>
           </div>
           {!isEmpty(prices) ? (

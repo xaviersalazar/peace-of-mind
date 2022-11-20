@@ -1,7 +1,8 @@
+import { useEffect, useState } from "react";
 import { Modal, Checkbox } from "react-daisyui";
 import Button from "../../shared/Button";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import StrikethruText from "../../shared/StrikethruText";
 
 const { Header, Body, Actions } = Modal;
 
@@ -56,27 +57,27 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
   return (
     <EditModal>
       <Modal open={isEditModalOpen}>
-        <Header className="text-2xl font-bold text-center">
-          {editedService?.title}
+        <Header className="text-2xl font-bold text-center mb-4">
+          <StrikethruText text={editedService?.title} color="#10FFCB" />
         </Header>
         <Body className="bg-slate-50 p-4 rounded-2xl">
           <div id={`${editedService?.id}-edit-form`}>
             <div className="form-control w-full">
               <div className="mb-2">
                 <label className="label">
-                  <span className="label-text font-light">Category</span>
+                  <span className="label-text font-medium">Category</span>
                 </label>
                 <input
                   name="categoryName"
                   type="text"
-                  className="input w-full h-10 font-light rounded-lg disabled:bg-slate-200 disabled:outline-none disabled:border-none"
+                  className="input text-sm w-full h-10 font-light rounded-lg disabled:bg-slate-200 disabled:outline-none disabled:border-none"
                   value={editedService?.category.categoryName}
                   disabled
                 />
               </div>
               <div className="mb-2">
                 <label className="label">
-                  <span className="label-text font-light">Description</span>
+                  <span className="label-text font-medium">Description</span>
                 </label>
                 <textarea
                   name="description"
@@ -87,15 +88,12 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-light">Price(s)</span>
+                  <span className="label-text font-medium">Price(s)</span>
                 </label>
                 {editedService?.prices.map(
                   ({ id, price, unit, hasUpcharge }) => (
-                    <div key={id} className="flex">
-                      {/* TODO: this will change to select
-                        save selection of units in database, then pull them in here
-                      */}
-                      <div className="mr-2">
+                    <div key={id} className="flex gap-x-2">
+                      <div>
                         <label className="label">
                           <span className="text-sm label-text font-light">
                             Unit
@@ -105,11 +103,12 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                           name="unit"
                           type="text"
                           className="input text-sm w-full h-10 font-light rounded-lg"
-                          value={unit}
+                          value={unit || "N/A"}
+                          onChange={onChange}
                           data-priceid={id}
                         />
                       </div>
-                      <div className="mr-2">
+                      <div>
                         <label className="label">
                           <span className="text-sm label-text font-light">
                             Price
