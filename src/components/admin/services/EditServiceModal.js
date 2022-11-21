@@ -21,11 +21,9 @@ const InputContainer = styled.div`
 
 const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
   const [editedService, setEditedService] = useState(null);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     setEditedService(service);
-    setLoading(false);
   }, [service]);
 
   const onChange = (e) => {
@@ -57,8 +55,6 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
   const onSave = () => {
     console.log(editedService);
   };
-
-  if (loading) return <h1>Loading</h1>;
 
   return (
     <EditModal>

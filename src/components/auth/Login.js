@@ -129,7 +129,7 @@ const Login = () => {
               <input
                 name="name"
                 type="text"
-                className="input w-full h-10 font-light rounded-lg"
+                className="input w-full h-10 font-light rounded-lg focus:outline-primary"
                 value={name}
                 onChange={onChange}
               />
@@ -142,7 +142,7 @@ const Login = () => {
             <input
               name="email"
               type="text"
-              className="input w-full h-10 font-light rounded-lg"
+              className="input w-full h-10 font-light rounded-lg focus:outline-primary"
               value={email}
               onChange={onChange}
             />
@@ -155,7 +155,7 @@ const Login = () => {
               <input
                 name="password"
                 type={showPassword ? "text" : "password"}
-                className="input w-full h-10 font-light rounded-lg"
+                className="input w-full h-10 font-light rounded-lg focus:outline-primary"
                 value={password}
                 onChange={onChange}
               />
