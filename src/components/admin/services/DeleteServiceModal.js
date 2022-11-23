@@ -32,7 +32,7 @@ const DeleteServiceModal = ({
             This process is irreversible
           </p>
         </Body>
-        <Actions className="mt-0">
+        <Actions className="mt-0 gap-x-2">
           <Button type="cancel" onClick={toggleDeleteModal}>
             Cancel
           </Button>

@@ -36,7 +36,24 @@ const variants = {
       transition: { ease: "easeOut", duration: 0.3 },
     },
   },
-  cancel: {},
+  cancel: {
+    whileHover: {
+      backgroundColor: "#fff",
+      scale: 1.05,
+      boxShadow:
+        "0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #f8fafc, 0px 0px 0px 10px #fff, 0px 0px 0px 10.5px #f8fafc",
+      color: "#94a3b8",
+      transition: { duration: 0.3 },
+    },
+    whileFocus: {
+      backgroundColor: "#fff",
+      scale: 1.05,
+      boxShadow:
+        "0px 0px 0px 2.5px #fff, 0px 0px 0px 5px #f8fafc, 0px 0px 0px 10px #fff, 0px 0px 0px 10.5px #f8fafc",
+      color: "#94a3b8",
+      transition: { duration: 0.3 },
+    },
+  },
   delete: {
     whileHover: {
       backgroundColor: "#f8fafc",
