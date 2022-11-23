@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FiEye, FiEyeOff, FiAlertTriangle } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiAlertCircle, FiXCircle } from "react-icons/fi";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAuth } from "../context/Auth";
 import { isEmpty } from "lodash";
@@ -15,12 +15,13 @@ const initialState = {
 const Login = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { signUp, signIn, loading } = useAuth();
+  const { user, signUp, signIn } = useAuth();
 
   const isLogin = pathname === "/auth/login";
 
   const [form, setForm] = useState(initialState);
   const [showPassword, setShowPassword] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -43,28 +44,56 @@ const Login = () => {
   const onSubmit = async () => {
     const { name, email, password } = form;
 
-    setError(null);
+    setIsLoggingIn(true);
 
     if (isLogin) {
       if (isEmpty(email) || isEmpty(password)) {
-        setError({ msg: "Please fill out all fields", type: "warning" });
+        setError({
+          msg: (
+            <div className="text-sm font-light">
+              <span className="block">Please fill out all fields</span>
+            </div>
+          ),
+          type: "warning",
+        });
+
+        setIsLoggingIn(false);
         return;
       }
 
-      const { data, error } = await signIn({
+      await signIn({
         email,
         password,
-      });
+      }).then((res) => {
+        if (res.data?.user) {
+          navigate("/dashboard");
+        }
 
-      if (data) navigate("/dashboard");
-      if (error)
         setError({
-          msg: "Something happened! Please try again",
+          type: "error",
+          msg: (
+            <div className="text-sm font-light">
+              <span className="block">Invalid login credentials</span>
+              <span className="block">Please try again</span>
+            </div>
+          ),
           type: "error",
         });
+
+        setIsLoggingIn(false);
+      });
     } else {
       if (isEmpty(name) || isEmpty(email) || isEmpty(password)) {
-        setError({ msg: "Please fill out all fields", type: "warning" });
+        setError({
+          msg: (
+            <div className="text-sm font-light">
+              <span className="block">Please fill out all fields</span>
+            </div>
+          ),
+          type: "warning",
+        });
+
+        setIsLoggingIn(false);
         return;
       }
 
@@ -78,14 +107,24 @@ const Login = () => {
         },
       };
 
-      const { data } = await signUp(signUpData);
+      await signUp(signUpData).then((res) => {
+        if (res.data?.user) {
+          navigate("/dashboard");
+        }
 
-      if (data) navigate("/dashboard");
-      else
         setError({
-          msg: "Something happened! Please try again",
+          type: "error",
+          msg: (
+            <div className="text-sm font-light">
+              <span className="block">Invalid login credentials</span>
+              <span className="block">Please try again</span>
+            </div>
+          ),
           type: "error",
         });
+
+        setIsLoggingIn(false);
+      });
     }
   };
 
@@ -96,14 +135,14 @@ const Login = () => {
       <AnimatePresence>
         {error && (
           <motion.div
-            className={`alert alert-warning shadow-lg absolute left-48 top-6 z-[100] w-full items-start md:left-[32rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]`}
+            className={`alert alert-${error.type} shadow-lg absolute left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]`}
             initial={{ x: 800 }}
             animate={{ x: 0 }}
             exit={{ x: 800 }}
           >
             <div>
-              <FiAlertTriangle />
-              <p className="text-sm font-light">{error.msg}</p>
+              {error.type === "warning" ? <FiAlertCircle /> : <FiXCircle />}
+              {error.msg}
             </div>
           </motion.div>
         )}
@@ -189,10 +228,13 @@ const Login = () => {
             whileTap={{
               scale: 0.9,
             }}
-            disabled={loading}
-            onClick={onSubmit}
+            disabled={isLoggingIn}
+            onClick={(e) => {
+              onSubmit();
+              e.currentTarget.blur();
+            }}
           >
-            {loading && <Spinner size="4" color="text-slate-400" />}
+            {isLoggingIn && <Spinner size="4" color="text-slate-400" />}
             Submit
           </motion.button>
           {isLogin ? (
