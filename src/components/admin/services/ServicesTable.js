@@ -101,9 +101,7 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "table-cell md:w-[15%] text-xs xl:text-sm font-light text-slate-400 pl-4 pr-2 py-4",
-                    i === data.length - 1
-                      ? "border-none"
-                      : "border-b border-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
                   )}
                 >
                   {title}
@@ -111,9 +109,7 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "hidden md:table-cell md:w-[15%] text-xs xl:text-sm font-light text-slate-400 px-2 py-4",
-                    i === data.length - 1
-                      ? "border-none"
-                      : "border-b border-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
                   )}
                 >
                   {category.categoryName}
@@ -121,9 +117,7 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "table-cell w-[50%] md:w-[25%] text-xs xl:text-sm font-light text-slate-400 px-2 py-4 border-b border-slate-50",
-                    i === data.length - 1
-                      ? "border-none"
-                      : "border-b border-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
                   )}
                 >
                   <div className="grid auto-cols-fr gap-y-2">
@@ -139,9 +133,7 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "hidden md:table-cell md:w-[50%] text-xs xl:text-sm font-light text-slate-400 px-2 py-4 border-b border-slate-50",
-                    i === data.length - 1
-                      ? "border-none"
-                      : "border-b border-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
                   )}
                 >
                   {description}
@@ -149,9 +141,7 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "table-cell md:w-[10%] text-xs xl:text-sm font-light text-slate-400 pl-2 pr-4 py-4 border-b border-slate-50",
-                    i === data.length - 1
-                      ? "border-none"
-                      : "border-b border-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
                   )}
                 >
                   <div className="flex gap-x-4 justify-center">
