@@ -101,7 +101,10 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "table-cell md:w-[15%] text-xs xl:text-sm font-light text-slate-400 pl-4 pr-2 py-4",
-                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50",
+                    i === data?.servicesPaginated.services.length - 1
+                      ? "rounded-bl-2xl"
+                      : "rounded-none"
                   )}
                 >
                   {title}
@@ -141,7 +144,10 @@ const ServicesTable = () => {
                 <div
                   className={classNames(
                     "table-cell md:w-[10%] text-xs xl:text-sm font-light text-slate-400 pl-2 pr-4 py-4 border-b border-slate-50",
-                    i % 2 === 0 ? "bg-white" : "bg-slate-50"
+                    i % 2 === 0 ? "bg-white" : "bg-slate-50",
+                    i === data?.servicesPaginated.services.length - 1
+                      ? "rounded-br-2xl"
+                      : "rounded-none"
                   )}
                 >
                   <div className="flex gap-x-4 justify-center">
@@ -184,7 +190,7 @@ const ServicesTable = () => {
       <div className="grid grid-cols-3 gap-x-4 text-center ">
         <Button
           className="md:w-3/4 lg:w-1/2 xl:w-3/12"
-          disabled={pageNum <= 0}
+          disabled={pageNum === 0}
           onClick={(e) => {
             let prevPage = pageNum - 1;
 

@@ -72,7 +72,6 @@ const variants = {
       transition: { duration: 0.3 },
     },
   },
-  disabled: {},
 };
 
 const classes = {
@@ -81,28 +80,44 @@ const classes = {
   outline: "bg-transparent border-2 border-slate-800 pl-6 pr-5",
   cancel: "bg-slate-50",
   delete: "text-white bg-[#F75590]",
-  disabled: "bg-slate-50 text-slate-300 cursor-default",
 };
 
 const Button = ({
   className,
   type = "normal",
   icon,
-  cancelBtn,
   disabled,
   children,
   ...rest
-}) => (
-  <motion.button
-    className={classNames(classes.base, classes[type], className)}
-    whileHover={variants[type].whileHover}
-    whileFocus={variants[type].whileHover}
-    whileTap={{ scale: 0.9 }}
-    {...rest}
-  >
-    {children}
-    {icon}
-  </motion.button>
-);
+}) => {
+  if (disabled) {
+    return (
+      <button
+        className={classNames(
+          classes.base,
+          "bg-slate-50 text-slate-300 cursor-default",
+          className
+        )}
+        disabled
+      >
+        {children}
+        {icon}
+      </button>
+    );
+  }
+
+  return (
+    <motion.button
+      className={classNames(classes.base, classes[type], className)}
+      whileHover={variants[type].whileHover}
+      whileFocus={variants[type].whileFocus}
+      whileTap={{ scale: 0.9 }}
+      {...rest}
+    >
+      {children}
+      {icon}
+    </motion.button>
+  );
+};
 
 export default Button;
