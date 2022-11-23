@@ -7,6 +7,7 @@ import EditServiceModal from "./EditServiceModal";
 import { Button, Error } from "../../shared";
 import ServicesTableLoader from "./ServicesTableLoader";
 import classNames from "classnames";
+import DeleteServiceModal from "./DeleteServiceModal";
 
 const PAGE_LIMIT = 30;
 
@@ -14,6 +15,7 @@ const ServicesTable = () => {
   const [loading, setLoading] = useState(true);
   const [pageNum, setPageNum] = useState(0);
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
 
   const { data, error, refetch } = useQuery(GET_ALL_SERVICES_PAGINATED, {
@@ -49,6 +51,8 @@ const ServicesTable = () => {
   };
 
   const toggleEditModal = () => setIsEditModalOpen(!isEditModalOpen);
+
+  const toggleDeleteModal = () => setIsDeleteModalOpen(!isDeleteModalOpen);
 
   return (
     <>
@@ -166,7 +170,19 @@ const ServicesTable = () => {
                       <FiEdit />
                     </button>
                     <button>
-                      <FiTrash2 className="text-red-400" />
+                      <FiTrash2
+                        className="text-red-400"
+                        onClick={() => {
+                          setSelectedService({
+                            id,
+                            title,
+                            description,
+                            prices,
+                            category,
+                          });
+                          toggleDeleteModal();
+                        }}
+                      />
                     </button>
                   </div>
                 </div>
@@ -210,6 +226,11 @@ const ServicesTable = () => {
       <EditServiceModal
         isEditModalOpen={isEditModalOpen}
         toggleEditModal={toggleEditModal}
+        service={selectedService}
+      />
+      <DeleteServiceModal
+        isDeleteModalOpen={isDeleteModalOpen}
+        toggleDeleteModal={toggleDeleteModal}
         service={selectedService}
       />
     </>

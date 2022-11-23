@@ -20,6 +20,24 @@ const variants = {
       transition: { duration: 0.3 },
     },
   },
+  delete: {
+    whileHover: {
+      backgroundColor: "#f8fafc",
+      scale: 1.05,
+      boxShadow:
+        "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #F75590, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #F75590",
+      color: "#F75590",
+      transition: { duration: 0.3 },
+    },
+    whileFocus: {
+      backgroundColor: "#f8fafc",
+      scale: 1.05,
+      boxShadow:
+        "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #F75590, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #F75590",
+      color: "#F75590",
+      transition: { duration: 0.3 },
+    },
+  },
   outline: {
     whileHover: {
       backgroundColor: "#10FFCB",
@@ -40,7 +58,7 @@ const variants = {
 
 const Button = ({
   className,
-  outline,
+  type = "normal",
   icon,
   cancelBtn,
   disabled,
@@ -77,17 +95,15 @@ const Button = ({
     <motion.button
       className={classNames(
         baseClasses,
-        outline
+        type === "outline"
           ? "bg-transparent border-2 border-slate-800 pl-6 pr-5"
-          : "border-none text-slate-500 bg-primary",
+          : `border-none ${
+              type === "delete" ? "text-white" : "text-slate-500"
+            } ${type === "delete" ? "bg-[#F75590]" : "bg-primary"}`,
         className
       )}
-      whileHover={
-        outline ? variants.outline.whileHover : variants.normal.whileHover
-      }
-      whileFocus={
-        outline ? variants.outline.whileFocus : variants.normal.whileFocus
-      }
+      whileHover={variants[type].whileHover}
+      whileFocus={variants[type].whileHover}
       whileTap={{ scale: 0.9 }}
       {...rest}
     >
