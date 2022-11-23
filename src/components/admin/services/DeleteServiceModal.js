@@ -23,7 +23,7 @@ const DeleteServiceModal = ({
         open={isDeleteModalOpen}
       >
         <Header className="text-2xl font-bold text-center mb-4">
-          <StrikethruText text="Delete Service" color="#F75590" />
+          <StrikethruText text="Delete Service" color="#fb7185" />
         </Header>
         <Body className="p-4 rounded-2xl text-center">
           <p className="text-sm font-light text-slate-400">

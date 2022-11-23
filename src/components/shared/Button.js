@@ -59,16 +59,16 @@ const variants = {
       backgroundColor: "#f8fafc",
       scale: 1.05,
       boxShadow:
-        "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #F75590, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #F75590",
-      color: "#F75590",
+        "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #fb7185, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #fb7185",
+      color: "#fb7185",
       transition: { duration: 0.3 },
     },
     whileFocus: {
       backgroundColor: "#f8fafc",
       scale: 1.05,
       boxShadow:
-        "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #F75590, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #F75590",
-      color: "#F75590",
+        "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #fb7185, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #fb7185",
+      color: "#fb7185",
       transition: { duration: 0.3 },
     },
   },
@@ -79,7 +79,7 @@ const classes = {
   normal: "text-slate-500 bg-primary",
   outline: "bg-transparent border-2 border-slate-800 pl-6 pr-5",
   cancel: "bg-slate-50",
-  delete: "text-white bg-[#F75590]",
+  delete: "text-white bg-[#fb7185]",
 };
 
 const Button = ({

@@ -24,14 +24,14 @@ module.exports = {
       {
         mytheme: {
           primary: "#10FFCB",
-          secondary: "#B5F8FE",
+          secondary: "#a5b4fc",
           accent: "#7dd3fc",
-          neutral: "#10FFCB",
+          neutral: "#3D4451",
           "base-100": "#FFFFFF",
           info: "#FCE4D8",
           success: "#86efac",
           warning: "#FBD87F",
-          error: "#F75590",
+          error: "#fb7185",
         },
       },
     ],
