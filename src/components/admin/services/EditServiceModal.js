@@ -243,7 +243,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
           </div>
         </Body>
         <Actions className="mt-0">
-          <Button cancelBtn onClick={toggleEditModal}>
+          <Button type="cancel" onClick={toggleEditModal}>
             Cancel
           </Button>
           <Button

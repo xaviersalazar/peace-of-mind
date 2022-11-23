@@ -28,7 +28,7 @@ const Home = () => (
             Massage Therapy & Natural Healing
           </p>
           <Button
-            outline
+            type="outline"
             icon={<FiArrowRight className="inline ml-2 mb-0.5" />}
           >
             Contact Us
