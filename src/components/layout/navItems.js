@@ -1,11 +1,13 @@
 const navItems = [
   {
     title: "About Us",
+    page: "about",
     link: "/about",
     subItems: [],
   },
   {
     title: "Besame",
+    page: "besame",
     link: null,
     subItems: [
       {
@@ -28,6 +30,7 @@ const navItems = [
   },
   {
     title: "Salon",
+    page: "salon",
     link: null,
     subItems: [
       {
@@ -102,6 +105,7 @@ const navItems = [
   },
   {
     title: "Services",
+    page: "services",
     link: null,
     subItems: [
       {

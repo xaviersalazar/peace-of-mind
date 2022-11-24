@@ -1,14 +1,27 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { AnimatePresence, motion, useScroll } from "framer-motion";
+import { Link, useLocation } from "react-router-dom";
+import {
+  AnimatePresence,
+  AnimateSharedLayout,
+  motion,
+  useScroll,
+} from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
 import { useIsMd } from "../hooks/useBreakpoints";
 import classNames from "classnames";
 import styled from "styled-components";
+import { StrikethruText } from "../shared";
 
-const initialState = {
+const initialCurrPageState = {
+  about: false,
+  besame: false,
+  salon: false,
+  services: false,
+};
+
+const initialSubMenuState = {
   Besame: false,
   Salon: false,
   Services: false,
@@ -91,11 +104,15 @@ const Logo = styled.img`
 `;
 
 const Nav = () => {
+  const { pathname } = useLocation();
   const { scrollY } = useScroll();
   const [shouldApplyShadow, setShouldApplyShadow] = useState(false);
-  const [isSubMenuOpen, setIsSubMenuOpen] = useState(initialState);
+  const [currPage, setCurrPage] = useState(initialCurrPageState);
+  const [isSubMenuOpen, setIsSubMenuOpen] = useState(initialSubMenuState);
 
-  const subMenuRef = useOutsideClick(() => setIsSubMenuOpen(initialState));
+  const subMenuRef = useOutsideClick(() =>
+    setIsSubMenuOpen(initialSubMenuState)
+  );
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
@@ -104,10 +121,23 @@ const Nav = () => {
     });
   }, []); // eslint-disable-line
 
+  useEffect(() => {
+    if (pathname !== "/") {
+      const currPath = pathname.split("/")[1];
+
+      setCurrPage({
+        ...initialCurrPageState,
+        [currPath]: true,
+      });
+    } else {
+      setCurrPage(initialCurrPageState);
+    }
+  }, [pathname]);
+
   const onNavItemClicked = (title) => {
     if (title !== "About Us") {
       setIsSubMenuOpen({
-        ...initialState,
+        ...initialSubMenuState,
         [title]: !isSubMenuOpen[title],
       });
     }
@@ -135,17 +165,33 @@ const Nav = () => {
               />
             </Link>
             <div className="flex gap-2 justify-between md:justify-end md:gap-8">
-              {navItems.map(({ title, link, subItems }) => (
+              {navItems.map(({ title, link, page, subItems }) => (
                 <div className="relative" key={title}>
                   {/* eslint-disable-next-line */}
                   <Link
                     key={title}
                     to={link}
-                    className="text-[.75rem] md:text-base font-light tracking-wide cursor-pointer"
+                    className="text-[.75rem] md:text-base tracking-wide cursor-pointer"
                     onClick={() => onNavItemClicked(title)}
                   >
-                    <div className="flex gap-1 uppercase">
-                      {title}{" "}
+                    <div className="flex gap-y-1 uppercase">
+                      <motion.div
+                        className={`${
+                          currPage[page] ? "font-bold" : "font-light"
+                        }`}
+                        animate={{ opacity: currPage[page] ? 1 : 0.5 }}
+                      >
+                        {currPage[page] ? (
+                          <motion.div layout="underline">
+                            <StrikethruText text={title} color="#10FFCB" />
+                          </motion.div>
+                        ) : (
+                          <>
+                            {title}
+                            {""}
+                          </>
+                        )}
+                      </motion.div>
                       {title !== "About Us" && (
                         <motion.div
                           initial="closed"
@@ -157,7 +203,8 @@ const Nav = () => {
                               "relative",
                               title === "Services"
                                 ? "top-[0.22rem] md:top-1"
-                                : "top-1"
+                                : "top-1",
+                              currPage[page] ? "opacity-100" : "opacity-50"
                             )}
                           />
                         </motion.div>
@@ -192,7 +239,9 @@ const Nav = () => {
                                     index === 0 && "pt-2 pb-1",
                                     index === subItems.length - 1 && "pb-2 pt-1"
                                   )}
-                                  onClick={() => setIsSubMenuOpen(initialState)}
+                                  onClick={() =>
+                                    setIsSubMenuOpen(initialSubMenuState)
+                                  }
                                 >
                                   <Link to={subLink}>{subItemTitle}</Link>
                                 </li>
