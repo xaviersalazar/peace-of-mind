@@ -10,9 +10,9 @@ import {
 import { useMutation } from "@apollo/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button, Spinner, StrikethruText } from "../../shared";
-import { EDIT_SERVICE } from "../../../graphql/mutations/editService";
+import { EDIT_SERVICE } from "../../../graphql/mutations";
 import { clean } from "../../utils/clean";
-import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries/getAllServicesPaginated";
+import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
 import styled from "styled-components";
 
 const keysToOmitForMutation = ["__typename", "title", "category"];

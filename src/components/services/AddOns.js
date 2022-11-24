@@ -1,5 +1,5 @@
 import { useQuery } from "@apollo/client";
-import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries/getServicesByCategory";
+import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
   GradientFont,

@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export const EDIT_SERVICE = gql`
+const EDIT_SERVICE = gql`
   mutation EditService($service: EditServiceInput!) {
     editService(service: $service) {
       id
@@ -15,3 +15,13 @@ export const EDIT_SERVICE = gql`
     }
   }
 `;
+
+const DELETE_SERVICE = gql`
+  mutation DeleteService($id: Int!) {
+    deleteService(id: $id) {
+      id
+    }
+  }
+`;
+
+export { EDIT_SERVICE, DELETE_SERVICE };
