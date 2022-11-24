@@ -10,8 +10,8 @@ import {
 import { useMutation } from "@apollo/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button, Spinner, StrikethruText } from "../../shared";
-import { EDIT_SERVICE } from "../../../graphql/mutations";
 import { clean } from "../../utils/clean";
+import { EDIT_SERVICE } from "../../../graphql/mutations";
 import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
 import styled from "styled-components";
 
@@ -161,7 +161,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
                 ) : (
                   <textarea
                     name="description"
-                    className="textarea w-full h-32 font-light rounded-lg resize-none focus:outline-primary"
+                    className="textarea text-sm leading-6 w-full h-32 font-light rounded-lg resize-none focus:outline-primary"
                     value={editedService?.description}
                     onChange={onChange}
                   />

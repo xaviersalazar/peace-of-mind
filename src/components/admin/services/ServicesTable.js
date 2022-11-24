@@ -1,13 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuery } from "@apollo/client";
-import { FiEdit, FiTrash2, FiSearch, FiFilter } from "react-icons/fi";
-import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
+import { AnimatePresence, motion } from "framer-motion";
 import { isEmpty, uniqueId } from "lodash";
+import {
+  FiEdit,
+  FiTrash2,
+  FiSearch,
+  FiFilter,
+  FiCheckCircle,
+} from "react-icons/fi";
 import EditServiceModal from "./EditServiceModal";
 import { Button, Error } from "../../shared";
+import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
 import ServicesTableLoader from "./ServicesTableLoader";
-import classNames from "classnames";
 import DeleteServiceModal from "./DeleteServiceModal";
+import classNames from "classnames";
 
 const PAGE_LIMIT = 30;
 
@@ -17,6 +24,15 @@ const ServicesTable = () => {
   const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
+  const [deleteMsg, setDeleteMsg] = useState(null);
+
+  useEffect(() => {
+    if (deleteMsg) {
+      setTimeout(() => {
+        setDeleteMsg(null);
+      }, 5000);
+    }
+  }, [deleteMsg]);
 
   const { data, error, refetch } = useQuery(GET_ALL_SERVICES_PAGINATED, {
     onCompleted: () => setLoading(false),
@@ -56,6 +72,21 @@ const ServicesTable = () => {
 
   return (
     <>
+      <AnimatePresence>
+        {deleteMsg && (
+          <motion.div
+            className={`alert alert-success shadow-lg absolute left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]`}
+            initial={{ x: 800 }}
+            animate={{ x: 0 }}
+            exit={{ x: 800 }}
+          >
+            <div>
+              <FiCheckCircle />
+              {deleteMsg}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <div className="flex mb-8 gap-x-4 md:justify-end">
         <div className="md:flex-1">
           <button className="btn btn-primary text-slate-500 rounded-lg px-4 py-2 text-xs xl:text-sm font-light capitalize">
@@ -228,6 +259,7 @@ const ServicesTable = () => {
         isDeleteModalOpen={isDeleteModalOpen}
         toggleDeleteModal={toggleDeleteModal}
         service={selectedService}
+        setDeleteMsg={setDeleteMsg}
       />
     </>
   );
