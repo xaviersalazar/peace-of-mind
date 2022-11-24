@@ -4,6 +4,7 @@ import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
+import { useIsMd } from "../hooks/useBreakpoints";
 import classNames from "classnames";
 import styled from "styled-components";
 
@@ -126,6 +127,7 @@ const Nav = () => {
               <Logo
                 className={classNames(
                   "hidden md:block justify-start w-[48px] relative bottom-1 cursor-pointer",
+                  useIsMd() ? "active" : "",
                   shouldApplyShadow ? "active" : ""
                 )}
                 src="/logo-black.png"
