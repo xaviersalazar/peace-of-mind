@@ -33,6 +33,7 @@ const AddOns = ({ categoryId }) => {
   }
 
   const { servicesByCategory } = data;
+  const isEven = servicesByCategory?.length % 2 === 0;
 
   return (
     <Service>
@@ -57,6 +58,7 @@ const AddOns = ({ categoryId }) => {
               key={service.id}
               service={service}
               strikeColor="#ddd6f3"
+              isEven={isEven}
             />
           ))}
         </div>

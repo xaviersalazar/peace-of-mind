@@ -70,11 +70,22 @@ const informationContentVariants = {
   },
 };
 
-const Services = ({ service: { title, description, prices }, strikeColor }) => {
+const Services = ({
+  service: { title, description, prices },
+  strikeColor,
+  isEven,
+}) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 
   return (
-    <div className="card border-none bg-slate-50 rounded-2xl xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3">
+    <div
+      className={classNames(
+        "card border-none bg-slate-50 rounded-2xl",
+        isEven
+          ? "xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
+          : "xl:col-span-2"
+      )}
+    >
       <div className="flex flex-col px-4 py-6 text-center self-center w-full h-full">
         <div className="mb-4">
           <div className="relative w-fit mx-auto">
