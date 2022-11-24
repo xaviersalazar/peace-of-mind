@@ -57,7 +57,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
 
       setUpdateMsg({
         msg: (
-          <div>
+          <div className="text-sm font-light">
             <span className="block">Successfully saved</span>
             <span className="block">{title}</span>
           </div>
@@ -83,11 +83,10 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
   }, [updateMsg]);
 
   const onChange = (e) => {
-    let { name, value } = e.target;
+    let { name, value, checked } = e.target;
 
     if (name === "unit" || name === "price" || name === "hasUpcharge") {
       const priceId = e.target.dataset.priceid;
-      const checked = name === "hasUpcharge" ? value === "on" : false;
 
       const updatedPrices = editedService.prices.map((price) =>
         price.id === priceId
@@ -115,7 +114,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
     } catch (e) {
       setUpdateMsg({
         msg: (
-          <div>
+          <div className="text-sm font-light">
             <span className="block">Oops! Something happened</span>
             <span className="block">Please try again</span>
           </div>
@@ -272,7 +271,7 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
             >
               <div>
                 {errorTypes[updateMsg.type]}
-                <p className="text-sm font-light">{updateMsg.msg}</p>
+                {updateMsg.msg}
               </div>
             </motion.div>
           )}
