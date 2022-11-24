@@ -15,7 +15,7 @@ const initialState = {
 const Login = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
-  const { user, signUp, signIn } = useAuth();
+  const { signUp, signIn } = useAuth();
 
   const isLogin = pathname === "/auth/login";
 
@@ -70,7 +70,6 @@ const Login = () => {
         }
 
         setError({
-          type: "error",
           msg: (
             <div className="text-sm font-light">
               <span className="block">Invalid login credentials</span>
@@ -113,7 +112,6 @@ const Login = () => {
         }
 
         setError({
-          type: "error",
           msg: (
             <div className="text-sm font-light">
               <span className="block">Invalid login credentials</span>

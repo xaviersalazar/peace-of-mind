@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
@@ -68,6 +68,7 @@ const DashboardLayout = () => {
     },
   };
 
+  const navigate = useNavigate();
   const { user, signOut, loading } = useAuth();
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -125,24 +126,22 @@ const DashboardLayout = () => {
               <motion.button
                 key={title}
                 className="flex flex-1 gap-x-2 rounded-lg"
-                initial={{ backgroundColor: "#f8fafc" }}
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  navigate(url);
+                }}
+                initial={{ backgroundColor: "#f8fafc", color: "#94a3b8" }}
                 whileHover={
-                  isMenuOpen && {
-                    backgroundColor: "#fff",
-                    padding: "1rem",
-                  }
-                }
-                whileFocus={
-                  isMenuOpen && {
-                    backgroundColor: "#fff",
-                    padding: "1rem",
-                  }
-                }
-                whileTap={
-                  isMenuOpen && {
-                    backgroundColor: "#fff",
-                    padding: "1rem",
-                  }
+                  isMenuOpen
+                    ? {
+                        backgroundColor: "#fff",
+                        padding: "1rem",
+                      }
+                    : {
+                        backgroundColor: "#f8fafc",
+                        padding: 0,
+                        color: "#fff",
+                      }
                 }
               >
                 {icon}{" "}
@@ -151,7 +150,7 @@ const DashboardLayout = () => {
                   animate={isMenuOpen ? "open" : "closed"}
                   variants={menuTextVariants}
                 >
-                  <Link to={url}>{title}</Link>
+                  {title}
                 </motion.p>
               </motion.button>
             ))}

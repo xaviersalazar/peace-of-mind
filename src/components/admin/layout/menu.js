@@ -4,16 +4,16 @@ export const MENU = [
   {
     title: "Dashboard",
     url: "/dashboard",
-    icon: <FiHome className=" text-slate-400 mr-2" />,
+    icon: <FiHome className="mr-2" />,
   },
   {
     title: "Services",
     url: "/dashboard/services",
-    icon: <FiServer className=" text-slate-400 mr-2" />,
+    icon: <FiServer className="mr-2" />,
   },
   {
     title: "Settings",
     url: "/dashboard/settings",
-    icon: <FiSettings className=" text-slate-400 mr-2" />,
+    icon: <FiSettings className="mr-2" />,
   },
 ];
