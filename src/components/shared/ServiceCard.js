@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { FiInfo, FiXCircle } from "react-icons/fi";
 import StrikethruText from "./StrikethruText";
 import { isEmpty } from "lodash";
 import classNames from "classnames";
@@ -11,15 +12,13 @@ const informationVariants = {
     padding: "1rem",
     transition: {
       default: { ease: "linear" },
-      duration: 1,
     },
   },
   closed: {
     width: "fit-content",
     borderRadius: "1rem",
     transition: {
-      default: { ease: "linear" },
-      duration: 1,
+      default: { ease: "linear", duration: 0.75 },
     },
   },
 };
@@ -119,9 +118,11 @@ const Services = ({
             <motion.button
               key="view-information-btn"
               className={classNames(
-                "px-4 py-2 text-xs text-slate-400 font-light rounded-full",
-                didClickViewInformation ? "bg-slate-50" : "bg-white"
+                "px-4 py-2 text-xs text-slate-400 font-light rounded-full"
               )}
+              whileHover={{
+                background: "#e2e8f0",
+              }}
               initial="closed"
               animate={didClickViewInformation ? "opened" : "closed"}
               variants={viewBtnVariants}
@@ -129,6 +130,11 @@ const Services = ({
                 setDidClickViewInformation(!didClickViewInformation)
               }
             >
+              {didClickViewInformation ? (
+                <FiXCircle className="inline relative mr-2 bottom-[0.55px]" />
+              ) : (
+                <FiInfo className="inline relative mr-2 bottom-[0.55px]" />
+              )}
               {didClickViewInformation
                 ? "Close Information"
                 : "View Information"}
