@@ -1,3 +1,5 @@
+import { StrikethruText } from "../shared";
+
 const Text = ({ children }) => (
   <p className="text-sm font-extra-light mb-2">{children}</p>
 );
@@ -11,7 +13,14 @@ const About = () => (
         alt="about"
       />
       <div className="w-full mx-auto">
-        <h1 className="text-4xl font-bold mb-4">Our story</h1>
+        <h1 className="text-5xl md:text-6xl font-extra-bold mb-4">
+          <StrikethruText
+            text="Our Story"
+            color="#74ebd5"
+            height="h-4 md:h-5"
+            position="bottom-[.55rem] md:bottom-[.65rem]"
+          />
+        </h1>
         <Text>
           Peace of Mind Massage Therapy & Natural Healing is a Woman Owned
           Business based on mother nature's common grounds, located at 602 N

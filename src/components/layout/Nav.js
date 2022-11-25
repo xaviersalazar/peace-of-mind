@@ -135,7 +135,7 @@ const Nav = () => {
   }, [pathname]);
 
   const onNavItemClicked = (title) => {
-    if (title !== "About Us") {
+    if (title !== "About") {
       setIsSubMenuOpen({
         ...initialSubMenuState,
         [title]: !isSubMenuOpen[title],
@@ -152,7 +152,7 @@ const Nav = () => {
             shouldApplyShadow ? "active" : ""
           )}
         >
-          <div className="flex justify-center md:justify-between">
+          <div className="flex-1 md:flex justify-center md:justify-between">
             <Link to="/">
               <Logo
                 className={classNames(
@@ -171,7 +171,7 @@ const Nav = () => {
                   <Link
                     key={title}
                     to={link}
-                    className="text-[.75rem] md:text-base tracking-wide cursor-pointer"
+                    className="text-sm md:text-base tracking-wide cursor-pointer"
                     onClick={() => onNavItemClicked(title)}
                   >
                     <div className="flex gap-y-1 uppercase">
@@ -183,7 +183,11 @@ const Nav = () => {
                       >
                         {currPage[page] ? (
                           <motion.div layout="underline">
-                            <StrikethruText text={title} color="#10FFCB" />
+                            <StrikethruText
+                              text={title}
+                              color="#10FFCB"
+                              height="h-[0.3rem] md:h-[.45rem]"
+                            />
                           </motion.div>
                         ) : (
                           <>
@@ -192,7 +196,7 @@ const Nav = () => {
                           </>
                         )}
                       </motion.div>
-                      {title !== "About Us" && (
+                      {title !== "About" && (
                         <motion.div
                           initial="closed"
                           animate={isSubMenuOpen[title] ? "opened" : "closed"}
