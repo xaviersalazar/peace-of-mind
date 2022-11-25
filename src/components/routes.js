@@ -5,15 +5,16 @@ import Login from "./auth/Login";
 import Protected from "./auth/Protected";
 import DashboardLayout from "./admin/layout/DashboardLayout";
 import { Loader, SkeletonLoader } from "./shared";
-import Services from "./admin/services/Services";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
 // Public
 const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
+const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
 
 // Admin
-const Dashboard = lazy(() => import("./admin/Dashboard.js"));
+const Dashboard = lazy(() => import("./admin/Dashboard"));
+const Services = lazy(() => import("./admin/services/Services"));
 
 const routes = [
   {
@@ -37,6 +38,16 @@ const routes = [
             element: (
               <Suspense fallback={<SkeletonLoader />}>
                 <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
+              </Suspense>
+            ),
+          },
+          {
+            path: "deluxe-couples",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <DeluxeCouplesMassages
+                  categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
+                />
               </Suspense>
             ),
           },

@@ -16,7 +16,7 @@ const About = () => (
         <h1 className="text-5xl md:text-6xl font-extra-bold mb-4">
           <StrikethruText
             text="Our Story"
-            color="#74ebd5"
+            color="#f4c4f3"
             height="h-4 md:h-5"
             position="bottom-[.55rem] md:bottom-[.65rem]"
           />

@@ -82,7 +82,7 @@ const Services = ({
         "card border-none bg-slate-50 rounded-2xl",
         isEven
           ? "xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
-          : "xl:col-span-2"
+          : "md:last:col-span-2 xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
       )}
     >
       <div className="flex flex-col px-4 py-6 text-center self-center w-full h-full">
@@ -98,7 +98,7 @@ const Services = ({
                 key={`${title}_${price}`}
                 className="text-sm font-light text-slate-400 text-center px-4"
               >
-                {unit} ${price}
+                {unit}: ${price}
               </p>
             ))
           ) : (

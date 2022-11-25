@@ -122,7 +122,7 @@ const navItems = [
       },
       {
         title: "Deluxe/Couples Massages",
-        subLink: "/services-deluxe-couples",
+        subLink: "/services/deluxe-couples",
       },
       {
         title: "Facials",
