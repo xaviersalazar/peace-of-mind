@@ -11,6 +11,7 @@ import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
+const Facials = lazy(() => import("./services/Facials"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -48,6 +49,14 @@ const routes = [
                 <DeluxeCouplesMassages
                   categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
                 />
+              </Suspense>
+            ),
+          },
+          {
+            path: "facials",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
               </Suspense>
             ),
           },

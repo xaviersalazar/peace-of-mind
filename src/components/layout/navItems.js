@@ -126,7 +126,7 @@ const navItems = [
       },
       {
         title: "Facials",
-        subLink: "/services-facials",
+        subLink: "/services/facials",
       },
       {
         title: "Facial Enhancements",

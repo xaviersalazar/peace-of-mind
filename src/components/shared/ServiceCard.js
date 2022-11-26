@@ -98,7 +98,7 @@ const Services = ({
                 key={`${title}_${price}`}
                 className="text-sm font-light text-slate-400 text-center px-4"
               >
-                {unit}: ${price}
+                {unit ? `${unit}: $${price}` : `$${price}`}
               </p>
             ))
           ) : (
