@@ -105,58 +105,60 @@ const Services = ({
             </p>
           )}
         </div>
-        <AnimatePresence>
-          <motion.div
-            key="information"
-            className="mx-auto mt-4 relative bg-white"
-            initial="closed"
-            animate={didClickViewInformation ? "opened" : "closed"}
-            variants={informationVariants}
-          >
-            <motion.button
-              key="view-information-btn"
-              className={classNames(
-                "px-4 py-2 text-xs text-slate-400 font-light rounded-full"
-              )}
-              whileHover={{
-                background: "#e2e8f0",
-              }}
+        {description && (
+          <AnimatePresence>
+            <motion.div
+              key="information"
+              className="mx-auto mt-4 relative bg-white"
               initial="closed"
               animate={didClickViewInformation ? "opened" : "closed"}
-              variants={viewBtnVariants}
-              onClick={() =>
-                setDidClickViewInformation(!didClickViewInformation)
-              }
+              variants={informationVariants}
             >
-              {didClickViewInformation ? (
-                <FiXCircle className="inline relative mr-2 bottom-[0.55px]" />
-              ) : (
-                <FiInfo className="inline relative mr-2 bottom-[0.55px]" />
-              )}
-              {didClickViewInformation
-                ? "Close Information"
-                : "View Information"}
-            </motion.button>
-            {didClickViewInformation && (
-              <motion.div
-                key="information-container"
+              <motion.button
+                key="view-information-btn"
+                className={classNames(
+                  "px-4 py-2 text-xs text-slate-400 font-light rounded-full"
+                )}
+                whileHover={{
+                  background: "#e2e8f0",
+                }}
                 initial="closed"
                 animate={didClickViewInformation ? "opened" : "closed"}
-                variants={informationContainerVariants}
+                variants={viewBtnVariants}
+                onClick={() =>
+                  setDidClickViewInformation(!didClickViewInformation)
+                }
               >
-                <motion.p
-                  key="information-text"
+                {didClickViewInformation ? (
+                  <FiXCircle className="inline relative mr-2 bottom-[0.55px]" />
+                ) : (
+                  <FiInfo className="inline relative mr-2 bottom-[0.55px]" />
+                )}
+                {didClickViewInformation
+                  ? "Close Information"
+                  : "View Information"}
+              </motion.button>
+              {didClickViewInformation && (
+                <motion.div
+                  key="information-container"
                   initial="closed"
                   animate={didClickViewInformation ? "opened" : "closed"}
-                  variants={informationContentVariants}
-                  className="text-sm font-light text-slate-400"
+                  variants={informationContainerVariants}
                 >
-                  {description}
-                </motion.p>
-              </motion.div>
-            )}
-          </motion.div>
-        </AnimatePresence>
+                  <motion.p
+                    key="information-text"
+                    initial="closed"
+                    animate={didClickViewInformation ? "opened" : "closed"}
+                    variants={informationContentVariants}
+                    className="text-sm font-light text-slate-400"
+                  >
+                    {description}
+                  </motion.p>
+                </motion.div>
+              )}
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
     </div>
   );

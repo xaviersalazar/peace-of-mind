@@ -14,6 +14,7 @@ const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassage
 const Facials = lazy(() => import("./services/Facials"));
 const Massages = lazy(() => import("./services/Massages"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
+const Waxes = lazy(() => import("./services/Waxes"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -77,6 +78,14 @@ const routes = [
                 <ScrubsWeightloss
                   categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
                 />
+              </Suspense>
+            ),
+          },
+          {
+            path: "waxes",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
               </Suspense>
             ),
           },

@@ -162,7 +162,7 @@ const navItems = [
       },
       {
         title: "Waxes",
-        subLink: "/services-waxes",
+        subLink: "/services/waxes",
       },
     ],
   },
