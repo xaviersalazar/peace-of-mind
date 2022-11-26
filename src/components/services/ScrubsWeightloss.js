@@ -9,7 +9,7 @@ import {
   SkeletonLoader,
 } from "../shared";
 
-const DeluxeCouplesMassages = ({ categoryId }) => {
+const Facials = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -36,20 +36,20 @@ const DeluxeCouplesMassages = ({ categoryId }) => {
 
   return (
     <ServiceContainer>
-      <div id="deluxe-couples">
+      <div id="scrubs-weightloss">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#00C9FF", "#92FE9D"]}>
-              Deluxe & <span className="hidden md:inline">Couples</span>
+            <GradientFont deg={-45} colors={["#fd75ae", "#ccc74e"]}>
+              Scrubs & <span className="hidden md:inline">Weightloss</span>
             </GradientFont>
           </h1>
           <h1 className="md:hidden text-5xl font-extra-bold md:text-6xl mb-1">
-            <GradientFont deg={-45} colors={["#00C9FF", "#92FE9D"]}>
-              Couples
+            <GradientFont deg={-45} colors={["#fd75ae", "#ccc74e"]}>
+              Weightloss
             </GradientFont>
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
-            Stimulating massages for the couples
+            Our deep scrubs and weight loss treatments
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6 xl:col-span-2">
@@ -57,8 +57,8 @@ const DeluxeCouplesMassages = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#92FE9D"
-              colsSizing="md:last:col-span-2 xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
+              strikeColor="#ccc74e"
+              colsSizing="md:last:col-span-2 xl:col-span-2"
             />
           ))}
         </div>
@@ -68,4 +68,4 @@ const DeluxeCouplesMassages = ({ categoryId }) => {
   );
 };
 
-export default DeluxeCouplesMassages;
+export default Facials;

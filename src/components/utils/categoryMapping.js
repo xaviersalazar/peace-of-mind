@@ -3,4 +3,5 @@ export const CATEGORY_MAPPING = {
   ADD_ONS: 2,
   DELUXE_COUPLES: 5,
   FACIALS: 6,
+  SCRUBS_WEIGHTLOSS: 13,
 };

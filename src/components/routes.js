@@ -13,6 +13,7 @@ const AddOns = lazy(() => import("./services/AddOns"));
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
 const Facials = lazy(() => import("./services/Facials"));
 const Massages = lazy(() => import("./services/Massages"));
+const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -66,6 +67,16 @@ const routes = [
             element: (
               <Suspense fallback={<SkeletonLoader />}>
                 <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
+              </Suspense>
+            ),
+          },
+          {
+            path: "scrubs-weightloss",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <ScrubsWeightloss
+                  categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
+                />
               </Suspense>
             ),
           },

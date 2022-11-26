@@ -158,7 +158,7 @@ const navItems = [
       },
       {
         title: "Scrubs/Weightloss",
-        subLink: "/services-scrubs-weightloss",
+        subLink: "/services/scrubs-weightloss",
       },
       {
         title: "Waxes",
