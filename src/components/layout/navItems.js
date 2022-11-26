@@ -146,7 +146,7 @@ const navItems = [
       },
       {
         title: "Massages",
-        subLink: "/services-massages",
+        subLink: "/services/massages",
       },
       {
         title: "Oxygen Bar",

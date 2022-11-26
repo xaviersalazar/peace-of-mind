@@ -33,7 +33,6 @@ const AddOns = ({ categoryId }) => {
   }
 
   const { servicesByCategory } = data;
-  const isEven = servicesByCategory?.length % 2 === 0;
 
   return (
     <ServiceContainer>
@@ -54,7 +53,7 @@ const AddOns = ({ categoryId }) => {
               key={service.id}
               service={service}
               strikeColor="#ddd6f3"
-              isEven={isEven}
+              colsSizing="xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
             />
           ))}
         </div>

@@ -72,7 +72,7 @@ const informationContentVariants = {
 const Services = ({
   service: { title, description, prices },
   strikeColor,
-  isEven,
+  colsSizing,
 }) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 
@@ -80,9 +80,7 @@ const Services = ({
     <div
       className={classNames(
         "card border-none bg-slate-50 rounded-2xl",
-        isEven
-          ? "xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
-          : "md:last:col-span-2 xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
+        colsSizing
       )}
     >
       <div className="flex flex-col px-4 py-6 text-center self-center w-full h-full">
