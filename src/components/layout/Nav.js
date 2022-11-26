@@ -1,11 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  AnimatePresence,
-  AnimateSharedLayout,
-  motion,
-  useScroll,
-} from "framer-motion";
+import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
@@ -182,13 +177,11 @@ const Nav = () => {
                         animate={{ opacity: currPage[page] ? 1 : 0.5 }}
                       >
                         {currPage[page] ? (
-                          <motion.div layout="underline">
-                            <StrikethruText
-                              text={title}
-                              color="#10FFCB"
-                              height="h-[0.3rem] md:h-[.45rem]"
-                            />
-                          </motion.div>
+                          <StrikethruText
+                            text={title}
+                            color="#10FFCB"
+                            height="h-[0.3rem] md:h-[.45rem]"
+                          />
                         ) : (
                           <>
                             {title}
