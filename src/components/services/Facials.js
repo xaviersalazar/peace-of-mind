@@ -4,7 +4,7 @@ import {
   Error,
   GradientFont,
   Notice,
-  Service,
+  ServiceContainer,
   ServiceCard,
   SkeletonLoader,
 } from "../shared";
@@ -18,17 +18,17 @@ const Facials = ({ categoryId }) => {
 
   if (loading) {
     return (
-      <Service>
+      <ServiceContainer>
         <SkeletonLoader />
-      </Service>
+      </ServiceContainer>
     );
   }
 
   if (error) {
     return (
-      <Service>
+      <ServiceContainer>
         <Error />
-      </Service>
+      </ServiceContainer>
     );
   }
 
@@ -36,7 +36,7 @@ const Facials = ({ categoryId }) => {
   const isEven = servicesByCategory?.length % 2 === 0;
 
   return (
-    <Service>
+    <ServiceContainer>
       <div id="facials">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold md:text-6xl">
@@ -60,7 +60,7 @@ const Facials = ({ categoryId }) => {
         </div>
       </div>
       <Notice />
-    </Service>
+    </ServiceContainer>
   );
 };
 
