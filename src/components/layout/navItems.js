@@ -51,7 +51,7 @@ const navItems = [
       },
       {
         title: "Hair Coloring",
-        subLink: "/salon-hair-coloring",
+        subLink: "/salon/hair-coloring",
       },
       {
         title: "Hair Extensions",

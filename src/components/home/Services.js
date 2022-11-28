@@ -30,7 +30,7 @@ const services = [
   },
   {
     title: "Hair Coloring",
-    desc: "Hair coloring options surely to suite your needs",
+    desc: "Professional coloring that'll make your hair stand out",
     imgName: "hair-color",
   },
   {
