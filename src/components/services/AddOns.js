@@ -39,7 +39,7 @@ const AddOns = ({ categoryId }) => {
       <div id="add-ons">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#ddd6f3", "#faaca8"]}>
+            <GradientFont deg={-45} colors={["#faaca8", "#ddd6f3"]}>
               Add On's
             </GradientFont>
           </h1>
