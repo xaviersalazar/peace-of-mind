@@ -39,7 +39,7 @@ const Facials = ({ categoryId }) => {
       <div id="massages">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#48dfbe", "#b3c8df"]}>
+            <GradientFont deg={-45} colors={["#b3c8df", "#48dfbe"]}>
               Massages
             </GradientFont>
           </h1>
