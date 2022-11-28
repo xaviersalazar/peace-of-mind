@@ -69,6 +69,36 @@ const informationContentVariants = {
   },
 };
 
+const Prices = ({ title, prices }) => {
+  const getUnitAndPrice = (price, unit) => {
+    if (unit === "Range") {
+      return `${price
+        .split(",")
+        .map((price) => `$${price}`)
+        .join(" - ")}`;
+    }
+
+    if (unit) {
+      return `${unit}: $${price}`;
+    }
+
+    return `$${price}`;
+  };
+
+  return !isEmpty(prices) ? (
+    prices.map(({ price, unit }) => (
+      <p
+        key={`${title}_${price}`}
+        className="text-sm font-light text-slate-400 text-center px-4"
+      >
+        {getUnitAndPrice(price, unit)}
+      </p>
+    ))
+  ) : (
+    <p className="text-sm font-light text-slate-400 text-center px-4">TBD</p>
+  );
+};
+
 const Services = ({
   service: { title, description, prices },
   strikeColor,
@@ -90,20 +120,7 @@ const Services = ({
               <StrikethruText text={title} color={strikeColor} />
             </div>
           </div>
-          {!isEmpty(prices) ? (
-            prices.map(({ price, unit }) => (
-              <p
-                key={`${title}_${price}`}
-                className="text-sm font-light text-slate-400 text-center px-4"
-              >
-                {unit ? `${unit}: $${price}` : `$${price}`}
-              </p>
-            ))
-          ) : (
-            <p className="text-sm font-light text-slate-400 text-center px-4">
-              TBD
-            </p>
-          )}
+          <Prices title={title} prices={prices} />
         </div>
         {description && (
           <AnimatePresence>
