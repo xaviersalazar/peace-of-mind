@@ -39,12 +39,12 @@ const DeluxeCouplesMassages = ({ categoryId }) => {
       <div id="deluxe-couples">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#00C9FF", "#92FE9D"]}>
+            <GradientFont deg={-45} colors={["#92FE9D", "#00C9FF"]}>
               Deluxe & <span className="hidden md:inline">Couples</span>
             </GradientFont>
           </h1>
           <h1 className="md:hidden text-5xl font-extra-bold md:text-6xl mb-1">
-            <GradientFont deg={-45} colors={["#00C9FF", "#92FE9D"]}>
+            <GradientFont deg={-45} colors={["#92FE9D", "#00C9FF"]}>
               Couples
             </GradientFont>
           </h1>
@@ -57,7 +57,7 @@ const DeluxeCouplesMassages = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#92FE9D"
+              strikeColor="#00C9FF"
               colsSizing="md:last:col-span-2 xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
             />
           ))}
