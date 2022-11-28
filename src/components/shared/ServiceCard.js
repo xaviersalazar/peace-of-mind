@@ -72,7 +72,7 @@ const informationContentVariants = {
 const Services = ({
   service: { title, description, prices },
   strikeColor,
-  colsSizing,
+  colsSizing = "xl:col-span-2",
 }) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 

@@ -5,4 +5,5 @@ export const CATEGORY_MAPPING = {
   FACIALS: 6,
   SCRUBS_WEIGHTLOSS: 13,
   WAXES: 14,
+  SALON_EYES: 15,
 };

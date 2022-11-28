@@ -9,7 +9,7 @@ import {
   SkeletonLoader,
 } from "../shared";
 
-const Facials = ({ categoryId }) => {
+const SalonEyes = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -36,15 +36,15 @@ const Facials = ({ categoryId }) => {
 
   return (
     <ServiceContainer>
-      <div id="massages">
+      <div id="add-ons">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#b3c8df", "#48dfbe"]}>
-              Massages
+          <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
+            <GradientFont deg={-45} colors={["#6A82FB", "#ee9ca7"]}>
+              Eyes
             </GradientFont>
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
-            You'll leave completely rejuvenated
+            Makeup application and services for the eyes
           </p>
         </div>
         <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
@@ -52,7 +52,7 @@ const Facials = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#48dfbe"
+              strikeColor="#eaafc8"
             />
           ))}
         </div>
@@ -62,4 +62,4 @@ const Facials = ({ categoryId }) => {
   );
 };
 
-export default Facials;
+export default SalonEyes;

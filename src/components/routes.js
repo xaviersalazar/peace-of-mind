@@ -7,7 +7,7 @@ import DashboardLayout from "./admin/layout/DashboardLayout";
 import { Loader, SkeletonLoader } from "./shared";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
-// Public
+// Public => Services
 const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
@@ -15,6 +15,9 @@ const Facials = lazy(() => import("./services/Facials"));
 const Massages = lazy(() => import("./services/Massages"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
+
+// Public => Salon
+const SalonEyes = lazy(() => import("./services/SalonEyes"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -86,6 +89,19 @@ const routes = [
             element: (
               <Suspense fallback={<SkeletonLoader />}>
                 <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
+              </Suspense>
+            ),
+          },
+        ],
+      },
+      {
+        path: "salon",
+        children: [
+          {
+            path: "eyes",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
               </Suspense>
             ),
           },

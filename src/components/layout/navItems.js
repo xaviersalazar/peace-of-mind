@@ -39,7 +39,7 @@ const navItems = [
       },
       {
         title: "Eyes",
-        subLink: "/salon-eyes",
+        subLink: "/salon/eyes",
       },
       {
         title: "Finishing Touches",
