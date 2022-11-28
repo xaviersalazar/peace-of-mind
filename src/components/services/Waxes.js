@@ -53,7 +53,7 @@ const Facials = ({ categoryId }) => {
               key={service.id}
               service={service}
               strikeColor="#FFC371"
-              colsSizing="xl:col-span-2"
+              colsSizing="xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
             />
           ))}
         </div>

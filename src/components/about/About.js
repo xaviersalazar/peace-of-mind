@@ -1,7 +1,7 @@
 import { StrikethruText } from "../shared";
 
 const Text = ({ children }) => (
-  <p className="text-sm font-extra-light mb-2">{children}</p>
+  <p className="text-sm font-light text-slate-500 mb-2">{children}</p>
 );
 
 const About = () => (

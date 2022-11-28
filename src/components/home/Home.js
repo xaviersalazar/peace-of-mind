@@ -62,7 +62,7 @@ const Home = () => (
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={-45}
-              colors={["#f12711", "#f5af19"]}
+              colors={["#FF5F6D", "#FFC371"]}
             >
               Therapy
             </GradientFont>{" "}
@@ -70,7 +70,7 @@ const Home = () => (
             <GradientFont
               className="text-3xl font-bold md:text-4xl lg:text-5xl"
               deg={45}
-              colors={["#f5af19", "#f12711"]}
+              colors={["#FFC371", "#FF5F6D"]}
             >
               Natural
             </GradientFont>{" "}
