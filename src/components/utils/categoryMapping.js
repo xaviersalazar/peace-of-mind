@@ -7,4 +7,5 @@ export const CATEGORY_MAPPING = {
   WAXES: 14,
   SALON_EYES: 15,
   FINISHING_TOUCHES: 16,
+  HAIRCUTS: 17,
 };

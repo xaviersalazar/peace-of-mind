@@ -19,6 +19,7 @@ const Waxes = lazy(() => import("./services/Waxes"));
 // Public => Salon
 const SalonEyes = lazy(() => import("./services/SalonEyes"));
 const FinishingTouches = lazy(() => import("./services/FinishingTouches"));
+const Haircuts = lazy(() => import("./services/Haircuts"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -113,6 +114,14 @@ const routes = [
                 <FinishingTouches
                   categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
                 />
+              </Suspense>
+            ),
+          },
+          {
+            path: "haircuts",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
               </Suspense>
             ),
           },
