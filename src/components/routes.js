@@ -18,6 +18,7 @@ const Waxes = lazy(() => import("./services/Waxes"));
 
 // Public => Salon
 const SalonEyes = lazy(() => import("./services/SalonEyes"));
+const FinishingTouches = lazy(() => import("./services/FinishingTouches"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -102,6 +103,16 @@ const routes = [
             element: (
               <Suspense fallback={<SkeletonLoader />}>
                 <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
+              </Suspense>
+            ),
+          },
+          {
+            path: "finishing-touches",
+            element: (
+              <Suspense fallback={<SkeletonLoader />}>
+                <FinishingTouches
+                  categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
+                />
               </Suspense>
             ),
           },

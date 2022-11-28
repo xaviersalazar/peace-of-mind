@@ -43,7 +43,7 @@ const navItems = [
       },
       {
         title: "Finishing Touches",
-        subLink: "/salon-finishing-touches",
+        subLink: "/salon/finishing-touches",
       },
       {
         title: "Haircuts",

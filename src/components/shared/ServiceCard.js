@@ -141,6 +141,7 @@ const Services = ({
               {didClickViewInformation && (
                 <motion.div
                   key="information-container"
+                  className="mx-auto"
                   initial="closed"
                   animate={didClickViewInformation ? "opened" : "closed"}
                   variants={informationContainerVariants}
@@ -150,7 +151,7 @@ const Services = ({
                     initial="closed"
                     animate={didClickViewInformation ? "opened" : "closed"}
                     variants={informationContentVariants}
-                    className="text-sm font-light text-slate-400"
+                    className="text-sm font-light text-slate-400 text-center"
                   >
                     {description}
                   </motion.p>
