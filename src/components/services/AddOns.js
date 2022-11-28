@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
 const AddOns = ({ categoryId }) => {
@@ -38,10 +38,13 @@ const AddOns = ({ categoryId }) => {
     <ServiceContainer>
       <div id="add-ons">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#faaca8", "#ddd6f3"]}>
-              Add On's
-            </GradientFont>
+          <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
+            <StrikethruText
+              text="Add On's"
+              color="#A1FFCE"
+              height="h-5"
+              position="bottom-1.5"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Give your session something <span className="italic">extra</span>
@@ -52,7 +55,7 @@ const AddOns = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#ddd6f3"
+              strikeColor="#A1FFCE"
               colsSizing="xl:col-span-2 xl:last:col-span-3 xl:[&:nth-last-child(2)]:col-span-3"
             />
           ))}

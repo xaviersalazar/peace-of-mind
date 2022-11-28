@@ -2,14 +2,14 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
-const Facials = ({ categoryId }) => {
+const ScrubsWeightloss = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -38,15 +38,28 @@ const Facials = ({ categoryId }) => {
     <ServiceContainer>
       <div id="scrubs-weightloss">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#fd75ae", "#ccc74e"]}>
-              Scrubs & <span className="hidden md:inline">Weightloss</span>
-            </GradientFont>
-          </h1>
-          <h1 className="md:hidden text-5xl font-extra-bold md:text-6xl mb-1">
-            <GradientFont deg={-45} colors={["#fd75ae", "#ccc74e"]}>
-              Weightloss
-            </GradientFont>
+          <h1 className="relative text-5xl font-extra-bold mb-2 md:text-6xl">
+            <StrikethruText
+              className="inline md:hidden"
+              text="Scrubs &"
+              color="#D3CCE3"
+              height="h-4"
+              position="top-8"
+            />
+            <StrikethruText
+              className="block md:hidden"
+              text="Weightloss"
+              color="#D3CCE3"
+              height="h-4"
+              position="bottom-0.5"
+            />
+            <StrikethruText
+              className="hidden md:inline"
+              text="Scrubs & Weightloss"
+              color="#D3CCE3"
+              height="h-5"
+              position="bottom-0.5"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Our deep scrubs and weight loss treatments
@@ -57,7 +70,7 @@ const Facials = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#ccc74e"
+              strikeColor="#D3CCE3"
               colsSizing="md:last:col-span-2 xl:col-span-2"
             />
           ))}
@@ -68,4 +81,4 @@ const Facials = ({ categoryId }) => {
   );
 };
 
-export default Facials;
+export default ScrubsWeightloss;

@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
 const SalonEyes = ({ categoryId }) => {
@@ -36,12 +36,15 @@ const SalonEyes = ({ categoryId }) => {
 
   return (
     <ServiceContainer>
-      <div id="add-ons">
+      <div id="salon-eyes">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
-            <GradientFont deg={-45} colors={["#6A82FB", "#ee9ca7"]}>
-              Eyes
-            </GradientFont>
+            <StrikethruText
+              text="Eyes"
+              color="#efd5ff"
+              height="h-4 md:h-6"
+              position="bottom-1"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Makeup application and services for the eyes
@@ -52,7 +55,7 @@ const SalonEyes = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#eaafc8"
+              strikeColor="#efd5ff"
             />
           ))}
         </div>

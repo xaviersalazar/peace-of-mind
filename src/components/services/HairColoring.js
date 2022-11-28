@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
 const HairColoring = ({ categoryId }) => {
@@ -36,12 +36,15 @@ const HairColoring = ({ categoryId }) => {
 
   return (
     <ServiceContainer>
-      <div id="add-ons">
+      <div id="hair-coloring">
         <div className="text-center w-max my-0 mx-auto">
           <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
-            <GradientFont deg={-45} colors={["#FAD0C4", "#F1A7F1"]}>
-              Hair Coloring
-            </GradientFont>
+            <StrikethruText
+              text="Hair Coloring"
+              color="#F1A7F1"
+              height="h-5 md:h-6"
+              position="bottom-1"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Professional coloring that'll make your hair stand out

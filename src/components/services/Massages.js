@@ -2,14 +2,14 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
-const Facials = ({ categoryId }) => {
+const Massages = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -38,10 +38,13 @@ const Facials = ({ categoryId }) => {
     <ServiceContainer>
       <div id="massages">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#b3c8df", "#48dfbe"]}>
-              Massages
-            </GradientFont>
+          <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
+            <StrikethruText
+              text="Massages"
+              color="#fcfc9f"
+              height="h-4 md:h-5"
+              position="bottom-1.5"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             You'll leave completely rejuvenated
@@ -52,7 +55,7 @@ const Facials = ({ categoryId }) => {
             <ServiceCard
               key={service.id}
               service={service}
-              strikeColor="#48dfbe"
+              strikeColor="#fcfc9f"
             />
           ))}
         </div>
@@ -62,4 +65,4 @@ const Facials = ({ categoryId }) => {
   );
 };
 
-export default Facials;
+export default Massages;

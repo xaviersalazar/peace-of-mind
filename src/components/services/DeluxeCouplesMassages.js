@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
 const DeluxeCouplesMassages = ({ categoryId }) => {
@@ -38,15 +38,28 @@ const DeluxeCouplesMassages = ({ categoryId }) => {
     <ServiceContainer>
       <div id="deluxe-couples">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#92FE9D", "#00C9FF"]}>
-              Deluxe & <span className="hidden md:inline">Couples</span>
-            </GradientFont>
-          </h1>
-          <h1 className="md:hidden text-5xl font-extra-bold md:text-6xl mb-1">
-            <GradientFont deg={-45} colors={["#92FE9D", "#00C9FF"]}>
-              Couples
-            </GradientFont>
+          <h1 className="relative text-5xl font-extra-bold mb-2 md:text-6xl">
+            <StrikethruText
+              className="inline md:hidden"
+              text="Deluxe &"
+              color="#00C9FF"
+              height="h-4"
+              position="top-8"
+            />
+            <StrikethruText
+              className="block md:hidden"
+              text="Couples"
+              color="#00C9FF"
+              height="h-4"
+              position="bottom-0.5"
+            />
+            <StrikethruText
+              className="hidden md:inline"
+              text="Deluxe & Couples"
+              color="#00C9FF"
+              height="h-5"
+              position="bottom-0.5"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Stimulating massages for the couples

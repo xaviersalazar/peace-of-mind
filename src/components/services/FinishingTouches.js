@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
 const FinishingTouches = ({ categoryId }) => {
@@ -36,12 +36,30 @@ const FinishingTouches = ({ categoryId }) => {
 
   return (
     <ServiceContainer>
-      <div id="add-ons">
+      <div id="finishing-touches">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
-            <GradientFont deg={-45} colors={["#C9FFBF", "#FFAFBD"]}>
-              Finishing Touches
-            </GradientFont>
+          <h1 className="relative z-[1] text-5xl font-extra-bold mb-2 md:text-6xl">
+            <StrikethruText
+              className="block md:hidden"
+              text="Finishing"
+              color="#FFAFBD"
+              height="h-4"
+              position="top-8"
+            />
+            <StrikethruText
+              className="block md:hidden"
+              text="Touches"
+              color="#FFAFBD"
+              height="h-4"
+              position="bottom-0.5"
+            />
+            <StrikethruText
+              className="hidden md:inline"
+              text="Finishing Touches"
+              color="#FFAFBD"
+              height="h-5"
+              position="bottom-0.5"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Give your hair some <span className="italic">extra</span> care

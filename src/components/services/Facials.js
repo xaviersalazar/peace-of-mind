@@ -2,11 +2,11 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
-  GradientFont,
   Notice,
   ServiceContainer,
   ServiceCard,
   SkeletonLoader,
+  StrikethruText,
 } from "../shared";
 
 const Facials = ({ categoryId }) => {
@@ -38,10 +38,13 @@ const Facials = ({ categoryId }) => {
     <ServiceContainer>
       <div id="facials">
         <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold md:text-6xl">
-            <GradientFont deg={-45} colors={["#e1eec3", "#f05053"]}>
-              Facials
-            </GradientFont>
+          <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
+            <StrikethruText
+              text="Facials"
+              color="#f2888a"
+              height="h-4 md:h-5"
+              position="bottom-1.5"
+            />
           </h1>
           <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
             Treatments surely to make your face radiate
