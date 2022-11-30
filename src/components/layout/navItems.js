@@ -35,7 +35,7 @@ const navItems = [
     subItems: [
       {
         title: "About Our Salon",
-        subLink: "/salon-about",
+        subLink: "/salon/about",
       },
       {
         title: "Eyes",
@@ -55,51 +55,51 @@ const navItems = [
       },
       {
         title: "Hair Extensions",
-        subLink: "/salon-hair-ext",
+        subLink: "/salon/hair-ext",
       },
       {
         title: "Hair Highlights",
-        subLink: "/salon-hair-highlights",
+        subLink: "/salon/hair-highlights",
       },
       {
         title: "Hair Treatments",
-        subLink: "/salon-hair-treatments",
+        subLink: "/salon/hair-treatments",
       },
       {
         title: "Locs",
-        subLink: "/salon-locs",
+        subLink: "/salon/locs",
       },
       {
         title: "Manicures & Pedicures",
-        subLink: "/salon-mani-pedi",
+        subLink: "/salon-/mani-pedi",
       },
       {
         title: "Makeup",
-        subLink: "/salon-makeup",
+        subLink: "/salon/makeup",
       },
       {
         title: "Mens Services",
-        subLink: "/salon-mens",
+        subLink: "/salon/mens",
       },
       {
         title: "Natural Styling",
-        subLink: "/salon-natural-styling",
+        subLink: "/salon/natural-styling",
       },
       {
         title: "Perms",
-        subLink: "/salon-perms",
+        subLink: "/salon/perms",
       },
       {
         title: "Sets & Twists",
-        subLink: "/salon-sets-twists",
+        subLink: "/salon/sets-twists",
       },
       {
         title: "Specialty w/ Extensions",
-        subLink: "/salon-spec-with-ext",
+        subLink: "/salon/spec-with-ext",
       },
       {
         title: "Straightening Services",
-        subLink: "/salon-straightening-services",
+        subLink: "/salon/straightening-services",
       },
     ],
   },
@@ -110,7 +110,7 @@ const navItems = [
     subItems: [
       {
         title: "About Our Services",
-        link: "/services-about",
+        link: "/services/about",
       },
       {
         title: "Add On's",
