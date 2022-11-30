@@ -4,7 +4,7 @@ import Home from "./home/Home";
 import Login from "./auth/Login";
 import Protected from "./auth/Protected";
 import DashboardLayout from "./admin/layout/DashboardLayout";
-import { Loader, SkeletonLoader } from "./shared";
+import { Loader, ServiceContainer, SkeletonLoader } from "./shared";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
 // Public => Services
@@ -46,53 +46,65 @@ const routes = [
           {
             path: "add-ons",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "deluxe-couples",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <DeluxeCouplesMassages
-                  categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
-                />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <DeluxeCouplesMassages
+                    categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
+                  />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "facials",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "massages",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "scrubs-weightloss",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <ScrubsWeightloss
-                  categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
-                />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <ScrubsWeightloss
+                    categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
+                  />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "waxes",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
         ],
@@ -103,35 +115,43 @@ const routes = [
           {
             path: "eyes",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "finishing-touches",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <FinishingTouches
-                  categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
-                />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <FinishingTouches
+                    categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
+                  />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "haircuts",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
           {
             path: "hair-coloring",
             element: (
-              <Suspense fallback={<SkeletonLoader />}>
-                <HairColoring categoryId={CATEGORY_MAPPING.HAIR_COLORING} />
-              </Suspense>
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <HairColoring categoryId={CATEGORY_MAPPING.HAIR_COLORING} />
+                </Suspense>
+              </ServiceContainer>
             ),
           },
         ],
@@ -139,7 +159,7 @@ const routes = [
       {
         path: "*",
         element: (
-          <div className="relative top-32 px-10 pt-0 pb-10 lg:p-20 xl:px-[7rem] xl:py-16">
+          <ServiceContainer>
             <h1 className="text-3xl font-bold text-center">
               Nothing found here 🤷‍♀️
             </h1>
@@ -149,7 +169,7 @@ const routes = [
                 homepage
               </a>
             </h1>
-          </div>
+          </ServiceContainer>
         ),
       },
     ],

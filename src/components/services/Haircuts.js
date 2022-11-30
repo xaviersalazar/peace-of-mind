@@ -3,7 +3,6 @@ import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import {
   Error,
   Notice,
-  ServiceContainer,
   ServiceCard,
   SkeletonLoader,
   StrikethruText,
@@ -17,52 +16,42 @@ const Haircuts = ({ categoryId }) => {
   });
 
   if (loading) {
-    return (
-      <ServiceContainer>
-        <SkeletonLoader />
-      </ServiceContainer>
-    );
+    return <SkeletonLoader />;
   }
 
   if (error) {
-    return (
-      <ServiceContainer>
-        <Error />
-      </ServiceContainer>
-    );
+    return <Error />;
   }
 
   const { servicesByCategory } = data;
 
   return (
-    <ServiceContainer>
-      <div id="haircuts">
-        <div className="text-center w-max my-0 mx-auto">
-          <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
-            <StrikethruText
-              text="Haircuts"
-              color="#bdc3c7"
-              height="h-5 md:h-6"
-              position="bottom-1"
-            />
-          </h1>
-          <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
-            Haircuts of all shapes and sizes
-          </p>
-        </div>
-        <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
-          {servicesByCategory.map((service) => (
-            <ServiceCard
-              key={service.id}
-              service={service}
-              strikeColor="#bdc3c7"
-              colsSizing="xl:col-span-2 xl:last:col-span-6"
-            />
-          ))}
-        </div>
+    <div id="haircuts">
+      <div className="text-center w-max my-0 mx-auto">
+        <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
+          <StrikethruText
+            text="Haircuts"
+            color="#bdc3c7"
+            height="h-5 md:h-6"
+            position="bottom-1"
+          />
+        </h1>
+        <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
+          Haircuts of all shapes and sizes
+        </p>
+      </div>
+      <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
+        {servicesByCategory.map((service) => (
+          <ServiceCard
+            key={service.id}
+            service={service}
+            strikeColor="#bdc3c7"
+            colsSizing="xl:col-span-2 xl:last:col-span-6"
+          />
+        ))}
       </div>
       <Notice />
-    </ServiceContainer>
+    </div>
   );
 };
 
