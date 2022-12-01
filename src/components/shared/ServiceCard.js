@@ -69,7 +69,9 @@ const informationContentVariants = {
   },
 };
 
-const Prices = ({ title, prices }) => {
+const Prices = ({ title, prices, showPriceText }) => {
+  if (!showPriceText) return "";
+
   const getUnitAndPrice = (price, unit) => {
     if (unit === "Range") {
       return `${price
@@ -102,14 +104,18 @@ const Prices = ({ title, prices }) => {
 const Services = ({
   service: { title, description, prices },
   strikeColor,
+  background = "bg-slate-50",
   colsSizing = "xl:col-span-2",
+  showPriceText = true,
+  badges = null,
 }) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 
   return (
     <div
       className={classNames(
-        "card border-none bg-slate-50 rounded-2xl",
+        "card border-none rounded-2xl",
+        background,
         colsSizing
       )}
     >
@@ -120,7 +126,8 @@ const Services = ({
               <StrikethruText text={title} color={strikeColor} />
             </div>
           </div>
-          <Prices title={title} prices={prices} />
+          {badges}
+          <Prices title={title} prices={prices} showPriceText={showPriceText} />
         </div>
         {description && (
           <AnimatePresence>

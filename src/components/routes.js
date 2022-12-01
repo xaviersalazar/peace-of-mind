@@ -15,6 +15,7 @@ const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassage
 const Facials = lazy(() => import("./services/Facials"));
 const FacialEnhancements = lazy(() => import("./services/FacialEnhancements"));
 const HealthCoaching = lazy(() => import("./services/HealthCoaching"));
+const InfraredSauna = lazy(() => import("./services/InfraredSauna"));
 const Massages = lazy(() => import("./services/Massages"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
@@ -122,6 +123,16 @@ const routes = [
                   <HealthCoaching
                     categoryId={CATEGORY_MAPPING.HEALTH_COACHING}
                   />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "infrared-sauna",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <InfraredSauna categoryId={CATEGORY_MAPPING.INFRARED_SAUNA} />
                 </Suspense>
               </ServiceContainer>
             ),
