@@ -26,36 +26,35 @@ const HairColoring = ({ categoryId }) => {
           <StrikethruText
             className="relative inline md:hidden"
             text="Hair"
-            color="#C6FFDD"
+            color="#89fffd"
             height="h-4"
             position="top-8"
           />
           <StrikethruText
             className="block md:hidden"
-            text="Extensions"
-            color="#C6FFDD"
+            text="Highlights"
+            color="#89fffd"
             height="h-4"
             position="bottom-0.5"
           />
           <StrikethruText
             className="hidden md:inline"
-            text="Hair Extensions"
-            color="#C6FFDD"
+            text="Hair Highlights"
+            color="#89fffd"
             height="h-5"
             position="bottom-0.5"
           />
         </h1>
         <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
-          High quality extensions installation
+          Make your hair shine with our highlights
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-4">
+      <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
         {servicesByCategory.map((service) => (
           <ServiceCard
             key={service.id}
             service={service}
-            strikeColor="#C6FFDD"
-            colsSizing="md:col-span-2 xl:col-span-2 xl:col-start-2"
+            strikeColor="#89fffd"
           />
         ))}
       </div>
