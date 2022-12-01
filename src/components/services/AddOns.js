@@ -30,11 +30,11 @@ const AddOns = ({ categoryId }) => {
             position="bottom-1.5"
           />
         </h1>
-        <p className="text-[0.65rem] font-light text-slate-400 text-center md:text-sm">
+        <p className="text-xs font-light text-slate-400 text-center md:text-sm">
           Give your session something <span className="italic">extra</span>
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6 xl:col-span-2">
+      <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
         {servicesByCategory.map((service) => (
           <ServiceCard
             key={service.id}

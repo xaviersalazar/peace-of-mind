@@ -45,7 +45,7 @@ const HairTreatments = ({ categoryId }) => {
             position="bottom-0.5"
           />
         </h1>
-        <p className="text-[0.65rem] font-light text-slate-400 text-center md:text-sm">
+        <p className="text-xs font-light text-slate-400 text-center md:text-sm">
           Make your hair shine with our highlights
         </p>
       </div>

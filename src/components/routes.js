@@ -30,6 +30,7 @@ const Makeup = lazy(() => import("./services/Makeup"));
 const Mens = lazy(() => import("./services/Mens"));
 const NaturalStyling = lazy(() => import("./services/NaturalStyling"));
 const Perms = lazy(() => import("./services/Perms"));
+const SetsTwists = lazy(() => import("./services/SetsTwists"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -257,6 +258,16 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <Perms categoryId={CATEGORY_MAPPING.PERMS} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "sets-twists",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <SetsTwists categoryId={CATEGORY_MAPPING.SETS_TWISTS} />
                 </Suspense>
               </ServiceContainer>
             ),

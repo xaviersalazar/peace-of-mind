@@ -11,8 +11,8 @@ const StrikethruText = ({
   position = "bottom-0.5",
   ...rest
 }) =>
-  text?.split(" ").map((word) => (
-    <span key={word} className="relative w-fit z-[1]" {...rest}>
+  text?.split(" ").map((word, i) => (
+    <span key={`${word}_${i}`} className="relative w-fit z-[1]" {...rest}>
       {word}{" "}
       <Strike
         className={`absolute left-0 ${height} w-full z-[-1] ${position} opacity-80`}
