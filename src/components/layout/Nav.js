@@ -143,30 +143,29 @@ const Nav = () => {
       <div className="fixed top-2 w-screen z-50">
         <Navbar
           className={classNames(
-            "mt-4 mx-8 px-6 py-6 md:pt-6 md:pb-4 rounded-2xl bg-white",
+            "mt-4 mx-4 md:mx-8 px-6 py-6 md:pt-6 md:pb-4 rounded-2xl bg-white",
             shouldApplyShadow ? "active" : ""
           )}
         >
-          <div className="flex-1 md:flex justify-center md:justify-between">
+          <div className="flex justify-between">
             <Link to="/">
               <Logo
                 className={classNames(
-                  "hidden md:block justify-start w-[48px] relative bottom-1 cursor-pointer",
-                  useIsMd() ? "active" : "",
+                  "justify-start w-[48px] relative bottom-1 cursor-pointer active",
                   shouldApplyShadow ? "active" : ""
                 )}
                 src="/logo-black.png"
                 alt="background"
               />
             </Link>
-            <div className="flex gap-2 justify-between md:justify-end md:gap-8">
+            <div className="flex gap-2 justify-between relative top-1.5 md:justify-end md:gap-8">
               {navItems.map(({ title, link, page, subItems }) => (
                 <div className="relative" key={title}>
                   {/* eslint-disable-next-line */}
                   <Link
                     key={title}
                     to={link}
-                    className="text-sm md:text-base tracking-wide cursor-pointer"
+                    className="text-xs md:text-base tracking-wide cursor-pointer"
                     onClick={() => onNavItemClicked(title)}
                   >
                     <div className="flex gap-y-1 uppercase">
@@ -199,8 +198,8 @@ const Nav = () => {
                             className={classNames(
                               "relative",
                               title === "Services"
-                                ? "top-[0.22rem] md:top-1"
-                                : "top-1",
+                                ? "top-[0.1rem] md:top-1"
+                                : "top-0.5 md:top-1",
                               currPage[page] ? "opacity-100" : "opacity-50"
                             )}
                           />
