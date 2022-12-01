@@ -5,7 +5,7 @@ const Text = ({ children }) => (
 );
 
 const About = () => (
-  <div className="relative top-32 h-full mb-32 px-10 pt-0 lg:px-20 lg:pt-20 xl:px-[7rem] xl:pt-16">
+  <div className="relative top-32 h-full mb-32 px-10 pt-0 lg:px-20 lg:pt-4 xl:px-[7rem] xl:pt-8">
     <div className="h-full mb-16 text-center">
       <img
         className="w-max rounded-2xl mb-4 mx-auto md:w-1/2 xl:w-1/4"
