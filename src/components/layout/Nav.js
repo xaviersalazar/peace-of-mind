@@ -229,8 +229,9 @@ const Nav = () => {
                           {subItems?.length > 0 &&
                             subItems?.map(
                               ({ title: subItemTitle, subLink }, index) => (
-                                <li
+                                <Link
                                   key={subItemTitle}
+                                  to={subLink}
                                   className={classNames(
                                     "text-sm font-light pl-4 pr-8 py-1 cursor-pointer hover:bg-primary hover:font-regular",
                                     index === 0 && "pt-2 pb-1",
@@ -240,8 +241,8 @@ const Nav = () => {
                                     setIsSubMenuOpen(initialSubMenuState)
                                   }
                                 >
-                                  <Link to={subLink}>{subItemTitle}</Link>
-                                </li>
+                                  {subItemTitle}
+                                </Link>
                               )
                             )}
                         </div>
