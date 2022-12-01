@@ -12,19 +12,19 @@ const navItems = [
     subItems: [
       {
         title: "About Besame",
-        subLink: "/besame-about",
+        subLink: "/besame/about",
       },
       {
         title: "Eyes",
-        subLink: "/besame-eyes",
+        subLink: "/besame/eyes",
       },
       {
         title: "Face",
-        subLink: "/besame-face",
+        subLink: "/besame/face",
       },
       {
         title: "Lips",
-        subLink: "/besame-lips",
+        subLink: "/besame/lips",
       },
     ],
   },
@@ -118,7 +118,7 @@ const navItems = [
       },
       {
         title: "Breast/Butt Lift & Fat Eliminator",
-        subLink: "/services-bbl-fat-elim",
+        subLink: "/services/bbl-fat-elim",
       },
       {
         title: "Deluxe/Couples Massages",
@@ -130,19 +130,19 @@ const navItems = [
       },
       {
         title: "Facial Enhancements",
-        subLink: "/services-facial-enhance",
+        subLink: "/services/facial-enhance",
       },
       {
         title: "Health Coaching",
-        subLink: "/services-health-coaching",
+        subLink: "/services/health-coaching",
       },
       {
         title: "Infrared Sauna",
-        subLink: "/services-infrared-sauna",
+        subLink: "/services/infrared-sauna",
       },
       {
         title: "Kids Yoga",
-        subLink: "/services-kids-yoga",
+        subLink: "/services/kids-yoga",
       },
       {
         title: "Massages",
@@ -150,11 +150,11 @@ const navItems = [
       },
       {
         title: "Oxygen Bar",
-        subLink: "/services-oxygen-bar",
+        subLink: "/services/oxygen-bar",
       },
       {
         title: "Oxygen Foot Soak",
-        subLink: "/services-oxygen-soak",
+        subLink: "/services/oxygen-soak",
       },
       {
         title: "Scrubs/Weightloss",
