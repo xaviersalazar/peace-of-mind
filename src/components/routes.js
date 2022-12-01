@@ -23,6 +23,7 @@ const Haircuts = lazy(() => import("./services/Haircuts"));
 const HairColoring = lazy(() => import("./services/HairColoring"));
 const HairExtensions = lazy(() => import("./services/HairExtensions"));
 const HairHighlights = lazy(() => import("./services/HairHighlights"));
+const HairTreatments = lazy(() => import("./services/HairTreatments"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -175,6 +176,18 @@ const routes = [
                 <Suspense fallback={<SkeletonLoader />}>
                   <HairHighlights
                     categoryId={CATEGORY_MAPPING.HAIR_HIGHLIGHTS}
+                  />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "hair-treatments",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <HairTreatments
+                    categoryId={CATEGORY_MAPPING.HAIR_TREATMENTS}
                   />
                 </Suspense>
               </ServiceContainer>

@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
 
-const Haircuts = ({ categoryId }) => {
+const HairTreatments = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -20,18 +20,33 @@ const Haircuts = ({ categoryId }) => {
   const { servicesByCategory } = data;
 
   return (
-    <div id="haircuts">
+    <div id="hair-treatments">
       <div className="text-center w-max my-0 mx-auto">
-        <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
+        <h1 className="relative text-5xl font-extra-bold mb-2 md:text-6xl">
           <StrikethruText
-            text="Haircuts"
-            color="#bdc3c7"
-            height="h-5 md:h-6"
-            position="bottom-1"
+            className="relative inline md:hidden"
+            text="Hair"
+            color="#CBEEF3"
+            height="h-4"
+            position="top-8"
+          />
+          <StrikethruText
+            className="block md:hidden"
+            text="Treatments"
+            color="#CBEEF3"
+            height="h-4"
+            position="bottom-0.5"
+          />
+          <StrikethruText
+            className="hidden md:inline"
+            text="Hair Treatments"
+            color="#CBEEF3"
+            height="h-5"
+            position="bottom-0.5"
           />
         </h1>
         <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
-          Haircuts of all shapes and sizes
+          Make your hair shine with our highlights
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
@@ -39,8 +54,8 @@ const Haircuts = ({ categoryId }) => {
           <ServiceCard
             key={service.id}
             service={service}
-            strikeColor="#bdc3c7"
-            colsSizing="xl:col-span-2 xl:last:col-span-4 xl:last:col-start-2"
+            strikeColor="#CBEEF3"
+            colsSizing="md:last:col-span-2 xl:col-span-2 xl:last:col-span-4 xl:last:col-start-2"
           />
         ))}
       </div>
@@ -48,4 +63,4 @@ const Haircuts = ({ categoryId }) => {
   );
 };
 
-export default Haircuts;
+export default HairTreatments;
