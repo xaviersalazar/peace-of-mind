@@ -29,6 +29,7 @@ const ManiPedi = lazy(() => import("./services/ManiPedi"));
 const Makeup = lazy(() => import("./services/Makeup"));
 const Mens = lazy(() => import("./services/Mens"));
 const NaturalStyling = lazy(() => import("./services/NaturalStyling"));
+const Perms = lazy(() => import("./services/Perms"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -246,6 +247,16 @@ const routes = [
                   <NaturalStyling
                     categoryId={CATEGORY_MAPPING.NATURAL_STYLING}
                   />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "perms",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <Perms categoryId={CATEGORY_MAPPING.PERMS} />
                 </Suspense>
               </ServiceContainer>
             ),
