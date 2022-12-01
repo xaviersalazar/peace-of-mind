@@ -71,7 +71,7 @@ const navItems = [
       },
       {
         title: "Manicures & Pedicures",
-        subLink: "/salon-/mani-pedi",
+        subLink: "/salon/mani-pedi",
       },
       {
         title: "Makeup",
