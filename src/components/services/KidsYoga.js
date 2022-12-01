@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
 
-const HealthCoaching = ({ categoryId }) => {
+const KidsYoga = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -20,33 +20,18 @@ const HealthCoaching = ({ categoryId }) => {
   const { servicesByCategory } = data;
 
   return (
-    <div id="health-coaching">
+    <div id="kids-yoga">
       <div className="text-center w-max my-0 mx-auto">
-        <h1 className="relative text-5xl font-extra-bold mb-2 md:text-6xl">
+        <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
           <StrikethruText
-            className="relative inline md:hidden"
-            text="Health"
-            color="#577CFF"
-            height="h-4"
-            position="top-9"
-          />
-          <StrikethruText
-            className="relative block md:hidden"
-            text="Coaching"
-            color="#577CFF"
-            height="h-4"
-            position="bottom-0"
-          />
-          <StrikethruText
-            className="hidden md:inline"
-            text="Health Coaching"
-            color="#577CFF"
-            height="h-5"
-            position="bottom-0.5"
+            text="Kids Yoga"
+            color="#D0FFCA"
+            height="h-4 md:h-5"
+            position="bottom-1.5"
           />
         </h1>
         <p className="text-xs font-light text-slate-400 text-center md:text-sm">
-          Plans customized just for you
+          Engaging yoga that the kids will love
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
@@ -54,7 +39,7 @@ const HealthCoaching = ({ categoryId }) => {
           <ServiceCard
             key={service.id}
             service={service}
-            strikeColor="#577CFF"
+            strikeColor="#D0FFCA"
             colsSizing="md:col-span-2 xl:col-span-4 xl:col-start-2"
           />
         ))}
@@ -63,4 +48,4 @@ const HealthCoaching = ({ categoryId }) => {
   );
 };
 
-export default HealthCoaching;
+export default KidsYoga;
