@@ -32,6 +32,7 @@ const NaturalStyling = lazy(() => import("./services/NaturalStyling"));
 const Perms = lazy(() => import("./services/Perms"));
 const SetsTwists = lazy(() => import("./services/SetsTwists"));
 const SpecialtyExtensions = lazy(() => import("./services/SpecialtyExtensions")); // prettier-ignore
+const StraighteningServices = lazy(() => import("./services/StraighteningServices")); // prettier-ignore
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -280,6 +281,18 @@ const routes = [
                 <Suspense fallback={<SkeletonLoader />}>
                   <SpecialtyExtensions
                     categoryId={CATEGORY_MAPPING.SPECIALTY}
+                  />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "straightening-services",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <StraighteningServices
+                    categoryId={CATEGORY_MAPPING.STRAIGHTENING}
                   />
                 </Suspense>
               </ServiceContainer>
