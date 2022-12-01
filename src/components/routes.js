@@ -13,6 +13,7 @@ const AddOns = lazy(() => import("./services/AddOns"));
 const BreastButtLiftFatElim = lazy(() => import("./services/BreastButtLiftFatElim")); // prettier-ignore
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
 const Facials = lazy(() => import("./services/Facials"));
+const FacialEnhancements = lazy(() => import("./services/FacialEnhancements"));
 const Massages = lazy(() => import("./services/Massages"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
@@ -96,6 +97,18 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "facial-enhance",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <FacialEnhancements
+                    categoryId={CATEGORY_MAPPING.FACIAL_ENHANCEMENTS}
+                  />
                 </Suspense>
               </ServiceContainer>
             ),
