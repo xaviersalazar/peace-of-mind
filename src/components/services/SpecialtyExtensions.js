@@ -46,7 +46,7 @@ const SpecialtyExtensions = ({ categoryId }) => {
           />
         </h1>
         <p className="text-xs font-light text-slate-400 text-center md:text-sm">
-          Stimulating massages for the couples
+          High quality specialty hairstyles
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
