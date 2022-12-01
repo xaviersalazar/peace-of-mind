@@ -1,12 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
-import {
-  Error,
-  Notice,
-  ServiceCard,
-  SkeletonLoader,
-  StrikethruText,
-} from "../shared";
+import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
 
 const HairColoring = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
@@ -50,7 +44,6 @@ const HairColoring = ({ categoryId }) => {
           />
         ))}
       </div>
-      <Notice />
     </div>
   );
 };
