@@ -26,21 +26,21 @@ const HairTreatments = ({ categoryId }) => {
           <StrikethruText
             className="relative inline md:hidden"
             text="Hair"
-            color="#CBEEF3"
+            color="#9EB7E5"
             height="h-4"
             position="top-8"
           />
           <StrikethruText
             className="block md:hidden"
             text="Treatments"
-            color="#CBEEF3"
+            color="#9EB7E5"
             height="h-4"
             position="bottom-0.5"
           />
           <StrikethruText
             className="hidden md:inline"
             text="Hair Treatments"
-            color="#CBEEF3"
+            color="#9EB7E5"
             height="h-5"
             position="bottom-0.5"
           />
@@ -54,7 +54,7 @@ const HairTreatments = ({ categoryId }) => {
           <ServiceCard
             key={service.id}
             service={service}
-            strikeColor="#CBEEF3"
+            strikeColor="#9EB7E5"
             colsSizing="md:last:col-span-2 xl:col-span-2 xl:last:col-span-4 xl:last:col-start-2"
           />
         ))}
