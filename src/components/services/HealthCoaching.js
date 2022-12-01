@@ -2,7 +2,7 @@ import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
 
-const FacialEnhancements = ({ categoryId }) => {
+const HealthCoaching = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
     variables: {
       categoryId,
@@ -20,33 +20,33 @@ const FacialEnhancements = ({ categoryId }) => {
   const { servicesByCategory } = data;
 
   return (
-    <div id="facial-enhancements">
+    <div id="health-coaching">
       <div className="text-center w-max my-0 mx-auto">
         <h1 className="relative text-5xl font-extra-bold mb-2 md:text-6xl">
           <StrikethruText
             className="relative inline md:hidden"
-            text="Facial"
-            color="#A58C89"
+            text="Health"
+            color="#577CFF"
             height="h-4"
             position="top-9"
           />
           <StrikethruText
             className="relative block md:hidden"
-            text="Enhancements"
-            color="#A58C89"
+            text="Coaching"
+            color="#577CFF"
             height="h-4"
             position="bottom-0"
           />
           <StrikethruText
             className="hidden md:inline"
-            text="Facial Enhancements"
-            color="#A58C89"
+            text="Health Coaching"
+            color="#577CFF"
             height="h-5"
             position="bottom-0.5"
           />
         </h1>
         <p className="text-xs font-light text-slate-400 text-center md:text-sm">
-          Stimulating massages for the couples
+          Plans customized just for you
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
@@ -54,8 +54,8 @@ const FacialEnhancements = ({ categoryId }) => {
           <ServiceCard
             key={service.id}
             service={service}
-            strikeColor="#A58C89"
-            colsSizing="md:last:col-span-2 xl:col-span-2"
+            strikeColor="#577CFF"
+            colsSizing="xl:col-span-4 xl:col-start-2"
           />
         ))}
       </div>
@@ -63,4 +63,4 @@ const FacialEnhancements = ({ categoryId }) => {
   );
 };
 
-export default FacialEnhancements;
+export default HealthCoaching;

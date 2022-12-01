@@ -14,6 +14,7 @@ const BreastButtLiftFatElim = lazy(() => import("./services/BreastButtLiftFatEli
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
 const Facials = lazy(() => import("./services/Facials"));
 const FacialEnhancements = lazy(() => import("./services/FacialEnhancements"));
+const HealthCoaching = lazy(() => import("./services/HealthCoaching"));
 const Massages = lazy(() => import("./services/Massages"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
@@ -108,6 +109,18 @@ const routes = [
                 <Suspense fallback={<SkeletonLoader />}>
                   <FacialEnhancements
                     categoryId={CATEGORY_MAPPING.FACIAL_ENHANCEMENTS}
+                  />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "health-coaching",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <HealthCoaching
+                    categoryId={CATEGORY_MAPPING.HEALTH_COACHING}
                   />
                 </Suspense>
               </ServiceContainer>
