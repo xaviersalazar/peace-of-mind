@@ -10,6 +10,7 @@ import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 // Public => Services
 const About = lazy(() => import("./about/About"));
 const AddOns = lazy(() => import("./services/AddOns"));
+const BreastButtLiftFatElim = lazy(() => import("./services/BreastButtLiftFatElim")); // prettier-ignore
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
 const Facials = lazy(() => import("./services/Facials"));
 const Massages = lazy(() => import("./services/Massages"));
@@ -17,7 +18,6 @@ const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
 
 // Public => Salon
-const SalonEyes = lazy(() => import("./services/SalonEyes"));
 const FinishingTouches = lazy(() => import("./services/FinishingTouches"));
 const Haircuts = lazy(() => import("./services/Haircuts"));
 const HairColoring = lazy(() => import("./services/HairColoring"));
@@ -30,6 +30,7 @@ const Makeup = lazy(() => import("./services/Makeup"));
 const Mens = lazy(() => import("./services/Mens"));
 const NaturalStyling = lazy(() => import("./services/NaturalStyling"));
 const Perms = lazy(() => import("./services/Perms"));
+const SalonEyes = lazy(() => import("./services/SalonEyes"));
 const SetsTwists = lazy(() => import("./services/SetsTwists"));
 const SpecialtyExtensions = lazy(() => import("./services/SpecialtyExtensions")); // prettier-ignore
 const StraighteningServices = lazy(() => import("./services/StraighteningServices")); // prettier-ignore
@@ -61,6 +62,18 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "bbl-fat-elim",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <BreastButtLiftFatElim
+                    categoryId={CATEGORY_MAPPING.BREAST_BUTT_LIFT_FAT_ELIM}
+                  />
                 </Suspense>
               </ServiceContainer>
             ),

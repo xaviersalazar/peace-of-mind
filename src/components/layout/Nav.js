@@ -2,12 +2,11 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
+import { StrikethruText } from "../shared";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
-import { useIsMd } from "../hooks/useBreakpoints";
 import classNames from "classnames";
 import styled from "styled-components";
-import { StrikethruText } from "../shared";
 
 const initialCurrPageState = {
   about: false,
