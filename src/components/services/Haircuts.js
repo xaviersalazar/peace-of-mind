@@ -30,7 +30,7 @@ const Haircuts = ({ categoryId }) => {
             position="bottom-1"
           />
         </h1>
-        <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
+        <p className="text-[0.65rem] font-light text-slate-400 text-center md:text-sm">
           Haircuts of all shapes and sizes
         </p>
       </div>

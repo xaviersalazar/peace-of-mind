@@ -30,7 +30,7 @@ const SalonEyes = ({ categoryId }) => {
             position="bottom-1"
           />
         </h1>
-        <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
+        <p className="text-[0.65rem] font-light text-slate-400 text-center md:text-sm">
           Makeup application and services for the eyes
         </p>
       </div>

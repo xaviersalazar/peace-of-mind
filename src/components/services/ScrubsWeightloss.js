@@ -45,7 +45,7 @@ const ScrubsWeightloss = ({ categoryId }) => {
             position="bottom-0.5"
           />
         </h1>
-        <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
+        <p className="text-[0.65rem] font-light text-slate-400 text-center md:text-sm">
           Our deep scrubs and weight loss treatments
         </p>
       </div>

@@ -45,7 +45,7 @@ const NaturalStyling = ({ categoryId }) => {
             position="bottom-0.5"
           />
         </h1>
-        <p className="text-[0.65rem] font-extra-light text-slate-400 text-center md:text-sm">
+        <p className="text-[0.65rem] font-light text-slate-400 text-center md:text-sm">
           Styling that looks and feels natural
         </p>
       </div>
