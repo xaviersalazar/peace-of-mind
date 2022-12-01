@@ -27,6 +27,7 @@ const HairTreatments = lazy(() => import("./services/HairTreatments"));
 const Locs = lazy(() => import("./services/Locs"));
 const ManiPedi = lazy(() => import("./services/ManiPedi"));
 const Makeup = lazy(() => import("./services/Makeup"));
+const Mens = lazy(() => import("./services/Mens"));
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -222,6 +223,16 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <Makeup categoryId={CATEGORY_MAPPING.MAKEUP} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "mens",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <Mens categoryId={CATEGORY_MAPPING.SALON_MENS} />
                 </Suspense>
               </ServiceContainer>
             ),
