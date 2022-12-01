@@ -31,6 +31,7 @@ const Mens = lazy(() => import("./services/Mens"));
 const NaturalStyling = lazy(() => import("./services/NaturalStyling"));
 const Perms = lazy(() => import("./services/Perms"));
 const SetsTwists = lazy(() => import("./services/SetsTwists"));
+const SpecialtyExtensions = lazy(() => import("./services/SpecialtyExtensions")); // prettier-ignore
 
 // Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -268,6 +269,18 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <SetsTwists categoryId={CATEGORY_MAPPING.SETS_TWISTS} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "spec-with-ext",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <SpecialtyExtensions
+                    categoryId={CATEGORY_MAPPING.SPECIALTY}
+                  />
                 </Suspense>
               </ServiceContainer>
             ),
