@@ -38,6 +38,7 @@ const ManiPedi = lazy(() => import("./salon/ManiPedi"));
 const Mens = lazy(() => import("./salon/Mens"));
 const NaturalStyling = lazy(() => import("./salon/NaturalStyling"));
 const Perms = lazy(() => import("./salon/Perms"));
+const SalonAbout = lazy(() => import("./salon/SalonAbout"));
 const SalonEyes = lazy(() => import("./salon/SalonEyes"));
 const SetsTwists = lazy(() => import("./salon/SetsTwists"));
 const SpecialtyExtensions = lazy(() => import("./salon/SpecialtyExtensions")); // prettier-ignore
@@ -211,6 +212,16 @@ const routes = [
       {
         path: "salon",
         children: [
+          {
+            path: "about",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<Loader />}>
+                  <SalonAbout />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
           {
             path: "eyes",
             element: (

@@ -3,11 +3,12 @@ import { Notice } from "../shared";
 
 const Footer = () => {
   const { pathname } = useLocation();
+  const isAbout = pathname === "/salon/about" || pathname === "/services/about";
   const pathRegex = /(services)|(salon)/gm;
 
   return (
     <div className="relative mt-auto">
-      {pathRegex.test(pathname) && <Notice />}
+      {pathRegex.test(pathname) && !isAbout && <Notice />}
       <footer className="footer p-10 bg-primary lg:px-20 lg:py-10 xl:px-28">
         <div className="gap-1 md:w-[75%] lg:w-[60%]">
           <img
