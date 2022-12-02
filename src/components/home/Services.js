@@ -23,7 +23,7 @@ const services = [
   },
   {
     title: "Facials",
-    desc: "Treatments surely to make your face radiate",
+    desc: "Treatments that'll make your face radiate",
     imgName: "facials",
     link: "/services/facials",
   },
@@ -35,7 +35,7 @@ const services = [
   },
   {
     title: "Hair Coloring",
-    desc: "Professional coloring that'll make your hair stand out",
+    desc: "Our Organic Colour system is sure to make your hair stand out",
     imgName: "hair-color",
     link: "/salon/hair-coloring",
   },
@@ -47,7 +47,7 @@ const services = [
   },
   {
     title: "Infrared Sauna",
-    desc: "Detoxify your body in our sauna",
+    desc: "Color light therapy proven to help you heal",
     imgName: "sauna",
     link: "/services/infrared-sauna",
   },

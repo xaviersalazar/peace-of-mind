@@ -31,7 +31,7 @@ const HairColoring = ({ categoryId }) => {
           />
         </h1>
         <p className="text-xs font-light text-slate-400 text-center md:text-sm">
-          Professional coloring that'll make your hair stand out
+          Our Organic Colour system is sure to make your hair stand out
         </p>
       </div>
       <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
