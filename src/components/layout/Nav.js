@@ -157,7 +157,7 @@ const Nav = () => {
                 alt="background"
               />
             </Link>
-            <div className="flex gap-2 justify-between relative top-1.5 md:justify-end md:gap-8">
+            <div className="flex gap-2 justify-between relative top-1.5 md:top-0.5 md:justify-end md:gap-8">
               {navItems.map(({ title, link, page, subItems }) => (
                 <div className="relative" key={title}>
                   {/* eslint-disable-next-line */}

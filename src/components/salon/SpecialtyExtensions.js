@@ -25,7 +25,7 @@ const SpecialtyExtensions = ({ categoryId }) => {
         <h1 className="relative text-5xl font-extra-bold mb-2 md:text-6xl">
           <StrikethruText
             className="inline lg:hidden"
-            text="Specialty w/"
+            text="Specialty with"
             color="#9B9DD3"
             height="h-4 md:h-5"
             position="top-8 md:top-10"
@@ -39,7 +39,7 @@ const SpecialtyExtensions = ({ categoryId }) => {
           />
           <StrikethruText
             className="hidden lg:inline"
-            text="Specialty w/ Extensions"
+            text="Specialty with Extensions"
             color="#9B9DD3"
             height="h-5"
             position="bottom-0.5"

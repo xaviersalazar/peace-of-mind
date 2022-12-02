@@ -24,7 +24,7 @@ const Mens = ({ categoryId }) => {
       <div className="text-center w-max my-0 mx-auto">
         <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
           <StrikethruText
-            text="Mens"
+            text="Mens Services"
             color="#C6AFB1"
             height="h-4 md:h-5"
             position="bottom-1.5"

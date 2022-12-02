@@ -94,7 +94,7 @@ const navItems = [
         subLink: "/salon/sets-twists",
       },
       {
-        title: "Specialty w/ Extensions",
+        title: "Specialty with Extensions",
         subLink: "/salon/spec-with-ext",
       },
       {
@@ -121,7 +121,7 @@ const navItems = [
         subLink: "/services/bbl-fat-elim",
       },
       {
-        title: "Deluxe/Couples Massages",
+        title: "Deluxe & Couples Massages",
         subLink: "/services/deluxe-couples",
       },
       {
@@ -157,7 +157,7 @@ const navItems = [
         subLink: "/services/oxygen-soak",
       },
       {
-        title: "Scrubs/Weightloss",
+        title: "Scrubs & Weightloss",
         subLink: "/services/scrubs-weightloss",
       },
       {
