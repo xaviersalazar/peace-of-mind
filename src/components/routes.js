@@ -22,6 +22,7 @@ const KidsYoga = lazy(() => import("./services/KidsYoga"));
 const Massages = lazy(() => import("./services/Massages"));
 const OxygenBar = lazy(() => import("./services/OxygenBar"));
 const OxygenFootSoak = lazy(() => import("./services/OxygenFootSoak"));
+const ServicesAbout = lazy(() => import("./services/ServicesAbout"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
 
@@ -65,6 +66,16 @@ const routes = [
       {
         path: "services",
         children: [
+          {
+            path: "about",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<Loader />}>
+                  <ServicesAbout />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
           {
             path: "add-ons",
             element: (

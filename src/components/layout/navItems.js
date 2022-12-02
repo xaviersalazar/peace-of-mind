@@ -110,7 +110,7 @@ const navItems = [
     subItems: [
       {
         title: "About Our Services",
-        link: "/services/about",
+        subLink: "/services/about",
       },
       {
         title: "Add On's",
