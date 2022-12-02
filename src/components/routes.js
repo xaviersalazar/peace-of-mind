@@ -19,6 +19,7 @@ const InfraredSauna = lazy(() => import("./services/InfraredSauna"));
 const KidsYoga = lazy(() => import("./services/KidsYoga"));
 const Massages = lazy(() => import("./services/Massages"));
 const OxygenBar = lazy(() => import("./services/OxygenBar"));
+const OxygenFootSoak = lazy(() => import("./services/OxygenFootSoak"));
 const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
 
@@ -165,6 +166,18 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <OxygenBar categoryId={CATEGORY_MAPPING.OXYGEN_BAR} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "oxygen-soak",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <OxygenFootSoak
+                    categoryId={CATEGORY_MAPPING.OXYGEN_FOOT_SOAK}
+                  />
                 </Suspense>
               </ServiceContainer>
             ),
