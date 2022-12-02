@@ -7,8 +7,10 @@ import DashboardLayout from "./admin/layout/DashboardLayout";
 import { Loader, ServiceContainer, SkeletonLoader } from "./shared";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
-// Public => Services
+// Public => About
 const About = lazy(() => import("./about/About"));
+
+// Public => Services
 const AddOns = lazy(() => import("./services/AddOns"));
 const BreastButtLiftFatElim = lazy(() => import("./services/BreastButtLiftFatElim")); // prettier-ignore
 const DeluxeCouplesMassages = lazy(() => import("./services/DeluxeCouplesMassages")); // prettier-ignore
@@ -24,24 +26,24 @@ const ScrubsWeightloss = lazy(() => import("./services/ScrubsWeightloss"));
 const Waxes = lazy(() => import("./services/Waxes"));
 
 // Public => Salon
-const FinishingTouches = lazy(() => import("./services/FinishingTouches"));
-const Haircuts = lazy(() => import("./services/Haircuts"));
-const HairColoring = lazy(() => import("./services/HairColoring"));
-const HairExtensions = lazy(() => import("./services/HairExtensions"));
-const HairHighlights = lazy(() => import("./services/HairHighlights"));
-const HairTreatments = lazy(() => import("./services/HairTreatments"));
-const Locs = lazy(() => import("./services/Locs"));
-const ManiPedi = lazy(() => import("./services/ManiPedi"));
-const Makeup = lazy(() => import("./services/Makeup"));
-const Mens = lazy(() => import("./services/Mens"));
-const NaturalStyling = lazy(() => import("./services/NaturalStyling"));
-const Perms = lazy(() => import("./services/Perms"));
-const SalonEyes = lazy(() => import("./services/SalonEyes"));
-const SetsTwists = lazy(() => import("./services/SetsTwists"));
-const SpecialtyExtensions = lazy(() => import("./services/SpecialtyExtensions")); // prettier-ignore
-const StraighteningServices = lazy(() => import("./services/StraighteningServices")); // prettier-ignore
+const FinishingTouches = lazy(() => import("./salon/FinishingTouches"));
+const HairColoring = lazy(() => import("./salon/HairColoring"));
+const Haircuts = lazy(() => import("./salon/Haircuts"));
+const HairExtensions = lazy(() => import("./salon/HairExtensions"));
+const HairHighlights = lazy(() => import("./salon/HairHighlights"));
+const HairTreatments = lazy(() => import("./salon/HairTreatments"));
+const Locs = lazy(() => import("./salon/Locs"));
+const Makeup = lazy(() => import("./salon/Makeup"));
+const ManiPedi = lazy(() => import("./salon/ManiPedi"));
+const Mens = lazy(() => import("./salon/Mens"));
+const NaturalStyling = lazy(() => import("./salon/NaturalStyling"));
+const Perms = lazy(() => import("./salon/Perms"));
+const SalonEyes = lazy(() => import("./salon/SalonEyes"));
+const SetsTwists = lazy(() => import("./salon/SetsTwists"));
+const SpecialtyExtensions = lazy(() => import("./salon/SpecialtyExtensions")); // prettier-ignore
+const StraighteningServices = lazy(() => import("./salon/StraighteningServices")); // prettier-ignore
 
-// Admin
+// Private => Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
 const Services = lazy(() => import("./admin/services/Services"));
 
