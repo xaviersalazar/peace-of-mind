@@ -5,7 +5,12 @@ This app is created with `React` and `Tailwindcss`. It uses `Supabase` for authe
 
 ### v1.0
 - [ ] Migrate all current features to new site to include
-  - [ ] All pages
+  - [ ] Pages
+    - [x] Home
+    - [x] About page
+    - [ ] Besame pages
+    - [x] Salon pages
+    - [x] Services pages
   - [ ] Contact Us form
   - [ ] Gift Card form
 - [x] ~~Integrate with [peace-of-mind-api](https://github.com/xaviersalazar/peace-of-mind-api) to get services~~
