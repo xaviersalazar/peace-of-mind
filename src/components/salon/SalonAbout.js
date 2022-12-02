@@ -14,7 +14,7 @@ const SalonAbout = () => (
     <div className="w-full mx-auto">
       <h1 className="relative text-5xl md:text-6xl font-extra-bold">
         <StrikethruText
-          text="About Our Salon"
+          text="Our Salon"
           color="#A9E5BB"
           height="h-4 md:h-5"
           position="bottom-1.5"
