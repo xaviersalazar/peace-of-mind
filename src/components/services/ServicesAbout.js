@@ -60,10 +60,7 @@ const ServicesAbout = () => (
                   <div className="text-2xl font-bold text-slate-700 self-center">
                     <StrikethruText text={title} color="#ACD2ED" />
                   </div>
-                  <ul
-                    role="list"
-                    className="list-inside marker:text-[#ACD2ED] list-disc space-y-1 text-xs md:text-sm text-slate-500 font-light"
-                  >
+                  <ul className="list-inside marker:text-[#ACD2ED] list-disc space-y-1 text-xs md:text-sm text-slate-500 font-light">
                     {items.map((item) => (
                       <li key={item}>{item}</li>
                     ))}

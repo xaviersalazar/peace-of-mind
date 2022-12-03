@@ -97,10 +97,7 @@ const SalonAbout = () => (
                     color="#A9E5BB"
                   />
                 </div>
-                <ul
-                  role="list"
-                  className="list-inside marker:text-[#A9E5BB] list-disc space-y-1 text-xs md:text-sm text-slate-500 font-light"
-                >
+                <ul className="list-inside marker:text-[#A9E5BB] list-disc space-y-1 text-xs md:text-sm text-slate-500 font-light">
                   <li>
                     An ethical product which you can use{" "}
                     <span className="italic">guilt free</span>

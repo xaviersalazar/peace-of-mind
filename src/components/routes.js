@@ -45,6 +45,9 @@ const SetsTwists = lazy(() => import("./salon/SetsTwists"));
 const SpecialtyExtensions = lazy(() => import("./salon/SpecialtyExtensions")); // prettier-ignore
 const StraighteningServices = lazy(() => import("./salon/StraighteningServices")); // prettier-ignore
 
+// Public => Besame
+const BesameEyes = lazy(() => import("./besame/BesameEyes"));
+
 // Private => Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
 const Services = lazy(() => import("./admin/services/Services"));
@@ -62,6 +65,21 @@ const routes = [
             <About />
           </Suspense>
         ),
+      },
+      {
+        path: "besame",
+        children: [
+          {
+            path: "eyes",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+        ],
       },
       {
         path: "services",
