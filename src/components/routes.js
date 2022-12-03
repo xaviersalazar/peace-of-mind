@@ -47,6 +47,7 @@ const StraighteningServices = lazy(() => import("./salon/StraighteningServices")
 
 // Public => Besame
 const BesameEyes = lazy(() => import("./besame/BesameEyes"));
+const BesameFace = lazy(() => import("./besame/BesameFace"));
 
 // Private => Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
@@ -75,6 +76,16 @@ const routes = [
               <ServiceContainer>
                 <Suspense fallback={<SkeletonLoader />}>
                   <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
+          {
+            path: "face",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<SkeletonLoader />}>
+                  <BesameFace categoryId={CATEGORY_MAPPING.BESAME_EYES} />
                 </Suspense>
               </ServiceContainer>
             ),
