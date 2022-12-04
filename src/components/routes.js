@@ -46,6 +46,7 @@ const SpecialtyExtensions = lazy(() => import("./salon/SpecialtyExtensions")); /
 const StraighteningServices = lazy(() => import("./salon/StraighteningServices")); // prettier-ignore
 
 // Public => Besame
+const BesameAbout = lazy(() => import("./besame/BesameAbout"));
 const BesameEyes = lazy(() => import("./besame/BesameEyes"));
 const BesameFace = lazy(() => import("./besame/BesameFace"));
 const BesameLips = lazy(() => import("./besame/BesameLips"));
@@ -71,6 +72,16 @@ const routes = [
       {
         path: "besame",
         children: [
+          {
+            path: "about",
+            element: (
+              <ServiceContainer>
+                <Suspense fallback={<Loader />}>
+                  <BesameAbout />
+                </Suspense>
+              </ServiceContainer>
+            ),
+          },
           {
             path: "eyes",
             element: (

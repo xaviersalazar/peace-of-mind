@@ -20,7 +20,7 @@ const BesameFace = ({ categoryId }) => {
   const { servicesByCategory } = data;
 
   return (
-    <div id="add-ons">
+    <div id="besame-face">
       <div className="text-center w-max my-0 mx-auto">
         <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
           <StrikethruText

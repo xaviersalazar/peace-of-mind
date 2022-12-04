@@ -3,7 +3,10 @@ import { Notice } from "../shared";
 
 const Footer = () => {
   const { pathname } = useLocation();
-  const isAbout = pathname === "/salon/about" || pathname === "/services/about";
+  const isAbout =
+    pathname === "/salon/about" ||
+    pathname === "/services/about" ||
+    pathname === "/besame/about";
   const servicesRegex = /(services)|(salon)/gm;
   const besameRegex = /(besame)/gm;
 
