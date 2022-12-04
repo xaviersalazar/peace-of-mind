@@ -7,14 +7,14 @@ const Text = ({ children }) => (
 const SalonAbout = () => (
   <div className="h-full mb-16 text-center">
     <img
-      className="w-max rounded-2xl mb-4 mx-auto md:w-1/2 xl:w-1/3"
+      className="w-max rounded-2xl mb-4 mx-auto md:w-1/2 xl:w-1/4"
       src={`${process.env.PUBLIC_URL}/about-besame.jpg`}
       alt="about-besame"
     />
     <div className="w-full mx-auto">
       <h1 className="relative text-5xl md:text-6xl font-extra-bold">
         <StrikethruText
-          text="About Besame"
+          text="Besame Cosmetics"
           color="#F3DFA2"
           height="h-4 md:h-5"
           position="bottom-1.5"

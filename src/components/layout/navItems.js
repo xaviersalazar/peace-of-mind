@@ -11,7 +11,7 @@ const navItems = [
     link: null,
     subItems: [
       {
-        title: "About Besame",
+        title: "About Besame Cosmetics",
         subLink: "/besame/about",
       },
       {
