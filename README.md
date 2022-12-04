@@ -4,11 +4,11 @@ New repository for [Peace of Mind](https://www.peaceofmindmassagecorpuschristi.c
 This app is created with `React` and `Tailwindcss`. It uses `Supabase` for authentication/access to admin functionality. It also uses `Apollo GraphQL` to access data hosted on the `Apollo GraphQL Server` in a separate instance thats hosted on Heroku (see [peace-of-mind-api](https://github.com/xaviersalazar/peace-of-mind-api) for more info)
 
 ### v1.0
-- [ ] Migrate all current features to new site to include
-  - [ ] Pages
+- [x] Migrate all current features to new site to include
+  - [x] Pages
     - [x] Home
     - [x] About page
-    - [ ] Besame pages
+    - [x] Besame pages
     - [x] Salon pages
     - [x] Services pages
   - [ ] Contact Us form
