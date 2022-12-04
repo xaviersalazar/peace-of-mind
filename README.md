@@ -11,8 +11,8 @@ This app is created with `React` and `Tailwindcss`. It uses `Supabase` for authe
     - [x] Besame pages
     - [x] Salon pages
     - [x] Services pages
-  - [ ] Contact Us form
-  - [ ] Gift Card form
+- [ ] Contact Us form
+- [ ] Gift Card form
 - [x] ~~Integrate with [peace-of-mind-api](https://github.com/xaviersalazar/peace-of-mind-api) to get services~~
 - [x] ~~Create basic Admin functionality~~
   - [x] ~~Login page~~
