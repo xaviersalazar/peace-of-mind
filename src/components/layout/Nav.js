@@ -13,12 +13,14 @@ const initialCurrPageState = {
   besame: false,
   salon: false,
   services: false,
+  contact: false,
 };
 
 const initialSubMenuState = {
   Besame: false,
   Salon: false,
   Services: false,
+  Contact: false,
 };
 
 const iconVariants = {
@@ -129,7 +131,7 @@ const Nav = () => {
   }, [pathname]);
 
   const onNavItemClicked = (title) => {
-    if (title !== "About") {
+    if (title !== "About" || title !== "Contact") {
       setIsSubMenuOpen({
         ...initialSubMenuState,
         [title]: !isSubMenuOpen[title],
@@ -150,7 +152,7 @@ const Nav = () => {
             <Link to="/">
               <Logo
                 className={classNames(
-                  "justify-start w-[48px] relative bottom-1 cursor-pointer active",
+                  "justify-start w-[32px] md:w-[48px] top-0.5 md:top-[-0.2rem] relative cursor-pointer active",
                   shouldApplyShadow ? "active" : ""
                 )}
                 src="/logo-black.png"
@@ -164,7 +166,7 @@ const Nav = () => {
                   <Link
                     key={title}
                     to={link}
-                    className="text-xs md:text-base tracking-wide cursor-pointer"
+                    className="text-[0.65rem] md:text-base tracking-wide cursor-pointer"
                     onClick={() => onNavItemClicked(title)}
                   >
                     <div className="flex gap-y-1 uppercase">
@@ -187,7 +189,7 @@ const Nav = () => {
                           </>
                         )}
                       </motion.div>
-                      {title !== "About" && (
+                      {subItems.length > 0 && (
                         <motion.div
                           initial="closed"
                           animate={isSubMenuOpen[title] ? "opened" : "closed"}

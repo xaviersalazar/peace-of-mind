@@ -166,6 +166,12 @@ const navItems = [
       },
     ],
   },
+  {
+    title: "Contact",
+    page: "contact-us",
+    link: "/contact-us",
+    subItems: [],
+  },
 ];
 
 export default navItems;

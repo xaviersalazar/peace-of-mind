@@ -1,6 +1,7 @@
 import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 import { useRoutes } from "react-router-dom";
 import { AuthProvider } from "./components/context/Auth";
+import { FormspreeProvider } from "@formspree/react";
 import routes from "./components/routes";
 
 const uri = process.env.REACT_APP_GRAPHQL_URL;
@@ -13,7 +14,11 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <AuthProvider>{useRoutes(routes)}</AuthProvider>
+      <AuthProvider>
+        <FormspreeProvider project={process.env.REACT_APP_FORMSPREE_PROJECT_ID}>
+          {useRoutes(routes)}
+        </FormspreeProvider>
+      </AuthProvider>
     </ApolloProvider>
   );
 }
