@@ -85,7 +85,7 @@ const DeleteServiceModal = ({
           </p>
         </Body>
         <Actions className="mt-0 gap-x-2">
-          <Button type="cancel" onClick={toggleDeleteModal}>
+          <Button type="button" btnType="cancel" onClick={toggleDeleteModal}>
             Cancel
           </Button>
           <Button

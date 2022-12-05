@@ -6,9 +6,12 @@ import {
   FiXCircle,
   FiCheckCircle,
   FiAlertCircle,
+  FiFolder,
+  FiMessageSquare,
 } from "react-icons/fi";
 import { useMutation } from "@apollo/client";
 import { AnimatePresence, motion } from "framer-motion";
+import { useForm, useFieldArray } from "react-hook-form";
 import { Button, Spinner, StrikethruText } from "../../shared";
 import { clean } from "../../utils/clean";
 import { EDIT_SERVICE } from "../../../graphql/mutations";
@@ -66,12 +69,32 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
       });
     },
   });
+  const {
+    register,
+    control,
+    getValues,
+    handleSubmit,
+    formState: { isValid },
+    reset,
+  } = useForm({
+    mode: "onChange",
+    defaultValues: {
+      id: "",
+      title: "",
+      description: "",
+      prices: [],
+      category: "",
+    },
+  });
+  const { fields: pricesFields } = useFieldArray({
+    control,
+    name: "prices",
+  });
 
-  const [editedService, setEditedService] = useState(null);
   const [updateMsg, setUpdateMsg] = useState(null);
 
   useEffect(() => {
-    setEditedService(service);
+    reset(service);
   }, [service]);
 
   useEffect(() => {
@@ -82,32 +105,8 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
     }
   }, [updateMsg]);
 
-  const onChange = (e) => {
-    let { name, value, checked } = e.target;
-
-    if (name === "unit" || name === "price" || name === "hasUpcharge") {
-      const priceId = e.target.dataset.priceid;
-
-      const updatedPrices = editedService.prices.map((price) =>
-        price.id === priceId
-          ? { ...price, [name]: name === "hasUpcharge" ? checked : value }
-          : price
-      );
-
-      setEditedService({
-        ...editedService,
-        prices: updatedPrices,
-      });
-    } else {
-      setEditedService({
-        ...editedService,
-        [name]: value,
-      });
-    }
-  };
-
   const onSave = async () => {
-    const service = clean(editedService, keysToOmitForMutation);
+    const service = clean(getValues(), keysToOmitForMutation);
 
     try {
       await editService({ variables: { service } });
@@ -130,152 +129,150 @@ const EditServiceModal = ({ isEditModalOpen, toggleEditModal, service }) => {
         className="overflow-hidden md:max-w-xl lg:max-w-2xl xl:max-w-3xl 2xl:max-w-4xl"
         open={isEditModalOpen}
       >
-        <Header className="text-2xl font-bold text-center mb-4">
-          <StrikethruText text={editedService?.title} color="#10FFCB" />
-        </Header>
-        <Body className="bg-slate-50 p-4 rounded-2xl">
-          <div id={`${editedService?.id}-edit-form`}>
+        <form id={`${service?.id}-edit-form`} onSubmit={handleSubmit(onSave)}>
+          <Header className="text-2xl font-bold text-center mb-4">
+            <StrikethruText text={service?.title} color="#10FFCB" />
+          </Header>
+          <Body className="bg-slate-50 p-4 rounded-2xl">
             <div className="form-control w-full">
               <div className="mb-2">
                 <label className="label">
-                  <span className="label-text font-medium">Category</span>
+                  <span className="label-text font-bold">Category</span>
                 </label>
                 {loading ? (
                   <div className="bg-white w-full h-10 rounded-lg animate-pulse" />
                 ) : (
-                  <input
-                    name="categoryName"
-                    type="text"
-                    className="input text-sm w-full h-10 font-light rounded-lg disabled:bg-slate-200 disabled:outline-none disabled:border-none"
-                    value={editedService?.category.categoryName}
-                    disabled
-                  />
+                  <div className="relative">
+                    <input
+                      name="categoryName"
+                      type="text"
+                      className="input text-sm w-full h-10 font-light rounded-lg disabled:bg-slate-200 disabled:outline-none disabled:border-none"
+                      value={service?.category.categoryName}
+                      disabled
+                    />
+                    <FiFolder className="absolute right-2 bottom-[0.8rem] text-xs text-slate-300" />
+                  </div>
                 )}
               </div>
               <div className="mb-2">
                 <label className="label">
-                  <span className="label-text font-medium">Description</span>
+                  <span className="label-text font-bold">Description</span>
                 </label>
                 {loading ? (
                   <div className="bg-white w-full h-32 rounded-lg animate-pulse" />
                 ) : (
-                  <textarea
-                    name="description"
-                    className="textarea text-sm leading-6 w-full h-32 font-light rounded-lg resize-none focus:outline-primary"
-                    value={editedService?.description}
-                    onChange={onChange}
-                  />
+                  <div className="relative">
+                    <textarea
+                      name="description"
+                      className="textarea text-sm leading-6 w-full h-32 font-light text-slate-500 rounded-lg resize-none focus:outline-primary"
+                      {...register("description", {
+                        required: false,
+                      })}
+                    />
+                    <FiMessageSquare className="absolute right-2 top-3 text-xs text-slate-300" />
+                  </div>
                 )}
               </div>
               <div>
                 <label className="label">
-                  <span className="label-text font-medium">Price(s)</span>
+                  <span className="label-text font-bold">Price(s)</span>
                 </label>
-                {editedService?.prices.map(
-                  ({ id, price, unit, hasUpcharge }) => (
-                    <div key={id} className="flex gap-x-2">
-                      <InputContainer className="relative md:flex-1">
-                        <label className="label">
-                          <span className="text-sm label-text font-light">
-                            Unit
-                          </span>
-                        </label>
-                        {loading ? (
-                          <div className="bg-white w-full h-10 rounded-lg animate-pulse" />
-                        ) : (
-                          <>
-                            <input
-                              name="unit"
-                              type="text"
-                              className="input text-sm w-full h-10 font-light rounded-lg pl-7 focus:outline-primary"
-                              value={unit || "N/A"}
-                              onChange={onChange}
-                              data-priceid={id}
-                            />
-                            <FiEdit2 className="absolute left-2 bottom-[0.8rem] text-xs text-slate-300" />
-                          </>
-                        )}
-                      </InputContainer>
-                      <InputContainer className="relative lg:flex-1">
-                        <label className="label">
-                          <span className="text-sm label-text font-light">
-                            Price
-                          </span>
-                        </label>
-                        {loading ? (
-                          <div className="bg-white w-full h-10 rounded-lg animate-pulse" />
-                        ) : (
-                          <>
-                            <input
-                              name="price"
-                              type="text"
-                              className="input text-sm w-full h-10 font-light rounded-lg pl-6 focus:outline-primary"
-                              value={price}
-                              onChange={onChange}
-                              data-priceid={id}
-                            />
-                            <FiDollarSign className="absolute left-2 bottom-[0.82rem] text-xs text-slate-300" />
-                          </>
-                        )}
-                      </InputContainer>
-                      <div className="text-center">
-                        <label className="label">
-                          <span className="label-text font-light">
-                            Upcharge?
-                          </span>
-                        </label>
-                        <Checkbox
-                          name="hasUpcharge"
-                          color="primary"
-                          className="relative top-[0.5rem] focus:outline-primary"
-                          defaultChecked={hasUpcharge}
-                          onChange={onChange}
-                          data-priceid={id}
-                          disabled={loading}
-                        />
-                      </div>
+                {pricesFields.map((field, index) => (
+                  <div key={field.id} className="flex gap-x-2">
+                    <InputContainer className="relative md:flex-1">
+                      <label className="label">
+                        <span className="text-sm label-text font-regular">
+                          Unit
+                        </span>
+                      </label>
+                      {loading ? (
+                        <div className="bg-white w-full h-10 rounded-lg animate-pulse" />
+                      ) : (
+                        <>
+                          <input
+                            name="unit"
+                            type="text"
+                            className="input text-sm w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                            {...register(`prices.${index}.unit`, {
+                              required: false,
+                            })}
+                          />
+                          <FiEdit2 className="absolute right-2 bottom-[0.8rem] text-xs text-slate-300" />
+                        </>
+                      )}
+                    </InputContainer>
+                    <InputContainer className="relative lg:flex-1">
+                      <label className="label">
+                        <span className="text-sm label-text font-regular">
+                          Price
+                        </span>
+                      </label>
+                      {loading ? (
+                        <div className="bg-white w-full h-10 rounded-lg animate-pulse" />
+                      ) : (
+                        <>
+                          <input
+                            name="price"
+                            type="text"
+                            className="input text-sm w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                            {...register(`prices.${index}.price`, {
+                              required: false,
+                            })}
+                          />
+                          <FiDollarSign className="absolute right-2 bottom-[0.82rem] text-xs text-slate-300" />
+                        </>
+                      )}
+                    </InputContainer>
+                    <div className="text-center">
+                      <label className="label">
+                        <span className="label-text font-regular">
+                          Upcharge?
+                        </span>
+                      </label>
+                      <Checkbox
+                        name="hasUpcharge"
+                        color="primary"
+                        className="relative top-[0.5rem] focus:outline-primary"
+                        {...register(`prices.${index}.hasUpcharge`, {
+                          required: false,
+                        })}
+                      />
                     </div>
-                  )
-                )}
+                  </div>
+                ))}
               </div>
             </div>
-          </div>
-        </Body>
-        <Actions className="mt-0 gap-x-2">
-          <Button type="cancel" onClick={toggleEditModal}>
-            Cancel
-          </Button>
-          <Button
-            disabled={loading}
-            onClick={(e) => {
-              e.currentTarget.blur();
-              onSave();
-            }}
-          >
-            {loading ? (
-              <>
-                <Spinner size={4} /> Saving
-              </>
-            ) : (
-              "Save"
+          </Body>
+          <Actions className="mt-0 gap-x-2">
+            <Button type="button" btnType="cancel" onClick={toggleEditModal}>
+              Cancel
+            </Button>
+            <Button type="submit" disabled={!isValid || loading}>
+              {loading ? (
+                <>
+                  <Spinner size={4} /> Saving
+                </>
+              ) : (
+                "Save"
+              )}
+            </Button>
+          </Actions>
+          <AnimatePresence>
+            {updateMsg && (
+              <motion.div
+                className={`alert alert-${updateMsg.type} shadow-lg absolute left-32 top-6 z-[100] w-full items-start md:left-[18rem] lg:left-[24rem] xl:left-[30rem] 2xl:left-[34rem]`}
+                initial={{ x: 800 }}
+                animate={{ x: 0 }}
+                exit={{ x: 800 }}
+              >
+                <div>
+                  {errorTypes[updateMsg.type]}
+                  {updateMsg.msg}
+                </div>
+              </motion.div>
             )}
-          </Button>
-        </Actions>
-        <AnimatePresence>
-          {updateMsg && (
-            <motion.div
-              className={`alert alert-${updateMsg.type} shadow-lg absolute left-32 top-6 z-[100] w-full items-start md:left-[18rem] lg:left-[24rem] xl:left-[30rem] 2xl:left-[34rem]`}
-              initial={{ x: 800 }}
-              animate={{ x: 0 }}
-              exit={{ x: 800 }}
-            >
-              <div>
-                {errorTypes[updateMsg.type]}
-                {updateMsg.msg}
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+          </AnimatePresence>
+        </form>
       </Modal>
     </EditModal>
   );

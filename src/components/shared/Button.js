@@ -84,7 +84,7 @@ const classes = {
 
 const Button = ({
   className,
-  type = "normal",
+  btnType = "normal",
   icon,
   disabled,
   children,
@@ -108,9 +108,9 @@ const Button = ({
 
   return (
     <motion.button
-      className={classNames(classes.base, classes[type], className)}
-      whileHover={variants[type].whileHover}
-      whileFocus={variants[type].whileFocus}
+      className={classNames(classes.base, classes[btnType], className)}
+      whileHover={variants[btnType].whileHover}
+      whileFocus={variants[btnType].whileFocus}
       whileTap={{ scale: 0.9 }}
       {...rest}
     >
