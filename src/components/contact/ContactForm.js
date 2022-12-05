@@ -2,7 +2,15 @@ import { useState, useEffect } from "react";
 import { useForm } from "@formspree/react";
 import { useForm as reactHookUseForm, useWatch } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
-import { FiXCircle } from "react-icons/fi";
+import {
+  FiXCircle,
+  FiUser,
+  FiAtSign,
+  FiPhone,
+  FiUserPlus,
+  FiDollarSign,
+  FiMessageSquare,
+} from "react-icons/fi";
 import { Spinner } from "../shared";
 import classNames from "classnames";
 
@@ -103,15 +111,18 @@ const ContactForm = ({ setDidFormSucceed }) => {
           <label htmlFor="name" className="label">
             <span className="label-text font-bold">Name</span>
           </label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-            {...register("name", {
-              required: { value: true, message: "Name is required" },
-            })}
-          />
+          <div className="relative">
+            <input
+              id="name"
+              name="name"
+              type="text"
+              className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+              {...register("name", {
+                required: { value: true, message: "Name is required" },
+              })}
+            />
+            <FiUser className="absolute right-4 top-3 text-slate-300" />
+          </div>
           {reactHookErrors?.name && (
             <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
               {reactHookErrors.name.message}
@@ -122,19 +133,22 @@ const ContactForm = ({ setDidFormSucceed }) => {
           <label htmlFor="email" className="label">
             <span className="label-text font-bold">Email address</span>
           </label>
-          <input
-            id="email"
-            name="email"
-            type="text"
-            className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-            {...register("email", {
-              required: { value: true, message: "Email is required" },
-              pattern: {
-                value: /^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i,
-                message: "Please enter a valid email address",
-              },
-            })}
-          />
+          <div className="relative">
+            <input
+              id="email"
+              name="email"
+              type="text"
+              className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+              {...register("email", {
+                required: { value: true, message: "Email is required" },
+                pattern: {
+                  value: /^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i,
+                  message: "Please enter a valid email address",
+                },
+              })}
+            />
+            <FiAtSign className="absolute right-4 top-3 text-slate-300" />
+          </div>
           {reactHookErrors?.email && (
             <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
               {reactHookErrors.email.message}
@@ -147,26 +161,29 @@ const ContactForm = ({ setDidFormSucceed }) => {
               <label htmlFor="name" className="label">
                 <span className="label-text font-bold">Phone Number</span>
               </label>
-              <input
-                id="phoneNumber"
-                name="phoneNumber"
-                type="text"
-                className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-                {...register("phoneNumber", {
-                  required: {
-                    value: true,
-                    message: "Phone Number is required",
-                  },
-                  minLength: {
-                    value: 6,
-                    message: "Please enter a valid phone number",
-                  },
-                  maxLength: {
-                    value: 12,
-                    message: "Please enter a valid phone number",
-                  },
-                })}
-              />
+              <div className="relative">
+                <input
+                  id="phoneNumber"
+                  name="phoneNumber"
+                  type="text"
+                  className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                  {...register("phoneNumber", {
+                    required: {
+                      value: true,
+                      message: "Phone Number is required",
+                    },
+                    minLength: {
+                      value: 6,
+                      message: "Please enter a valid phone number",
+                    },
+                    maxLength: {
+                      value: 12,
+                      message: "Please enter a valid phone number",
+                    },
+                  })}
+                />
+                <FiPhone className="absolute right-4 top-3 text-slate-300" />
+              </div>
               {reactHookErrors?.phoneNumber && (
                 <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
                   {reactHookErrors.phoneNumber.message}
@@ -177,18 +194,21 @@ const ContactForm = ({ setDidFormSucceed }) => {
               <label htmlFor="name" className="label">
                 <span className="label-text font-bold">Recipient Name</span>
               </label>
-              <input
-                id="recipientName"
-                name="recipientName"
-                type="text"
-                className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-                {...register("recipientName", {
-                  required: {
-                    value: true,
-                    message: "Recipient Name is required",
-                  },
-                })}
-              />
+              <div className="relative">
+                <input
+                  id="recipientName"
+                  name="recipientName"
+                  type="text"
+                  className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                  {...register("recipientName", {
+                    required: {
+                      value: true,
+                      message: "Recipient Name is required",
+                    },
+                  })}
+                />
+                <FiUserPlus className="absolute right-4 top-3 text-slate-300" />
+              </div>
               {reactHookErrors?.recipientName && (
                 <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
                   {reactHookErrors.recipientName.message}
@@ -199,18 +219,21 @@ const ContactForm = ({ setDidFormSucceed }) => {
               <label htmlFor="name" className="label">
                 <span className="label-text font-bold">Recipient Amount</span>
               </label>
-              <input
-                id="recipientAmount"
-                name="recipientAmount"
-                type="text"
-                className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-                {...register("recipientAmount", {
-                  required: {
-                    value: true,
-                    message: "Recipient Amount is required",
-                  },
-                })}
-              />
+              <div className="relative">
+                <input
+                  id="recipientAmount"
+                  name="recipientAmount"
+                  type="text"
+                  className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                  {...register("recipientAmount", {
+                    required: {
+                      value: true,
+                      message: "Recipient Amount is required",
+                    },
+                  })}
+                />
+                <FiDollarSign className="absolute right-4 top-3 text-slate-300" />
+              </div>
               {reactHookErrors?.recipientAmount && (
                 <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
                   {reactHookErrors.recipientAmount.message}
@@ -223,14 +246,17 @@ const ContactForm = ({ setDidFormSucceed }) => {
             <label htmlFor="message" className="label">
               <span className="label-text font-bold">Message</span>
             </label>
-            <textarea
-              id="message"
-              name="message"
-              className="textarea text-sm leading-6 w-full h-32 font-light text-slate-500 rounded-lg resize-none focus:outline-primary"
-              {...register("message", {
-                required: { value: true, message: "Message is required" },
-              })}
-            />
+            <div className="relative">
+              <textarea
+                id="message"
+                name="message"
+                className="textarea text-sm leading-6 w-full h-32 font-light text-slate-500 rounded-lg resize-none focus:outline-primary"
+                {...register("message", {
+                  required: { value: true, message: "Message is required" },
+                })}
+              />
+              <FiMessageSquare className="absolute right-4 top-3 text-slate-300" />
+            </div>
             {reactHookErrors?.message && (
               <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
                 {reactHookErrors.message.message}
