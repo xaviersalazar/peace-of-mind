@@ -150,10 +150,6 @@ const ContactForm = ({ setDidFormSucceed }) => {
           whileTap={{
             scale: 0.9,
           }}
-          // onClick={(e) => {
-          //   onSubmit();
-          //   e.currentTarget.blur();
-          // }}
           disabled={!isValid || submitting}
         >
           {submitting && <Spinner size="4" color="text-slate-400" />}
