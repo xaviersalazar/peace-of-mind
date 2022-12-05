@@ -12,7 +12,6 @@ const client = new ApolloClient({
 });
 
 function App() {
-  console.log(process.env.REACT_APP_NEXT_PUBLIC_FORMSPREE_PROJECT);
   return (
     <ApolloProvider client={client}>
       <AuthProvider>

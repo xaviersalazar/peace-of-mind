@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { FiXCircle } from "react-icons/fi";
 import { Spinner } from "../shared";
 
-const ContactForm = () => {
+const ContactForm = ({ setDidFormSucceed }) => {
   const {
     register,
     handleSubmit: reactHookHandleSubmit,
@@ -27,6 +27,12 @@ const ContactForm = () => {
       }, 5000);
     }
   }, [errors]);
+
+  useEffect(() => {
+    if (succeeded) {
+      setDidFormSucceed(true);
+    }
+  }, [succeeded]);
 
   if (succeeded)
     return (
