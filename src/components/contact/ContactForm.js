@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
 import { useForm } from "@formspree/react";
-import { useForm as reactHookUseForm, useWatch } from "react-hook-form";
+import {
+  useForm as reactHookUseForm,
+  useWatch,
+  Controller,
+} from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import {
   FiXCircle,
@@ -11,6 +15,7 @@ import {
   FiDollarSign,
   FiMessageSquare,
 } from "react-icons/fi";
+import { PatternFormat, NumericFormat } from "react-number-format";
 import { Spinner } from "../shared";
 import classNames from "classnames";
 
@@ -161,29 +166,25 @@ const ContactForm = ({ setDidFormSucceed }) => {
               <label htmlFor="name" className="label">
                 <span className="label-text font-bold">Phone Number</span>
               </label>
-              <div className="relative">
-                <input
-                  id="phoneNumber"
-                  name="phoneNumber"
-                  type="text"
-                  className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-                  {...register("phoneNumber", {
-                    required: {
-                      value: true,
-                      message: "Phone Number is required",
-                    },
-                    minLength: {
-                      value: 6,
-                      message: "Please enter a valid phone number",
-                    },
-                    maxLength: {
-                      value: 12,
-                      message: "Please enter a valid phone number",
-                    },
-                  })}
-                />
-                <FiPhone className="absolute right-4 top-3 text-slate-300" />
-              </div>
+              <Controller
+                control={control}
+                name="phoneNumber"
+                render={({ field: { onChange, name, value } }) => (
+                  <div className="relative">
+                    <PatternFormat
+                      id="phoneNumber"
+                      className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                      format="(###)-###-####"
+                      allowEmptyFormatting
+                      mask="x"
+                      name={name}
+                      value={value}
+                      onChange={onChange}
+                    />
+                    <FiPhone className="absolute right-4 top-3 text-slate-300" />
+                  </div>
+                )}
+              />
               {reactHookErrors?.phoneNumber && (
                 <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
                   {reactHookErrors.phoneNumber.message}
@@ -219,21 +220,25 @@ const ContactForm = ({ setDidFormSucceed }) => {
               <label htmlFor="name" className="label">
                 <span className="label-text font-bold">Recipient Amount</span>
               </label>
-              <div className="relative">
-                <input
-                  id="recipientAmount"
-                  name="recipientAmount"
-                  type="text"
-                  className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-                  {...register("recipientAmount", {
-                    required: {
-                      value: true,
-                      message: "Recipient Amount is required",
-                    },
-                  })}
-                />
-                <FiDollarSign className="absolute right-4 top-3 text-slate-300" />
-              </div>
+              <Controller
+                control={control}
+                name="recipientAmount"
+                render={({ field: { onChange, name, value } }) => (
+                  <div className="relative">
+                    <NumericFormat
+                      id="recipientAmount"
+                      className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                      allowLeadingZeros={false}
+                      thousandSeparator=","
+                      decimalScale={2}
+                      name={name}
+                      value={value}
+                      onChange={onChange}
+                    />
+                    <FiDollarSign className="absolute right-4 top-3 text-slate-300" />
+                  </div>
+                )}
+              />
               {reactHookErrors?.recipientAmount && (
                 <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
                   {reactHookErrors.recipientAmount.message}
