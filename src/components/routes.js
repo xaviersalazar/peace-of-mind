@@ -10,6 +10,9 @@ import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 // Public => About
 const About = lazy(() => import("./about/About"));
 
+// Public => Contact
+const Contact = lazy(() => import("./contact/Contact"));
+
 // Public => Services
 const AddOns = lazy(() => import("./services/AddOns"));
 const BreastButtLiftFatElim = lazy(() => import("./services/BreastButtLiftFatElim")); // prettier-ignore
@@ -459,6 +462,14 @@ const routes = [
             ),
           },
         ],
+      },
+      {
+        path: "contact",
+        element: (
+          <Suspense fallback={<Loader />}>
+            <Contact />
+          </Suspense>
+        ),
       },
       {
         path: "*",

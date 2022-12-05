@@ -15,7 +15,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <AuthProvider>
-        <FormspreeProvider project={process.env.REACT_APP_FORMSPREE_PROJECT_ID}>
+        <FormspreeProvider project={process.env.NEXT_PUBLIC_FORMSPREE_PROJECT}>
           {useRoutes(routes)}
         </FormspreeProvider>
       </AuthProvider>

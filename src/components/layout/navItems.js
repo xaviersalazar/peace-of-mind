@@ -168,8 +168,8 @@ const navItems = [
   },
   {
     title: "Contact",
-    page: "contact-us",
-    link: "/contact-us",
+    page: "contact",
+    link: "/contact",
     subItems: [],
   },
 ];

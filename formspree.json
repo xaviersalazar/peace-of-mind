@@ -1,9 +1,9 @@
 {
   "forms": {
-    "contact": {
+    "contactForm": {
       "name": "Contact Form",
       "fields": {
-        "name": { "type": "name", "required": true },
+        "name": { "type": "text", "required": true },
         "email": { "type": "email", "required": true },
         "message": { "type": "text", "required": true }
       },
