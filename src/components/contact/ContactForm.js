@@ -1,20 +1,37 @@
 import { useState, useEffect } from "react";
 import { useForm } from "@formspree/react";
-import { useForm as reactHookUseForm } from "react-hook-form";
+import { useForm as reactHookUseForm, useWatch } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiXCircle } from "react-icons/fi";
 import { Spinner } from "../shared";
+import classNames from "classnames";
 
 const ContactForm = ({ setDidFormSucceed }) => {
   const {
     register,
+    control,
     handleSubmit: reactHookHandleSubmit,
+    clearErrors,
     formState: { isValid, errors: reactHookErrors },
+    reset,
   } = reactHookUseForm({
     mode: "onChange",
+    defaultValues: {
+      name: "",
+      email: "",
+      message: "",
+      phoneNumber: "",
+      recipientName: "",
+      recipientAmount: "",
+      isGiftCard: false,
+    },
   });
   const [{ submitting, succeeded, errors }, handleSubmit] =
     useForm("contactForm");
+  const isGiftCard = useWatch({
+    control,
+    name: "isGiftCard",
+  });
 
   const [error, setError] = useState(errors);
 
@@ -31,8 +48,20 @@ const ContactForm = ({ setDidFormSucceed }) => {
   useEffect(() => {
     if (succeeded) {
       setDidFormSucceed(true);
+      reset();
     }
   }, [succeeded]);
+
+  useEffect(() => {
+    if (!isGiftCard) {
+      clearErrors(["phoneNumber", "recipientName", "recipientAmount"]);
+      reset({
+        phoneNumber: "",
+        recipientName: "",
+        recipientAmount: "",
+      });
+    }
+  }, [isGiftCard]);
 
   if (succeeded)
     return (
@@ -112,44 +141,142 @@ const ContactForm = ({ setDidFormSucceed }) => {
             </p>
           )}
         </div>
+        {isGiftCard ? (
+          <>
+            <div className="form-control w-full mb-2">
+              <label htmlFor="name" className="label">
+                <span className="label-text font-bold">Phone Number</span>
+              </label>
+              <input
+                id="phoneNumber"
+                name="phoneNumber"
+                type="text"
+                className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                {...register("phoneNumber", {
+                  required: {
+                    value: true,
+                    message: "Phone Number is required",
+                  },
+                  minLength: {
+                    value: 6,
+                    message: "Please enter a valid phone number",
+                  },
+                  maxLength: {
+                    value: 12,
+                    message: "Please enter a valid phone number",
+                  },
+                })}
+              />
+              {reactHookErrors?.phoneNumber && (
+                <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+                  {reactHookErrors.phoneNumber.message}
+                </p>
+              )}
+            </div>
+            <div className="form-control w-full mb-2">
+              <label htmlFor="name" className="label">
+                <span className="label-text font-bold">Recipient Name</span>
+              </label>
+              <input
+                id="recipientName"
+                name="recipientName"
+                type="text"
+                className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                {...register("recipientName", {
+                  required: {
+                    value: true,
+                    message: "Recipient Name is required",
+                  },
+                })}
+              />
+              {reactHookErrors?.recipientName && (
+                <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+                  {reactHookErrors.recipientName.message}
+                </p>
+              )}
+            </div>
+            <div className="form-control w-full mb-2">
+              <label htmlFor="name" className="label">
+                <span className="label-text font-bold">Recipient Amount</span>
+              </label>
+              <input
+                id="recipientAmount"
+                name="recipientAmount"
+                type="text"
+                className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
+                {...register("recipientAmount", {
+                  required: {
+                    value: true,
+                    message: "Recipient Amount is required",
+                  },
+                })}
+              />
+              {reactHookErrors?.recipientAmount && (
+                <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+                  {reactHookErrors.recipientAmount.message}
+                </p>
+              )}
+            </div>
+          </>
+        ) : (
+          <div className="form-control w-full mb-2">
+            <label htmlFor="message" className="label">
+              <span className="label-text font-bold">Message</span>
+            </label>
+            <textarea
+              id="message"
+              name="message"
+              className="textarea text-sm leading-6 w-full h-32 font-light text-slate-500 rounded-lg resize-none focus:outline-primary"
+              {...register("message", {
+                required: { value: true, message: "Message is required" },
+              })}
+            />
+            {reactHookErrors?.message && (
+              <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+                {reactHookErrors.message.message}
+              </p>
+            )}
+          </div>
+        )}
         <div className="form-control w-full mb-2">
-          <label htmlFor="message" className="label">
-            <span className="label-text font-bold">Message</span>
+          <label htmlFor="isGiftCard" className="label">
+            <span className="label-text font-bold">Gift Card?</span>
           </label>
-          <textarea
-            id="message"
-            name="message"
-            className="textarea text-sm leading-6 w-full h-32 font-light text-slate-500 rounded-lg resize-none focus:outline-primary"
-            {...register("message", {
-              required: { value: true, message: "Message is required" },
-            })}
+          <input
+            type="checkbox"
+            className={classNames(
+              "toggle ml-1",
+              isGiftCard && "toggle-success"
+            )}
+            {...register("isGiftCard", { required: false })}
           />
-          {reactHookErrors?.message && (
-            <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
-              {reactHookErrors.message.message}
-            </p>
-          )}
         </div>
         <motion.button
           type="submit"
           className="bg-primary w-full mt-8 p-2 rounded-lg text-slate-700 font-bold disabled:bg-slate-100 disabled:text-slate-300"
-          whileHover={{
-            backgroundColor: "#f8fafc",
-            boxShadow:
-              "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
-            color: "#10FFCB",
-            transition: { duration: 0.3 },
-          }}
-          whileFocus={{
-            backgroundColor: "#f8fafc",
-            boxShadow:
-              "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
-            color: "#10FFCB",
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{
-            scale: 0.9,
-          }}
+          whileHover={
+            isValid && {
+              backgroundColor: "#f8fafc",
+              boxShadow:
+                "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+              color: "#10FFCB",
+              transition: { duration: 0.3 },
+            }
+          }
+          whileFocus={
+            isValid && {
+              backgroundColor: "#f8fafc",
+              boxShadow:
+                "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+              color: "#10FFCB",
+              transition: { duration: 0.3 },
+            }
+          }
+          whileTap={
+            isValid && {
+              scale: 0.9,
+            }
+          }
           disabled={!isValid || submitting}
         >
           {submitting && <Spinner size="4" color="text-slate-400" />}
