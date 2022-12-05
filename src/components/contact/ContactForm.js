@@ -1,57 +1,46 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm } from "@formspree/react";
+import { useForm as reactHookUseForm } from "react-hook-form";
 import { AnimatePresence, motion } from "framer-motion";
 import { FiXCircle } from "react-icons/fi";
 import { Spinner } from "../shared";
-import { isEmpty } from "lodash";
-
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
-};
 
 const ContactForm = () => {
-  const [{ submitting, succeeded, errors }, handleSubmit] = useForm(
-    `${process.env.FORMSPREE_CONTACT_FORM_HASHID}`
-  );
+  const {
+    register,
+    handleSubmit: reactHookHandleSubmit,
+    formState: { isValid, errors: reactHookErrors },
+  } = reactHookUseForm({
+    mode: "onChange",
+  });
+  const [{ submitting, succeeded, errors }, handleSubmit] =
+    useForm("contactForm");
 
-  const [form, setForm] = useState(initialState);
+  const [error, setError] = useState(errors);
 
-  if (succeeded) return <div>Thank you for signing up!</div>;
+  useEffect(() => {
+    if (errors.length > 0) {
+      setError(errors);
 
-  if (errors.length > 0)
-    return <div>Oops! Something went wrong. Please try again</div>;
-
-  const onChange = (event) => {
-    const { name, value } = event.target;
-
-    setForm({
-      ...form,
-      [name]: value,
-    });
-  };
-
-  const onSubmit = async () => {
-    try {
-      await handleSubmit(form, {
-        data: {
-          subject: "New message from contact form",
-        },
-      });
-    } catch (e) {
-      console.log(e);
+      setTimeout(() => {
+        setError([]);
+      }, 5000);
     }
-  };
+  }, [errors]);
 
-  const { name, email, message } = form;
-
-  const isSubmitDisabled = Object.values(form).some((value) => value === "");
+  if (succeeded)
+    return (
+      <div>
+        <h1 className="text-sm md:text-base font-light text-slate-700">
+          Thanks for the inquiry! We'll get back to you as soon as we can!
+        </h1>
+      </div>
+    );
 
   return (
     <>
       <AnimatePresence>
-        {errors.length > 0 && (
+        {error.length > 0 && (
           <motion.div
             className="alert alert-error shadow-lg absolute left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]"
             initial={{ x: 800 }}
@@ -61,8 +50,10 @@ const ContactForm = () => {
             <div>
               <FiXCircle />
               <div className="text-sm font-light">
-                <span className="block">Oops! Something happened!</span>
-                <span className="block">Please try again</span>
+                <span className="block lg:inline">
+                  Oops! Something went wrong.{" "}
+                </span>
+                <span className="block lg:inline">Please try again</span>
               </div>
             </div>
           </motion.div>
@@ -71,7 +62,7 @@ const ContactForm = () => {
       <form
         id="contact-form"
         className="mt-4 mx-auto bg-slate-50 rounded-2xl p-8 md:w-3/4 lg:w-7/12 xl:w-6/12"
-        onSubmit={handleSubmit}
+        onSubmit={reactHookHandleSubmit(handleSubmit)}
       >
         <div className="form-control w-full mb-2">
           <label htmlFor="name" className="label">
@@ -82,12 +73,13 @@ const ContactForm = () => {
             name="name"
             type="text"
             className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-            value={name}
-            onChange={onChange}
+            {...register("name", {
+              required: { value: true, message: "Name is required" },
+            })}
           />
-          {isEmpty(name) && (
-            <p className="text-xs font-really-light text-red-500 text-left mt-1 ml-1">
-              Please enter your name
+          {reactHookErrors?.name && (
+            <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+              {reactHookErrors.name.message}
             </p>
           )}
         </div>
@@ -100,12 +92,17 @@ const ContactForm = () => {
             name="email"
             type="text"
             className="input w-full h-10 font-light text-slate-500 rounded-lg focus:outline-primary"
-            value={email}
-            onChange={onChange}
+            {...register("email", {
+              required: { value: true, message: "Email is required" },
+              pattern: {
+                value: /^[a-z0-9.]{1,64}@[a-z0-9.]{1,64}$/i,
+                message: "Please enter a valid email address",
+              },
+            })}
           />
-          {isEmpty(email) && (
-            <p className="text-xs font-really-light text-red-500 text-left mt-1 ml-1">
-              Please enter your email address
+          {reactHookErrors?.email && (
+            <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+              {reactHookErrors.email.message}
             </p>
           )}
         </div>
@@ -117,45 +114,41 @@ const ContactForm = () => {
             id="message"
             name="message"
             className="textarea text-sm leading-6 w-full h-32 font-light text-slate-500 rounded-lg resize-none focus:outline-primary"
-            value={message}
-            onChange={onChange}
+            {...register("message", {
+              required: { value: true, message: "Message is required" },
+            })}
           />
-          {isEmpty(message) && (
-            <p className="text-xs font-really-light text-red-500 text-left mt-1 ml-1">
-              Please leave a message
+          {reactHookErrors?.message && (
+            <p className="text-red-300 font-light text-xs ml-1 mt-1 text-left">
+              {reactHookErrors.message.message}
             </p>
           )}
         </div>
         <motion.button
+          type="submit"
           className="bg-primary w-full mt-8 p-2 rounded-lg text-slate-700 font-bold disabled:bg-slate-100 disabled:text-slate-300"
-          whileHover={
-            !isSubmitDisabled && {
-              backgroundColor: "#f8fafc",
-              boxShadow:
-                "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
-              color: "#10FFCB",
-              transition: { duration: 0.3 },
-            }
-          }
-          whileFocus={
-            !isSubmitDisabled && {
-              backgroundColor: "#f8fafc",
-              boxShadow:
-                "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
-              color: "#10FFCB",
-              transition: { duration: 0.3 },
-            }
-          }
-          whileTap={
-            !isSubmitDisabled && {
-              scale: 0.9,
-            }
-          }
-          onClick={(e) => {
-            onSubmit();
-            e.currentTarget.blur();
+          whileHover={{
+            backgroundColor: "#f8fafc",
+            boxShadow:
+              "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+            color: "#10FFCB",
+            transition: { duration: 0.3 },
           }}
-          disabled={isSubmitDisabled || submitting}
+          whileFocus={{
+            backgroundColor: "#f8fafc",
+            boxShadow:
+              "0px 0px 0px 2.5px #f8fafc, 0px 0px 0px 5px #10FFCB, 0px 0px 0px 10px #f8fafc, 0px 0px 0px 10.5px #10FFCB",
+            color: "#10FFCB",
+            transition: { duration: 0.3 },
+          }}
+          whileTap={{
+            scale: 0.9,
+          }}
+          // onClick={(e) => {
+          //   onSubmit();
+          //   e.currentTarget.blur();
+          // }}
+          disabled={!isValid || submitting}
         >
           {submitting && <Spinner size="4" color="text-slate-400" />}
           Submit
