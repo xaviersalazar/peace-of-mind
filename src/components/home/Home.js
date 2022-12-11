@@ -32,7 +32,7 @@ const Home = () => {
               Massage Therapy & Natural Healing
             </p>
             <Button
-              type="outline"
+              btnType="outline"
               icon={<FiArrowRight className="inline ml-2 mb-0.5" />}
               onClick={() => navigate("/contact")}
             >

@@ -231,6 +231,7 @@ const ContactForm = ({ setDidFormSucceed }) => {
                       allowLeadingZeros={false}
                       thousandSeparator=","
                       decimalScale={2}
+                      fixedDecimalScale
                       name={name}
                       value={value}
                       onChange={onChange}
