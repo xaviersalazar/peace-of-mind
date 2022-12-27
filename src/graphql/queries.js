@@ -13,7 +13,10 @@ const GET_SERVICE = gql`
       prices {
         id
         price
-        unit
+        unit {
+          id
+          name
+        }
         hasUpcharge
       }
     }
@@ -34,7 +37,10 @@ const GET_ALL_SERVICES_PAGINATED = gql`
         prices {
           id
           price
-          unit
+          unit {
+            id
+            name
+          }
           hasUpcharge
         }
       }
@@ -54,11 +60,28 @@ const GET_SERVICES_BY_CATEGORY = gql`
       prices {
         id
         price
-        unit
+        unit {
+          id
+          name
+        }
         hasUpcharge
       }
     }
   }
 `;
 
-export { GET_SERVICE, GET_ALL_SERVICES_PAGINATED, GET_SERVICES_BY_CATEGORY };
+const GET_UNITS = gql`
+  query GetUnits {
+    units {
+      id
+      name
+    }
+  }
+`;
+
+export {
+  GET_SERVICE,
+  GET_ALL_SERVICES_PAGINATED,
+  GET_SERVICES_BY_CATEGORY,
+  GET_UNITS,
+};

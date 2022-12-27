@@ -9,15 +9,18 @@ import {
   FiFolder,
   FiMessageSquare,
 } from "react-icons/fi";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 import { NumericFormat } from "react-number-format";
 import ReactSelect from "react-select";
-import { Button, Spinner, StrikethruText } from "../../shared";
+import { Button, Loader, Spinner, StrikethruText } from "../../shared";
 import { clean } from "../../utils/clean";
 import { EDIT_SERVICE } from "../../../graphql/mutations";
-import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
+import {
+  GET_ALL_SERVICES_PAGINATED,
+  GET_UNITS,
+} from "../../../graphql/queries";
 import styled from "styled-components";
 
 const keysToOmitForMutation = ["__typename", "title", "category"];
@@ -27,30 +30,6 @@ const errorTypes = {
   info: <FiAlertCircle className="text-sm md:text-lg" />,
   error: <FiXCircle className="text-sm md:text-lg" />,
 };
-
-// TODO: Change to options from DB
-const options = [
-  {
-    value: "15 Minutes",
-    label: "15 Minutes",
-  },
-  {
-    value: "30 Minutes",
-    label: "30 Minutes",
-  },
-  {
-    value: "1 Hour",
-    label: "1 Hour",
-  },
-  {
-    value: "1.5 Hours",
-    label: "1.5 Hours",
-  },
-  {
-    value: "Range",
-    label: "Range",
-  },
-];
 
 const InputContainer = styled.div`
   & .input:focus ~ svg {
@@ -88,6 +67,12 @@ const EditService = () => {
 
   const { state } = useLocation();
   const service = state?.service;
+
+  const {
+    loading: loadingUnits,
+    error: unitsError,
+    data: unitsData,
+  } = useQuery(GET_UNITS);
 
   const [editService, { loading }] = useMutation(EDIT_SERVICE, {
     refetchQueries: [
@@ -249,7 +234,7 @@ const EditService = () => {
                       Unit
                     </span>
                   </label>
-                  {loading ? (
+                  {loading || loadingUnits ? (
                     <div className="bg-white w-full h-12 rounded-lg animate-pulse" />
                   ) : (
                     <Controller
@@ -258,8 +243,8 @@ const EditService = () => {
                       render={({ field: { onChange, name, value } }) => (
                         <Select
                           name={name}
-                          value={value}
-                          placeholder={value}
+                          value={value?.name}
+                          placeholder={value?.name}
                           classNamePrefix="react-select"
                           className="text-sm font-light text-slate-500"
                           isClearable
@@ -271,15 +256,17 @@ const EditService = () => {
                               primary25: "#10FFCB",
                             },
                           })}
-                          options={options}
-                          onChange={(e) => onChange(e.value)}
+                          options={unitsData?.units || []}
+                          getOptionLabel={(option) => `${option.name}`}
+                          getOptionValue={(option) => `${option.id}`}
+                          onChange={onChange}
                         />
                       )}
                     />
                   )}
                 </InputContainer>
                 <InputContainer className="relative col-span-4 md:col-span-2">
-                  {fieldsValues[index].unit === "Range" ? (
+                  {fieldsValues[index].unit?.name === "Range" ? (
                     <div className="grid grid-cols-2 gap-x-2 w-full">
                       <label className="label pb-2">
                         <span className="label-text text-xs md:text-sm font-regular">
@@ -303,7 +290,7 @@ const EditService = () => {
                     <div className="bg-white w-full h-12 rounded-lg animate-pulse" />
                   ) : (
                     <>
-                      {fieldsValues[index].unit === "Range" ? (
+                      {fieldsValues[index].unit?.name === "Range" ? (
                         <Controller
                           control={control}
                           name={`prices.${index}.price`}

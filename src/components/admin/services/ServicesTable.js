@@ -55,13 +55,15 @@ const ServicesTable = () => {
 
   const getPrice = (price, unit) => {
     if (unit) {
-      if (unit === "Range") {
+      const { name } = unit;
+
+      if (name === "Range") {
         const prices = price.split(",");
 
         return `$${prices[0].trim()} - $${prices[1].trim()}`;
       }
 
-      return `${unit}: $${price}`;
+      return `${name}: $${price}`;
     }
 
     return `$${price}`;

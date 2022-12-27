@@ -8,7 +8,10 @@ const EDIT_SERVICE = gql`
       description
       prices {
         id
-        unit
+        unit {
+          id
+          name
+        }
         price
         hasUpcharge
       }

@@ -72,16 +72,16 @@ const informationContentVariants = {
 const Prices = ({ title, prices, showPriceText }) => {
   if (!showPriceText) return "";
 
-  const getUnitAndPrice = (price, unit) => {
-    if (unit === "Range") {
+  const getUnitAndPrice = (price, { name }) => {
+    if (name === "Range") {
       return `${price
         .split(",")
         .map((price) => `$${price}`)
         .join(" - ")}`;
     }
 
-    if (unit) {
-      return `${unit}: $${price}`;
+    if (name) {
+      return `${name}: $${price}`;
     }
 
     return `$${price}`;
