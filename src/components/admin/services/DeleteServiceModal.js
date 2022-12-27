@@ -46,7 +46,7 @@ const DeleteServiceModal = ({
     ],
     onCompleted: () => {
       setDeleteMsg(
-        <div className="text-sm font-light">
+        <div className="text-sm font-bold md:text-base">
           <span className="block">Successfully deleted</span>
           <span className="block">{service?.title}</span>
         </div>
@@ -60,7 +60,7 @@ const DeleteServiceModal = ({
       await deleteService({ variables: { id: parseInt(service?.id) } });
     } catch (e) {
       setErrorMsg(
-        <div className="text-sm font-light">
+        <div className="text-sm font-bold md:text-base">
           <span className="block">Oops! Something happened</span>
           <span className="block">Please try again</span>
         </div>
@@ -107,13 +107,13 @@ const DeleteServiceModal = ({
         <AnimatePresence>
           {errorMsg && (
             <motion.div
-              className={`alert alert-error shadow-lg absolute left-32 top-6 z-[100] w-full items-start md:left-[12rem] lg:left-[16rem]`}
+              className={`alert alert-error shadow-lg fixed left-32 top-6 z-[100] w-full items-start md:left-[12rem] lg:left-[16rem]`}
               initial={{ x: 800 }}
               animate={{ x: 0 }}
               exit={{ x: 800 }}
             >
               <div>
-                <FiXCircle />
+                <FiXCircle className="text-sm md:text-lg" />
                 {errorMsg}
               </div>
             </motion.div>

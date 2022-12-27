@@ -144,15 +144,7 @@ const EditService = () => {
     control,
   });
 
-  const [updateMsg, setUpdateMsg] = useState({
-    msg: (
-      <div className="text-sm font-bold md:text-base">
-        <span className="block">Successfully saved</span>
-        <span className="block">Test Service</span>
-      </div>
-    ),
-    type: "success",
-  });
+  const [updateMsg, setUpdateMsg] = useState(null);
 
   useEffect(() => {
     reset(service);
@@ -203,6 +195,21 @@ const EditService = () => {
       className="mt-4 mb-8"
       onSubmit={handleSubmit(onSave)}
     >
+      <AnimatePresence>
+        {updateMsg && (
+          <motion.div
+            className={`alert alert-${updateMsg.type} opacity-[90%] shadow-lg fixed left-32 top-6 z-[100] w-full items-start md:left-[18rem] lg:left-[24rem] xl:left-[30rem] 2xl:left-[48rem]`}
+            initial={{ x: 1000 }}
+            animate={{ x: 0 }}
+            exit={{ x: 1000 }}
+          >
+            <div>
+              {errorTypes[updateMsg.type]}
+              {updateMsg.msg}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <h1 className="text-2xl font-bold text-center mb-4">
         <StrikethruText text={service?.title} color="#10FFCB" />
       </h1>
@@ -419,21 +426,6 @@ const EditService = () => {
           )}
         </Button>
       </div>
-      <AnimatePresence>
-        {updateMsg && (
-          <motion.div
-            className={`alert alert-${updateMsg.type} opacity-[90%] shadow-lg fixed left-32 top-6 z-[100] w-full items-start md:left-[18rem] lg:left-[24rem] xl:left-[30rem] 2xl:left-[48rem]`}
-            initial={{ x: 1000 }}
-            animate={{ x: 0 }}
-            exit={{ x: 1000 }}
-          >
-            <div>
-              {errorTypes[updateMsg.type]}
-              {updateMsg.msg}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
     </form>
   );
 };

@@ -62,7 +62,7 @@ const Login = () => {
 
         setError({
           msg: (
-            <div className="text-sm font-light">
+            <div className="text-sm font-bold md:text-base">
               <span className="block">Invalid login credentials</span>
               <span className="block">Please try again</span>
             </div>
@@ -91,7 +91,7 @@ const Login = () => {
 
         setError({
           msg: (
-            <div className="text-sm font-light">
+            <div className="text-sm font-bold md:text-base">
               <span className="block">Invalid login credentials</span>
               <span className="block">Please try again</span>
             </div>
@@ -109,13 +109,17 @@ const Login = () => {
       <AnimatePresence>
         {error && (
           <motion.div
-            className={`alert alert-${error.type} shadow-lg absolute left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]`}
+            className={`alert alert-${error.type} opacity-[90%] shadow-lg fixed left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]`}
             initial={{ x: 800 }}
             animate={{ x: 0 }}
             exit={{ x: 800 }}
           >
             <div>
-              {error.type === "warning" ? <FiAlertCircle /> : <FiXCircle />}
+              {error.type === "warning" ? (
+                <FiAlertCircle className="text-sm md:text-lg" />
+              ) : (
+                <FiXCircle className="text-sm md:text-lg" />
+              )}
               {error.msg}
             </div>
           </motion.div>
