@@ -4,6 +4,7 @@ import Home from "./home/Home";
 import Login from "./auth/Login";
 import Protected from "./auth/Protected";
 import DashboardLayout from "./admin/layout/DashboardLayout";
+import Services from "./admin/services/Services";
 import { Loader, ServiceContainer, SkeletonLoader } from "./shared";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
@@ -56,7 +57,8 @@ const BesameLips = lazy(() => import("./besame/BesameLips"));
 
 // Private => Admin
 const Dashboard = lazy(() => import("./admin/Dashboard"));
-const Services = lazy(() => import("./admin/services/Services"));
+const ServicesTable = lazy(() => import("./admin/services/ServicesTable"));
+const EditService = lazy(() => import("./admin/services/EditService"));
 
 const routes = [
   {
@@ -503,7 +505,7 @@ const routes = [
     ],
   },
   {
-    path: "dashboard",
+    path: "admin",
     element: <DashboardLayout />,
     children: [
       {
@@ -518,13 +520,29 @@ const routes = [
       },
       {
         path: "services",
-        element: (
-          <Suspense fallback={<Loader />}>
-            <Protected>
-              <Services />
-            </Protected>
-          </Suspense>
-        ),
+        element: <Services />,
+        children: [
+          {
+            index: true,
+            element: (
+              <Suspense fallback={<Loader />}>
+                <Protected>
+                  <ServicesTable />
+                </Protected>
+              </Suspense>
+            ),
+          },
+          {
+            path: ":id",
+            element: (
+              <Suspense fallback={<Loader />}>
+                <Protected>
+                  <EditService />
+                </Protected>
+              </Suspense>
+            ),
+          },
+        ],
       },
     ],
   },

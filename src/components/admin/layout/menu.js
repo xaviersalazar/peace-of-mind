@@ -3,17 +3,17 @@ import { FiHome, FiServer, FiSettings } from "react-icons/fi";
 export const MENU = [
   {
     title: "Dashboard",
-    url: "/dashboard",
+    url: "/admin",
     icon: <FiHome className="mr-2" />,
   },
   {
     title: "Services",
-    url: "/dashboard/services",
+    url: "/admin/services",
     icon: <FiServer className="mr-2" />,
   },
   {
     title: "Settings",
-    url: "/dashboard/settings",
+    url: "/admin/settings",
     icon: <FiSettings className="mr-2" />,
   },
 ];

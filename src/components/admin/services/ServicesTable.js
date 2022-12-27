@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { isEmpty, uniqueId } from "lodash";
@@ -9,7 +10,6 @@ import {
   FiFilter,
   FiCheckCircle,
 } from "react-icons/fi";
-import EditServiceModal from "./EditServiceModal";
 import { Button, Error } from "../../shared";
 import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
 import ServicesTableLoader from "./ServicesTableLoader";
@@ -19,9 +19,10 @@ import classNames from "classnames";
 const PAGE_LIMIT = 30;
 
 const ServicesTable = () => {
+  const navigate = useNavigate();
+
   const [loading, setLoading] = useState(true);
   const [pageNum, setPageNum] = useState(0);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState(null);
   const [deleteMsg, setDeleteMsg] = useState(null);
@@ -65,8 +66,6 @@ const ServicesTable = () => {
 
     return `$${price}`;
   };
-
-  const toggleEditModal = () => setIsEditModalOpen(!isEditModalOpen);
 
   const toggleDeleteModal = () => setIsDeleteModalOpen(!isDeleteModalOpen);
 
@@ -184,14 +183,18 @@ const ServicesTable = () => {
                   <div className="flex gap-x-4 justify-center">
                     <button
                       onClick={() => {
-                        setSelectedService({
+                        const service = {
                           id,
                           title,
                           description,
                           prices,
                           category,
+                        };
+
+                        setSelectedService(service);
+                        navigate(`/admin/services/${id}`, {
+                          state: { service },
                         });
-                        toggleEditModal();
                       }}
                     >
                       <FiEdit />
@@ -250,11 +253,6 @@ const ServicesTable = () => {
           Next
         </Button>
       </div>
-      <EditServiceModal
-        isEditModalOpen={isEditModalOpen}
-        toggleEditModal={toggleEditModal}
-        service={selectedService}
-      />
       <DeleteServiceModal
         isDeleteModalOpen={isDeleteModalOpen}
         toggleDeleteModal={toggleDeleteModal}

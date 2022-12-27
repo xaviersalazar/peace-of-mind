@@ -57,7 +57,7 @@ const Login = () => {
       }).then((res) => {
         if (res.data?.user) {
           reset();
-          navigate("/dashboard");
+          navigate("/admin");
         }
 
         setError({
@@ -86,7 +86,7 @@ const Login = () => {
       await signUp(signUpData).then((res) => {
         if (res.data?.user) {
           reset();
-          navigate("/dashboard");
+          navigate("/admin");
         }
 
         setError({

@@ -2,7 +2,7 @@ import { FiArrowRight } from "react-icons/fi";
 import { Button, GradientFont, Section } from "../shared";
 import Services from "./Services";
 import styled from "styled-components";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const SHomeInfo = styled.div`
   top: 40%;
