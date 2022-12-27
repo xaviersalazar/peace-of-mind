@@ -90,14 +90,14 @@ const ContactForm = ({ setDidFormSucceed }) => {
       <AnimatePresence>
         {error.length > 0 && (
           <motion.div
-            className="alert alert-error shadow-lg absolute left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]"
+            className="alert alert-error shadow-lg fixed left-44 top-6 z-[100] w-full items-start md:left-[30rem] lg:left-[42rem] xl:left-[64rem] 2xl:left-[84rem]"
             initial={{ x: 800 }}
             animate={{ x: 0 }}
             exit={{ x: 800 }}
           >
             <div>
-              <FiXCircle />
-              <div className="text-sm font-light">
+              <FiXCircle className="text-sm md:text-lg" />
+              <div className="font-bold md:text-base">
                 <span className="block lg:inline">
                   Oops! Something went wrong.{" "}
                 </span>

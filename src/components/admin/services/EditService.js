@@ -107,7 +107,7 @@ const EditService = () => {
 
       setUpdateMsg({
         msg: (
-          <div className="text-sm font-light">
+          <div className="text-sm font-bold md:text-base">
             <span className="block">Successfully saved</span>
             <span className="block">{title}</span>
           </div>
