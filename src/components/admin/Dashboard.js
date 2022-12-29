@@ -1,15 +1,20 @@
 import { FiMail } from "react-icons/fi";
 import { motion } from "framer-motion";
+import { StrikethruText } from "../shared";
 
 // Most of the UI here is just placeholder for now
 const Dashboard = () => {
   return (
     <div className="flex-1 relative top-8 px-10 pb-8 ml-16 lg:px-20 xl:px-[7rem]">
       <div className="text-center mb-8">
-        <h1 className="text-3xl font-extra-bold mb-0 md:text-4xl xl:text-5xl">
-          Dashboard
+        <h1 className="text-2xl font-extra-bold text-center mb-0 md:text-3xl lg:text-4xl xl:text-5xl">
+          <StrikethruText
+            text="Dashboard"
+            color="#10FFCB"
+            height="h-2 md:h-3 xl:h-4"
+            position="bottom-0.5 lg:bottom-1"
+          />
         </h1>
-        <p className="text-sm font-light text-slate-300">Peace of Mind</p>
       </div>
       <div className="grid grid-cols-2 grid-rows-2 gap-x-4 gap-y-0 lg:grid-cols-4 lg:grid-rows-1">
         <div className="w-full shadow-[0_8px_24px_rgba(223,228,234,0.6)] bg-white px-8 py-4 rounded-2xl mb-8">
@@ -38,50 +43,39 @@ const Dashboard = () => {
         </div>
         <div className="grid grid-cols-1 gap-y-4">
           <div>
-            <p className="text-sm font-light text-slate-300">
-              test@test-user.com
+            <p className="text-sm font-light text-slate-700 mb-1">
+              From: <span className="font-extra-light">test@test-user.com</span>
             </p>
-            <p className="text-sm font-light text-slate-400">
-              Can I get an appointment booked for Jan 1st?
-            </p>
-            <div className="reply mt-2">
-              <input
-                type="text"
-                className="input h-8 w-full px-2 py-1 font-light rounded-lg bg-slate-50 text-xs"
-                placeholder="Reply?"
-              />
+            <div className="w-full p-4 rounded-lg bg-slate-50">
+              <p className="text-sm font-light text-slate-400">
+                Can I get an appointment booked for Jan 1st?
+              </p>
             </div>
           </div>
           <div>
-            <p className="text-sm font-light text-slate-300">
-              john.doe@greatestcompany.com
+            <p className="text-sm font-light text-slate-700 mb-1">
+              From:{" "}
+              <span className="font-extra-light">
+                john.doe@greatestcompany.com
+              </span>
             </p>
-            <p className="text-sm font-light text-slate-400">
-              I was there last weekend for a deluxe massage. You all did great
-              and just wanted to see if I could penciled in for the same
-              massage, with the same person, next weekend as well? Thanks!
-            </p>
-            <div className="reply mt-2">
-              <input
-                type="text"
-                className="input h-8 w-full px-2 py-1 font-light rounded-lg bg-slate-50 text-xs"
-                placeholder="Reply?"
-              />
+            <div className="w-full p-4 rounded-lg bg-slate-50">
+              <p className="text-sm font-light text-slate-400">
+                I was there last weekend for a deluxe massage. You all did great
+                and just wanted to see if I could penciled in for the same
+                massage, with the same person, next weekend as well? Thanks!
+              </p>
             </div>
           </div>
           <div>
-            <p className="text-sm font-light text-slate-300">
-              jane.doe.12434@yahoo.com
+            <p className="text-sm font-light text-slate-700 mb-1">
+              From:{" "}
+              <span className="font-extra-light">jane.doe.12434@yahoo.com</span>
             </p>
-            <p className="text-sm font-light text-slate-400">
-              Looking to get booked for a haircut tomorrow
-            </p>
-            <div className="reply mt-2">
-              <input
-                type="text"
-                className="input h-8 w-full px-2 py-1 font-light rounded-lg bg-slate-50 text-xs"
-                placeholder="Reply?"
-              />
+            <div className="w-full p-4 rounded-lg bg-slate-50">
+              <p className="text-sm font-light text-slate-400">
+                Looking to get booked for a haircut tomorrow
+              </p>
             </div>
           </div>
         </div>

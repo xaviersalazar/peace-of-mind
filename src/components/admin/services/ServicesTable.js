@@ -10,7 +10,7 @@ import {
   FiFilter,
   FiCheckCircle,
 } from "react-icons/fi";
-import { Button, Error } from "../../shared";
+import { Button, Error, StrikethruText } from "../../shared";
 import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
 import ServicesTableLoader from "./ServicesTableLoader";
 import DeleteServiceModal from "./DeleteServiceModal";
@@ -89,10 +89,14 @@ const ServicesTable = () => {
         )}
       </AnimatePresence>
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-extra-bold mb-0 md:text-3xl lg:text-4xl xl:text-5xl">
-          Services
+        <h1 className="text-2xl font-extra-bold text-center mb-0 md:text-3xl lg:text-4xl xl:text-5xl">
+          <StrikethruText
+            text="Services"
+            color="#10FFCB"
+            height="h-2 md:h-3 xl:h-4"
+            position="bottom-0.5 lg:bottom-1"
+          />
         </h1>
-        <p className="text-sm font-light text-slate-300">Peace of Mind</p>
       </div>
       <div className="flex mb-8 gap-x-4 md:justify-end">
         <div className="md:flex-1">
