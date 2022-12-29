@@ -85,7 +85,10 @@ const DashboardLayout = () => {
                 initial={{ width: "2rem" }}
                 animate={isMenuOpen ? { width: "3rem" } : { width: "2rem" }}
               >
-                <img src="https://placeimg.com/192/192/tech" alt="people-img" />
+                <img
+                  src={`${process.env.PUBLIC_URL}/stock-user.png`}
+                  alt="user-img"
+                />
               </motion.div>
             </div>
             <motion.h1
