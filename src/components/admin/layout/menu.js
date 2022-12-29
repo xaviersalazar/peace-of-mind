@@ -1,4 +1,4 @@
-import { FiHome, FiServer, FiSettings } from "react-icons/fi";
+import { FiHome, FiServer } from "react-icons/fi";
 
 export const MENU = [
   {
@@ -10,10 +10,5 @@ export const MENU = [
     title: "Services",
     url: "/admin/services",
     icon: <FiServer className="mr-2" />,
-  },
-  {
-    title: "Settings",
-    url: "/admin/settings",
-    icon: <FiSettings className="mr-2" />,
   },
 ];
