@@ -3,7 +3,7 @@ const Loader = () => (
     className="relative top-32 h-full mb-32 px-10 pt-0 lg:px-20 lg:pt-4 xl:px-[7rem] xl:pt-8"
     id="loader-container"
   >
-    <div className="bg-white w-full flex justify-center items-center relative top-0">
+    <div className="bg-white w-full flex justify-center items-center relative top-0 mb-24">
       <div className="bg-white p-10 shadow-[0_8px_24px_rgba(223,228,234,0.6)] rounded-2xl relative">
         <svg
           className="w-12 h-12 animate-spin text-primary"
