@@ -195,8 +195,13 @@ const EditService = () => {
           </motion.div>
         )}
       </AnimatePresence>
-      <h1 className="text-2xl font-bold text-center mb-4">
-        <StrikethruText text={service?.title} color="#10FFCB" />
+      <h1 className="text-2xl font-extra-bold text-center mb-4 md:text-3xl lg:text-4xl xl:text-5xl">
+        <StrikethruText
+          text={service?.title}
+          color="#10FFCB"
+          height="h-2 md:h-3 xl:h-4"
+          position="bottom-0.5 lg:bottom-1"
+        />
       </h1>
       <div className="bg-slate-50 px-4 py-4 pb-2 rounded-2xl">
         <div className="form-control w-full">

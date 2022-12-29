@@ -88,6 +88,12 @@ const ServicesTable = () => {
           </motion.div>
         )}
       </AnimatePresence>
+      <div className="text-center mb-8">
+        <h1 className="text-4xl font-extra-bold mb-0 md:text-3xl lg:text-4xl xl:text-5xl">
+          Services
+        </h1>
+        <p className="text-sm font-light text-slate-300">Peace of Mind</p>
+      </div>
       <div className="flex mb-8 gap-x-4 md:justify-end">
         <div className="md:flex-1">
           <button className="btn btn-primary text-slate-500 rounded-lg px-4 py-2 text-xs xl:text-sm font-light capitalize">
@@ -171,7 +177,7 @@ const ServicesTable = () => {
                     i % 2 === 0 ? "bg-white" : "bg-slate-50"
                   )}
                 >
-                  {description}
+                  {isEmpty(description) ? "N/A" : description}
                 </div>
                 <div
                   className={classNames(
