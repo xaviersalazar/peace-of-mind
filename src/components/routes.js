@@ -76,391 +76,312 @@ const routes = [
       },
       {
         path: "besame",
+        element: <ServiceContainer />,
         children: [
           {
             path: "about",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<Loader />}>
-                  <BesameAbout />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<Loader />}>
+                <BesameAbout />
+              </Suspense>
             ),
           },
           {
             path: "eyes",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+              </Suspense>
             ),
           },
           {
             path: "face",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <BesameFace categoryId={CATEGORY_MAPPING.BESAME_EYES} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <BesameFace categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+              </Suspense>
             ),
           },
           {
             path: "lips",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <BesameLips categoryId={CATEGORY_MAPPING.BESAME_LIPS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <BesameLips categoryId={CATEGORY_MAPPING.BESAME_LIPS} />
+              </Suspense>
             ),
           },
         ],
       },
       {
         path: "services",
+        element: <ServiceContainer />,
         children: [
           {
             path: "about",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<Loader />}>
-                  <ServicesAbout />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<Loader />}>
+                <ServicesAbout />
+              </Suspense>
             ),
           },
           {
             path: "add-ons",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
+              </Suspense>
             ),
           },
           {
             path: "bbl-fat-elim",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <BreastButtLiftFatElim
-                    categoryId={CATEGORY_MAPPING.BREAST_BUTT_LIFT_FAT_ELIM}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <BreastButtLiftFatElim
+                  categoryId={CATEGORY_MAPPING.BREAST_BUTT_LIFT_FAT_ELIM}
+                />
+              </Suspense>
             ),
           },
           {
             path: "deluxe-couples",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <DeluxeCouplesMassages
-                    categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <DeluxeCouplesMassages
+                  categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
+                />
+              </Suspense>
             ),
           },
           {
             path: "facials",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
+              </Suspense>
             ),
           },
           {
             path: "facial-enhance",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <FacialEnhancements
-                    categoryId={CATEGORY_MAPPING.FACIAL_ENHANCEMENTS}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <FacialEnhancements
+                  categoryId={CATEGORY_MAPPING.FACIAL_ENHANCEMENTS}
+                />
+              </Suspense>
             ),
           },
           {
             path: "health-coaching",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <HealthCoaching
-                    categoryId={CATEGORY_MAPPING.HEALTH_COACHING}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <HealthCoaching categoryId={CATEGORY_MAPPING.HEALTH_COACHING} />
+              </Suspense>
             ),
           },
           {
             path: "infrared-sauna",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <InfraredSauna categoryId={CATEGORY_MAPPING.INFRARED_SAUNA} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <InfraredSauna categoryId={CATEGORY_MAPPING.INFRARED_SAUNA} />
+              </Suspense>
             ),
           },
           {
             path: "kids-yoga",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <KidsYoga categoryId={CATEGORY_MAPPING.KIDS_YOGA} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <KidsYoga categoryId={CATEGORY_MAPPING.KIDS_YOGA} />
+              </Suspense>
             ),
           },
           {
             path: "massages",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
+              </Suspense>
             ),
           },
           {
             path: "oxygen-bar",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <OxygenBar categoryId={CATEGORY_MAPPING.OXYGEN_BAR} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <OxygenBar categoryId={CATEGORY_MAPPING.OXYGEN_BAR} />
+              </Suspense>
             ),
           },
           {
             path: "oxygen-soak",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <OxygenFootSoak
-                    categoryId={CATEGORY_MAPPING.OXYGEN_FOOT_SOAK}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <OxygenFootSoak
+                  categoryId={CATEGORY_MAPPING.OXYGEN_FOOT_SOAK}
+                />
+              </Suspense>
             ),
           },
           {
             path: "scrubs-weightloss",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <ScrubsWeightloss
-                    categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <ScrubsWeightloss
+                  categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
+                />
+              </Suspense>
             ),
           },
           {
             path: "waxes",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
+              </Suspense>
             ),
           },
         ],
       },
       {
         path: "salon",
+        element: <ServiceContainer />,
         children: [
           {
             path: "about",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<Loader />}>
-                  <SalonAbout />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<Loader />}>
+                <SalonAbout />
+              </Suspense>
             ),
           },
           {
             path: "eyes",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
+              </Suspense>
             ),
           },
           {
             path: "finishing-touches",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <FinishingTouches
-                    categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <FinishingTouches
+                  categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
+                />
+              </Suspense>
             ),
           },
           {
             path: "haircuts",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
+              </Suspense>
             ),
           },
           {
             path: "hair-coloring",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <HairColoring categoryId={CATEGORY_MAPPING.HAIR_COLORING} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <HairColoring categoryId={CATEGORY_MAPPING.HAIR_COLORING} />
+              </Suspense>
             ),
           },
           {
             path: "hair-ext",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <HairExtensions
-                    categoryId={CATEGORY_MAPPING.HAIR_EXTENSIONS}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <HairExtensions categoryId={CATEGORY_MAPPING.HAIR_EXTENSIONS} />
+              </Suspense>
             ),
           },
           {
             path: "hair-highlights",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <HairHighlights
-                    categoryId={CATEGORY_MAPPING.HAIR_HIGHLIGHTS}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <HairHighlights categoryId={CATEGORY_MAPPING.HAIR_HIGHLIGHTS} />
+              </Suspense>
             ),
           },
           {
             path: "hair-treatments",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <HairTreatments
-                    categoryId={CATEGORY_MAPPING.HAIR_TREATMENTS}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <HairTreatments categoryId={CATEGORY_MAPPING.HAIR_TREATMENTS} />
+              </Suspense>
             ),
           },
           {
             path: "locs",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Locs categoryId={CATEGORY_MAPPING.LOCS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Locs categoryId={CATEGORY_MAPPING.LOCS} />
+              </Suspense>
             ),
           },
           {
             path: "mani-pedi",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <ManiPedi categoryId={CATEGORY_MAPPING.MANI_PEDI} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <ManiPedi categoryId={CATEGORY_MAPPING.MANI_PEDI} />
+              </Suspense>
             ),
           },
           {
             path: "makeup",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Makeup categoryId={CATEGORY_MAPPING.MAKEUP} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Makeup categoryId={CATEGORY_MAPPING.MAKEUP} />
+              </Suspense>
             ),
           },
           {
             path: "mens",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Mens categoryId={CATEGORY_MAPPING.SALON_MENS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Mens categoryId={CATEGORY_MAPPING.SALON_MENS} />
+              </Suspense>
             ),
           },
           {
             path: "natural-styling",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <NaturalStyling
-                    categoryId={CATEGORY_MAPPING.NATURAL_STYLING}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <NaturalStyling categoryId={CATEGORY_MAPPING.NATURAL_STYLING} />
+              </Suspense>
             ),
           },
           {
             path: "perms",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <Perms categoryId={CATEGORY_MAPPING.PERMS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <Perms categoryId={CATEGORY_MAPPING.PERMS} />
+              </Suspense>
             ),
           },
           {
             path: "sets-twists",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <SetsTwists categoryId={CATEGORY_MAPPING.SETS_TWISTS} />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <SetsTwists categoryId={CATEGORY_MAPPING.SETS_TWISTS} />
+              </Suspense>
             ),
           },
           {
             path: "spec-with-ext",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <SpecialtyExtensions
-                    categoryId={CATEGORY_MAPPING.SPECIALTY}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <SpecialtyExtensions categoryId={CATEGORY_MAPPING.SPECIALTY} />
+              </Suspense>
             ),
           },
           {
             path: "straightening-services",
             element: (
-              <ServiceContainer>
-                <Suspense fallback={<SkeletonLoader />}>
-                  <StraighteningServices
-                    categoryId={CATEGORY_MAPPING.STRAIGHTENING}
-                  />
-                </Suspense>
-              </ServiceContainer>
+              <Suspense fallback={<SkeletonLoader />}>
+                <StraighteningServices
+                  categoryId={CATEGORY_MAPPING.STRAIGHTENING}
+                />
+              </Suspense>
             ),
           },
         ],
@@ -477,15 +398,17 @@ const routes = [
         path: "*",
         element: (
           <ServiceContainer>
-            <h1 className="text-3xl font-bold text-center">
-              Nothing found here 🤷‍♀️
-            </h1>
-            <h1 className="text-2xl font-light text-center">
-              Return to{" "}
-              <a className="underline text-blue-300" href="/">
-                homepage
-              </a>
-            </h1>
+            <div className="relative top-20 md:top-32">
+              <h1 className="text-3xl font-bold text-center">
+                Nothing found here 🤷‍♀️
+              </h1>
+              <h1 className="text-2xl font-light text-center">
+                Return to{" "}
+                <a className="underline text-blue-300" href="/">
+                  homepage
+                </a>
+              </h1>
+            </div>
           </ServiceContainer>
         ),
       },
