@@ -421,10 +421,6 @@ const routes = [
         path: "login",
         element: <Login />,
       },
-      {
-        path: "sign-up",
-        element: <Login />,
-      },
     ],
   },
   {

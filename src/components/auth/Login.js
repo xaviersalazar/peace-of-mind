@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import {
   FiEye,
@@ -253,21 +253,6 @@ const Login = () => {
             {isLoggingIn && <Spinner size="4" color="text-slate-400" />}
             Submit
           </motion.button>
-          {isLogin ? (
-            <p className="text-sm font-light mt-12">
-              Don't have a login?{" "}
-              <Link className="text-blue-300" to="/auth/sign-up">
-                Sign up here
-              </Link>
-            </p>
-          ) : (
-            <p className="text-sm font-light mt-12">
-              Already have a login?{" "}
-              <Link className="text-blue-300" to="/auth/login">
-                Login here
-              </Link>
-            </p>
-          )}
         </form>
       </div>
       <img

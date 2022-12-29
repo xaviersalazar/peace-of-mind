@@ -14,7 +14,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useForm, useFieldArray, Controller, useWatch } from "react-hook-form";
 import { NumericFormat } from "react-number-format";
 import ReactSelect from "react-select";
-import { Button, Loader, Spinner, StrikethruText } from "../../shared";
+import { Button, Spinner, StrikethruText } from "../../shared";
 import { clean } from "../../utils/clean";
 import { EDIT_SERVICE } from "../../../graphql/mutations";
 import {
@@ -68,11 +68,7 @@ const EditService = () => {
   const { state } = useLocation();
   const service = state?.service;
 
-  const {
-    loading: loadingUnits,
-    error: unitsError,
-    data: unitsData,
-  } = useQuery(GET_UNITS);
+  const { loading: loadingUnits, data: unitsData } = useQuery(GET_UNITS);
 
   const [editService, { loading }] = useMutation(EDIT_SERVICE, {
     refetchQueries: [
