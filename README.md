@@ -20,13 +20,12 @@ This app is created with `React` and `Tailwindcss`. It uses `Supabase` for authe
   - [x] ~~Dashboard page (widgets coming soon)~~
   - [x] ~~Services page~~
     - [x] ~~Table of paginated services~~
-    - [ ] Edit a service
-      - [x] ~~Edit description~~
-      - [x] ~~Edit prices~~
-      - [ ] Add/remove price(s)
+    - [x] ~~Edit a service~~
     - [x] ~~Delete a service~~
 
 ### v2.0
-- [ ] Search & Filter for services on `Admin -> Services` page
+- [ ] Search & Filter for services on `Services Table` page
+- [ ] Add/Remove price(s) from a Service
+- [ ] Add new Service
 - [ ] Add dashboard widgets on `Admin -> Dashboard` page (metrics, recent contact form submissions, etc)
 - [ ] Dark Mode
