@@ -156,19 +156,6 @@ const DashboardLayout = () => {
             ))}
           </div>
           <div className="mt-auto">
-            <motion.div
-              className="form-control w-full relative"
-              animate={isMenuOpen ? "open" : "closed"}
-              variants={menuSearchVariants}
-            >
-              <FiSearch className="absolute text-slate-300 top-0.5 left-4" />
-              <input
-                name="search"
-                type="text"
-                placeholder="Search"
-                className="input w-full h-12 font-light rounded-lg indent-6"
-              />
-            </motion.div>
             <div className="flex">
               <motion.button
                 className="bg-primary w-full mt-4 p-2 rounded-lg text-slate-700 font-light"
