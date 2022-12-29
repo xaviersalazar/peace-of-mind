@@ -177,7 +177,7 @@ const DashboardLayout = () => {
       <div
         className={classNames(
           isMenuOpen &&
-            "absolute top-0 left-0 h-full w-full bg-white opacity-80"
+            "absolute top-0 left-0 h-full w-full bg-white opacity-80 z-40"
         )}
       />
     </div>
