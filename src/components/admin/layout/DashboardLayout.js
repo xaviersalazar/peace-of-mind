@@ -3,7 +3,8 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { useAuth } from "../../context/Auth";
 import { useIsMd } from "../../hooks/useBreakpoints";
-import { FiChevronRight, FiLogOut, FiSearch } from "react-icons/fi";
+import classNames from "classnames";
+import { FiChevronRight, FiLogOut } from "react-icons/fi";
 import { GradientFont } from "../../shared";
 import { MENU } from "./menu";
 
@@ -30,26 +31,6 @@ const DashboardLayout = () => {
   const menuTextVariants = {
     open: {
       flex: 1,
-      opacity: 1,
-      transition: {
-        duration: 0.25,
-        default: { ease: "linear" },
-      },
-      transitionEnd: {
-        display: "initial",
-      },
-    },
-    closed: {
-      opacity: 0,
-      display: "none",
-      transition: {
-        default: { ease: "linear" },
-      },
-    },
-  };
-
-  const menuSearchVariants = {
-    open: {
       opacity: 1,
       transition: {
         duration: 0.25,
@@ -193,6 +174,12 @@ const DashboardLayout = () => {
         </div>
       </motion.div>
       <Outlet />
+      <div
+        className={classNames(
+          isMenuOpen &&
+            "absolute top-0 left-0 h-full w-full bg-white opacity-80"
+        )}
+      />
     </div>
   );
 };
