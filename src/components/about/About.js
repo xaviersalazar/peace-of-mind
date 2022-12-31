@@ -1,8 +1,4 @@
-import { Section, StrikethruText } from "../shared";
-
-const Text = ({ children }) => (
-  <p className="text-sm font-light text-slate-400 mb-2">{children}</p>
-);
+import { Section } from "../shared";
 
 const About = () => (
   <>
