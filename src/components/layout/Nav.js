@@ -139,26 +139,33 @@ const Nav = () => {
     }
   };
 
+  const getLogo = () => {
+    const props = {
+      className: classNames(
+        "justify-start w-[32px] md:w-[48px] top-0.5 md:top-[-0.2rem] relative cursor-pointer active",
+        shouldApplyShadow ? "active" : ""
+      ),
+      alt: "mini-logo-img",
+    };
+
+    return shouldApplyShadow ? (
+      <Logo className={props.className} src="/logo-black.png" alt={props.alt} />
+    ) : (
+      <Logo className={props.className} src="/logo-white.png" alt={props.alt} />
+    );
+  };
+
   return (
     <div className="relative">
       <div className="fixed top-2 w-screen z-50">
         <Navbar
           className={classNames(
-            "mt-4 mx-4 md:mx-8 px-6 py-6 md:pt-6 md:pb-4 rounded-2xl bg-white",
-            shouldApplyShadow ? "active" : ""
+            "mt-4 mx-4 md:mx-8 px-6 py-6 md:pt-6 md:pb-4 rounded-2xl",
+            shouldApplyShadow ? "active bg-white" : "bg-transparent"
           )}
         >
           <div className="flex justify-between">
-            <Link to="/">
-              <Logo
-                className={classNames(
-                  "justify-start w-[32px] md:w-[48px] top-0.5 md:top-[-0.2rem] relative cursor-pointer active",
-                  shouldApplyShadow ? "active" : ""
-                )}
-                src="/logo-black.png"
-                alt="background"
-              />
-            </Link>
+            <Link to="/">{getLogo()}</Link>
             <div className="flex gap-2 justify-between relative top-1.5 md:top-0.5 md:justify-end md:gap-8">
               {navItems.map(({ title, link, page, subItems }) => (
                 <div className="relative" key={title}>
@@ -166,7 +173,10 @@ const Nav = () => {
                   <Link
                     key={title}
                     to={link}
-                    className="text-[0.65rem] md:text-base tracking-wide cursor-pointer"
+                    className={classNames(
+                      "text-[0.65rem] md:text-base tracking-wide cursor-pointer",
+                      shouldApplyShadow ? "text-slate-700" : "text-white"
+                    )}
                     onClick={() => onNavItemClicked(title)}
                   >
                     <div className="flex gap-y-1 uppercase">

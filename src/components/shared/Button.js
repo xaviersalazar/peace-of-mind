@@ -86,6 +86,7 @@ const Button = ({
   className,
   btnType = "normal",
   icon,
+  iconSide = "left",
   disabled,
   children,
   ...rest
@@ -100,8 +101,9 @@ const Button = ({
         )}
         disabled
       >
+        {iconSide === "left" && icon}
         {children}
-        {icon}
+        {iconSide === "right" && icon}
       </button>
     );
   }
@@ -114,8 +116,9 @@ const Button = ({
       whileTap={{ scale: 0.9 }}
       {...rest}
     >
+      {iconSide === "left" && icon}
       {children}
-      {icon}
+      {iconSide === "right" && icon}
     </motion.button>
   );
 };

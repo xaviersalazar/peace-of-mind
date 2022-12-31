@@ -1,33 +1,19 @@
-import { motion } from "framer-motion";
-import classNames from "classnames";
+import { Button } from "../shared";
 
-const ServiceCard = ({ className, onClick, id, imgName, title, desc }) => (
-  <motion.div
-    className={classNames(
-      className,
-      "card border-none bg-slate-50 w-full h-full justify-self-end cursor-pointer"
-    )}
-    onClick={() => onClick(id)}
-    whileHover={{
-      scale: 1.1,
-      transition: { duration: 0.3 },
-    }}
-    whileFocus={{ scale: 1.1, transition: { duration: 0.3 } }}
-    whileTap={{ scale: 0.9 }}
-  >
-    <div className="flex-1 self-center pt-6 px-4">
+const ServiceCard = ({ imgName, title, desc, onClick }) => (
+  <div className="card border-none rounded-2xl bg-slate-50">
+    <figure>
       <img
-        width={48}
-        height={48}
-        src={`/services/${imgName}.png`}
+        src={`${process.env.REACT_APP_BUCKETEER_URL}/public/services-home/${imgName}.jpg`}
         alt={imgName}
       />
+    </figure>
+    <div className="card-body items-center text-center">
+      <h1 className="card-title text-center justify-center">{title}</h1>
+      <p className="text-sm font-light text-slate-400 ">{desc}</p>
+      <Button onClick={onClick}>View More</Button>
     </div>
-    <div className="card-body p-4 text-center self-center">
-      <h2 className="card-title text-sm self-center">{title}</h2>
-      <p className="text-xs font-extra-light">{desc}</p>
-    </div>
-  </motion.div>
+  </div>
 );
 
 export default ServiceCard;
