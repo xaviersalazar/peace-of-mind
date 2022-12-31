@@ -10,19 +10,22 @@ const About = () => (
       id="hero"
     >
       <div className="hero-overlay bg-slate-900 bg-opacity-75" />
-      <div className="hero-content">
+      <div className="hero-content mt-8">
         <div className="max-w text-center">
-          <h1 className="text-3xl font-extra-bold text-white md:text-4xl lg:text-5xl">
+          <h1 className="text-4xl font-extra-bold text-white md:text-5xl xl:text-6xl">
             About us
           </h1>
+          <p className="text-xs font-light text-slate-400 text-center md:text-sm">
+            We're here to help you feel better
+          </p>
         </div>
       </div>
     </div>
     <div className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]">
-      <h1 className="text-3xl font-extra-bold md:text-4xl lg:text-5xl">
+      <h1 className="text-4xl font-extra-bold md:text-5xl lg:text-6xl">
         Our Story
       </h1>
-      <hr className="w-1/4 md:w-2/12 xl:w-1/12 mx-auto mt-2 border-slate-100" />
+      <hr className="w-1/4 md:w-2/12 xl:w-1/12 mx-auto my-4 border-slate-100" />
       <Section>
         Peace of Mind Massage Therapy & Natural Healing is a Woman Owned
         Business based on mother nature's common grounds, located at 602 N Lower

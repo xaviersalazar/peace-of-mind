@@ -26,11 +26,11 @@ const Home = () => {
         className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]"
         id="massage-row"
       >
-        <h1 className="text-3xl font-extra-bold md:text-4xl lg:text-5xl">
-          Message Therapy & <br className="md:hidden" />
+        <h1 className="text-4xl font-extra-bold md:text-5xl xl:text-6xl">
+          Message Therapy & <br className="lg:hidden" />
           Natural Healing
         </h1>
-        <hr className="w-2/4 xl:w-4/12 mx-auto mt-2 border-slate-100" />
+        <hr className="w-2/4 lg:w-2/3 xl:w-6/12 mx-auto my-4 border-slate-100" />
         <Section>
           Come in today for a Singles Massage Session or a Couples Discounted
           Massage Packet. We use all organic massage products using plants,
@@ -44,10 +44,10 @@ const Home = () => {
         className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem] bg-slate-50"
         id="salon-row"
       >
-        <h1 className="text-3xl font-extra-bold md:text-4xl lg:text-5xl">
+        <h1 className="text-4xl font-extra-bold md:text-5xl xl:text-6xl">
           We're also a Salon
         </h1>
-        <hr className="w-2/4 md:w-1/4 xl:w-2/12 mx-auto mt-2 border-slate-200" />
+        <hr className="w-2/4 lg:w-4/12 xl:w-2/12 mx-auto my-4 border-slate-200" />
         <Section>
           We are a Dyson inspired Salon and we are sticking to our organic
           concept in every aspect. We strongly believe in being green and an
@@ -69,10 +69,10 @@ const Home = () => {
         className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]"
         id="support-local-row"
       >
-        <h1 className="text-3xl font-extra-bold md:text-4xl lg:text-5xl">
+        <h1 className="text-4xl font-extra-bold md:text-5xl xl:text-6xl">
           Support Local
         </h1>
-        <hr className="w-2/4 md:w-1/4 xl:w-2/12 mx-auto mt-2 border-slate-100" />
+        <hr className="w-2/4 md:w-4/12 xl:w-2/12 mx-auto my-4 border-slate-100" />
         <Section>
           If you want, and are able to, to support them right now, buy a gift
           certificate from them, shop in their online stores, pre book your
@@ -94,10 +94,10 @@ const Home = () => {
         className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem] bg-slate-50"
         id="spa-boxes-row"
       >
-        <h1 className="text-3xl font-extra-bold md:text-4xl lg:text-5xl">
-          Spa boxes now available!
+        <h1 className="text-4xl font-extra-bold md:text-5xl xl:text-6xl">
+          Spa boxes <br className="lg:hidden" /> now available!
         </h1>
-        <hr className="w-2/4 xl:w-3/12 mx-auto mt-2 border-slate-200" />
+        <hr className="w-2/4 md:w-4/12 lg:w-6/12 xl:w-4/12 mx-auto my-4 border-slate-200" />
         <div className="mt-2 mb-4" id="large-spa-box">
           <h1 className="text-xl font-medium mb-2 lg:text-2xl">
             Large Spa Box{" "}
