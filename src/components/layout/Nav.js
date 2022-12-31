@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion, useScroll } from "framer-motion";
 import { FiChevronDown } from "react-icons/fi";
-import { StrikethruText } from "../shared";
 import navItems from "./navItems";
 import useOutsideClick from "../hooks/useOutsideClick";
 import classNames from "classnames";
@@ -148,7 +147,7 @@ const Nav = () => {
       alt: "mini-logo-img",
     };
 
-    return shouldApplyShadow ? (
+    return shouldApplyShadow || pathname === "/contact" ? (
       <Logo className={props.className} src="/logo-black.png" alt={props.alt} />
     ) : (
       <Logo className={props.className} src="/logo-white.png" alt={props.alt} />
@@ -175,7 +174,9 @@ const Nav = () => {
                     to={link}
                     className={classNames(
                       "text-[0.65rem] md:text-base tracking-wide cursor-pointer",
-                      shouldApplyShadow ? "text-slate-700" : "text-white"
+                      shouldApplyShadow || pathname === "/contact"
+                        ? "text-slate-700"
+                        : "text-white"
                     )}
                     onClick={() => onNavItemClicked(title)}
                   >
