@@ -6,7 +6,7 @@ const Section = ({ buttonText = null, children }) => {
 
   return (
     <>
-      <p className="text-sm font-light text-slate-400 mt-2 relative xl:px-[12rem]">
+      <p className="text-sm font-light text-slate-400 mt-2 relative">
         {children}
       </p>
       {buttonText && (

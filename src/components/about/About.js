@@ -3,7 +3,7 @@ import { Section } from "../shared";
 const About = () => (
   <>
     <div
-      className="hero h-[30vh] xl:h-[40vh]"
+      className="hero h-[40vh] xl:h-[50vh]"
       style={{
         backgroundImage: `url(${process.env.PUBLIC_URL}/about.jpeg)`,
       }}

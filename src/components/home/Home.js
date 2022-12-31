@@ -27,8 +27,7 @@ const Home = () => {
         id="massage-row"
       >
         <h1 className="text-4xl font-extra-bold md:text-5xl xl:text-6xl">
-          Message Therapy & <br className="lg:hidden" />
-          Natural Healing
+          Message Therapy <br className="lg:hidden" /> & Natural Healing
         </h1>
         <hr className="w-2/4 lg:w-2/3 xl:w-6/12 mx-auto my-4 border-slate-100" />
         <Section>
