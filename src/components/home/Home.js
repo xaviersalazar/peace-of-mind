@@ -22,7 +22,10 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <div className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]">
+      <div
+        className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]"
+        id="massage-row"
+      >
         <h1 className="text-3xl font-extra-bold md:text-4xl lg:text-5xl">
           Message Therapy & <br className="md:hidden" />
           Natural Healing

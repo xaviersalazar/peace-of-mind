@@ -186,18 +186,7 @@ const Nav = () => {
                         }`}
                         animate={{ opacity: currPage[page] ? 1 : 0.5 }}
                       >
-                        {currPage[page] ? (
-                          <StrikethruText
-                            text={title}
-                            color="#10FFCB"
-                            height="h-[0.3rem] md:h-[.45rem]"
-                          />
-                        ) : (
-                          <>
-                            {title}
-                            {""}
-                          </>
-                        )}
+                        {title}
                       </motion.div>
                       {subItems.length > 0 && (
                         <motion.div
