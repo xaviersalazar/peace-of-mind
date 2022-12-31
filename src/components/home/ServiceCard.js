@@ -10,7 +10,7 @@ const ServiceCard = ({ imgName, title, desc, onClick }) => (
     </figure>
     <div className="card-body items-center text-center">
       <h1 className="card-title text-center justify-center">{title}</h1>
-      <p className="text-sm font-light text-slate-400 ">{desc}</p>
+      <p className="text-sm font-light text-slate-400">{desc}</p>
       <Button onClick={onClick}>View More</Button>
     </div>
   </div>

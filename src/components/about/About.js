@@ -16,7 +16,7 @@ const About = () => (
             About us
           </h1>
           <p className="text-xs font-light text-slate-400 text-center md:text-sm">
-            We're here to help you feel better
+            Woman owned, rooted in downtown Corpus Christi
           </p>
         </div>
       </div>

@@ -1,6 +1,7 @@
 export const ABOUT_DATA = [
   {
     title: "Cardiovascular System",
+    imgName: "massage-about-cardio",
     items: [
       "Increases White Blood Cell Count",
       "Replenishes Nutritive Materials",
@@ -11,6 +12,7 @@ export const ABOUT_DATA = [
   },
   {
     title: "Lymphatic System",
+    imgName: "massage-about-lymph",
     items: [
       "Increases The Number and Function of Natural Killer Cells",
       "Decreases Weight In Patients With Lymph Edema",
@@ -21,6 +23,7 @@ export const ABOUT_DATA = [
   },
   {
     title: "Nervous & Endocrine System",
+    imgName: "massage-about-nervous",
     items: [
       "Reduces Feelings of Depression",
       "Promotes Relaxation",
@@ -31,6 +34,7 @@ export const ABOUT_DATA = [
   },
   {
     title: "Skin & Related Structures",
+    imgName: "massage-about-skin",
     items: [
       "Reduces Superficial Skin Formation",
       "Stimulates Sebaceous Glands",
@@ -41,6 +45,7 @@ export const ABOUT_DATA = [
   },
   {
     title: "On The Muscles",
+    imgName: "massage-about-muscles",
     items: [
       "Reduces Muscle Soreness & Fatigue",
       "Improves Balance & Posture",

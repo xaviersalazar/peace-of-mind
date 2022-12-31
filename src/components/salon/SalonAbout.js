@@ -13,7 +13,7 @@ const SalonAbout = () => (
       <div className="hero-content mt-8">
         <div className="max-w text-center">
           <h1 className="text-4xl font-extra-bold text-white md:text-5xl xl:text-6xl">
-            About our Salon
+            Our Salon
           </h1>
           <p className="text-xs font-light text-slate-400 text-center md:text-sm">
             We use trusted, organic products
