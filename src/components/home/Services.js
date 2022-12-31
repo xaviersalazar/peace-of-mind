@@ -57,7 +57,7 @@ const Services = () => {
 
   return (
     <div
-      className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]"
+      className="text-center pb-10 pt-10 px-10 md:p-16 lg:p-20 xl:p-[7rem]"
       id="services-row"
     >
       <h1 className="text-4xl font-extra-bold md:text-5xl xl:text-6xl">
