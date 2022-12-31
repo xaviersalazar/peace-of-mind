@@ -112,7 +112,7 @@ const Nav = () => {
 
   useEffect(() => {
     return scrollY.onChange((latest) => {
-      if (latest >= 100) setShouldApplyShadow(true);
+      if (latest >= 10) setShouldApplyShadow(true);
       else setShouldApplyShadow(false);
     });
   }, []); // eslint-disable-line

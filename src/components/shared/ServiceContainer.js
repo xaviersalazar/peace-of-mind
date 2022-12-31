@@ -5,7 +5,7 @@ const ServiceContainer = () => {
   const pathsRegex = /(^\/salon$)|(^\/services$)|(^\/besame$)/gm;
 
   return (
-    <div className="relative top-32 h-full mb-32 px-10 pt-0 lg:px-20 lg:pt-4 xl:px-[7rem] xl:pt-8">
+    <div>
       <Outlet />
       {pathsRegex.test(pathname) && (
         <div className="relative top-20 md:top-32">

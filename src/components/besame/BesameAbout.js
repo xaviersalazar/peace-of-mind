@@ -1,29 +1,32 @@
-import { StrikethruText } from "../shared";
-
-const Text = ({ children }) => (
-  <p className="text-sm font-light text-slate-500 mb-2">{children}</p>
-);
+import { Section } from "../shared";
 
 const SalonAbout = () => (
-  <div className="h-full mb-16 text-center">
-    <img
-      className="w-max rounded-2xl mb-4 mx-auto md:w-1/2 xl:w-1/4"
-      src={`${process.env.PUBLIC_URL}/about-besame.jpg`}
-      alt="about-besame"
-    />
-    <div className="w-full mx-auto">
-      <h1 className="relative text-5xl md:text-6xl font-extra-bold">
-        <StrikethruText
-          text="Besame Cosmetics"
-          color="#F3DFA2"
-          height="h-4 md:h-5"
-          position="bottom-1.5"
-        />
+  <>
+    <div
+      className="hero h-[30vh] xl:h-[40vh]"
+      style={{
+        backgroundImage: `url(${process.env.PUBLIC_URL}/about-besame.jpg)`,
+      }}
+      id="hero"
+    >
+      <div className="hero-overlay bg-slate-900 bg-opacity-75" />
+      <div className="hero-content mt-8">
+        <div className="max-w text-center">
+          <h1 className="text-4xl font-extra-bold text-white md:text-5xl xl:text-6xl">
+            About Besame
+          </h1>
+          <p className="text-xs font-light text-slate-400 text-center md:text-sm">
+            Classic, high quality, luxury makeup
+          </p>
+        </div>
+      </div>
+    </div>
+    <div className="text-center pb-10 pt-10 px-10 lg:p-20 xl:p-[7rem]">
+      <h1 className="text-4xl font-extra-bold md:text-5xl lg:text-6xl">
+        Besame Cosmetics
       </h1>
-      <p className="text-xs font-light text-slate-400 text-center mb-4 md:text-sm">
-        Classic, high quality, luxury makeup
-      </p>
-      <Text>
+      <hr className="w-2/4 md:w-2/4 xl:w-1/4 mx-auto my-4 border-slate-100" />
+      <Section>
         Bésame Cosmetics was founded in 2004 out of a fascination with art,
         history, and beauty; a vintage makeup brand which honors the style,
         spirit, and sensibility of female beauty. Through a keen eye for color
@@ -38,13 +41,13 @@ const SalonAbout = () => (
         and often helps production designers recreate accurate makeup displays
         for period film and television (catch a glimpse of our Crimson Rouge tin
         in the 2012’s Academy Award-winning film, “The Artist”).
-      </Text>
-      <Text>
+      </Section>
+      <Section>
         Besame Cosmetics was also featured on the popular television series
         American Horror Story: Freak Show.
-      </Text>
+      </Section>
     </div>
-  </div>
+  </>
 );
 
 export default SalonAbout;
