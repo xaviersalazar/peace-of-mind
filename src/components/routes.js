@@ -70,19 +70,30 @@ const routes = [
         path: "about",
         element: (
           <Suspense fallback={<Loader />}>
-            <About />
+            <ServiceContainer
+              imgPath="about.jpeg"
+              title="About Us"
+              subTitle="Woman owned, rooted in downtown Corpus Christi"
+            >
+              <About />
+            </ServiceContainer>
           </Suspense>
         ),
       },
       {
         path: "besame",
-        element: <ServiceContainer />,
         children: [
           {
             path: "about",
             element: (
               <Suspense fallback={<Loader />}>
-                <BesameAbout />
+                <ServiceContainer
+                  imgPath="besame/about-besame.jpg"
+                  title="About Besame"
+                  subTitle="Classic, high quality, luxury makeup"
+                >
+                  <BesameAbout />
+                </ServiceContainer>
               </Suspense>
             ),
           },
@@ -114,13 +125,18 @@ const routes = [
       },
       {
         path: "services",
-        element: <ServiceContainer />,
         children: [
           {
             path: "about",
             element: (
               <Suspense fallback={<Loader />}>
-                <ServicesAbout />
+                <ServiceContainer
+                  imgPath="services/about-services.jpg"
+                  title="Our Services"
+                  subTitle="We're here to help you feel better"
+                >
+                  <ServicesAbout />
+                </ServiceContainer>
               </Suspense>
             ),
           },
@@ -242,13 +258,18 @@ const routes = [
       },
       {
         path: "salon",
-        element: <ServiceContainer />,
         children: [
           {
             path: "about",
             element: (
               <Suspense fallback={<Loader />}>
-                <SalonAbout />
+                <ServiceContainer
+                  imgPath="salon/about-salon.jpg"
+                  title="Our Salon"
+                  subTitle="We use trusted, organic products"
+                >
+                  <SalonAbout />
+                </ServiceContainer>
               </Suspense>
             ),
           },
