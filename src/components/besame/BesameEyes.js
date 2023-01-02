@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
-import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
+import { Error, ServiceCard, SkeletonLoader } from "../shared";
 
 const BesameEyes = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
@@ -20,30 +20,13 @@ const BesameEyes = ({ categoryId }) => {
   const { servicesByCategory } = data;
 
   return (
-    <div id="besame-eyes">
-      <div className="text-center w-max my-0 mx-auto">
-        <h1 className="text-5xl font-extra-bold mb-2 md:text-6xl">
-          <StrikethruText
-            text="Eyes"
-            color="#F9B5AC"
-            height="h-5"
-            position="bottom-1.5"
-          />
-        </h1>
-        <p className="text-xs font-light text-slate-400 text-center md:text-sm">
-          Besame eye products
-        </p>
-      </div>
-      <div className="grid grid-cols-1 gap-6 pt-10 pb-10 md:grid-cols-2 xl:grid-cols-6">
-        {servicesByCategory.map((service) => (
-          <ServiceCard
-            key={service.id}
-            service={service}
-            strikeColor="#F9B5AC"
-            showPriceText={false}
-          />
-        ))}
-      </div>
+    <div
+      className="grid grid-cols-1 gap-6 pb-10 pt-10 px-10 md:p-16 lg:p-20 xl:p-[7rem] md:grid-cols-2 xl:grid-cols-6"
+      id="besame-eyes"
+    >
+      {servicesByCategory.map((service) => (
+        <ServiceCard key={service.id} service={service} showPriceText={false} />
+      ))}
     </div>
   );
 };

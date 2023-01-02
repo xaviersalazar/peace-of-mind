@@ -23,7 +23,7 @@ const ServiceContainer = ({ imgPath, title, subTitle, children }) => {
         <div
           className={classNames(
             "hero-overlay",
-            loaded ? "bg-slate-900 bg-opacity-75" : "bg-transparent"
+            loaded ? "bg-slate-900 bg-opacity-50" : "bg-transparent"
           )}
         />
         <div className="hero-content mt-8">

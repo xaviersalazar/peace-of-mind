@@ -71,7 +71,7 @@ const routes = [
         element: (
           <Suspense fallback={<Loader />}>
             <ServiceContainer
-              imgPath="about.jpeg"
+              imgPath="about.jpg"
               title="About Us"
               subTitle="Woman owned, rooted in downtown Corpus Christi"
             >
@@ -101,7 +101,13 @@ const routes = [
             path: "eyes",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+                <ServiceContainer
+                  imgPath="besame/eyes/eyes-main.jpg"
+                  title="Eyes"
+                  subTitle="Besame eye products"
+                >
+                  <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+                </ServiceContainer>
               </Suspense>
             ),
           },
