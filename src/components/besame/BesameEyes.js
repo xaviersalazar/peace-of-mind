@@ -20,10 +20,7 @@ const BesameEyes = ({ categoryId }) => {
   const { servicesByCategory } = data;
 
   return (
-    <div
-      className="grid grid-cols-1 gap-6 pb-10 pt-10 px-10 md:p-16 lg:p-20 xl:p-[7rem] md:grid-cols-2 xl:grid-cols-6"
-      id="besame-eyes"
-    >
+    <div className="flex flex-wrap gap-6" id="besame-eyes">
       {servicesByCategory.map((service) => (
         <ServiceCard key={service.id} service={service} showPriceText={false} />
       ))}

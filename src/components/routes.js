@@ -5,7 +5,7 @@ import Login from "./auth/Login";
 import Protected from "./auth/Protected";
 import DashboardLayout from "./admin/layout/DashboardLayout";
 import Services from "./admin/services/Services";
-import { Loader, ServiceContainer, SkeletonLoader } from "./shared";
+import { Loader, Container, SkeletonLoader } from "./shared";
 import { CATEGORY_MAPPING } from "./utils/categoryMapping";
 
 // Public => About
@@ -70,13 +70,13 @@ const routes = [
         path: "about",
         element: (
           <Suspense fallback={<Loader />}>
-            <ServiceContainer
+            <Container
               imgPath="about.jpg"
               title="About Us"
               subTitle="Woman owned, rooted in downtown Corpus Christi"
             >
               <About />
-            </ServiceContainer>
+            </Container>
           </Suspense>
         ),
       },
@@ -87,13 +87,13 @@ const routes = [
             path: "about",
             element: (
               <Suspense fallback={<Loader />}>
-                <ServiceContainer
+                <Container
                   imgPath="besame/about-besame.jpg"
                   title="About Besame"
                   subTitle="Classic, high quality, luxury makeup"
                 >
                   <BesameAbout />
-                </ServiceContainer>
+                </Container>
               </Suspense>
             ),
           },
@@ -101,13 +101,13 @@ const routes = [
             path: "eyes",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <ServiceContainer
+                <Container
                   imgPath="besame/eyes/eyes-main.jpg"
                   title="Eyes"
                   subTitle="Besame eye products"
                 >
                   <BesameEyes categoryId={CATEGORY_MAPPING.BESAME_EYES} />
-                </ServiceContainer>
+                </Container>
               </Suspense>
             ),
           },
@@ -115,7 +115,13 @@ const routes = [
             path: "face",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <BesameFace categoryId={CATEGORY_MAPPING.BESAME_EYES} />
+                <Container
+                  imgPath="besame/face/face-main.jpg"
+                  title="Face"
+                  subTitle="Besame face products"
+                >
+                  <BesameFace categoryId={CATEGORY_MAPPING.BESAME_FACE} />
+                </Container>
               </Suspense>
             ),
           },
@@ -123,7 +129,13 @@ const routes = [
             path: "lips",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <BesameLips categoryId={CATEGORY_MAPPING.BESAME_LIPS} />
+                <Container
+                  imgPath="besame/lipsticks/lips-main.jpg"
+                  title="Lips"
+                  subTitle="Besame lip products"
+                >
+                  <BesameLips categoryId={CATEGORY_MAPPING.BESAME_LIPS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -136,13 +148,13 @@ const routes = [
             path: "about",
             element: (
               <Suspense fallback={<Loader />}>
-                <ServiceContainer
+                <Container
                   imgPath="services/about-services.jpg"
                   title="Our Services"
                   subTitle="We're here to help you feel better"
                 >
                   <ServicesAbout />
-                </ServiceContainer>
+                </Container>
               </Suspense>
             ),
           },
@@ -150,7 +162,18 @@ const routes = [
             path: "add-ons",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
+                <Container
+                  imgPath="services/addons-main.jpg"
+                  title="Add On's"
+                  subTitle={
+                    <>
+                      Give your session something{" "}
+                      <span className="italic">extra</span>
+                    </>
+                  }
+                >
+                  <AddOns categoryId={CATEGORY_MAPPING.ADD_ONS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -269,13 +292,13 @@ const routes = [
             path: "about",
             element: (
               <Suspense fallback={<Loader />}>
-                <ServiceContainer
+                <Container
                   imgPath="salon/about-salon.jpg"
                   title="Our Salon"
                   subTitle="We use trusted, organic products"
                 >
                   <SalonAbout />
-                </ServiceContainer>
+                </Container>
               </Suspense>
             ),
           },
@@ -424,7 +447,7 @@ const routes = [
       {
         path: "*",
         element: (
-          <ServiceContainer>
+          <Container>
             <div className="relative top-20 md:top-32">
               <h1 className="text-3xl font-bold text-center">
                 Nothing found here 🤷‍♀️
@@ -436,7 +459,7 @@ const routes = [
                 </a>
               </h1>
             </div>
-          </ServiceContainer>
+          </Container>
         ),
       },
     ],

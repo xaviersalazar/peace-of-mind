@@ -4,7 +4,7 @@ import GradientFont from "./GradientFont";
 import Loader from "./Loader";
 import Notice from "./Notice";
 import Section from "./Section";
-import ServiceContainer from "./ServiceContainer";
+import Container from "./Container";
 import ServiceCard from "./ServiceCard";
 import SkeletonLoader from "./SkeletonLoader";
 import Spinner from "./Spinner";
@@ -17,7 +17,7 @@ export {
   Loader,
   Notice,
   Section,
-  ServiceContainer,
+  Container,
   ServiceCard,
   SkeletonLoader,
   Spinner,

@@ -1,7 +1,7 @@
 import { Section } from "../shared";
 
 const About = () => (
-  <div className="text-center pb-10 pt-10 px-10 md:p-16 lg:p-20 xl:p-[7rem]">
+  <>
     <h1 className="text-4xl font-extra-bold md:text-5xl lg:text-6xl">
       Our Story
     </h1>
@@ -41,7 +41,7 @@ const About = () => (
       welcomed open from 8:30 am till 9:00 pm every day, to fit your busy hectic
       schedule.
     </Section>
-  </div>
+  </>
 );
 
 export default About;

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { useLocation } from "react-router-dom";
 import useProgressiveImage from "../hooks/useProgressiveImage";
 
-const ServiceContainer = ({ imgPath, title, subTitle, children }) => {
+const Container = ({ imgPath, title, subTitle, children }) => {
   const { pathname } = useLocation();
   const pathsRegex = /(^\/salon$)|(^\/services$)|(^\/besame$)/gm;
 
@@ -37,7 +37,9 @@ const ServiceContainer = ({ imgPath, title, subTitle, children }) => {
           </div>
         </div>
       </div>
-      {children}
+      <div className="text-center pb-10 pt-10 px-10 md:p-16 lg:p-20 xl:p-[7rem]">
+        {children}
+      </div>
       {pathsRegex.test(pathname) && (
         <div className="relative top-20 md:top-32">
           <h1 className="text-3xl font-bold text-center">
@@ -55,4 +57,4 @@ const ServiceContainer = ({ imgPath, title, subTitle, children }) => {
   );
 };
 
-export default ServiceContainer;
+export default Container;

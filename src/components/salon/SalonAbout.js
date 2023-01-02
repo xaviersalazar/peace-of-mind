@@ -1,7 +1,7 @@
 import { Section } from "../shared";
 
 const SalonAbout = () => (
-  <div className="text-center pb-10 pt-10 px-10 md:p-16 lg:p-20 xl:p-[7rem]">
+  <>
     <h1 className="text-4xl font-extra-bold md:text-5xl lg:text-6xl">
       Organic Hair Colour Systems
     </h1>
@@ -67,7 +67,7 @@ const SalonAbout = () => (
       to colour, then re-balance and close the cuticle of the hair after
       colouring.
     </Section>
-  </div>
+  </>
 );
 
 export default SalonAbout;
