@@ -103,7 +103,6 @@ const Prices = ({ title, prices, showPriceText }) => {
 const Services = ({
   service: { title, description, prices },
   background = "bg-slate-50",
-  colsSizing = "xl:col-span-2",
   showPriceText = true,
   badges = null,
 }) => {

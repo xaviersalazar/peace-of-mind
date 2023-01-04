@@ -181,9 +181,15 @@ const routes = [
             path: "bbl-fat-elim",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <BreastButtLiftFatElim
-                  categoryId={CATEGORY_MAPPING.BREAST_BUTT_LIFT_FAT_ELIM}
-                />
+                <Container
+                  imgPath="services/breast-buttlift-main.jpg"
+                  title="Brest/Butt Lift & Fat Eliminator"
+                  subTitle="Treat yourself to our non-surgical lifts & fat eliminators"
+                >
+                  <BreastButtLiftFatElim
+                    categoryId={CATEGORY_MAPPING.BREAST_BUTT_LIFT_FAT_ELIM}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -191,9 +197,15 @@ const routes = [
             path: "deluxe-couples",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <DeluxeCouplesMassages
-                  categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
-                />
+                <Container
+                  imgPath="services/massage-couples-main.jpg"
+                  title="Deluxe & Couples"
+                  subTitle="Stimulating massages for the couples"
+                >
+                  <DeluxeCouplesMassages
+                    categoryId={CATEGORY_MAPPING.DELUXE_COUPLES}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -201,7 +213,13 @@ const routes = [
             path: "facials",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
+                <Container
+                  imgPath="services/facials-main.jpg"
+                  title="Facials"
+                  subTitle="Treatments that'll make your face radiate"
+                >
+                  <Facials categoryId={CATEGORY_MAPPING.FACIALS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -209,9 +227,15 @@ const routes = [
             path: "facial-enhance",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <FacialEnhancements
-                  categoryId={CATEGORY_MAPPING.FACIAL_ENHANCEMENTS}
-                />
+                <Container
+                  imgPath="services/facial-enhancements-main.jpg"
+                  title="Facial Enhancements"
+                  subTitle="Cleanse and purify your face"
+                >
+                  <FacialEnhancements
+                    categoryId={CATEGORY_MAPPING.FACIAL_ENHANCEMENTS}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -219,7 +243,15 @@ const routes = [
             path: "health-coaching",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <HealthCoaching categoryId={CATEGORY_MAPPING.HEALTH_COACHING} />
+                <Container
+                  imgPath="services/health-coach-main.jpg"
+                  title="Health Coaching"
+                  subTitle="Plans customized just for you"
+                >
+                  <HealthCoaching
+                    categoryId={CATEGORY_MAPPING.HEALTH_COACHING}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -227,7 +259,22 @@ const routes = [
             path: "infrared-sauna",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <InfraredSauna categoryId={CATEGORY_MAPPING.INFRARED_SAUNA} />
+                <Container
+                  imgPath="services/infrared-sauna-main.jpg"
+                  title="Infrared Sauna"
+                  subTitle={
+                    <>
+                      <span className="text-red-300">C</span>
+                      <span className="text-blue-300">o</span>
+                      <span className="text-yellow-300">l</span>
+                      <span className="text-orange-300">o</span>
+                      <span className="text-green-300">r</span> light therapy
+                      proven to help you heal
+                    </>
+                  }
+                >
+                  <InfraredSauna categoryId={CATEGORY_MAPPING.INFRARED_SAUNA} />
+                </Container>
               </Suspense>
             ),
           },
@@ -235,7 +282,13 @@ const routes = [
             path: "kids-yoga",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <KidsYoga categoryId={CATEGORY_MAPPING.KIDS_YOGA} />
+                <Container
+                  imgPath="services/kids-yoga-main.jpg"
+                  title="Kids Yoga"
+                  subTitle="Engaging yoga that the kids will love"
+                >
+                  <KidsYoga categoryId={CATEGORY_MAPPING.KIDS_YOGA} />
+                </Container>
               </Suspense>
             ),
           },
@@ -243,7 +296,13 @@ const routes = [
             path: "massages",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
+                <Container
+                  imgPath="services/massage-main.jpg"
+                  title="Massages"
+                  subTitle="You'll leave completely rejuvenated"
+                >
+                  <Massages categoryId={CATEGORY_MAPPING.MASSAGES} />
+                </Container>
               </Suspense>
             ),
           },
@@ -251,7 +310,24 @@ const routes = [
             path: "oxygen-bar",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <OxygenBar categoryId={CATEGORY_MAPPING.OXYGEN_BAR} />
+                <Container
+                  imgPath="services/oxygen-main.jpg"
+                  title="Oxygen Bar"
+                  subTitle={
+                    <>
+                      Gain a new level relaxation in our{" "}
+                      <span className="relative">
+                        <span>O</span>
+                        <span className="absolute top-1 md:top-1.5 text-[0.6rem] text-xs">
+                          2
+                        </span>
+                      </span>{" "}
+                      <span className="ml-1">bar</span>
+                    </>
+                  }
+                >
+                  <OxygenBar categoryId={CATEGORY_MAPPING.OXYGEN_BAR} />
+                </Container>
               </Suspense>
             ),
           },
@@ -259,9 +335,15 @@ const routes = [
             path: "oxygen-soak",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <OxygenFootSoak
-                  categoryId={CATEGORY_MAPPING.OXYGEN_FOOT_SOAK}
-                />
+                <Container
+                  imgPath="services/oxygen-foot-soak-main.jpg"
+                  title="Oxygen Foot Soak"
+                  subTitle="Purify your body"
+                >
+                  <OxygenFootSoak
+                    categoryId={CATEGORY_MAPPING.OXYGEN_FOOT_SOAK}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -269,9 +351,15 @@ const routes = [
             path: "scrubs-weightloss",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <ScrubsWeightloss
-                  categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
-                />
+                <Container
+                  imgPath="services/scrub-weightloss-main.jpg"
+                  title="Scrubs & Weightloss"
+                  subTitle="Our deep scrubs and weightloss treatments"
+                >
+                  <ScrubsWeightloss
+                    categoryId={CATEGORY_MAPPING.SCRUBS_WEIGHTLOSS}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -279,7 +367,13 @@ const routes = [
             path: "waxes",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
+                <Container
+                  imgPath="services/waxing-main.jpg"
+                  title="Waxes"
+                  subTitle="Full service waxing"
+                >
+                  <Waxes categoryId={CATEGORY_MAPPING.WAXES} />
+                </Container>
               </Suspense>
             ),
           },
