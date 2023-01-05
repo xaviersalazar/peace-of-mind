@@ -400,7 +400,13 @@ const routes = [
             path: "eyes",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
+                <Container
+                  imgPath="salon/eyes-main.jpg"
+                  title="Eyes"
+                  subTitle="Makeup application and service for the eyes"
+                >
+                  <SalonEyes categoryId={CATEGORY_MAPPING.SALON_EYES} />
+                </Container>
               </Suspense>
             ),
           },
@@ -408,9 +414,20 @@ const routes = [
             path: "finishing-touches",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <FinishingTouches
-                  categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
-                />
+                <Container
+                  imgPath="salon/finishing-touches-main.jpg"
+                  title="Finishing Touches"
+                  subTitle={
+                    <>
+                      Give your hair some <span className="italic">extra</span>{" "}
+                      care
+                    </>
+                  }
+                >
+                  <FinishingTouches
+                    categoryId={CATEGORY_MAPPING.FINISHING_TOUCHES}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -418,7 +435,13 @@ const routes = [
             path: "haircuts",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
+                <Container
+                  imgPath="salon/haircuts-main.jpg"
+                  title="Haircuts"
+                  subTitle="Haircuts for any style or need"
+                >
+                  <Haircuts categoryId={CATEGORY_MAPPING.HAIRCUTS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -426,7 +449,13 @@ const routes = [
             path: "hair-coloring",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <HairColoring categoryId={CATEGORY_MAPPING.HAIR_COLORING} />
+                <Container
+                  imgPath="salon/haircolor-main.jpg"
+                  title="Hair Coloring"
+                  subTitle="Our Organic Colour System is sure to make your hair stand out"
+                >
+                  <HairColoring categoryId={CATEGORY_MAPPING.HAIR_COLORING} />
+                </Container>
               </Suspense>
             ),
           },
@@ -434,7 +463,15 @@ const routes = [
             path: "hair-ext",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <HairExtensions categoryId={CATEGORY_MAPPING.HAIR_EXTENSIONS} />
+                <Container
+                  imgPath="salon/hair-ext-main.jpg"
+                  title="Hair Extensions"
+                  subTitle="High quality extensions installation"
+                >
+                  <HairExtensions
+                    categoryId={CATEGORY_MAPPING.HAIR_EXTENSIONS}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -442,7 +479,15 @@ const routes = [
             path: "hair-highlights",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <HairHighlights categoryId={CATEGORY_MAPPING.HAIR_HIGHLIGHTS} />
+                <Container
+                  imgPath="salon/highlight-main.jpg"
+                  title="Hair Highlights"
+                  subTitle="Make your hair shine with our highlights"
+                >
+                  <HairHighlights
+                    categoryId={CATEGORY_MAPPING.HAIR_HIGHLIGHTS}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -450,7 +495,15 @@ const routes = [
             path: "hair-treatments",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <HairTreatments categoryId={CATEGORY_MAPPING.HAIR_TREATMENTS} />
+                <Container
+                  imgPath="salon/hair-treatments-main.jpg"
+                  title="Hair Treatments"
+                  subTitle="Treatments to improve your hairs health and growth"
+                >
+                  <HairTreatments
+                    categoryId={CATEGORY_MAPPING.HAIR_TREATMENTS}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -458,7 +511,13 @@ const routes = [
             path: "locs",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Locs categoryId={CATEGORY_MAPPING.LOCS} />
+                <Container
+                  imgPath="salon/locs-main.jpg"
+                  title="Locs"
+                  subTitle="All your loc needs"
+                >
+                  <Locs categoryId={CATEGORY_MAPPING.LOCS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -466,7 +525,13 @@ const routes = [
             path: "mani-pedi",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <ManiPedi categoryId={CATEGORY_MAPPING.MANI_PEDI} />
+                <Container
+                  imgPath="salon/manicures-main.png"
+                  title="Manicures & Pedicures"
+                  subTitle="Therapeutic nail and feet services"
+                >
+                  <ManiPedi categoryId={CATEGORY_MAPPING.MANI_PEDI} />
+                </Container>
               </Suspense>
             ),
           },
@@ -474,7 +539,13 @@ const routes = [
             path: "makeup",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Makeup categoryId={CATEGORY_MAPPING.MAKEUP} />
+                <Container
+                  imgPath="salon/makeup-main.jpg"
+                  title="Makeup"
+                  subTitle="Professional makeup application for any event"
+                >
+                  <Makeup categoryId={CATEGORY_MAPPING.MAKEUP} />
+                </Container>
               </Suspense>
             ),
           },
@@ -482,7 +553,13 @@ const routes = [
             path: "mens",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Mens categoryId={CATEGORY_MAPPING.SALON_MENS} />
+                <Container
+                  imgPath="salon/mens-main.jpg"
+                  title="Mens Services"
+                  subTitle="Mens styling and cuts"
+                >
+                  <Mens categoryId={CATEGORY_MAPPING.SALON_MENS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -490,7 +567,15 @@ const routes = [
             path: "natural-styling",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <NaturalStyling categoryId={CATEGORY_MAPPING.NATURAL_STYLING} />
+                <Container
+                  imgPath="salon/natural-main.jpg"
+                  title="Natural Styling"
+                  subTitle="Styling that looks and feels natural"
+                >
+                  <NaturalStyling
+                    categoryId={CATEGORY_MAPPING.NATURAL_STYLING}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -498,7 +583,13 @@ const routes = [
             path: "perms",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <Perms categoryId={CATEGORY_MAPPING.PERMS} />
+                <Container
+                  imgPath="salon/perms-main.jpg"
+                  title="Perms"
+                  subTitle="Permanent hairstyles with a natural look"
+                >
+                  <Perms categoryId={CATEGORY_MAPPING.PERMS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -506,7 +597,13 @@ const routes = [
             path: "sets-twists",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <SetsTwists categoryId={CATEGORY_MAPPING.SETS_TWISTS} />
+                <Container
+                  imgPath="salon/sets-main.jpg"
+                  title="Sets & Twists"
+                  subTitle="Professional, natural looking twists"
+                >
+                  <SetsTwists categoryId={CATEGORY_MAPPING.SETS_TWISTS} />
+                </Container>
               </Suspense>
             ),
           },
@@ -514,7 +611,15 @@ const routes = [
             path: "spec-with-ext",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <SpecialtyExtensions categoryId={CATEGORY_MAPPING.SPECIALTY} />
+                <Container
+                  imgPath="salon/specialty-main.jpg"
+                  title="Specialty with Extensions"
+                  subTitle="High quality specialty hairstyles"
+                >
+                  <SpecialtyExtensions
+                    categoryId={CATEGORY_MAPPING.SPECIALTY}
+                  />
+                </Container>
               </Suspense>
             ),
           },
@@ -522,9 +627,15 @@ const routes = [
             path: "straightening-services",
             element: (
               <Suspense fallback={<SkeletonLoader />}>
-                <StraighteningServices
-                  categoryId={CATEGORY_MAPPING.STRAIGHTENING}
-                />
+                <Container
+                  imgPath="salon/straightening-main.jpg"
+                  title="Straightening Services"
+                  subTitle="Straightening touch-ups and haircuts"
+                >
+                  <StraighteningServices
+                    categoryId={CATEGORY_MAPPING.STRAIGHTENING}
+                  />
+                </Container>
               </Suspense>
             ),
           },
