@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
-import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
+import { Error, ServiceCard, SkeletonLoader } from "../shared";
 
 const StraighteningServices = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {

@@ -1,10 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
-import { Error, ServiceCard, SkeletonLoader, StrikethruText } from "../shared";
-
-const Text = ({ children }) => (
-  <p className="text-sm font-light text-slate-500 mb-2">{children}</p>
-);
+import { Error, ServiceCard, SkeletonLoader } from "../shared";
 
 const InfraredSauna = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
