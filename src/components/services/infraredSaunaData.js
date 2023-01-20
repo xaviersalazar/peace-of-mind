@@ -39,8 +39,8 @@ export const INFRARED_SAUNA_DATA = {
         {
           title: "Yellow",
           text: "Yellow helps awaken mental inspiration arousing higher mentality. Thus, it is an excellent color for nervous or nerve-related conditions or ailments; fueling the solar plexus. Yellow has very enriching effect upon the intellect. Yellow can be sued for conditions of the stomach, liver, and intestines. It can help the pores of the skin by repairing scarred tissue. These rays have an alkalizing effect which strengthens the nerves. Awakening, inspiring and vitally stimulating the higher mind promoting self-control. Typical diseases are treated by yellow are constipation, has, liver troubles, diabetes, eczema, and nervous exhaustion. Providing clarity of thought, increasing awareness, stimulating interest and curiosity yellow energy is related the ability to perceive or understand. The yellow energy connects us to our mental self.",
-          backgroundClass: "bg-green-50",
-          borderClass: "border-green-200",
+          backgroundClass: "bg-yellow-50",
+          borderClass: "border-yellow-200",
         },
         {
           title: "Orange",
@@ -51,8 +51,8 @@ export const INFRARED_SAUNA_DATA = {
         {
           title: "Green",
           text: "Green is the universal healing color. Green is midway in the color spectrum; therefore, it contains both a physical nature and a spiritual nature, in equal balance and in harmony. Thus, green can be used for just about any condition in need of healing. When in doubt, green will always work. Help relax muscles, nerves, and thoughts. The color green cleanses and balances our energy, to give a feeling of renewal, peace and harmony. Used primarily for balancing our whole being it is neither relaxing nor astringent in its impact. In a more practical sense, green affects blood pressure and all conditions of the heart. Having both an energizing effect, moderating, or soothing effect. Green can help heal many illnesses of this nature, specifically including heart troubles, decreasing and stabilizing blood pressure, ulcers, cancer, headaches, nervous disorders and influenza, and acts a general tonic.",
-          backgroundClass: "bg-yellow-50",
-          borderClass: "border-yellow-200",
+          backgroundClass: "bg-green-50",
+          borderClass: "border-green-200",
         },
         {
           title: "Violet",
