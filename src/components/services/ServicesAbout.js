@@ -1,3 +1,4 @@
+import { FiCheckCircle } from "react-icons/fi";
 import { Section } from "../shared";
 import { ABOUT_DATA } from "./aboutData";
 
@@ -30,25 +31,27 @@ const ServicesAbout = () => (
       medicine which consists of 100% natural oils combined in to your massage
       cream or oils, and other healing earth products.
     </Section>
-    <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-12 gap-y-8 md:gap-x-8 mt-8 mb-4">
-      {ABOUT_DATA.map(({ title, imgName, items }) => (
+    <div className="flex flex-wrap gap-6 mt-12" id="ir-benefits">
+      {ABOUT_DATA.map(({ title, imgName, items }, i) => (
         <div
-          key={title}
-          className="card md:col-span-2 md:last:col-span-2 lg:col-span-4 lg:last:col-span-4 lg:[&:nth-last-child(2)]:col-start-3 md:last:col-start-2 border-none rounded-2xl bg-slate-50"
+          key={i}
+          className="bg-slate-50 card border-none rounded-2xl flex-1 basis-full md:basis-1/3 lg:basis-1/4"
         >
           <figure>
             <img
+              className="w-10/12 xl:w-8/12 rounded-xl mx-auto mt-12"
               src={`${process.env.REACT_APP_BUCKETEER_URL}/public/services/${imgName}.jpg`}
-              alt={imgName}
+              alt="benefit"
             />
           </figure>
-          <div className="card-body items-center text-center">
+          <div className="card-body items-center text-center flex-none">
             <h1 className="card-title text-center justify-center">{title}</h1>
+            <hr className="w-2/4 md:w-6/12 xl:w-3/12 mx-auto my-1 border-slate-100" />
             <ul className="list-none space-y-3 w-full text-sm font-light text-slate-400">
               {items.map((item) => (
-                <li key={item} className="w-fit mx-auto">
+                <li key={item} className="w-fit mx-auto relative">
+                  <FiCheckCircle className="inline text-[0.75em] text-primary mr-1" />{" "}
                   {item}
-                  <div className="h-0.5 w-full mx-auto mt-2 rounded-2xl bg-slate-200" />
                 </li>
               ))}
             </ul>
