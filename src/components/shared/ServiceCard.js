@@ -100,11 +100,13 @@ const Prices = ({ title, prices, showPriceText }) => {
   );
 };
 
-const Services = ({
-  service: { title, description, prices },
+const ServiceCard = ({
+  service: { title, description, prices, imgName },
   background = "bg-slate-50",
   showPriceText = true,
   badges = null,
+  imgPathPrefix,
+  imgWidth = "w-10/12 xl:w-8/12",
 }) => {
   const [didClickViewInformation, setDidClickViewInformation] = useState(false);
 
@@ -118,7 +120,8 @@ const Services = ({
     >
       <figure>
         <img
-          src={`${process.env.REACT_APP_BUCKETEER_URL}/public/services/addons-cocoa.jpg`} // TODO: change to pull in imgName from API
+          className={classNames(imgWidth, "rounded-xl mx-auto mt-12")}
+          src={`${process.env.REACT_APP_BUCKETEER_URL}/public/${imgPathPrefix}/${imgName}`}
           alt="service"
         />
       </figure>
@@ -186,4 +189,4 @@ const Services = ({
   );
 };
 
-export default Services;
+export default ServiceCard;

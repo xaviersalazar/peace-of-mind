@@ -19,6 +19,7 @@ const GET_SERVICE = gql`
         }
         hasUpcharge
       }
+      imgName
     }
   }
 `;
@@ -43,6 +44,7 @@ const GET_ALL_SERVICES_PAGINATED = gql`
           }
           hasUpcharge
         }
+        imgName
       }
       pageNumber
       totalPages
@@ -66,6 +68,7 @@ const GET_SERVICES_BY_CATEGORY = gql`
         }
         hasUpcharge
       }
+      imgName
     }
   }
 `;

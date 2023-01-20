@@ -1,6 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import { Error, ServiceCard, SkeletonLoader } from "../shared";
+import { IMG_PATH_PREFIXES } from "../utils/imgPathPrefixes";
 
 const HairColoring = ({ categoryId }) => {
   const { loading, error, data } = useQuery(GET_SERVICES_BY_CATEGORY, {
@@ -22,7 +23,11 @@ const HairColoring = ({ categoryId }) => {
   return (
     <div className="flex flex-wrap gap-6" id="hair-coloring">
       {servicesByCategory.map((service) => (
-        <ServiceCard key={service.id} service={service} />
+        <ServiceCard
+          key={service.id}
+          service={service}
+          imgPathPrefix={IMG_PATH_PREFIXES.SALON}
+        />
       ))}
     </div>
   );
