@@ -1,4 +1,5 @@
 import { useQuery } from "@apollo/client";
+import classNames from "classnames";
 import { GET_SERVICES_BY_CATEGORY } from "../../graphql/queries";
 import { Error, Section, ServiceCard, SkeletonLoader } from "../shared";
 import { IMG_PATH_PREFIXES } from "../utils/imgPathPrefixes";
@@ -65,22 +66,30 @@ const InfraredSauna = ({ categoryId }) => {
               </div>
             </div>
             <div className="flex flex-wrap gap-6 mt-8" id="ir-benefits">
-              {colors.map(({ title, text }, i) => (
-                <div
-                  key={i}
-                  className={`bg-${title.toLowerCase()}-50 card border-none rounded-2xl flex-1 basis-full md:basis-1/3 lg:basis-1/4`}
-                >
-                  <div className="card-body items-center text-center flex-none">
-                    <h1 className="card-title text-center justify-center">
-                      {title}
-                    </h1>
-                    <hr
-                      className={`w-2/4 md:w-6/12 xl:w-3/12 mx-auto my-1 border-${title.toLowerCase()}-200`}
-                    />
-                    <Text>{text}</Text>
+              {colors.map(
+                ({ title, text, backgroundClass, borderClass }, i) => (
+                  <div
+                    key={i}
+                    className={classNames(
+                      backgroundClass,
+                      "card border-none rounded-2xl flex-1 basis-full md:basis-1/3 lg:basis-1/4"
+                    )}
+                  >
+                    <div className="card-body items-center text-center flex-none">
+                      <h1 className="card-title text-center justify-center">
+                        {title}
+                      </h1>
+                      <hr
+                        className={classNames(
+                          borderClass,
+                          "w-2/4 md:w-6/12 xl:w-3/12 mx-auto my-1 border-${title.toLowerCase()}-200"
+                        )}
+                      />
+                      <Text>{text}</Text>
+                    </div>
                   </div>
-                </div>
-              ))}
+                )
+              )}
             </div>
           </div>
         ))}
