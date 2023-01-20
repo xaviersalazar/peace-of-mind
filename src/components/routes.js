@@ -183,7 +183,7 @@ const routes = [
               <Suspense fallback={<SkeletonLoader />}>
                 <Container
                   imgPath="services/breast-buttlift-main.jpg"
-                  title="Brest/Butt Lift & Fat Eliminator"
+                  title="Breast/Butt Lift & Fat Eliminator"
                   subTitle="Treat yourself to our non-surgical lifts & fat eliminators"
                 >
                   <BreastButtLiftFatElim

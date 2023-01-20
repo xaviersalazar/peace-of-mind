@@ -12,6 +12,7 @@ const SkeletonLoader = () => (
         />
         <div className="card-body items-center text-center flex-none">
           <div className="w-3/4 bg-slate-100 h-4 rounded-xl" />
+          <hr className="w-2/4 md:w-6/12 xl:w-3/12 mx-auto my-4 border-slate-100" />
           <div className="w-2/4 bg-slate-100 h-4 rounded-xl" />
           <div className="w-1/4 bg-slate-100 h-4 rounded-xl" />
         </div>

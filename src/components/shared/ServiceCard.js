@@ -128,6 +128,7 @@ const ServiceCard = ({
       <div className="card-body items-center text-center flex-none">
         <h1 className="card-title text-center justify-center">{title}</h1>
         {badges}
+        <hr className="w-2/4 md:w-6/12 xl:w-3/12 mx-auto my-1 border-slate-100" />
         <Prices title={title} prices={prices} showPriceText={showPriceText} />
         {description && (
           <AnimatePresence>
