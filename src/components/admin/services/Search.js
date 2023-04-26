@@ -32,7 +32,7 @@ const Search = () => {
       <input
         name="search"
         type="text"
-        placeholder="Search"
+        placeholder="Search Services..."
         className="bg-slate-50 input w-full h-12 font-light rounded-lg indent-6 z-30 relative"
         onChange={(e) => setSearchValue(e?.target?.value)}
       />
@@ -50,7 +50,7 @@ const Search = () => {
           {data?.search?.map((service, i) => (
             <div
               key={service.id}
-              className={`p-4 cursor-pointer border-b-2 border-slate-100 ${
+              className={`p-4 cursor-pointer border-b-2 border-slate-100 hover:bg-slate-50 ${
                 i === data?.search?.length - 1
                   ? "rounded-br-lg rounded-bl-lg"
                   : ""

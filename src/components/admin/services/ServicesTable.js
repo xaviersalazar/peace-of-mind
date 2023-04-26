@@ -93,12 +93,7 @@ const ServicesTable = () => {
           />
         </h1>
       </div>
-      <div className="flex mb-8 gap-x-4 md:justify-end">
-        <div className="md:flex-1">
-          <button className="btn btn-primary text-slate-500 rounded-lg px-4 py-2 text-xs xl:text-sm font-light capitalize">
-            <FiFilter className="inline text-xs xl:text-sm mr-2" /> Filter
-          </button>
-        </div>
+      <div className="flex mb-8">
         <Search />
       </div>
       <div className="table w-full text-sm text-left text-gray-500 rounded-2xl">
