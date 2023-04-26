@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { useLazyQuery } from "@apollo/client";
+import { useNavigate } from "react-router-dom";
 import { SEARCH } from "../../../graphql/queries";
 import { FiSearch } from "react-icons/fi";
 
 const Search = () => {
+  const navigate = useNavigate();
+
   const [search, { data, loading }] = useLazyQuery(SEARCH);
 
   const [searchValue, setSearchValue] = useState("");
@@ -46,12 +49,20 @@ const Search = () => {
       )}
       {isValidData && isValidInput && (
         <div className="absolute top-10 left-0 w-full bg-white rounded-br-lg rounded-bl-lg px-4 pt-8 pb-4 z-20 shadow-2xl">
-          {data?.search?.map((result) => (
-            <div key={result.id} className="py-2">
+          {data?.search?.map((service) => (
+            <div
+              key={service.id}
+              className="py-2 cursor-pointer"
+              onClick={() =>
+                navigate(`/admin/services/${service.id}`, {
+                  state: { service },
+                })
+              }
+            >
               <p className="text-slate-300 text-xs font-medium">
-                {result.category.categoryName}
+                {service.category.categoryName}
               </p>
-              <h1 className="text-xs font-normal">{result.title}</h1>
+              <h1 className="text-xs font-normal">{service.title}</h1>
             </div>
           ))}
         </div>
