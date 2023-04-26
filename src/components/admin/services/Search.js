@@ -21,8 +21,6 @@ const Search = () => {
         },
       });
     }
-
-    console.log(data);
   }, [searchValue]);
 
   const isValidData = data && data?.search.length > 0;
@@ -48,16 +46,21 @@ const Search = () => {
         </div>
       )}
       {isValidData && isValidInput && (
-        <div className="absolute top-10 left-0 w-full bg-white rounded-br-lg rounded-bl-lg px-4 pt-8 pb-4 z-20 shadow-2xl">
-          {data?.search?.map((service) => (
+        <div className="absolute top-10 left-0 w-full bg-white rounded-br-lg rounded-bl-lg pt-4 z-20 shadow-2xl">
+          {data?.search?.map((service, i) => (
             <div
               key={service.id}
-              className="py-2 cursor-pointer"
-              onClick={() =>
+              className={`p-4 cursor-pointer border-b-2 border-slate-100 ${
+                i === data?.search?.length - 1
+                  ? "rounded-br-lg rounded-bl-lg"
+                  : ""
+              }`}
+              onClick={() => {
                 navigate(`/admin/services/${service.id}`, {
                   state: { service },
-                })
-              }
+                });
+                setSearchValue("");
+              }}
             >
               <p className="text-slate-300 text-xs font-medium">
                 {service.category.categoryName}
