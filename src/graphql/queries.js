@@ -82,9 +82,34 @@ const GET_UNITS = gql`
   }
 `;
 
+const SEARCH = gql`
+  query Search($searchInput: SearchInput) {
+    search(searchInput: $searchInput) {
+      id
+      title
+      description
+      category {
+        id
+        categoryName
+      }
+      prices {
+        id
+        price
+        unit {
+          id
+          name
+        }
+        hasUpcharge
+      }
+      imgName
+    }
+  }
+`;
+
 export {
   GET_SERVICE,
   GET_ALL_SERVICES_PAGINATED,
   GET_SERVICES_BY_CATEGORY,
   GET_UNITS,
+  SEARCH,
 };

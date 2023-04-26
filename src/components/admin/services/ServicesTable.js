@@ -3,17 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { AnimatePresence, motion } from "framer-motion";
 import { isEmpty, uniqueId } from "lodash";
-import {
-  FiEdit,
-  FiTrash2,
-  FiSearch,
-  FiFilter,
-  FiCheckCircle,
-} from "react-icons/fi";
+import { FiEdit, FiTrash2, FiFilter, FiCheckCircle } from "react-icons/fi";
 import { Button, Error, StrikethruText } from "../../shared";
 import { GET_ALL_SERVICES_PAGINATED } from "../../../graphql/queries";
 import ServicesTableLoader from "./ServicesTableLoader";
 import DeleteServiceModal from "./DeleteServiceModal";
+import Search from "./Search";
 import classNames from "classnames";
 
 const PAGE_LIMIT = 30;
@@ -98,21 +93,8 @@ const ServicesTable = () => {
           />
         </h1>
       </div>
-      <div className="flex mb-8 gap-x-4 md:justify-end">
-        <div className="md:flex-1">
-          <button className="btn btn-primary text-slate-500 rounded-lg px-4 py-2 text-xs xl:text-sm font-light capitalize">
-            <FiFilter className="inline text-xs xl:text-sm mr-2" /> Filter
-          </button>
-        </div>
-        <div className="relative flex-1 md:flex-2">
-          <FiSearch className="absolute text-slate-300 top-4 left-4" />
-          <input
-            name="search"
-            type="text"
-            placeholder="Search"
-            className="bg-slate-50 input w-full h-12 font-light rounded-lg indent-6"
-          />
-        </div>
+      <div className="flex mb-8">
+        <Search />
       </div>
       <div className="table w-full text-sm text-left text-gray-500 rounded-2xl">
         <div className="table-header-group text-[0.75rem] text-slate-300 uppercase bg-slate-50 rounded-tl-lg rounded-tr-2xl">
