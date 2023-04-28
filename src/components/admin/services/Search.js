@@ -28,7 +28,7 @@ const Search = () => {
 
   return (
     <div className="relative flex-1 md:flex-2">
-      <FiSearch className="absolute text-slate-300 top-4 left-4 z-50" />
+      <FiSearch className="absolute text-slate-300 top-4 left-4 z-40" />
       <input
         name="search"
         type="text"
@@ -38,7 +38,7 @@ const Search = () => {
       />
       {loading && (
         <div
-          className="absolute bottom-4 right-4 animate-spin w-4 h-4 border-[2px] border-current border-t-transparent text-primary rounded-full z-50"
+          className="absolute bottom-4 right-4 animate-spin w-4 h-4 border-[2px] border-current border-t-transparent text-primary rounded-full z-40"
           role="status"
           aria-label="loading"
         >
