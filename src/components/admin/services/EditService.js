@@ -23,7 +23,8 @@ import {
 } from "../../../graphql/queries";
 import styled from "styled-components";
 
-const keysToOmitForMutation = ["__typename", "title", "category"];
+// Temp fix for editing services
+const keysToOmitForMutation = ["__typename", "title", "category", "imgName"];
 
 const errorTypes = {
   success: <FiCheckCircle className="text-sm md:text-lg" />,
